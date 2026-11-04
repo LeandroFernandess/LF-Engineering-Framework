@@ -1,0 +1,57 @@
+name: Validate Framework
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+  workflow_call:
+    inputs:
+      ref:
+        description: Git ref or commit to validate when called by another workflow
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-latest
+          - macos-latest
+          - windows-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v5
+        with:
+          ref: ${{ inputs.ref || github.sha }}
+          persist-credentials: false
+
+      - name: Set up Python for inspector tests
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Test dynamic security inspector
+        run: python -m unittest discover -s docs/security-audit -p 'test_*.py' -v
+
+      - name: Validate shell bootstrap and locale packs
+        if: runner.os != 'Windows'
+        shell: bash
+        run: |
+          chmod +x scripts/*.sh
+          ./scripts/validate-framework.sh
+          ./scripts/test-bootstrap.sh
+
+      - name: Validate PowerShell bootstrap and locale packs
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          ./scripts/validate-framework.ps1
+          ./scripts/test-bootstrap.ps1

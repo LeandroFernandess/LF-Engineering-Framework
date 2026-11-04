@@ -1,0 +1,151 @@
+%PDF-1.4
+%âãÏÓ
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [6 0 R 8 0 R] /Count 2 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
+endobj
+5 0 obj
+<< /Length 6592 >>
+stream
+BT /F2 16.00 Tf 0.090 0.200 0.300 rg 1 0 0 1 48.00 767.77 Tm (Relatório dinâmico de inspeção de segurança) Tj ET
+BT /F1 9.00 Tf 0.130 0.150 0.170 rg 1 0 0 1 48.00 747.51 Tm (Inspeção estática preliminar. Este PDF é regenerado a cada execução e substitui o relatório no caminho) Tj ET
+BT /F1 9.00 Tf 0.130 0.150 0.170 rg 1 0 0 1 48.00 735.51 Tm (de saída escolhido.) Tj ET
+BT /F2 16.00 Tf 0.090 0.200 0.300 rg 1 0 0 1 48.00 709.77 Tm (1. Status e identificação) Tj ET
+BT /F1 8.60 Tf 0.130 0.150 0.170 rg 1 0 0 1 48.00 689.84 Tm (Status geral: Revisão humana necessária; este inspetor não aprova nem reprova o projeto) Tj ET
+BT /F1 8.60 Tf 0.130 0.150 0.170 rg 1 0 0 1 48.00 675.64 Tm (Projeto: LF-Engineering-System) Tj ET
+BT /F1 8.60 Tf 0.130 0.150 0.170 rg 1 0 0 1 48.00 661.44 Tm (Raiz: caminho absoluto omitido; evidências usam caminhos relativos) Tj ET
+BT /F1 8.60 Tf 0.130 0.150 0.170 rg 1 0 0 1 48.00 647.24 Tm (Gerado em: 2026-11-01T21:12:12-03:00) Tj ET
+BT /F1 8.60 Tf 0.130 0.150 0.170 rg 1 0 0 1 48.00 633.04 Tm (Arquivos regulares inventariados: 335) Tj ET
+BT /F1 8.60 Tf 0.130 0.150 0.170 rg 1 0 0 1 48.00 618.84 Tm (Arquivos-fonte por extensão: .ps1: 3, .py: 2, .sh: 5) Tj ET
+BT /F2 16.00 Tf 0.090 0.200 0.300 rg 1 0 0 1 48.00 593.57 Tm (2. Escopo e método) Tj ET
+BT /F1 8.60 Tf 0.130 0.150 0.170 rg 1 0 0 1 53.00 573.64 Tm (• O inspetor lê arquivos locais e produz evidências de inventário e padrões de alta confiança; não executa) Tj ET
+BT /F1 8.60 Tf 0.130 0.150 0.170 rg 1 0 0 1 53.00 562.44 Tm (código, testes do projeto ou comandos dentro do projeto.) Tj ET
+BT /F1 8.60 Tf 0.130 0.150 0.170 rg 1 0 0 1 53.00 548.24 Tm (• Não usa rede, não instala dependências, não altera permissões e não remove arquivos. O PDF de saída é) Tj ET
+BT /F1 8.60 Tf 0.130 0.150 0.170 rg 1 0 0 1 53.00 537.04 Tm (sobrescrito em cada execução.) Tj ET
+BT /F1 8.60 Tf 0.130 0.150 0.170 rg 1 0 0 1 53.00 522.84 Tm (• Diretórios comuns de dependências/build e links simbólicos não são percorridos. Arquivos binários são) Tj ET
+BT /F1 8.60 Tf 0.130 0.150 0.170 rg 1 0 0 1 53.00 511.64 Tm (ignorados; arquivos não legíveis são contados como não verificados.) Tj ET
+BT /F1 8.60 Tf 0.130 0.150 0.170 rg 1 0 0 1 53.00 497.44 Tm (• Segredos detectados são reportados somente por tipo, caminho e linha; o valor correspondente nunca é) Tj ET
+BT /F1 8.60 Tf 0.130 0.150 0.170 rg 1 0 0 1 53.00 486.24 Tm (copiado para o relatório.) Tj ET
+BT /F1 8.60 Tf 0.130 0.150 0.170 rg 1 0 0 1 53.00 472.04 Tm (• A varredura não examina histórico Git, validade de credenciais, fluxo de dados, autorização real, execução) Tj ET
+BT /F1 8.60 Tf 0.130 0.150 0.170 rg 1 0 0 1 53.00 460.84 Tm (dinâmica, dependências vulneráveis ou comportamento em produção.) Tj ET
+BT /F1 8.60 Tf 0.130 0.150 0.170 rg 1 0 0 1 48.00 446.64 Tm (Arquivos de texto lidos: 335) Tj ET
+BT /F1 8.60 Tf 0.130 0.150 0.170 rg 1 0 0 1 48.00 432.44 Tm (Arquivos binários ignorados: 0) Tj ET
+BT /F1 8.60 Tf 0.130 0.150 0.170 rg 1 0 0 1 48.00 418.24 Tm (Links simbólicos ignorados: 0) Tj ET
+BT /F1 8.60 Tf 0.130 0.150 0.170 rg 1 0 0 1 48.00 404.04 Tm (Arquivos/diretórios não legíveis: 0) Tj ET
+BT /F1 8.60 Tf 0.130 0.150 0.170 rg 1 0 0 1 48.00 389.84 Tm (Arquivo de saída excluído do scan: 1) Tj ET
+BT /F1 8.60 Tf 0.130 0.150 0.170 rg 1 0 0 1 48.00 375.64 Tm (Diretórios ignorados: .git: 1) Tj ET
+BT /F2 16.00 Tf 0.090 0.200 0.300 rg 1 0 0 1 48.00 350.37 Tm (3. Perfil observado do projeto) Tj ET
+BT /F1 8.60 Tf 0.130 0.150 0.170 rg 1 0 0 1 48.00 330.44 Tm (Manifestos: Nenhum indicador encontrado.) Tj ET
+BT /F1 8.60 Tf 0.130 0.150 0.170 rg 1 0 0 1 48.00 316.24 Tm (Documentação: CHANGELOG.md, CONTRIBUTING.md, OVERVIEW.md, README.md, README.pt-BR.md, ROADMAP.md,) Tj ET
+BT /F1 8.60 Tf 0.130 0.150 0.170 rg 1 0 0 1 48.00 305.04 Tm (SECURITY.md, TESTING.md, .opencode/README.md, PROJECT_TEMPLATE/README.md, PROJECT_TEMPLATE/docs/ADR.md,) Tj ET
+BT /F1 8.60 Tf 0.130 0.150 0.170 rg 1 0 0 1 48.00 293.84 Tm (PROJECT_TEMPLATE/docs/ARCHITECTURE.md e mais 88) Tj ET
+BT /F1 8.60 Tf 0.130 0.150 0.170 rg 1 0 0 1 48.00 279.64 Tm (Configuração/CI/deploy: .github/workflows/release.yml, .github/workflows/validate.yml) Tj ET
+BT /F1 8.60 Tf 0.130 0.150 0.170 rg 1 0 0 1 48.00 265.44 Tm (Indicadores de interface web: Nenhum indicador encontrado.) Tj ET
+BT /F1 8.60 Tf 0.130 0.150 0.170 rg 1 0 0 1 48.00 251.24 Tm (Indicadores de backend: Nenhum indicador encontrado.) Tj ET
+BT /F1 8.60 Tf 0.130 0.150 0.170 rg 1 0 0 1 48.00 237.04 Tm (Indicadores de workflow de IA: AGENTS.md, .opencode/.gitignore, .opencode/README.md,) Tj ET
+BT /F1 8.60 Tf 0.130 0.150 0.170 rg 1 0 0 1 48.00 225.84 Tm (.opencode/opencode.jsonc, .opencode/orchestrator.md, .opencode/agents/code-reviewer.md,) Tj ET
+BT /F1 8.60 Tf 0.130 0.150 0.170 rg 1 0 0 1 48.00 214.64 Tm (.opencode/agents/design-system-analyst.md, .opencode/agents/documentation.md,) Tj ET
+BT /F1 8.60 Tf 0.130 0.150 0.170 rg 1 0 0 1 48.00 203.44 Tm (.opencode/agents/engineering-knowledge-extractor.md, .opencode/agents/engineering-manager.md,) Tj ET
+BT /F1 8.60 Tf 0.130 0.150 0.170 rg 1 0 0 1 48.00 192.24 Tm (.opencode/agents/orchestrator.md, .opencode/agents/product-owner.md e mais 11) Tj ET
+BT /F1 8.60 Tf 0.130 0.150 0.170 rg 1 0 0 1 48.00 178.04 Tm (Arquivos candidatos a estado local: 0) Tj ET
+BT /F2 16.00 Tf 0.090 0.200 0.300 rg 1 0 0 1 48.00 152.77 Tm (4. Matriz de aplicabilidade de segurança) Tj ET
+BT /F1 9.00 Tf 0.130 0.150 0.170 rg 1 0 0 1 48.00 132.51 Tm (A aplicabilidade é inferida por indicadores de nomes/extensões; um resultado heurístico não substitui a) Tj ET
+BT /F1 9.00 Tf 0.130 0.150 0.170 rg 1 0 0 1 48.00 120.51 Tm (leitura do projeto.) Tj ET
+BT /F1 8.60 Tf 0.130 0.150 0.170 rg 1 0 0 1 48.00 105.84 Tm (Injeção SQL/comandos: Não verificado) Tj ET
+BT /F1 8.00 Tf 0.360 0.400 0.440 rg 1 0 0 1 58.00 92.13 Tm (Foram detectados indicadores de código-fonte; a análise automatizada não valida o fluxo de dados.) Tj ET
+BT /F1 8.60 Tf 0.130 0.150 0.170 rg 1 0 0 1 48.00 78.64 Tm (XSS/HTML: Não aplicável \(heurístico\)) Tj ET
+BT /F1 8.00 Tf 0.360 0.400 0.440 rg 1 0 0 1 58.00 64.93 Tm (Nenhum indicador de interface web/HTML foi detectado no inventário; isso não prova ausência da superfície.) Tj ET
+q 0.810 0.840 0.860 RG 0.5 w 48.00 807.89 m 547.28 807.89 l S Q
+BT /F2 7.40 Tf 0.090 0.200 0.300 rg 1 0 0 1 48.00 818.82 Tm (INSPEÇÃO DE SEGURANÇA DO PROJETO) Tj ET
+q 0.810 0.840 0.860 RG 0.5 w 48.00 40.00 m 547.28 40.00 l S Q
+BT /F1 7.20 Tf 0.360 0.400 0.440 rg 1 0 0 1 48.00 25.10 Tm (Gerado dinamicamente | 2026-11-01) Tj ET
+BT /F1 7.20 Tf 0.360 0.400 0.440 rg 1 0 0 1 492.28 25.10 Tm (Página 1/2) Tj ET
+
+endstream
+endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 5 0 R >>
+endobj
+7 0 obj
+<< /Length 5916 >>
+stream
+BT /F1 8.60 Tf 0.130 0.150 0.170 rg 1 0 0 1 48.00 778.84 Tm (Autenticação/autorização/IDOR: Não aplicável \(heurístico\)) Tj ET
+BT /F1 8.00 Tf 0.360 0.400 0.440 rg 1 0 0 1 58.00 765.13 Tm (Nenhum indicador de rotas/handlers de backend foi detectado no inventário; isso não prova ausência da superfície.) Tj ET
+BT /F1 8.60 Tf 0.130 0.150 0.170 rg 1 0 0 1 48.00 751.64 Tm (Segredos/dados sensíveis: Não verificado) Tj ET
+BT /F1 8.00 Tf 0.360 0.400 0.440 rg 1 0 0 1 58.00 737.93 Tm (Nenhuma assinatura de alta confiança encontrada; a busca é limitada e não prova ausência de segredos.) Tj ET
+BT /F1 8.60 Tf 0.130 0.150 0.170 rg 1 0 0 1 48.00 724.44 Tm (Deploy/configuração: Não verificado) Tj ET
+BT /F1 8.00 Tf 0.360 0.400 0.440 rg 1 0 0 1 58.00 710.73 Tm (Foram detectados indicadores de manifestos ou configuração/deploy; a análise automatizada não valida o fluxo de) Tj ET
+BT /F1 8.00 Tf 0.360 0.400 0.440 rg 1 0 0 1 58.00 700.73 Tm (dados.) Tj ET
+BT /F1 8.60 Tf 0.130 0.150 0.170 rg 1 0 0 1 48.00 687.24 Tm (Workflows de IA/uso de ferramentas: Não verificado) Tj ET
+BT /F1 8.00 Tf 0.360 0.400 0.440 rg 1 0 0 1 58.00 673.53 Tm (Foram detectados indicadores de instruções/adapters de workflow de IA; a análise automatizada não valida o fluxo de) Tj ET
+BT /F1 8.00 Tf 0.360 0.400 0.440 rg 1 0 0 1 58.00 663.53 Tm (dados.) Tj ET
+BT /F1 8.60 Tf 0.130 0.150 0.170 rg 1 0 0 1 48.00 650.04 Tm (Efeitos externos: Não verificado) Tj ET
+BT /F1 8.00 Tf 0.360 0.400 0.440 rg 1 0 0 1 58.00 636.33 Tm (Foram detectados indicadores de código ou automação; a análise automatizada não valida o fluxo de dados.) Tj ET
+BT /F2 16.00 Tf 0.090 0.200 0.300 rg 1 0 0 1 48.00 611.77 Tm (5. Categorias de QA-Security) Tj ET
+BT /F1 8.60 Tf 0.130 0.150 0.170 rg 1 0 0 1 48.00 591.84 Tm (Performance: Não verificado) Tj ET
+BT /F1 8.20 Tf 0.130 0.150 0.170 rg 1 0 0 1 56.00 577.97 Tm (O inventário pode detectar arquivos web, mas não mede rotas, build de produção, mobile/desktop, Core Web Vitals) Tj ET
+BT /F1 8.20 Tf 0.130 0.150 0.170 rg 1 0 0 1 56.00 567.47 Tm (ou orçamento.) Tj ET
+BT /F1 8.60 Tf 0.130 0.150 0.170 rg 1 0 0 1 48.00 553.64 Tm (Observabilidade: Não verificado) Tj ET
+BT /F1 8.20 Tf 0.130 0.150 0.170 rg 1 0 0 1 56.00 539.77 Tm (Logs e configurações podem ser inventariados; qualidade, cobertura e exposição de dados exigem revisão.) Tj ET
+BT /F1 8.60 Tf 0.130 0.150 0.170 rg 1 0 0 1 48.00 525.94 Tm (Código/manutenibilidade: Não verificado) Tj ET
+BT /F1 8.20 Tf 0.130 0.150 0.170 rg 1 0 0 1 56.00 512.07 Tm (A contagem de extensões não avalia arquitetura, correção, complexidade ou requisitos.) Tj ET
+BT /F1 8.60 Tf 0.130 0.150 0.170 rg 1 0 0 1 48.00 498.24 Tm (Documentação: Indicadores inventariados) Tj ET
+BT /F1 8.20 Tf 0.130 0.150 0.170 rg 1 0 0 1 56.00 484.37 Tm (CHANGELOG.md, CONTRIBUTING.md, OVERVIEW.md, README.md, README.pt-BR.md, ROADMAP.md, SECURITY.md, TESTING.md,) Tj ET
+BT /F1 8.20 Tf 0.130 0.150 0.170 rg 1 0 0 1 56.00 473.87 Tm (.opencode/README.md, PROJECT_TEMPLATE/README.md, PROJECT_TEMPLATE/docs/ADR.md,) Tj ET
+BT /F1 8.20 Tf 0.130 0.150 0.170 rg 1 0 0 1 56.00 463.37 Tm (PROJECT_TEMPLATE/docs/ARCHITECTURE.md e mais 88) Tj ET
+BT /F1 8.60 Tf 0.130 0.150 0.170 rg 1 0 0 1 48.00 449.54 Tm (Acessibilidade: Não verificado) Tj ET
+BT /F1 8.20 Tf 0.130 0.150 0.170 rg 1 0 0 1 56.00 435.67 Tm (Testes de teclado, foco, contraste, zoom, reflow e tecnologia assistiva não são executados.) Tj ET
+BT /F1 8.60 Tf 0.130 0.150 0.170 rg 1 0 0 1 48.00 421.84 Tm (Boas práticas: Não verificado) Tj ET
+BT /F1 8.20 Tf 0.130 0.150 0.170 rg 1 0 0 1 56.00 407.97 Tm (O inspetor não declara conformidade com SOLID, DRY, KISS, YAGNI ou Clean Architecture.) Tj ET
+BT /F2 16.00 Tf 0.090 0.200 0.300 rg 1 0 0 1 48.00 383.07 Tm (6. Problemas encontrados) Tj ET
+BT /F1 9.00 Tf 0.130 0.150 0.170 rg 1 0 0 1 48.00 362.81 Tm (Nenhum padrão de alta confiança ou problema de permissão foi detectado pelas verificações implementadas.) Tj ET
+BT /F1 9.00 Tf 0.130 0.150 0.170 rg 1 0 0 1 48.00 350.81 Tm (Isso não significa ausência de vulnerabilidades; várias categorias permanecem não verificadas.) Tj ET
+BT /F2 16.00 Tf 0.090 0.200 0.300 rg 1 0 0 1 48.00 325.07 Tm (7. Limitações e checklist final) Tj ET
+BT /F1 8.60 Tf 0.130 0.150 0.170 rg 1 0 0 1 53.00 305.14 Tm (• [ ] QA-Security revisou o escopo, as categorias e os indicadores de aplicabilidade.) Tj ET
+BT /F1 8.60 Tf 0.130 0.150 0.170 rg 1 0 0 1 53.00 290.94 Tm (• [ ] Cada achado potencial foi confirmado ou rejeitado com evidência do projeto.) Tj ET
+BT /F1 8.60 Tf 0.130 0.150 0.170 rg 1 0 0 1 53.00 276.74 Tm (• [ ] Segredos, permissões e estado local foram revisados sem copiar valores sensíveis para o relatório.) Tj ET
+BT /F1 8.60 Tf 0.130 0.150 0.170 rg 1 0 0 1 53.00 262.54 Tm (• [ ] Fluxos de autenticação/autorização, efeitos externos e workflows de IA foram testados quando) Tj ET
+BT /F1 8.60 Tf 0.130 0.150 0.170 rg 1 0 0 1 53.00 251.34 Tm (aplicáveis.) Tj ET
+BT /F1 8.60 Tf 0.130 0.150 0.170 rg 1 0 0 1 53.00 237.14 Tm (• [ ] Interfaces foram validadas manualmente e com evidências mobile/desktop quando aplicável.) Tj ET
+BT /F1 8.60 Tf 0.130 0.150 0.170 rg 1 0 0 1 53.00 222.94 Tm (• [ ] Nenhum arquivo foi removido ou alterado automaticamente pelo inspetor.) Tj ET
+BT /F1 9.00 Tf 0.130 0.150 0.170 rg 1 0 0 1 48.00 208.41 Tm (Conclusão: este relatório é uma coleta dinâmica e limitada de evidências locais. A decisão técnica final) Tj ET
+BT /F1 9.00 Tf 0.130 0.150 0.170 rg 1 0 0 1 48.00 196.41 Tm (pertence ao QA-Security e ao responsável pelo projeto.) Tj ET
+q 0.810 0.840 0.860 RG 0.5 w 48.00 807.89 m 547.28 807.89 l S Q
+BT /F2 7.40 Tf 0.090 0.200 0.300 rg 1 0 0 1 48.00 818.82 Tm (INSPEÇÃO DE SEGURANÇA DO PROJETO) Tj ET
+q 0.810 0.840 0.860 RG 0.5 w 48.00 40.00 m 547.28 40.00 l S Q
+BT /F1 7.20 Tf 0.360 0.400 0.440 rg 1 0 0 1 48.00 25.10 Tm (Gerado dinamicamente | 2026-11-01) Tj ET
+BT /F1 7.20 Tf 0.360 0.400 0.440 rg 1 0 0 1 492.28 25.10 Tm (Página 2/2) Tj ET
+
+endstream
+endobj
+8 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 7 0 R >>
+endobj
+9 0 obj
+<< /Title (Inspecao dinamica de seguranca) /Author (LF Engineering System) /Subject (Inspecao estatica local; requer revisao humana) >>
+endobj
+xref
+0 10
+0000000000 65535 f 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000127 00000 n 
+0000000224 00000 n 
+0000000326 00000 n 
+0000006970 00000 n 
+0000007112 00000 n 
+0000013080 00000 n 
+0000013222 00000 n 
+trailer
+<< /Size 10 /Root 1 0 R /Info 9 0 R >>
+startxref
+13373
+%%EOF

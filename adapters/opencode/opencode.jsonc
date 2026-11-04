@@ -1,0 +1,41 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+
+  "instructions": [
+    "AGENTS.md",
+    "LF_ENGINEERING.md",
+    ".ai/workflow.md",
+    ".ai/contracts.md",
+    ".ai/state/project-summary.md",
+
+    "__LF_ENGINEERING_SYSTEM_PATH__/knowledge/INDEX.md",
+    "__LF_ENGINEERING_SYSTEM_PATH__/knowledge/REGISTRY.md",
+
+    "__LF_ENGINEERING_SYSTEM_PATH__/protocols/AGENT_HANDOFF.md",
+    "__LF_ENGINEERING_SYSTEM_PATH__/protocols/WORKFLOW_UPDATE.md",
+    "__LF_ENGINEERING_SYSTEM_PATH__/protocols/TASK_UPDATE.md",
+    "__LF_ENGINEERING_SYSTEM_PATH__/protocols/DECISION_RECORD.md",
+    "__LF_ENGINEERING_SYSTEM_PATH__/protocols/ARTIFACT_UPDATE.md",
+    "__LF_ENGINEERING_SYSTEM_PATH__/protocols/PERFORMANCE_VALIDATION.md",
+
+    "__LF_ENGINEERING_SYSTEM_PATH__/.opencode/agents/engineering-manager.md",
+    "__LF_ENGINEERING_SYSTEM_PATH__/.opencode/agents/orchestrator.md",
+    "__LF_ENGINEERING_SYSTEM_PATH__/.opencode/orchestrator.md"
+  ],
+
+  "references": {
+    "lf-engineering-framework": {
+      "path": "__LF_ENGINEERING_SYSTEM_PATH__",
+      "description": "Use as the external read-only LF Engineering System framework, including agents, workflows, protocols, schemas and knowledge."
+    }
+  },
+
+  "permissions": [
+    { "action": "edit", "resource": "*", "effect": "ask" },
+    { "action": "shell", "resource": "*", "effect": "ask" },
+    { "action": "external_directory", "resource": "*", "effect": "ask" },
+    { "action": "external_directory", "resource": "__LF_ENGINEERING_SYSTEM_PATH__/*", "effect": "allow" },
+    { "action": "read", "resource": "__LF_ENGINEERING_SYSTEM_PATH__/*", "effect": "allow" },
+    { "action": "edit", "resource": "__LF_ENGINEERING_SYSTEM_PATH__/*", "effect": "deny" }
+  ]
+}

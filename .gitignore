@@ -1,0 +1,14 @@
+# mcp-graph workflow
+workflow-graph/
+.mcp-graph-cache/
+
+# Local validation and language caches
+__pycache__/
+*.py[cod]
+.opencode.jsonc.tmp
+
+# Local release output
+dist/
+
+# Local project coordination state; never publish without explicit review
+/.ai/state/

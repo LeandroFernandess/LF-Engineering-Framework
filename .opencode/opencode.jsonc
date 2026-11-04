@@ -1,0 +1,28 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "servers": {
+      "github": {
+        "type": "local",
+        "disabled": true,
+        "command": [
+          "docker",
+          "run",
+          "-i",
+          "--rm",
+          "-p",
+          "127.0.0.1:8085:8085",
+          "-e",
+          "GITHUB_OAUTH_CALLBACK_PORT=8085",
+          "-e",
+          "GITHUB_OAUTH_SCOPES=public_repo",
+          "-e",
+          "GITHUB_TOOLSETS=repos",
+          "-e",
+          "GITHUB_READ_ONLY=true",
+          "ghcr.io/github/github-mcp-server:v2.0.3"
+        ]
+      }
+    }
+  }
+}

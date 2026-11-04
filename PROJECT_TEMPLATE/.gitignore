@@ -1,0 +1,9 @@
+# Local AI/workflow state
+workflow-graph/
+.mcp-graph-cache/
+/.ai/state/
+
+# Language and validation caches
+__pycache__/
+*.py[cod]
+.opencode.jsonc.tmp
