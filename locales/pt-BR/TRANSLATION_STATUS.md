@@ -13,9 +13,10 @@
   `locales/pt-BR/public-docs/`; o espelho do ADR fica em
   `locales/pt-BR/docs/ADR.md`. Os caminhos PT-BR de compatibilidade na raiz
   foram removidos; `README.pt-BR.md` continua como página inicial.
-- **Revisão semântica:** os espelhos do overview, roadmap, changelog, testing e
-  ADR foram comparados às fontes nesta atualização; a validação automatizada
-  continua verificando somente presença e estrutura, não certificando a tradução.
+- **Revisão semântica:** os espelhos do overview, roadmap, changelog, testing,
+  ADR e modelo de primeiro prompt foram comparados às fontes nesta atualização; a
+  validação automatizada continua verificando somente presença e estrutura, não
+  certificando a tradução.
 - **Cobertura publicada em `v1.5.0`:** inclui templates EN-US/PT-BR, espelhos
   PT-BR dos documentos públicos ativos, as quatro correções posteriores à
   `v1.4.0` do predecessor e a regra padrão para manter `.ai/state/` local.
@@ -42,7 +43,7 @@
 | `knowledge/` estável | Evoluiu em versões anteriores | Espelhos PT-BR incluídos | `ENGINEERING_MOTION_DESIGN` permanece condicional; módulos suplementares aprovados continuam opcionais. |
 | Manutenção pós-tag | Fora da baseline publicada `v1.5.0` | Orientações e espelhos atualizados no checkout atual | A extensão opcional de simulação interativa não altera a release publicada nem adiciona dependências. |
 | `knowledge/` suplementar opcional aprovado | Não fazia parte de baselines anteriores | Quatro espelhos incluídos e verificados separadamente | Permanecem fora do grafo obrigatório de dependências. |
-| Documentos públicos extensos ativos | Não faziam parte das primeiras tranches históricas | Espelhos PT-BR incluídos e revisados semanticamente | `public-docs/` contém overview, roadmap, changelog e guias; `docs/ADR.md` contém o espelho do ADR. |
+| Documentos públicos extensos ativos | Não faziam parte das primeiras tranches históricas | Espelhos PT-BR incluídos e revisados semanticamente | `public-docs/` contém overview, roadmap, changelog, guias e o modelo de primeiro prompt; `docs/ADR.md` contém o espelho do ADR. |
 | Referências legadas/de apoio | Fora do escopo de tradução ativa | Guia-fonte preservado | O guia em `docs/reference/` é detalhado e não normativo por si só. |
 
 Nota de cobertura: as versões anteriores descritas no changelog pertencem ao

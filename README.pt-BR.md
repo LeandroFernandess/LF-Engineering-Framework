@@ -20,6 +20,8 @@ histórico, branches e tags do repositório privado anterior não foram migrados
   canônicos.
 - `locales/pt-BR/public-docs/START_PROJECTS.md`: guia de início em PT-BR.
 - `START_PROJECTS.en-US.md`: guia de início em inglês.
+- `FIRST_PROMPT_TEMPLATE.md` e `locales/pt-BR/public-docs/FIRST_PROMPT_TEMPLATE.md`:
+  modelo opcional de primeiro prompt em EN-US e PT-BR.
 - `ROADMAP.md` e `locales/pt-BR/public-docs/ROADMAP.md`: roadmap EN-US e PT-BR.
 - `CHANGELOG.md` e `locales/pt-BR/public-docs/CHANGELOG.md`: changelog EN-US e PT-BR.
 - `OVERVIEW.md` e `locales/pt-BR/public-docs/OVERVIEW.md`: contexto de publicação EN-US e PT-BR.

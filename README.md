@@ -17,6 +17,8 @@ migrated; `v1.4.0` is historical context, not a release tag in this repository.
   knowledge module and protocol.
 - `START_PROJECTS.en-US.md`: official English setup guide.
 - `locales/pt-BR/public-docs/START_PROJECTS.md`: official PT-BR setup guide.
+- `FIRST_PROMPT_TEMPLATE.md`: optional copy-ready first prompt for starting a
+  project conversation after cloning the Framework.
 - `AGENTS.md`: project-level agent operating rules.
 - `ROADMAP.md`: planned framework evolution.
 - `CHANGELOG.md`: implemented framework changes.
