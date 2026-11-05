@@ -10,6 +10,20 @@ Versions before `v1.5.0` below are historical records from the predecessor
 private repository. Its Git history, branches, tags and release assets were not
 migrated to this clean public repository.
 
+# Unreleased
+
+## Added
+
+* Added optional, technology-independent guidance for model-driven interactive
+  visual simulators, including model provenance, shared state, numerical review,
+  user control and visual evidence.
+
+## Changed
+
+* Extended the existing conditional motion-design guidance and project workflow
+  without adding a new agent, workflow phase, external dependency or fixed
+  performance target.
+
 ---
 
 # Version 1.5.0

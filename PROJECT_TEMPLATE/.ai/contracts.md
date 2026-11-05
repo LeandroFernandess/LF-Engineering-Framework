@@ -25,7 +25,7 @@ The goal is to keep project work traceable from the original prompt through fina
 | `SPRINTS.md` | `ARCHITECTURE.md` | Execution planning must be based on approved technical architecture. |
 | Implementation | `SPRINTS.md` | Code changes must follow approved sprint scope and acceptance criteria. |
 | Code Review | Implementation | Review must evaluate actual code changes and implementation evidence. |
-| `PERFORMANCE_VALIDATION_REPORT.md` | `PRD.md`, `DESIGN.md` (when applicable), `ARCHITECTURE.md`, `SPRINTS.md`, implementation and Code Review | Conditional web/interface validation must use approved routes, budgets, production evidence and separate mobile/desktop profiles; include a Motion Review when motion is in scope. |
+| `PERFORMANCE_VALIDATION_REPORT.md` | `PRD.md`, `DESIGN.md` (when applicable), `ARCHITECTURE.md`, `SPRINTS.md`, implementation and Code Review | Conditional web/interface validation must use approved routes, budgets, production evidence and separate mobile/desktop profiles; include a Motion Review when motion is in scope and an Interactive Model Review when a model-driven simulator is in scope. |
 | `QA_SECURITY_REPORT.md` | Implementation and Code Review | Quality and security validation must consider both the changed system and review findings. |
 | Tech Lead | Final reports | Governance must consolidate review, QA/security and documentation evidence before approval. |
 | `PROJECT_KNOWLEDGE.md` | All project artifacts | Knowledge extraction requires complete project context. Runs after delivery approval. |

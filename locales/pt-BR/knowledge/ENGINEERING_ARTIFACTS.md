@@ -120,7 +120,7 @@ ENGINEERING_CONTINUOUS_IMPROVEMENT
 
 ENGINEERING_DESIGN_PERFORMANCE
 
-ENGINEERING_MOTION_DESIGN (condicional quando houver movimento no escopo)
+ENGINEERING_MOTION_DESIGN (condicional quando houver movimento ou simulador visual interativo orientado por modelo no escopo)
 
 ---
 

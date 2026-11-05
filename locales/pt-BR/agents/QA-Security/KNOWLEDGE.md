@@ -77,12 +77,14 @@ condicional.
 
 Finalidade
 
-Define a Revisão de movimento condicional, verificações de movimento reduzido,
-interação e aceite baseado em evidências quando houver movimento no escopo.
+Define a Revisão de movimento condicional e, para simuladores orientados por
+modelo, a Revisão de modelo interativo, incluindo evidências numéricas e do
+estado renderizado, movimento reduzido e controle do usuário.
 
 Importância
 
-Crítica quando houver movimento no escopo; caso contrário, não aplicável.
+Crítica quando houver movimento ou simulador interativo orientado por modelo no
+escopo; caso contrário, não aplicável.
 
 ---
 
@@ -203,7 +205,7 @@ Recomendados
 
 4. ENGINEERING_DESIGN_PERFORMANCE (quando aplicável)
 
-5. ENGINEERING_MOTION_DESIGN (quando houver movimento no escopo)
+5. ENGINEERING_MOTION_DESIGN (quando houver movimento ou simulador interativo orientado por modelo no escopo)
 
 6. ENGINEERING_STANDARDS
 

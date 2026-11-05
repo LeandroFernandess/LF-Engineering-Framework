@@ -2,10 +2,10 @@
 
 - **Idioma-fonte:** EN-US
 - **Versão da fonte:** 1.5.0 (primeira baseline pública estável).
-- **Última revisão:** 2026-11-03
-- **Escopo:** registrar a cobertura PT-BR da primeira release pública `v1.5.0`
-  e distinguir os registros de versões anteriores do repositório privado
-  predecessor.
+- **Última revisão:** 2026-11-04
+- **Escopo:** registrar a cobertura PT-BR da primeira release pública `v1.5.0`,
+  as atualizações de manutenção pós-tag no checkout atual e distinguir os
+  registros de versões anteriores do repositório privado predecessor.
 - **Histórico predecessor:** os registros de `v1.3.0` e `v1.4.0` descrevem
   versões lançadas no repositório privado anterior; nenhuma tag ou arquivo de
   release foi migrado para este repositório público.
@@ -40,6 +40,7 @@
 | `schemas/` | Evoluíram em versões anteriores | Espelhos PT-BR incluídos | O schema de auditoria de dívida técnica está incluído na baseline pública. |
 | `agents/` | Evoluíram em versões anteriores | Agentes canônicos espelhados | `SPECS.md` em PT-BR define comportamento, não configuração de plataforma. |
 | `knowledge/` estável | Evoluiu em versões anteriores | Espelhos PT-BR incluídos | `ENGINEERING_MOTION_DESIGN` permanece condicional; módulos suplementares aprovados continuam opcionais. |
+| Manutenção pós-tag | Fora da baseline publicada `v1.5.0` | Orientações e espelhos atualizados no checkout atual | A extensão opcional de simulação interativa não altera a release publicada nem adiciona dependências. |
 | `knowledge/` suplementar opcional aprovado | Não fazia parte de baselines anteriores | Quatro espelhos incluídos e verificados separadamente | Permanecem fora do grafo obrigatório de dependências. |
 | Documentos públicos extensos ativos | Não faziam parte das primeiras tranches históricas | Espelhos PT-BR incluídos e revisados semanticamente | `public-docs/` contém overview, roadmap, changelog e guias; `docs/ADR.md` contém o espelho do ADR. |
 | Referências legadas/de apoio | Fora do escopo de tradução ativa | Guia-fonte preservado | O guia em `docs/reference/` é detalhado e não normativo por si só. |

@@ -42,9 +42,11 @@ validate mobile and desktop evidence separately. For non-visual projects,
 record performance validation as not applicable instead of inventing browser
 metrics.
 
-When motion is in scope, also use `knowledge/ENGINEERING_MOTION_DESIGN.md` to
-define the motion contract and conditional QA review. The module does not
-prescribe an animation library or add a workflow phase.
+When motion or an explicitly requested model-driven interactive visual simulator
+is in scope, also use `knowledge/ENGINEERING_MOTION_DESIGN.md` for the relevant
+conditional guidance and QA review. For simulators, use existing PRD, DESIGN and
+ARCHITECTURE sections to record intended fidelity, model sources and validation
+evidence. The module does not prescribe a library or add a workflow phase.
 
 The same context can be loaded by any AI assistant or CLI. Vendor-specific
 adapters are optional and must not replace this document.

@@ -37,7 +37,7 @@ Use this file before selecting agents or workflow steps. It complements the cano
 
 | Module | Applicability | Agents |
 | --- | --- | --- |
-| `ENGINEERING_MOTION_DESIGN` | Load only when motion is planned, implemented or reviewed; skip and record not applicable otherwise. It does not add a workflow phase or require an animation library. | Product Owner, Design System Analyst, Software Architect, Sprint Planner, Implementation / selected CLI, Code Reviewer, QA-Security, Documentation, Tech Lead, Engineering Knowledge Extractor |
+| `ENGINEERING_MOTION_DESIGN` | Load when motion is planned, implemented or reviewed, or when an explicitly requested model-driven interactive visual simulator is in scope; otherwise skip and record not applicable. It does not add a workflow phase, require animation or prescribe a library. | Product Owner, Design System Analyst, Software Architect, Sprint Planner, Implementation / selected CLI, Code Reviewer, QA-Security, Documentation, Tech Lead, Engineering Knowledge Extractor |
 
 ---
 

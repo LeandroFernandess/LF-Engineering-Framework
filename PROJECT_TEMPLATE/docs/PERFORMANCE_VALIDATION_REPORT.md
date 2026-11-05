@@ -57,6 +57,18 @@
 - Visual or time-based evidence:
 - Findings, owner and follow-up:
 
+## Interactive Model Review
+
+- Applicability and inspected scope:
+- Intended use and decision impact, fidelity and limitations:
+- Important sources, units, assumptions and evidence classifications:
+- Independent numerical checks and results:
+- Model-state consistency across geometry and displayed values:
+- Keyboard/touch, user control and reduced-motion findings:
+- Visual or time-based evidence and unresolved discrepancies:
+- Domain-validation source/reviewer when real-world accuracy is claimed:
+- Findings, owner and follow-up:
+
 ## Field Data
 
 - RUM/CrUX scope:

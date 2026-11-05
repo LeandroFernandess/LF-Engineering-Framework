@@ -35,7 +35,7 @@ in `LF_ENGINEERING.md`:
 - Keep decisions traceable to `docs/ADR.md` when they affect architecture, scope or delivery risk.
 - Prefer focused handoffs between agents over duplicating full context in every response.
 - For web or visual projects, use `knowledge/ENGINEERING_DESIGN_PERFORMANCE.md` and `protocols/PERFORMANCE_VALIDATION.md` to keep mobile and desktop performance evidence separate.
-- When motion is in scope, also load `knowledge/ENGINEERING_MOTION_DESIGN.md` and record its conditional review in the performance report; do not add motion or select a library by default.
+- When motion or an explicitly requested model-driven interactive visual simulator is in scope, also load `knowledge/ENGINEERING_MOTION_DESIGN.md` and record the applicable conditional review in the performance report; do not add motion or select a library by default.
 - For non-trivial changes, require an approved plan naming affected files, tests, acceptance criteria, risks and exclusions before editing.
 - Treat `ENGINEERING_ELEPHANT_GOLDFISH`, `ENGINEERING_AGENT_GRAPH_FLOW`, `ENGINEERING_RTK` and `ENGINEERING_GRAPHIFY` as approved optional supplemental references only; they are not mandatory dependencies or default tools, and this status does not authorize external-tool installation or integration.
 

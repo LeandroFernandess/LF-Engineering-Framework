@@ -56,7 +56,8 @@ Required:
 Related:
 
 - `ENGINEERING_MOTION_DESIGN` — conditional motion contract, accessibility and
-  review guidance when motion is in scope.
+  review guidance when motion or a model-driven interactive visual simulator is
+  in scope.
 - `ENGINEERING_STANDARDS`
 - `ENGINEERING_TEMPLATES`
 - `ENGINEERING_FIELD_GUIDE`

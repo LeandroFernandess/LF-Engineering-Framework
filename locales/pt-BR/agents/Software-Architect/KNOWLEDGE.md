@@ -123,13 +123,15 @@ Alta quando o projeto tem interface web ou visual; caso contrário, condicional.
 
 Finalidade
 
-Define handoffs arquiteturais para o sistema de movimento selecionado,
-integração com movimento reduzido, limpeza de ciclo de vida e riscos de
-performance relacionados ao movimento.
+Define handoffs arquiteturais para sistemas de movimento, integração com
+movimento reduzido, limpeza de ciclo de vida e riscos de performance; para
+simuladores orientados por modelo, cobre limites de estado/fluxo de dados e
+estratégia de validação numérica.
 
 Importância
 
-Alta quando houver movimento no escopo; caso contrário, não aplicável.
+Alta quando houver movimento ou simulador interativo orientado por modelo no
+escopo; caso contrário, não aplicável.
 
 ---
 
@@ -215,7 +217,7 @@ Recomendados
 
 7. ENGINEERING_DESIGN_PERFORMANCE (quando aplicável)
 
-8. ENGINEERING_MOTION_DESIGN (quando houver movimento no escopo)
+8. ENGINEERING_MOTION_DESIGN (quando houver movimento ou simulador interativo orientado por modelo no escopo)
 
 9. Módulos de Knowledge de apoio
 

@@ -119,12 +119,15 @@ High when the project has a web or visual interface; otherwise conditional.
 
 Purpose
 
-Defines architecture handoffs for the selected motion system, reduced-motion
-integration, lifecycle cleanup and motion-related performance risks.
+Defines architecture handoffs for motion systems, reduced-motion integration,
+lifecycle cleanup and motion-related performance risks; for model-driven
+simulators, it covers model-state/data-flow boundaries and numerical-validation
+strategy.
 
 Importance
 
-High when motion is in scope; otherwise not applicable.
+High when motion or a model-driven interactive simulator is in scope; otherwise
+not applicable.
 
 ---
 
@@ -210,7 +213,7 @@ Recommended
 
 7. ENGINEERING_DESIGN_PERFORMANCE (when applicable)
 
-8. ENGINEERING_MOTION_DESIGN (when motion is in scope)
+8. ENGINEERING_MOTION_DESIGN (when motion or a model-driven interactive simulator is in scope)
 
 9. Supporting Knowledge modules
 

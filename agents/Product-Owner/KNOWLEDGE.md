@@ -145,12 +145,14 @@ High when applicable.
 
 Purpose
 
-Defines user-facing motion intent, reduced-motion expectations and measurable
-acceptance criteria when motion is explicitly in product scope.
+Defines product intent, fidelity and limitations for explicitly requested
+model-driven simulators, plus user-facing motion intent, reduced-motion
+expectations and acceptance criteria when motion is in scope.
 
 Importance
 
-High when motion is in scope; otherwise not applicable.
+High when motion or a model-driven interactive simulator is in scope; otherwise
+not applicable.
 
 ---
 
@@ -208,7 +210,7 @@ Recommended order:
 5. ENGINEERING_ARTIFACTS
 6. ENGINEERING_DECISIONS
 7. ENGINEERING_DESIGN_PERFORMANCE (when applicable)
-8. ENGINEERING_MOTION_DESIGN (when motion is in scope)
+8. ENGINEERING_MOTION_DESIGN (when motion or a model-driven interactive simulator is in scope)
 9. Supporting Knowledge modules
 
 Business documentation defines the product.

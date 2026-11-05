@@ -25,7 +25,7 @@ governança final.
 | `SPRINTS.md` | `ARCHITECTURE.md` | O plano de execução depende da arquitetura aprovada. |
 | Implementação | `SPRINTS.md` | Alterações seguem o escopo e os critérios da sprint. |
 | Code Review | Implementação | A revisão avalia mudanças e evidências reais. |
-| `PERFORMANCE_VALIDATION_REPORT.md` | Artefatos aprovados, implementação e revisão | Validação web condicional, com perfis mobile/desktop separados; inclua uma Revisão de movimento quando houver movimento no escopo. |
+| `PERFORMANCE_VALIDATION_REPORT.md` | Artefatos aprovados, implementação e revisão | Validação web condicional, com perfis mobile/desktop separados; inclua uma Revisão de movimento quando houver movimento no escopo e uma Revisão de modelo interativo quando houver simulador orientado por modelo no escopo. |
 | `QA_SECURITY_REPORT.md` | Implementação e Code Review | QA e segurança consideram o sistema alterado e os achados. |
 | Tech Lead | Relatórios finais | Consolida evidências antes da aprovação. |
 | `PROJECT_KNOWLEDGE.md` | Todos os artefatos | Extração ocorre após a aprovação da entrega. |

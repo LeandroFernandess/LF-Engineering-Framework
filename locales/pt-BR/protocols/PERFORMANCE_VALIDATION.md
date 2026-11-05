@@ -39,6 +39,10 @@ superfície inspecionada em vez de inventar medições de navegador.
 - Quando houver movimento no escopo, contrato de movimento aprovado ou critérios
   de aceite do produto em `docs/DESIGN.md` ou `docs/PRD.md`, além das restrições
   relevantes de implementação em `docs/ARCHITECTURE.md`.
+- Quando houver um simulador interativo orientado por modelo no escopo, devem
+  estar disponíveis a intenção aprovada do produto e os limites de fidelidade,
+  as fontes, unidades e premissas importantes do modelo e a estratégia de estado
+  do modelo e de validação numérica da arquitetura.
 
 Se faltar uma entrada, registre a limitação e não marque o gate relacionado como
 concluído sem uma exceção aprovada.
@@ -112,6 +116,9 @@ Para cada rota crítica e cada perfil:
 - [ ] A Revisão de movimento condicional foi concluída quando houver movimento
       no escopo ou explicitamente marcada como não aplicável com a superfície
       inspecionada.
+- [ ] A Revisão de modelo interativo condicional foi concluída quando houver um
+      simulador interativo orientado por modelo no escopo ou explicitamente
+      marcada como não aplicável com a superfície inspecionada.
 - [ ] Terceiros foram testados no cenário em que estão realmente ativos.
 - [ ] O status de campo é explícito: aprovado com dados suficientes ou amostragem
       pendente com responsável pelo monitoramento e data de acompanhamento.
@@ -136,6 +143,34 @@ prova de fluidez.
 Se não houver movimento no escopo, registre `Não aplicável` e a superfície
 inspecionada. A revisão de movimento não substitui os gates separados de
 performance mobile/desktop, acessibilidade ou aceite funcional.
+
+## Revisão de modelo interativo
+
+Quando o projeto incluir explicitamente um simulador ou explicador visual
+interativo orientado por modelo, inclua uma Revisão de modelo interativo em
+`docs/PERFORMANCE_VALIDATION_REPORT.md`. Registre:
+
+- uso pretendido, fidelidade e limitações, inclusive se a saída é explicativa ou
+  pretende apoiar decisões no mundo real;
+- fontes de dados importantes, unidades, premissas e classificações de evidência;
+- verificações numéricas independentes e seus resultados para entradas
+  representativas ou de limite;
+- se geometria, rótulos, medidores, gráficos e esquemas correspondem ao mesmo
+  estado do modelo;
+- evidências visuais ou temporais representativas e discrepâncias não resolvidas;
+- achados relevantes sobre teclado/toque, movimento reduzido e controle do
+  usuário, ou uma referência à Revisão de movimento quando ela já os cobrir.
+
+Uma correspondência renderizada ou métrica de similaridade visual não estabelece
+correção numérica. Se o modelo fizer afirmações que dependam de precisão no mundo
+real, registre a fonte da validação de domínio e o revisor responsável; sem essa
+evidência, declare a limitação em vez de sugerir validação de engenharia. Esta
+revisão não substitui os gates separados de performance, acessibilidade ou aceite
+funcional.
+
+Se nenhum simulador interativo orientado por modelo estiver no escopo, registre
+`Não aplicável` e a superfície inspecionada. Captura de vídeo, áudio e linha do
+tempo determinística só são revisados quando forem requisitos do projeto.
 
 Resumos de métricas de laboratório na tabela de resultados devem ser rotulados
 como medianas de laboratório (ou outro resumo explicitamente declarado). Core
@@ -204,6 +239,17 @@ Crie `docs/PERFORMANCE_VALIDATION_REPORT.md` quando aplicável. Ele deve incluir
 - Teclado/toque e comportamento de interrupção:
 - Diferenças mobile/desktop:
 - Evidência visual ou temporal:
+- Achados, responsável e acompanhamento:
+
+## Revisão de modelo interativo
+- Aplicabilidade e superfície inspecionada:
+- Uso pretendido, fidelidade e limitações:
+- Fontes importantes, unidades, premissas e classificações de evidência:
+- Verificações numéricas independentes e resultados:
+- Consistência do estado do modelo entre geometria e valores exibidos:
+- Achados sobre teclado/toque, controle do usuário e movimento reduzido:
+- Evidência visual ou temporal e discrepâncias não resolvidas:
+- Fonte/revisor de validação de domínio quando houver alegação de precisão real:
 - Achados, responsável e acompanhamento:
 
 ## Dados de campo

@@ -71,12 +71,14 @@ Critical when the project has a web or visual interface; otherwise conditional.
 
 Purpose
 
-Defines the conditional Motion Review, reduced-motion, interaction and
-evidence-based acceptance checks when motion is in scope.
+Defines the conditional Motion Review and, for model-driven simulators, the
+Interactive Model Review, including numerical and rendered-state evidence,
+reduced-motion and user-control checks.
 
 Importance
 
-Critical when motion is in scope; otherwise not applicable.
+Critical when motion or a model-driven interactive simulator is in scope;
+otherwise not applicable.
 
 ---
 
@@ -196,7 +198,7 @@ Recommended
 
 4. ENGINEERING_DESIGN_PERFORMANCE (when applicable)
 
-5. ENGINEERING_MOTION_DESIGN (when motion is in scope)
+5. ENGINEERING_MOTION_DESIGN (when motion or a model-driven interactive simulator is in scope)
 
 6. ENGINEERING_STANDARDS
 

@@ -41,7 +41,7 @@ interação em `agents/AGENT_INTERACTION_MAP.md`.
 
 | Módulo | Aplicabilidade | Agentes |
 | --- | --- | --- |
-| `ENGINEERING_MOTION_DESIGN` | Carregue somente quando movimento for planejado, implementado ou revisado; caso contrário, ignore e registre como não aplicável. Não adiciona uma fase ao workflow nem exige uma biblioteca de animação. | Product Owner, Design System Analyst, Software Architect, Sprint Planner, Implementation / selected CLI, Code Reviewer, QA-Security, Documentation, Tech Lead, Engineering Knowledge Extractor |
+| `ENGINEERING_MOTION_DESIGN` | Carregue quando movimento for planejado, implementado ou revisado, ou quando houver um simulador visual interativo orientado por modelo explicitamente solicitado; caso contrário, ignore e registre como não aplicável. Não adiciona uma fase ao workflow, não exige animação nem prescreve uma biblioteca. | Product Owner, Design System Analyst, Software Architect, Sprint Planner, Implementation / selected CLI, Code Reviewer, QA-Security, Documentation, Tech Lead, Engineering Knowledge Extractor |
 
 ---
 

@@ -47,7 +47,7 @@ AI Engineering Agents
 | ENGINEERING_STANDARDS              | Coding, architecture and engineering standards | Architect, Design System Analyst, Reviewer, QA, Knowledge Extractor |
 | ENGINEERING_QUALITY                | Quality Gates, validation and audits           | QA, Reviewer, Tech Lead, Knowledge Extractor           |
 | ENGINEERING_DESIGN_PERFORMANCE     | Responsive design, web performance budgets and mobile/desktop validation | Product Owner, Design System Analyst, Architect, Sprint Planner, QA, Tech Lead |
-| ENGINEERING_MOTION_DESIGN          | Technology-independent motion design, accessibility and conditional validation | Product Owner, Design System Analyst, Architect, Sprint Planner, QA, Tech Lead |
+| ENGINEERING_MOTION_DESIGN          | Technology-independent motion design, accessibility, optional model-driven visual simulations and conditional validation | Product Owner, Design System Analyst, Architect, Sprint Planner, QA, Tech Lead |
 | ENGINEERING_AI_COLLABORATION       | Human-AI collaboration model                   | All Agents                                             |
 | ENGINEERING_AGENT_GUIDELINES       | Responsibilities and boundaries of each agent  | All Agents                                             |
 | ENGINEERING_TEMPLATES              | Official engineering templates                 | Product Owner, Design System Analyst, Architect, Documentation |
@@ -123,8 +123,9 @@ ENGINEERING_CONTINUOUS_IMPROVEMENT
 
 # Conditional Module (Outside the Dependency Flow)
 
-`ENGINEERING_MOTION_DESIGN` is loaded only when motion is in scope. It does not
-add a dependency to the mandatory Knowledge flow or a workflow phase.
+`ENGINEERING_MOTION_DESIGN` is loaded only when motion or an explicitly requested
+model-driven interactive visual simulator is in scope. It does not add a
+dependency to the mandatory Knowledge flow or a workflow phase.
 
 ---
 

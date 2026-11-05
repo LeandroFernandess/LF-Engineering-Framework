@@ -36,6 +36,9 @@ surface instead of inventing browser measurements.
 - When motion is in scope, an approved motion contract or product acceptance
   criteria in `docs/DESIGN.md` or `docs/PRD.md`, plus relevant implementation
   constraints from `docs/ARCHITECTURE.md`.
+- When a model-driven interactive simulator is in scope, approved product intent
+  and fidelity limits, important model sources/units/assumptions, and the
+  architecture's model-state and numerical-validation strategy.
 
 If an input is missing, record the limitation and do not mark the related gate
 complete without an approved exception.
@@ -101,6 +104,9 @@ For each critical route and each profile:
       review is complete.
 - [ ] The conditional Motion Review is complete when motion is in scope, or
       explicitly marked not applicable with the inspected scope.
+- [ ] The conditional Interactive Model Review is complete when a model-driven
+      interactive simulator is in scope, or explicitly marked not applicable
+      with the inspected scope.
 - [ ] Third parties are tested in the scenario where they are actually active.
 - [ ] Field status is explicit: approved with sufficient data, or pending
       sampling with a monitoring owner and follow-up date.
@@ -124,6 +130,33 @@ as proof of smoothness.
 If no motion is in scope, record `Not applicable` and the inspected surface.
 Motion review does not replace the separate mobile/desktop performance,
 accessibility or functional acceptance gates.
+
+## Interactive Model Review
+
+When a project explicitly includes a model-driven interactive visual simulator
+or explainer, include an Interactive Model Review in
+`docs/PERFORMANCE_VALIDATION_REPORT.md`. Record:
+
+- intended use, fidelity and limitations, including whether the output is
+  explanatory or intended to support real-world decisions;
+- important data sources, units, assumptions and evidence classifications;
+- independent numerical checks and their results for representative or boundary
+  inputs;
+- whether geometry, labels, gauges, charts and schematics agree with the same
+  model state;
+- representative visual or time-based evidence and any unresolved discrepancy;
+- relevant keyboard/touch access, reduced-motion behavior and user-control
+  findings, or a reference to the Motion Review when it covers them.
+
+A rendered match or visual-similarity measure does not establish numerical
+correctness. If the model makes claims that depend on real-world accuracy, record
+the domain-validation source and responsible reviewer; absent that evidence, state
+the limitation rather than implying engineering validation. This review does not
+replace the separate performance, accessibility or functional acceptance gates.
+
+If no model-driven interactive simulator is in scope, record `Not applicable`
+and the inspected scope. Video capture, audio and a deterministic timeline are
+reviewed only when they are project requirements.
 
 Lab metric summaries in the results table must be labeled as lab medians (or
 another explicitly stated summary). Field Core Web Vitals must be reported as
@@ -190,6 +223,17 @@ Create `docs/PERFORMANCE_VALIDATION_REPORT.md` when applicable. It must include:
 - Keyboard/touch and interruption behavior:
 - Mobile/desktop differences:
 - Visual or time-based evidence:
+- Findings, owner and follow-up:
+
+## Interactive Model Review
+- Applicability and inspected scope:
+- Intended use, fidelity and limitations:
+- Important sources, units, assumptions and evidence classifications:
+- Independent numerical checks and results:
+- Model-state consistency across geometry and displayed values:
+- Keyboard/touch, user control and reduced-motion findings:
+- Visual or time-based evidence and unresolved discrepancies:
+- Domain-validation source/reviewer when real-world accuracy is claimed:
 - Findings, owner and follow-up:
 
 ## Field Data

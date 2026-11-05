@@ -34,6 +34,7 @@ contexto de arquivo, e nenhuma tag Git predecessora foi importada.
 | ADR-018 | Inspeção dinâmica local e independência do nome do checkout | Aceita | 2026-11-01 |
 | ADR-019 | Repositório público limpo e primeira release pública | Aceita | 2026-11-03 |
 | ADR-020 | Estado `.ai/state/` local e ignorado por padrão | Aceita | 2026-11-03 |
+| ADR-021 | Adoção seletiva de princípios de simulação interativa orientada por modelo | Aceita | 2026-11-04 |
 
 ## Registros
 
@@ -1169,3 +1170,84 @@ valendo independentemente.
 - `PROJECT_TEMPLATE/AGENTS.md` e seu espelho PT-BR
 - `START_PROJECTS.en-US.md` e seu espelho PT-BR
 - `SECURITY.md` e seu espelho PT-BR
+
+## ADR-021 - Adoção seletiva de princípios de simulação interativa orientada por modelo
+
+### Status
+
+Aceita
+
+### Data
+
+2026-11-04
+
+### Contexto
+
+As orientações condicionais existentes de motion design cobrem intenção do
+movimento, acessibilidade, performance e revisão de assets 3D procedurais, mas
+não explicam como um simulador interativo deve manter coerentes o comportamento
+modelado, a geometria renderizada e os valores exibidos. O repositório
+`elvarofficial/teardown` e o artigo relacionado descrevem um fluxo de simulador
+orientado pelo modelo, com referências, estado compartilhado, inspeção interativa
+e revisão visual. Detalhes de implementação, ferramentas, alegações de
+performance e heurísticas fixas são fontes de informação, não requisitos do
+Framework.
+
+### Decisão
+
+- Ampliar `ENGINEERING_MOTION_DESIGN` com orientações opcionais e independentes de
+  tecnologia para simuladores visuais interativos explicitamente solicitados e
+  orientados por modelo.
+- Exigir que projetos que usem essas orientações declarem, nos artefatos
+  existentes de PRD, DESIGN e ARCHITECTURE conforme aplicável, uso pretendido,
+  fidelidade, limitações, fontes de dados importantes, unidades, premissas e
+  status das evidências.
+- Tratar um estado do modelo como fonte para a geometria renderizada e seus
+  rótulos, medidores, gráficos ou esquemas relacionados; exigir verificações
+  numéricas independentes quando a correção for importante e revisão visual de
+  estados representativos.
+- Adicionar uma Revisão de modelo interativo condicional ao relatório existente
+  de validação de performance. Ela não substitui validação de performance por
+  rota/perfil, acessibilidade, funcionalidade ou especialista de domínio.
+- Preservar o controle do usuário e o acesso com movimento reduzido. Manter
+  captura, áudio, 3D, ferramentas de implementação e empacotamento como opcionais;
+  não prescrever metas fixas de taxa de quadros ou tamanho de pacote.
+- Não adicionar agente, fase obrigatória ao workflow, dependência externa ou
+  instalação padrão de ferramenta. Reavaliar módulo ou artefato independente
+  somente se evidências recorrentes de projetos demonstrarem uma necessidade
+  distinta e reutilizável.
+
+### Alternativas consideradas
+
+- Instalar ou copiar o skill `teardown` e sua cadeia de ferramentas como padrão
+  do Framework.
+- Tornar simulação 3D ou animação parte de todo projeto visual.
+- Criar uma fase obrigatória de workflow, um agente ou um artefato independente
+  de simulador antes de haver evidências recorrentes de projetos.
+- Adotar heurísticas fixas de performance, layout, animação ou empacotamento das
+  fontes como metas universais do Framework.
+- Tratar uma renderização realista como prova suficiente da precisão numérica do
+  modelo subjacente.
+
+Essas alternativas introduziriam dependência de ferramenta, escopo desnecessário,
+metas universais sem sustentação ou falsa confiança na precisão do modelo.
+
+### Consequências
+
+Projetos que precisarem explicitamente de um simulador interativo terão um
+contrato rastreável de modelo e validação, mantendo o workflow e a cadeia de
+artefatos existentes. As orientações aumentam a manutenção de documentação e
+traduções; o trabalho de revisão do modelo é condicional ao escopo do simulador.
+A release publicada `v1.5.0` permanece inalterada; este ADR registra somente
+manutenção pós-tag e não autoriza uma release.
+
+### Artefatos relacionados
+
+- `knowledge/ENGINEERING_MOTION_DESIGN.md` e seu espelho PT-BR
+- `knowledge/INDEX.md`, `knowledge/REGISTRY.md` e seus espelhos PT-BR
+- `workflows/NEW_PROJECT.md`, `workflows/STANDARD_DEVELOPMENT.md` e espelhos PT-BR
+- `protocols/PERFORMANCE_VALIDATION.md`, seu schema e template de relatório
+- Instruções, contratos e templates de PRD/ARCHITECTURE em `PROJECT_TEMPLATE/`
+- `CHANGELOG.md`, `OVERVIEW.md` e espelhos PT-BR
+- [teardown](https://github.com/elvarofficial/teardown)
+- [Como transformo qualquer máquina em um simulador 3D que você pode desmontar](https://teapawt.org/elvar_official/article/2116174609355571402)

@@ -51,7 +51,7 @@ Agentes de engenharia de IA
 | ENGINEERING_STANDARDS | Padrões de código, arquitetura e engenharia | Architect, Design System Analyst, Reviewer, QA, Knowledge Extractor |
 | ENGINEERING_QUALITY | Gates de qualidade, validação e auditorias | QA, Reviewer, Tech Lead, Knowledge Extractor |
 | ENGINEERING_DESIGN_PERFORMANCE | Design responsivo, orçamentos web e validação mobile/desktop | Product Owner, Design System Analyst, Architect, Sprint Planner, QA, Tech Lead |
-| ENGINEERING_MOTION_DESIGN | Motion design independente de tecnologia, acessibilidade e validação condicional | Product Owner, Design System Analyst, Architect, Sprint Planner, QA, Tech Lead |
+| ENGINEERING_MOTION_DESIGN | Motion design independente de tecnologia, acessibilidade, simulações visuais opcionais orientadas por modelo e validação condicional | Product Owner, Design System Analyst, Architect, Sprint Planner, QA, Tech Lead |
 | ENGINEERING_AI_COLLABORATION | Modelo de colaboração entre humanos e IA | Todos os agentes |
 | ENGINEERING_AGENT_GUIDELINES | Responsabilidades e fronteiras de cada agente | Todos os agentes |
 | ENGINEERING_TEMPLATES | Templates oficiais de engenharia | Product Owner, Design System Analyst, Architect, Documentation |
@@ -128,7 +128,8 @@ ENGINEERING_CONTINUOUS_IMPROVEMENT
 
 # Módulo condicional (fora do fluxo de dependências)
 
-`ENGINEERING_MOTION_DESIGN` é carregado somente quando houver movimento no
+`ENGINEERING_MOTION_DESIGN` é carregado somente quando houver movimento ou um
+simulador visual interativo orientado por modelo explicitamente solicitado no
 escopo. Ele não adiciona dependência ao fluxo obrigatório de Knowledge nem uma
 fase de workflow.
 

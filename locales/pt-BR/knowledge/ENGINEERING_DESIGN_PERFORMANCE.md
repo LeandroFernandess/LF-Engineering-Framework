@@ -56,7 +56,8 @@ Obrigatórias:
 Relacionadas:
 
 - `ENGINEERING_MOTION_DESIGN` — contrato condicional de movimento, acessibilidade
-  e orientação de revisão quando houver movimento no escopo.
+  e orientação de revisão quando houver movimento ou simulador visual interativo
+  orientado por modelo no escopo.
 - `ENGINEERING_STANDARDS`
 - `ENGINEERING_TEMPLATES`
 - `ENGINEERING_FIELD_GUIDE`
