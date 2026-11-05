@@ -23,6 +23,9 @@ foram migrados para este repositório público limpo.
   simuladores visuais interativos orientados por modelo, incluindo proveniência
   do modelo, estado compartilhado, revisão numérica, controle do usuário e
   evidências visuais.
+* Adicionado um modelo opcional e copiável de primeiro prompt para iniciar
+  projetos, com limites explícitos de aprovação e sugestões de MCP do criador não
+  obrigatórias.
 
 ## Alterado
 

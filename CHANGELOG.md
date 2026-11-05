@@ -17,6 +17,8 @@ migrated to this clean public repository.
 * Added optional, technology-independent guidance for model-driven interactive
   visual simulators, including model provenance, shared state, numerical review,
   user control and visual evidence.
+* Added an optional, copy-ready first-prompt template for project onboarding,
+  with explicit approval boundaries and non-mandatory creator MCP suggestions.
 
 ## Changed
 

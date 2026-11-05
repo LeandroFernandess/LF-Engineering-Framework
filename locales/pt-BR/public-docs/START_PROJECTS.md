@@ -151,6 +151,11 @@ O Framework é a fonte canônica de agentes, conhecimento, workflows, protocolos
 e schemas. O projeto cliente é o único local de implementação. Em projetos web
 ou visuais, a validação mobile e desktop continua condicional e separada.
 
+Para iniciar descoberta e planejamento com um assistente de IA usando um prompt
+copiável, consulte o [modelo de primeiro prompt](FIRST_PROMPT_TEMPLATE.md). O
+modelo é opcional e não substitui este guia de configuração nem os gates de
+aprovação do projeto.
+
 ## 7. Validação da instalação
 
 Após aplicar:

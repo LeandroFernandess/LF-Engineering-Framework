@@ -148,6 +148,10 @@ protocols and schemas. The client project is the only implementation location.
 For web or visual projects, mobile and desktop validation remains conditional
 and separate.
 
+For a copy-ready prompt to start discovery and planning with an AI assistant,
+see [`FIRST_PROMPT_TEMPLATE.md`](FIRST_PROMPT_TEMPLATE.md). The template is
+optional and does not replace this setup guide or the project's approval gates.
+
 ## 7. Verify the installation
 
 After applying:
