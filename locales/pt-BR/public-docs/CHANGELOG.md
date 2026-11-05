@@ -3,7 +3,7 @@
 Idiomas: [EN-US](../../../CHANGELOG.md) | [PT-BR](CHANGELOG.md)
 
 Idioma-fonte: EN-US<br>
-Versão da fonte: 1.5.0<br>
+Versão da fonte: `v1.5.0` mais manutenção pós-tag não lançada<br>
 Baseline publicada: `v1.5.0`, primeira release pública<br>
 Fonte: `CHANGELOG.md`
 
@@ -14,6 +14,21 @@ Este projeto segue uma estratégia de versionamento estruturada, na qual cada re
 As versões anteriores a `v1.5.0` abaixo são registros históricos do repositório
 privado predecessor. Seu histórico Git, branches, tags e artefatos de release não
 foram migrados para este repositório público limpo.
+
+# Não lançado
+
+## Adicionado
+
+* Adicionadas orientações opcionais e independentes de tecnologia para
+  simuladores visuais interativos orientados por modelo, incluindo proveniência
+  do modelo, estado compartilhado, revisão numérica, controle do usuário e
+  evidências visuais.
+
+## Alterado
+
+* Ampliadas as orientações condicionais existentes de motion design e o workflow
+  do projeto sem adicionar agente, fase de workflow, dependência externa ou meta
+  fixa de performance.
 
 ---
 

@@ -23,13 +23,13 @@ This workflow covers project initialization, planning, implementation readiness,
    PRD sections; do not create a mandatory standalone research artifact.
 9. Use Design System Analyst to produce or update `docs/DESIGN.md` when visual references exist or the user/Product Owner explicitly requests an initial direction proposal without references. Keep the two modes and their evidence distinct; otherwise skip this optional step.
 10. For web or visual projects, use `knowledge/ENGINEERING_DESIGN_PERFORMANCE.md` to define mobile/desktop profiles, critical routes, LCP candidates, responsive states and initial budgets before architecture is approved.
-    When motion is in scope, also use `knowledge/ENGINEERING_MOTION_DESIGN.md` to define purpose, reduced-motion behavior and conditional validation; this does not add a workflow phase or require animation.
+    When motion or an explicitly requested model-driven interactive visual simulator is in scope, also use `knowledge/ENGINEERING_MOTION_DESIGN.md` for the relevant conditional guidance. Define motion purpose and reduced-motion behavior when applicable; for simulators, define model sources, intended fidelity and validation evidence. This does not add a workflow phase or require animation.
 11. Use Software Architect to produce or update `docs/ARCHITECTURE.md`, performance/delivery decisions and ADR recommendations.
 12. Use Sprint Planner to produce or update `docs/SPRINTS.md`, `.ai/tasks.md` and measurable performance baseline/validation tasks when applicable.
 13. Require a plan containing affected files, acceptance criteria, tests, risks, performance profiles/budgets when applicable and exclusions; ask the user to approve it before implementation starts.
 14. Execute implementation inside the project repository only, using a test-first loop where automated tests are supported and an early production-build performance check for web/visual work.
 15. Use Code Reviewer to validate implementation correctness, maintainability, regression risk, performance-sensitive changes and architectural alignment.
-16. Use QA Security to validate quality, security, consumer-visible behavior, validation evidence and readiness risks; execute `protocols/PERFORMANCE_VALIDATION.md` and create `docs/PERFORMANCE_VALIDATION_REPORT.md` for web/visual projects, including Motion Review when motion is in scope.
+16. Use QA Security to validate quality, security, consumer-visible behavior, validation evidence and readiness risks; execute `protocols/PERFORMANCE_VALIDATION.md` and create `docs/PERFORMANCE_VALIDATION_REPORT.md` for web/visual projects, including Motion Review when motion is in scope and Interactive Model Review when a model-driven simulator is in scope.
 17. Use Documentation to keep `README.md`, `docs/`, `.ai/` and `.ai/state/` synchronized with the implementation and QA outcomes.
 18. Use Tech Lead to consolidate evidence, review separate mobile/desktop results and approve, block or redirect delivery.
 19. Ask the user to perform manual validation and capture corrections, removals or improvements.
@@ -63,7 +63,7 @@ Engineering Manager
 - Design System Analyst runs for reference analysis when visual references exist, or for a no-reference initial direction only when the user/Product Owner explicitly requests it for a visual product.
 - A requested initial direction is optional, must be labeled `Proposed`, grounded in approved product context and approved before it becomes a baseline. Heuristics are not user evidence.
 - `docs/DESIGN.md` is conditional; skip it for non-visual projects and when neither references nor an explicit proposal request exist.
-- Load `ENGINEERING_MOTION_DESIGN` only when motion is planned or reviewed. If it is not in scope, record the conditional skip; do not introduce a library or a new workflow phase.
+- Load `ENGINEERING_MOTION_DESIGN` when motion is planned or reviewed, or when an explicitly requested model-driven interactive visual simulator is in scope. Otherwise record the conditional skip; do not introduce a library or a new workflow phase.
 - Engineering Knowledge Extractor runs after delivery approval. It recommends framework improvements but does not modify the framework.
 - The `generic` adapter is sufficient for any compatible AI assistant. Codex,
   Claude Code, Gemini CLI and OpenCode adapters are optional.
@@ -122,7 +122,7 @@ Engineering Manager
 - `AGENTS.md` confirms project boundaries and framework read-only usage.
 - Required `.ai/` and `.ai/state/` files exist and contain no unresolved operational `TBD` placeholders.
 - Conditional design analysis is either completed or explicitly skipped.
-- Conditional performance analysis is either completed for mobile and desktop or explicitly marked not applicable for a non-visual project.
+- Conditional performance analysis is either completed for mobile and desktop or explicitly marked not applicable for a non-visual project; the Interactive Model Review is completed or marked not applicable according to simulator scope.
 - User approval is captured before implementation.
 - Review, QA/Security, documentation and Tech Lead validation are planned; web/visual projects include the performance protocol and report.
 - Post-delivery knowledge extraction is planned through `PROJECT_KNOWLEDGE.md`.

@@ -86,12 +86,13 @@ Alta quando o projeto tem interface web ou visual; caso contrário, condicional.
 
 Finalidade
 
-Define expectativas condicionais de aceite de movimento, evidências e riscos
-residuais para governança quando houver movimento no escopo.
+Define expectativas condicionais de aceite de movimento e evidências, além de
+fidelidade do simulador, validação do modelo e riscos residuais para governança.
 
 Importância
 
-Alta quando houver movimento no escopo; caso contrário, não aplicável.
+Alta quando houver movimento ou simulador interativo orientado por modelo no
+escopo; caso contrário, não aplicável.
 
 ---
 
@@ -214,7 +215,7 @@ Recomendados
 4. ENGINEERING_QUALITY
 5. ENGINEERING_WORKFLOW
 6. ENGINEERING_DESIGN_PERFORMANCE (quando aplicável)
-7. ENGINEERING_MOTION_DESIGN (quando houver movimento no escopo)
+7. ENGINEERING_MOTION_DESIGN (quando houver movimento ou simulador interativo orientado por modelo no escopo)
 8. Módulos de Knowledge de apoio
 
 ---

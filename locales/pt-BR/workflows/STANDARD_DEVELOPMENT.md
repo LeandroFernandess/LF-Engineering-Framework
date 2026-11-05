@@ -25,10 +25,13 @@ documentada e pronta para entrega.
    experiência. Product Owner é responsável pelos requisitos de produto; Design
    System Analyst contribui para `DESIGN.md` quando houver referências ou uma
    direção inicial tiver sido solicitada explicitamente.
-   Quando houver movimento no escopo, use
-   `knowledge/ENGINEERING_MOTION_DESIGN.md` para documentar propósito,
-   comportamento para movimento reduzido e evidências de aceite, sem prescrever
-   uma biblioteca de implementação.
+   Quando houver movimento ou um simulador visual interativo orientado por
+   modelo explicitamente solicitado no escopo, use
+   `knowledge/ENGINEERING_MOTION_DESIGN.md` para as orientações condicionais
+   relevantes. Documente propósito do movimento e comportamento para movimento
+   reduzido quando aplicável; para simuladores, registre fontes do modelo,
+   fidelidade pretendida, consistência de estado e evidências de validação, sem
+   prescrever uma biblioteca de implementação.
 7. Software Architect projeta a solução técnica, a estratégia de
    renderização/entrega e os orçamentos de performance, registrando trade-offs
    relevantes.
@@ -44,7 +47,8 @@ documentada e pronta para entrega.
     segurança e evidências; em projetos web/visuais executa
     `protocols/PERFORMANCE_VALIDATION.md` e produz
     `docs/PERFORMANCE_VALIDATION_REPORT.md`, incluindo a Revisão de movimento
-    quando houver movimento no escopo.
+    quando houver movimento no escopo e a Revisão de modelo interativo quando
+    houver um simulador orientado por modelo no escopo.
 13. Documentation registra os artefatos de produto, técnicos e de performance e
     os sincroniza com os resultados de revisão e QA.
 14. Tech Lead toma as decisões finais de engenharia e avalia a entrega usando

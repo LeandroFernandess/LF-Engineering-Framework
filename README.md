@@ -112,7 +112,7 @@ configuration.
 - Keep `PROJECT_TEMPLATE/` aligned with the official startup workflow.
 - Prefer incremental framework evolution based on real project evidence.
 - For web or visual projects, keep performance evidence separate for mobile and desktop; do not treat automated scores as guarantees.
-- When motion is in scope, use the conditional motion-design guidance; no animation library is a Framework default.
+- When motion or an explicitly requested model-driven interactive visual simulator is in scope, use the conditional guidance; no animation library, 3D pipeline or simulator is a Framework default.
 
 ## CLI compatibility
 

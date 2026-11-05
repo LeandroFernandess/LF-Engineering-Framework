@@ -101,7 +101,7 @@ ENGINEERING_AGENT_GUIDELINES
 ENGINEERING_CONTINUOUS_IMPROVEMENT
 ENGINEERING_DESIGN_PERFORMANCE
 
-ENGINEERING_MOTION_DESIGN (conditional when motion is in scope)
+ENGINEERING_MOTION_DESIGN (conditional when motion or a model-driven interactive visual simulator is in scope)
 
 ---
 

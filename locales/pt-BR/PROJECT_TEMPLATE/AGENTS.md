@@ -39,10 +39,11 @@ registrado em `LF_ENGINEERING.md`:
   `knowledge/ENGINEERING_DESIGN_PERFORMANCE.md` e
   `protocols/PERFORMANCE_VALIDATION.md` para manter separadas as evidências
   mobile e desktop.
-- Quando houver movimento no escopo, carregue também
-  `knowledge/ENGINEERING_MOTION_DESIGN.md` e registre a revisão condicional no
-  relatório de performance; não adicione movimento nem escolha uma biblioteca
-  por padrão.
+- Quando houver movimento ou um simulador visual interativo orientado por modelo
+  explicitamente solicitado no escopo, carregue também
+  `knowledge/ENGINEERING_MOTION_DESIGN.md` e registre a revisão condicional
+  aplicável no relatório de performance; não adicione movimento nem escolha uma
+  biblioteca por padrão.
 - Para mudanças não triviais, exija um plano aprovado que identifique arquivos
   afetados, testes, critérios de aceite, riscos e exclusões antes de editar.
 - Trate `ENGINEERING_ELEPHANT_GOLDFISH`, `ENGINEERING_AGENT_GRAPH_FLOW`,

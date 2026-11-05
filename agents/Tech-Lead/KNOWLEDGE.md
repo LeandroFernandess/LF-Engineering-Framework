@@ -83,12 +83,14 @@ High when the project has a web or visual interface; otherwise conditional.
 
 Purpose
 
-Defines conditional motion acceptance, evidence and residual-risk expectations
-for governance when motion is in scope.
+Defines conditional motion acceptance and evidence expectations, plus simulator
+fidelity, model-validation evidence and residual-risk expectations for
+governance.
 
 Importance
 
-High when motion is in scope; otherwise not applicable.
+High when motion or a model-driven interactive simulator is in scope; otherwise
+not applicable.
 
 ---
 
@@ -215,7 +217,7 @@ Recommended
 
 6. ENGINEERING_DESIGN_PERFORMANCE (when applicable)
 
-7. ENGINEERING_MOTION_DESIGN (when motion is in scope)
+7. ENGINEERING_MOTION_DESIGN (when motion or a model-driven interactive simulator is in scope)
 
 8. Supporting Knowledge modules
 

@@ -57,6 +57,18 @@
 - Evidência visual ou temporal:
 - Achados, responsável e acompanhamento:
 
+## Revisão de modelo interativo
+
+- Aplicabilidade e superfície inspecionada:
+- Uso pretendido e impacto nas decisões, fidelidade e limitações:
+- Fontes importantes, unidades, premissas e classificações de evidência:
+- Verificações numéricas independentes e resultados:
+- Consistência do estado do modelo entre geometria e valores exibidos:
+- Achados sobre teclado/toque, controle do usuário e movimento reduzido:
+- Evidência visual ou temporal e discrepâncias não resolvidas:
+- Fonte/revisor de validação de domínio quando houver alegação de precisão real:
+- Achados, responsável e acompanhamento:
+
 ## Dados de campo
 
 - Escopo RUM/CrUX:

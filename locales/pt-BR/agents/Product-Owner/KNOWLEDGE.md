@@ -153,13 +153,15 @@ Alta quando aplicável.
 
 Finalidade
 
-Define a intenção de movimento para o usuário, expectativas para movimento
-reduzido e critérios de aceite mensuráveis quando movimento estiver
-explicitamente no escopo do produto.
+Define a intenção do produto, fidelidade e limitações de simuladores orientados
+por modelo explicitamente solicitados, além da intenção de movimento para o
+usuário, expectativas para movimento reduzido e critérios de aceite quando
+houver movimento no escopo.
 
 Importância
 
-Alta quando houver movimento no escopo; caso contrário, não aplicável.
+Alta quando houver movimento ou simulador interativo orientado por modelo no
+escopo; caso contrário, não aplicável.
 
 ---
 
@@ -217,7 +219,7 @@ Ordem recomendada:
 5. ENGINEERING_ARTIFACTS
 6. ENGINEERING_DECISIONS
 7. ENGINEERING_DESIGN_PERFORMANCE (quando aplicável)
-8. ENGINEERING_MOTION_DESIGN (quando houver movimento no escopo)
+8. ENGINEERING_MOTION_DESIGN (quando houver movimento ou simulador interativo orientado por modelo no escopo)
 9. Módulos de Knowledge de apoio
 
 A documentação de negócio define o produto.

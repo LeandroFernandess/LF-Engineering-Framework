@@ -39,10 +39,13 @@ implementação, validação da entrega e extração de conhecimento pós-entreg
     `knowledge/ENGINEERING_DESIGN_PERFORMANCE.md` para definir perfis
     mobile/desktop, rotas críticas, candidatos a LCP, estados responsivos e
     orçamentos iniciais antes da aprovação da arquitetura.
-    Quando houver movimento no escopo, use também
-    `knowledge/ENGINEERING_MOTION_DESIGN.md` para definir propósito,
-    comportamento para movimento reduzido e validação condicional; isso não
-    adiciona uma fase ao workflow nem exige animação.
+    Quando houver movimento ou um simulador visual interativo orientado por
+    modelo explicitamente solicitado no escopo, use também
+    `knowledge/ENGINEERING_MOTION_DESIGN.md` para as orientações condicionais
+    relevantes. Defina propósito do movimento e comportamento para movimento
+    reduzido quando aplicável; para simuladores, defina fontes do modelo,
+    fidelidade pretendida e evidências de validação. Isso não adiciona uma fase
+    ao workflow nem exige animação.
 11. Use Software Architect para produzir ou atualizar `docs/ARCHITECTURE.md`,
     decisões de performance/entrega e recomendações de ADR.
 12. Use Sprint Planner para produzir ou atualizar `docs/SPRINTS.md`,
@@ -61,7 +64,8 @@ implementação, validação da entrega e extração de conhecimento pós-entreg
     consumidor, evidências de validação e riscos de prontidão; execute
     `protocols/PERFORMANCE_VALIDATION.md` e crie
     `docs/PERFORMANCE_VALIDATION_REPORT.md` em projetos web/visuais, incluindo
-    a Revisão de movimento quando houver movimento no escopo.
+    a Revisão de movimento quando houver movimento no escopo e a Revisão de
+    modelo interativo quando houver um simulador orientado por modelo no escopo.
 17. Use Documentation para manter `README.md`, `docs/`, `.ai/` e `.ai/state/`
     sincronizados com a implementação e os resultados de QA.
 18. Use Tech Lead para consolidar evidências, revisar resultados mobile/desktop
@@ -107,9 +111,10 @@ Engineering Manager
   tornar um baseline. Heurísticas não são evidências sobre usuários.
 - `docs/DESIGN.md` é condicional; ignore-o em projetos não visuais e quando não
   houver referências nem solicitação explícita de proposta.
-- Carregue `ENGINEERING_MOTION_DESIGN` somente quando movimento for planejado ou
-  revisado. Se estiver fora do escopo, registre a dispensa condicional; não
-  introduza uma biblioteca nem uma nova fase de workflow.
+- Carregue `ENGINEERING_MOTION_DESIGN` quando movimento for planejado ou
+  revisado, ou quando houver um simulador visual interativo orientado por modelo
+  explicitamente solicitado no escopo. Caso contrário, registre a dispensa
+  condicional; não introduza uma biblioteca nem uma nova fase de workflow.
 - Engineering Knowledge Extractor executa após a aprovação da entrega. Ele
   recomenda melhorias para o Framework, mas não o modifica.
 - O adapter `generic` é suficiente para qualquer assistente de IA compatível.
@@ -176,7 +181,9 @@ Engineering Manager
   placeholders operacionais `TBD` sem resolução.
 - A análise de design condicional foi concluída ou explicitamente ignorada.
 - A análise de performance condicional foi concluída para mobile e desktop ou
-  explicitamente marcada como não aplicável para projeto não visual.
+  explicitamente marcada como não aplicável para projeto não visual; a Revisão
+  de modelo interativo foi concluída ou marcada como não aplicável conforme o
+  escopo do simulador.
 - A aprovação do usuário está registrada antes da implementação.
 - Revisão, QA/Security, documentação e validação do Tech Lead estão planejadas;
   projetos web/visuais incluem o protocolo e o relatório de performance.

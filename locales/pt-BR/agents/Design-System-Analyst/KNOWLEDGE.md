@@ -107,12 +107,14 @@ Alta quando o projeto tem interface web ou visual; caso contrário, não aplicá
 
 Finalidade
 
-Define o contrato condicional de movimento para intenção, hierarquia,
-interação, alternativas para movimento reduzido e evidências de revisão visual.
+Define o contrato condicional de movimento para intenção, hierarquia, interação
+e alternativas para movimento reduzido, além de orientações de referências
+visuais e interação para simuladores orientados por modelo.
 
 Importância
 
-Alta quando houver movimento no escopo; caso contrário, não aplicável.
+Alta quando houver movimento ou simulador interativo orientado por modelo no
+escopo; caso contrário, não aplicável.
 
 ---
 
@@ -200,7 +202,7 @@ Ordem recomendada:
 5. `ENGINEERING_ARTIFACTS`
 6. `ENGINEERING_STANDARDS`
 7. `ENGINEERING_DESIGN_PERFORMANCE` (quando aplicável)
-8. `ENGINEERING_MOTION_DESIGN` (quando houver movimento no escopo)
+8. `ENGINEERING_MOTION_DESIGN` (quando houver movimento ou simulador interativo orientado por modelo no escopo)
 9. Módulos de Knowledge de apoio
 
 As referências visuais definem o que é observado. Uma direção sem referências é

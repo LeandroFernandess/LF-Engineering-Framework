@@ -19,6 +19,7 @@ produced by QA-Security for web and visual projects.
 - Results for mobile and desktop
 - Journey and Accessibility Review
 - Motion Review (record `Not applicable` and inspected scope when no motion is in scope)
+- Interactive Model Review (conditional for model-driven interactive simulators; otherwise record `Not applicable` and inspected scope)
 - Field Data
 - Findings and Exceptions
 - Decision
@@ -51,6 +52,18 @@ When motion is in scope, the Motion Review must additionally identify:
 - normal and reduced-motion results;
 - keyboard/touch access and responsive differences;
 - visual or time-based evidence, findings, owner and follow-up.
+
+When a model-driven interactive simulator is in scope, the Interactive Model
+Review must additionally identify:
+
+- intended use and decision impact, fidelity and limitations;
+- important data sources, units, assumptions and evidence classifications;
+- independent numerical checks and results;
+- consistency between the model state, geometry and displayed values;
+- visual or time-based evidence, unresolved discrepancies, owner and follow-up;
+- keyboard/touch access, reduced-motion and user-control findings, or a reference
+  to the Motion Review when it covers them;
+- domain-validation source and reviewer when real-world accuracy is claimed.
 
 ## Validation Rules
 

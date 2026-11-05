@@ -30,6 +30,7 @@ are archival context only, and no predecessor Git tags were imported.
 | ADR-018 | Inspeção dinâmica local e independência do nome do checkout | Accepted | 2026-11-01 |
 | ADR-019 | Repositório público limpo e primeira release pública | Accepted | 2026-11-03 |
 | ADR-020 | Estado `.ai/state/` local e ignorado por padrão | Accepted | 2026-11-03 |
+| ADR-021 | Adoção seletiva de princípios de simulação interativa orientada por modelo | Accepted | 2026-11-04 |
 
 ## Records
 
@@ -1401,3 +1402,77 @@ permissions remain in effect independently.
 - `PROJECT_TEMPLATE/AGENTS.md` and its PT-BR mirror
 - `START_PROJECTS.en-US.md` and its PT-BR mirror
 - `SECURITY.md` and its PT-BR mirror
+
+## ADR-021 - Selective adoption of model-driven interactive simulation principles
+
+### Status
+
+Accepted
+
+### Date
+
+2026-11-04
+
+### Context
+
+The existing conditional motion-design guidance covers motion intent,
+accessibility, performance and procedural 3D asset review, but does not explain
+how an interactive simulator should keep its modeled behavior, rendered geometry
+and displayed values coherent. The `elvarofficial/teardown` repository and its
+accompanying article describe a model-first simulator workflow with references,
+shared model state, interactive inspection and visual review. Their implementation
+details, tool choices, performance claims and fixed heuristics are source material,
+not Framework requirements.
+
+### Decision
+
+- Extend `ENGINEERING_MOTION_DESIGN` with optional, technology-independent
+  guidance for explicitly requested model-driven interactive visual simulators.
+- Require projects using this guidance to state intended use, fidelity,
+  limitations, important data sources, units, assumptions and evidence status in
+  existing PRD, DESIGN and ARCHITECTURE artifacts as applicable.
+- Treat one model state as the source for rendered geometry and related labels,
+  gauges, charts or schematics; require independent numerical checks where
+  correctness matters and visual review of representative states.
+- Add a conditional Interactive Model Review to the existing performance
+  validation report. It does not replace route/profile performance,
+  accessibility, functional or domain-expert validation.
+- Preserve user control and reduced-motion access. Keep capture, audio, 3D,
+  implementation tools and packaging optional; do not prescribe fixed frame-rate
+  or package-size targets.
+- Add no agent, mandatory workflow phase, external dependency or default tool
+  installation. Reconsider a standalone module or artifact only if repeated
+  project evidence demonstrates a distinct, reusable need.
+
+### Alternatives Considered
+
+- Install or copy the `teardown` skill and its toolchain as a Framework default.
+- Make 3D simulation or animation part of every visual project.
+- Create a new mandatory workflow phase, agent or standalone simulator artifact
+  before recurring project evidence exists.
+- Adopt the source's fixed performance, layout, animation or packaging heuristics
+  as universal Framework targets.
+- Treat a realistic render as sufficient proof that the underlying model is
+  numerically accurate.
+
+These alternatives would introduce tool lock-in, unnecessary project scope,
+unsupported universal targets or false confidence in model accuracy.
+
+### Consequences
+
+Projects that explicitly need an interactive simulator gain a traceable model
+and validation contract while retaining the existing workflow and artifact chain.
+The guidance adds translation and documentation maintenance, and model review
+work is conditional on simulator scope. Published `v1.5.0` remains unchanged;
+this ADR records post-tag maintenance only and does not authorize a release.
+
+### Related Artifacts
+
+- `knowledge/ENGINEERING_MOTION_DESIGN.md` and its PT-BR mirror
+- `knowledge/INDEX.md`, `knowledge/REGISTRY.md` and their PT-BR mirrors
+- `workflows/NEW_PROJECT.md`, `workflows/STANDARD_DEVELOPMENT.md` and PT-BR mirrors
+- `protocols/PERFORMANCE_VALIDATION.md`, its schema and project report template
+- `PROJECT_TEMPLATE/` operating instructions, contracts and PRD/ARCHITECTURE templates
+- `CHANGELOG.md`, `OVERVIEW.md` and PT-BR mirrors
+- [teardown](https://github.com/elvarofficial/teardown)
+- [How I Turn Any Machine Into a 3D Simulator You Can Take Apart](https://teapawt.org/elvar_official/article/2116174609355571402)

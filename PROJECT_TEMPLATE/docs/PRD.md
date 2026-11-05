@@ -32,6 +32,10 @@ reduced-motion expectation and observable acceptance criteria. Use
 `knowledge/ENGINEERING_MOTION_DESIGN.md`; do not infer an animation requirement
 from the visual nature of the product alone.
 
+For an explicitly requested model-driven simulator, also state its intended use,
+fidelity, decision impact and user-facing limitations. Do not imply engineering
+validation unless domain evidence is part of the approved scope.
+
 ## Risks and Assumptions
 
 List explicit assumptions, open questions and risks. Do not invent unknown values.

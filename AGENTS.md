@@ -28,7 +28,7 @@ Use the canonical agent definitions from the LF Engineering System:
 - Keep decisions traceable to `docs/ADR.md` when they affect architecture, scope or delivery risk.
 - Prefer focused handoffs between agents over duplicating full context in every response.
 - For web or visual projects, use `knowledge/ENGINEERING_DESIGN_PERFORMANCE.md` and `protocols/PERFORMANCE_VALIDATION.md` to keep mobile and desktop performance evidence separate.
-- When motion is in scope, use `knowledge/ENGINEERING_MOTION_DESIGN.md` for the conditional motion contract and review; do not add a library or mandatory workflow phase by default.
+- When motion or an explicitly requested model-driven interactive visual simulator is in scope, use `knowledge/ENGINEERING_MOTION_DESIGN.md` for the relevant conditional guidance and review; do not add a library or mandatory workflow phase by default.
 
 ## Project Boundary Rules
 

@@ -95,12 +95,14 @@ High when the project has a web or visual interface; otherwise not applicable.
 
 Purpose
 
-Defines the conditional motion contract for intent, hierarchy, interaction,
-reduced-motion alternatives and visual review evidence.
+Defines the conditional motion contract for intent, hierarchy, interaction and
+reduced-motion alternatives, plus visual-reference and interaction guidance for
+model-driven simulators.
 
 Importance
 
-High when motion is in scope; otherwise not applicable.
+High when motion or a model-driven interactive simulator is in scope; otherwise
+not applicable.
 
 ---
 
@@ -186,7 +188,7 @@ Recommended order:
 5. `ENGINEERING_ARTIFACTS`
 6. `ENGINEERING_STANDARDS`
 7. `ENGINEERING_DESIGN_PERFORMANCE` (when applicable)
-8. `ENGINEERING_MOTION_DESIGN` (when motion is in scope)
+8. `ENGINEERING_MOTION_DESIGN` (when motion or a model-driven interactive simulator is in scope)
 9. Supporting Knowledge modules
 
 Visual references define what is observed. A no-reference direction is a

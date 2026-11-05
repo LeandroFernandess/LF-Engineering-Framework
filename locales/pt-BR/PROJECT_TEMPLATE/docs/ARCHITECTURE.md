@@ -10,7 +10,11 @@ Liste restrições técnicas, de produto, segurança e operação.
 
 ## Componentes
 
-Liste componentes, responsabilidades, interfaces e fluxos de dados.
+Liste componentes, responsabilidades, interfaces e fluxos de dados. Para um
+simulador orientado por modelo, identifique o estado autoritativo do modelo e
+como geometria, rótulos, medidores, gráficos e esquemas derivam dele; registre
+fontes importantes, unidades, premissas e limites de implementação nas seções
+existentes da arquitetura.
 
 ## Decisões
 
@@ -19,6 +23,10 @@ Relacione decisões significativas em `docs/ADR.md`.
 ## Estratégia de validação
 
 Liste testes, observabilidade e verificações de runtime que validarão o design.
+Para um simulador orientado por modelo, inclua verificações numéricas
+independentes e evidências visuais de que estados renderizados representativos
+correspondem ao modelo; não trate similaridade visual, por si só, como prova de
+correção numérica.
 
 ## Performance web e entrega (quando aplicável)
 

@@ -41,10 +41,13 @@ Em projetos web ou visuais, use o módulo de design/performance e valide as
 evidências mobile e desktop separadamente. Em projetos não visuais, registre a
 validação de performance como não aplicável em vez de inventar métricas.
 
-Quando houver movimento no escopo, use também
-`knowledge/ENGINEERING_MOTION_DESIGN.md` para definir o contrato de movimento e
-a revisão condicional de QA. O módulo não prescreve uma biblioteca de animação
-nem adiciona uma fase ao workflow.
+Quando houver movimento ou um simulador visual interativo orientado por modelo
+explicitamente solicitado no escopo, use também
+`knowledge/ENGINEERING_MOTION_DESIGN.md` para as orientações condicionais e a
+revisão de QA aplicáveis. Para simuladores, use as seções existentes de PRD,
+DESIGN e ARCHITECTURE para registrar fidelidade pretendida, fontes do modelo e
+evidências de validação. O módulo não prescreve uma biblioteca nem adiciona uma
+fase ao workflow.
 
 Este contexto pode ser carregado por qualquer assistente ou CLI de IA. Adapters
 específicos de fornecedor são opcionais e não substituem este documento.

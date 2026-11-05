@@ -32,6 +32,11 @@ estados importantes, expectativa para movimento reduzido e critérios de aceite
 observáveis. Use `knowledge/ENGINEERING_MOTION_DESIGN.md`; não infira que o
 produto precisa de animação apenas por ser visual.
 
+Para um simulador orientado por modelo explicitamente solicitado, registre também
+seu uso pretendido, fidelidade, impacto nas decisões e limitações visíveis ao
+usuário. Não sugira validação de engenharia sem evidências de domínio incluídas no
+escopo aprovado.
+
 ## Riscos e premissas
 
 Liste premissas explícitas, perguntas abertas e riscos. Não invente valores

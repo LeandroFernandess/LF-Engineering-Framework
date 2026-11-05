@@ -4,8 +4,8 @@ Idiomas: [EN-US](../../../OVERVIEW.md) | [PT-BR](OVERVIEW.md)
 
 Baseline publicada: 1.5.0<br>
 Status: primeira release pública estável `v1.5.0` publicada em 2026-11-03<br>
-Última atualização da fonte: 2026-11-03<br>
-Baseline desta tradução: conteúdo publicado em `v1.5.0`; releases anteriores são históricas no repositório predecessor privado<br>
+Última atualização da fonte: 2026-11-04<br>
+Baseline desta tradução: conteúdo de `v1.5.0` e manutenção pós-tag até 2026-11-04; releases anteriores são históricas no repositório predecessor privado<br>
 Fonte: `OVERVIEW.md`
 
 ## Objetivo
@@ -37,6 +37,8 @@ Os documentos públicos de contexto da release e os quatro módulos suplementare
 O bootstrap padrão copia a base neutra do projeto usando comandos nativos de shell no macOS/Linux ou Windows PowerShell. Aceita a seleção explícita do idioma `en-US` ou `pt-BR` e usa o adapter `generic` por padrão. A configuração OpenCode é gerada somente quando `--adapter opencode` é selecionado; arquivos e configurações existentes são preservados. O servidor GitHub MCP separado, usado no próprio repositório do Framework, fica desativado por padrão, tem a imagem fixada em uma release, é restrito a ferramentas de repositório somente leitura e exige habilitação local explícita. Ele não altera o adapter de projetos clientes nem o caminho `generic`.
 
 O agente QA-Security agora inclui uma etapa obrigatória de fronteira de confiança e resistência a prompt injection, uma matriz de aplicabilidade das categorias de segurança solicitadas e verificações de privacidade do estado local e de artefatos temporários. Essas regras distinguem evidência de autoridade e não inventam vulnerabilidades quando uma superfície não existe. Projetos web e visuais também usam `ENGINEERING_DESIGN_PERFORMANCE`, `PERFORMANCE_VALIDATION.md` e evidências de aceite separadas para mobile e desktop. A release `v1.4.0` do repositório privado predecessor adicionou orientações condicionais `ENGINEERING_MOTION_DESIGN` e uma Revisão de movimento para projetos com movimento; isso não adiciona uma fase obrigatória nem dependência de animação.
+
+A manutenção pós-tag no checkout atual amplia as orientações condicionais de movimento com princípios opcionais para simuladores visuais interativos orientados por modelo: fontes e limites de fidelidade rastreáveis, um único estado do modelo para a visualização e seus indicadores, revisão numérica e visual independente, controle do usuário e evidências de performance por perfil. Isso não altera o baseline publicado `v1.5.0`, adiciona fase ao workflow nem autoriza ferramenta externa.
 
 Práticas selecionadas das avaliações suplementares informaram orientações canônicas. Isso não afirma que cada módulo ou piloto completo foi validado independentemente quanto à eficácia:
 

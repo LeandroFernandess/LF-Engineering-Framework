@@ -128,12 +128,14 @@ Alta quando aplicável.
 Finalidade
 
 Fornece orientação condicional para tarefas e evidências de aceite de
-comportamento de movimento, alternativas para movimento reduzido e validação
-visual representativa.
+comportamento de movimento, alternativas para movimento reduzido e verificações
+de consistência de estado/numerais e validação visual para simuladores orientados
+por modelo.
 
 Importância
 
-Alta quando houver movimento no escopo; caso contrário, não aplicável.
+Alta quando houver movimento ou simulador interativo orientado por modelo no
+escopo; caso contrário, não aplicável.
 
 ---
 
@@ -220,7 +222,7 @@ Recomendados
 
 7. ENGINEERING_DESIGN_PERFORMANCE (quando aplicável)
 
-8. ENGINEERING_MOTION_DESIGN (quando houver movimento no escopo)
+8. ENGINEERING_MOTION_DESIGN (quando houver movimento ou simulador interativo orientado por modelo no escopo)
 
 9. Módulos de Knowledge de apoio
 

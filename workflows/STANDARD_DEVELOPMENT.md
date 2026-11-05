@@ -15,13 +15,13 @@ Default workflow for transforming an idea into a reviewed, documented and delive
    standalone research artifact.
 5. Design System Analyst analyzes supplied visual references or, only when explicitly requested by the user/Product Owner, proposes an initial direction without references and records it in `DESIGN.md` as `Proposed` pending approval. Skip when neither condition applies.
 6. For web or visual projects, use `knowledge/ENGINEERING_DESIGN_PERFORMANCE.md` to define critical routes, mobile/desktop profiles, responsive states, LCP candidates and experience targets. Product Owner owns the product requirements; Design System Analyst contributes to `DESIGN.md` when references exist or an initial direction was explicitly requested.
-   When motion is in scope, use `knowledge/ENGINEERING_MOTION_DESIGN.md` to document purpose, reduced-motion behavior and acceptance evidence without prescribing an implementation library.
+   When motion or an explicitly requested model-driven interactive visual simulator is in scope, use `knowledge/ENGINEERING_MOTION_DESIGN.md` for the relevant conditional guidance. Document motion purpose and reduced-motion behavior when applicable; for simulators, record model sources, intended fidelity, state consistency and validation evidence without prescribing an implementation library.
 7. Software Architect designs the technical solution, rendering/delivery strategy and performance budgets, and records relevant trade-offs.
 8. Sprint Planner breaks the work into executable tasks, affected files, tests, performance baselines, budgets and exclusions.
 9. The user or designated approver approves the plan before implementation.
 10. Implementation is performed by the project team or coding agent using test-first validation where supported and an early production-build performance baseline when applicable.
 11. Code Reviewer validates maintainability, correctness, regression risk, performance-sensitive changes and plan alignment.
-12. QA Security validates quality, consumer-visible behavior, risks, security and evidence; for web/visual projects it executes `protocols/PERFORMANCE_VALIDATION.md` and produces `docs/PERFORMANCE_VALIDATION_REPORT.md`, including Motion Review when motion is in scope.
+12. QA Security validates quality, consumer-visible behavior, risks, security and evidence; for web/visual projects it executes `protocols/PERFORMANCE_VALIDATION.md` and produces `docs/PERFORMANCE_VALIDATION_REPORT.md`, including Motion Review when motion is in scope and Interactive Model Review when a model-driven simulator is in scope.
 13. Documentation records product, technical and performance artifacts and synchronizes them with review and QA outcomes.
 14. Tech Lead makes final engineering decisions and delivery assessment using separate mobile and desktop evidence when applicable.
 15. Engineering Knowledge Extractor analyzes the completed project and produces PROJECT_KNOWLEDGE.md.

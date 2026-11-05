@@ -10,7 +10,10 @@ List technical, product, security and operational constraints.
 
 ## Components
 
-List components, responsibilities, interfaces and data flows.
+List components, responsibilities, interfaces and data flows. For a model-driven
+simulator, identify the authoritative model state and how geometry, labels,
+gauges, charts and schematics derive from it; record important sources, units,
+assumptions and implementation boundaries in the existing architecture sections.
 
 ## Decisions
 
@@ -18,7 +21,10 @@ Link significant decisions to `docs/ADR.md`.
 
 ## Validation Strategy
 
-List tests, observability and runtime checks that will validate the design.
+List tests, observability and runtime checks that will validate the design. For a
+model-driven simulator, include independent numerical checks and visual evidence
+that representative rendered states agree with the model; do not treat visual
+similarity alone as proof of numerical correctness.
 
 ## Web Performance and Delivery (when applicable)
 

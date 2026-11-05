@@ -104,5 +104,6 @@ projeto cliente.
 
 Para projetos web ou visuais, a validação de performance e acessibilidade é
 condicional, com evidências mobile e desktop separadas.
-Quando houver movimento no escopo, use as orientações condicionais de motion
-design; nenhuma biblioteca de animação é padrão do Framework.
+Quando houver movimento ou um simulador visual interativo orientado por modelo
+explicitamente solicitado, use as orientações condicionais; nenhuma biblioteca
+de animação, pipeline 3D ou simulador é padrão do Framework.

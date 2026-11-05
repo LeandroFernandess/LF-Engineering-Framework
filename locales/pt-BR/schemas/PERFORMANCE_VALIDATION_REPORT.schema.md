@@ -19,6 +19,7 @@ produzido por QA-Security para projetos web e visuais.
 - Resultados para mobile e desktop
 - Revisão de jornada e acessibilidade
 - Revisão de movimento (registre `Não aplicável` e a superfície inspecionada quando não houver movimento no escopo)
+- Revisão de modelo interativo (condicional para simuladores interativos orientados por modelo; caso contrário, registre `Não aplicável` e a superfície inspecionada)
 - Dados de campo
 - Achados e exceções
 - Decisão
@@ -53,6 +54,20 @@ adicionalmente:
 - resultados com movimento normal e reduzido;
 - acesso por teclado/toque e diferenças responsivas;
 - evidências visuais ou temporais, achados, responsável e acompanhamento.
+
+Quando houver um simulador interativo orientado por modelo no escopo, a Revisão
+de modelo interativo deve identificar adicionalmente:
+
+- uso pretendido e impacto nas decisões, fidelidade e limitações;
+- fontes de dados importantes, unidades, premissas e classificações de evidência;
+- verificações numéricas independentes e resultados;
+- consistência entre o estado do modelo, a geometria e os valores exibidos;
+- evidências visuais ou temporais, discrepâncias não resolvidas, responsável e
+  acompanhamento;
+- achados sobre teclado/toque, movimento reduzido e controle do usuário, ou
+  referência à Revisão de movimento quando ela já cobrir esses pontos;
+- fonte e revisor da validação de domínio quando houver alegação de precisão no
+  mundo real.
 
 ## Regras de validação
 

@@ -4,7 +4,7 @@ Languages: [EN-US](OVERVIEW.md) | [PT-BR](locales/pt-BR/public-docs/OVERVIEW.md)
 
 Published baseline: 1.5.0
 Status: first public stable release `v1.5.0` published 2026-11-03
-Last Updated: 2026-11-03
+Last Updated: 2026-11-04
 
 ## Purpose
 
@@ -60,6 +60,8 @@ read-only repository tools and requires explicit local enablement; it does not
 change the client adapter or `generic` path.
 
 The QA-Security Agent now includes a mandatory trust-boundary and prompt-injection gate, an applicability matrix for the requested security categories, and local-state/temporary-artifact privacy checks. These rules distinguish evidence from authority and do not invent vulnerabilities when a surface is absent. Web and visual projects also use `ENGINEERING_DESIGN_PERFORMANCE`, `PERFORMANCE_VALIDATION.md` and separate mobile/desktop acceptance evidence. The predecessor private repository's `v1.4.0` release added conditional `ENGINEERING_MOTION_DESIGN` guidance and a Motion Review for projects that include motion; this does not add a required phase or animation dependency.
+
+Post-tag maintenance in the current checkout extends the conditional motion guidance with optional principles for model-driven interactive visual simulators: traceable sources and fidelity limits, one model state for the visualization and its readouts, independent numerical and visual review, user control, and profile-specific performance evidence. This does not change the published `v1.5.0` baseline, add a workflow phase, or authorize an external tool.
 
 Selected practices from the supplemental evaluations informed canonical guidance. This does not claim that each module or complete pilot was independently validated for effectiveness:
 

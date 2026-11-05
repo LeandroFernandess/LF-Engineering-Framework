@@ -120,11 +120,13 @@ High when applicable.
 Purpose
 
 Provides conditional task and acceptance-evidence guidance for motion behavior,
-reduced-motion alternatives and representative visual validation.
+reduced-motion alternatives, and numerical/state-consistency checks and visual
+validation for model-driven simulators.
 
 Importance
 
-High when motion is in scope; otherwise not applicable.
+High when motion or a model-driven interactive simulator is in scope; otherwise
+not applicable.
 
 ---
 
@@ -211,7 +213,7 @@ Recommended
 
 7. ENGINEERING_DESIGN_PERFORMANCE (when applicable)
 
-8. ENGINEERING_MOTION_DESIGN (when motion is in scope)
+8. ENGINEERING_MOTION_DESIGN (when motion or a model-driven interactive simulator is in scope)
 
 9. Supporting Knowledge modules
 
