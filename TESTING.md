@@ -58,11 +58,9 @@ predecessor tag was imported. A local run generates a current report.
 - Existing README, AGENTS, `.gitignore`, `.ai/`, documentation and CLI
   configuration preservation.
 - Hidden state files and paths containing spaces.
-- OpenCode placeholder replacement and JSON parsing when the validator runtime
-  is available.
-- Framework-side GitHub MCP configuration parses and remains explicitly
-  disabled, version-pinned and read-only; validation does not start Docker or
-  authenticate with GitHub.
+- OpenCode adapter placeholder replacement, JSON parsing and references to
+  canonical Framework agents/workflows; the standalone Framework-root tree and
+  MCP configuration must remain absent.
 - Invalid language and adapter rejection.
 - Refusal to operate inside the Framework directory.
 - PT-BR template file and structural parity for headings, tables, code fences

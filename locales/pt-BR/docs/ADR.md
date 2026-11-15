@@ -1315,3 +1315,55 @@ não na instalação. Documentos revisados que mudarem exigem nova comparação 
 atualização dos hashes; paridade estrutural não certifica qualidade semântica.
 Evidências nativas de Windows/Linux devem vir dos jobs de CI; executar PowerShell
 no macOS não comprova compatibilidade de ACL ou console no Windows.
+
+## ADR-023 - Manter OpenCode no adapter opcional compartilhado
+
+Status: Aceito para implementação em 2026-11-15. Esta decisão não autoriza
+release ou publicação.
+
+### Contexto
+
+O Framework mantinha duas superfícies de OpenCode: o adapter opcional
+compartilhado em `adapters/opencode/` e uma árvore `.opencode/` separada na
+raiz, com arquivos duplicados de agentes/orquestrador e uma configuração
+GitHub MCP do lado do Framework. A árvore separada duplicava orientações
+canônicas de workflow e podia divergir das mesmas fontes de agentes e workflows
+usadas pelos outros adapters.
+
+### Decisão
+
+- Remover o diretório `.opencode/` da raiz do Framework, incluindo as definições
+  duplicadas de agentes/orquestrador e a configuração MCP independente.
+- Substituir a configuração GitHub MCP do lado do Framework descrita na ADR-011;
+  manter essa ADR apenas como contexto histórico da decisão.
+- Manter `adapters/opencode/` como adapter OpenCode opcional, selecionado pelo
+  fluxo compartilhado de bootstrap junto aos demais adapters nomeados.
+- Apontar as instruções geradas para as fontes canônicas do Framework:
+  `AGENTS.md`, `agents/Engineering-Manager/SPECS.md`,
+  `workflows/NEW_PROJECT.md` e `workflows/STANDARD_DEVELOPMENT.md`.
+- Manter `generic` como padrão. Não adicionar configuração OpenCode ao template
+  genérico do projeto nem configurar um servidor MCP separado no Framework.
+- Preservar arquivos OpenCode e configurações existentes nos projetos clientes.
+
+### Alternativas consideradas
+
+Manter as duas árvores conservaria instruções duplicadas e trabalho recorrente
+de alinhamento. Remover completamente o suporte ao OpenCode eliminaria um
+adapter opcional existente e quebraria a paridade com as outras integrações
+compartilhadas.
+
+### Consequências
+
+O repositório terá um único caminho mantido de integração com OpenCode. A árvore
+`.opencode/` da raiz deve permanecer ausente; validadores verificam que o adapter
+opcional pode ser analisado e aponta para fontes canônicas de agente/workflow.
+Projetos que já possuem configuração OpenCode não são migrados nem limpos por
+esta alteração no Framework.
+
+### Artefatos relacionados
+
+- `adapters/opencode/README.md`
+- `adapters/opencode/opencode.jsonc`
+- `scripts/validate-framework.sh`
+- `scripts/validate-framework.ps1`
+- `scripts/tests/test_setup.py`

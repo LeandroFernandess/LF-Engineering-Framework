@@ -38,6 +38,9 @@ foram migrados para este repositório público limpo.
 * Ampliadas as orientações condicionais existentes de motion design e o workflow
   do projeto sem adicionar agente, fase de workflow, dependência externa ou meta
   fixa de performance.
+* Removidas a árvore `.opencode/` duplicada na raiz do Framework e a configuração
+  MCP independente. O OpenCode continua disponível como adapter opcional
+  compartilhado, apontando para agentes e workflows canônicos do Framework.
 
 ---
 

@@ -42,8 +42,12 @@ function Get-MarkdownStructureSignature([string]$Path) {
 
 @(
   "agents", "knowledge", "workflows", "protocols", "schemas",
-  "PROJECT_TEMPLATE", "adapters", "locales", "scripts", "docs", ".github", ".opencode"
+  "PROJECT_TEMPLATE", "adapters", "locales", "scripts", "docs", ".github"
 ) | ForEach-Object { Require-Directory $_ }
+
+if (Test-Path -LiteralPath (Join-Path $FrameworkPath ".opencode") -PathType Any) {
+  Fail "standalone Framework-root OpenCode tree must be absent; use adapters\opencode"
+}
 
 @(
   "setup.sh", "setup.ps1", "scripts/i18n/setup.tsv",
@@ -72,8 +76,6 @@ function Get-MarkdownStructureSignature([string]$Path) {
   ".github\ISSUE_TEMPLATE\bug_report.md",
   ".github\ISSUE_TEMPLATE\feature_request.md",
   ".github\PULL_REQUEST_TEMPLATE.md",
-  ".opencode\README.md",
-  ".opencode\opencode.jsonc",
   "adapters\README.md",
   "locales\README.md",
   "locales\en-US\README.md",
@@ -299,35 +301,21 @@ if (-not (Select-String -LiteralPath $statusPath -SimpleMatch "**Versão da font
 
 $configPath = Join-Path $FrameworkPath "adapters\opencode\opencode.jsonc"
 $configContent = Get-Content -Raw -LiteralPath $configPath
-$escapedFrameworkPath = $FrameworkPath.Replace('\', '\\')
-$configContent = $configContent.Replace($placeholder, $escapedFrameworkPath)
-$null = $configContent | ConvertFrom-Json -ErrorAction Stop
-
-$frameworkConfigPath = Join-Path $FrameworkPath ".opencode\opencode.jsonc"
-$frameworkConfig = Get-Content -Raw -LiteralPath $frameworkConfigPath | ConvertFrom-Json -ErrorAction Stop
-$githubServer = $frameworkConfig.mcp.servers.github
-if ($githubServer.type -ne "local" -or $githubServer.disabled -ne $true) {
-  Fail "Framework-side GitHub MCP server must be local and disabled by default"
-}
-
-$githubCommand = @($githubServer.command)
-$requiredGitHubArguments = @(
-  "127.0.0.1:8085:8085",
-  "GITHUB_OAUTH_CALLBACK_PORT=8085",
-  "GITHUB_OAUTH_SCOPES=public_repo",
-  "GITHUB_TOOLSETS=repos",
-  "GITHUB_READ_ONLY=true"
+$config = $configContent | ConvertFrom-Json -ErrorAction Stop
+$requiredInstructions = @(
+  "__LF_ENGINEERING_SYSTEM_PATH__/AGENTS.md",
+  "__LF_ENGINEERING_SYSTEM_PATH__/agents/Engineering-Manager/SPECS.md",
+  "__LF_ENGINEERING_SYSTEM_PATH__/workflows/NEW_PROJECT.md",
+  "__LF_ENGINEERING_SYSTEM_PATH__/workflows/STANDARD_DEVELOPMENT.md"
 )
-foreach ($argument in $requiredGitHubArguments) {
-  if ($githubCommand -notcontains $argument) {
-    Fail "Framework-side GitHub MCP configuration is missing required safe setting: $argument"
+foreach ($instruction in $requiredInstructions) {
+  if (@($config.instructions) -notcontains $instruction) {
+    Fail "OpenCode adapter must reference canonical Framework instruction: $instruction"
   }
 }
-
-$githubImage = @($githubCommand | Where-Object { $_ -like "ghcr.io/github/github-mcp-server:*" })
-if ($githubCommand[0] -ne "docker" -or $githubCommand[1] -ne "run" -or
-    $githubImage.Count -ne 1 -or $githubImage[0] -notmatch '^ghcr\.io/github/github-mcp-server:v\d+\.\d+\.\d+$') {
-  Fail "Framework-side GitHub MCP configuration must use Docker and a pinned release image"
+if (@($config.instructions | Where-Object { $_ -match '(^|[/\\])\.opencode([/\\]|$)' }).Count -gt 0 -or
+    $config.PSObject.Properties.Name -contains "mcp") {
+  Fail "OpenCode adapter must not depend on a standalone Framework tree or MCP server"
 }
 
 Write-Output "Framework validation passed."

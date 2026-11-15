@@ -5,7 +5,7 @@ workflow-graph/
 # Local validation and language caches
 __pycache__/
 *.py[cod]
-.opencode.jsonc.tmp
+.opencode.*.tmp
 
 # Local release output
 dist/

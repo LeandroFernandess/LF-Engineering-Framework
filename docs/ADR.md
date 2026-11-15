@@ -1540,3 +1540,53 @@ Changed reviewed documents require renewed comparison and fingerprint updates;
 structural parity does not certify semantic quality. Native Windows/Linux
 evidence must come from their CI jobs; macOS PowerShell execution does not
 establish Windows ACL or console compatibility.
+
+## ADR-023 - Keep OpenCode in the shared optional adapter
+
+Status: Accepted for implementation on 2026-11-15. This decision does not
+authorize a release or publication.
+
+### Context
+
+The Framework maintained two OpenCode surfaces: the shared optional adapter
+under `adapters/opencode/` and a separate root `.opencode/` tree containing
+duplicated agent/orchestrator files and a Framework-side GitHub MCP
+configuration. The separate tree duplicated canonical workflow guidance and
+could drift from the same agent and workflow sources used by other adapters.
+
+### Decision
+
+- Remove the Framework-root `.opencode/` directory, including its duplicate
+  agent/orchestrator definitions and standalone MCP configuration.
+- Supersede the Framework-side GitHub MCP setup described by ADR-011; retain
+  that ADR as historical decision context.
+- Keep `adapters/opencode/` as the optional OpenCode adapter selected through
+  the shared bootstrap workflow, alongside the other named adapters.
+- Point its generated instructions at canonical Framework sources:
+  `AGENTS.md`, `agents/Engineering-Manager/SPECS.md`,
+  `workflows/NEW_PROJECT.md` and `workflows/STANDARD_DEVELOPMENT.md`.
+- Keep `generic` as the default. Do not add OpenCode configuration to the
+  generic project template or configure a separate Framework-level MCP server.
+- Preserve existing client-project OpenCode files and user configuration.
+
+### Alternatives Considered
+
+Keeping both trees would retain duplicate instructions and recurring
+consistency work. Removing OpenCode support entirely would remove an existing
+optional adapter and break parity with the other shared integrations.
+
+### Consequences
+
+The repository has one maintained OpenCode integration path. The root
+`.opencode/` tree must remain absent, and validators check that the optional
+adapter parses and references canonical agent/workflow sources. Projects that
+already have OpenCode configuration are not migrated or deleted by this
+Framework cleanup.
+
+### Related Artifacts
+
+- `adapters/opencode/README.md`
+- `adapters/opencode/opencode.jsonc`
+- `scripts/validate-framework.sh`
+- `scripts/validate-framework.ps1`
+- `scripts/tests/test_setup.py`

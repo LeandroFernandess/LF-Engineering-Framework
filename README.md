@@ -61,8 +61,7 @@ migrated; `v1.4.0` is historical context, not a release tag in this repository.
 │       ├── agents/ knowledge/ workflows/ protocols/ schemas/
 │       ├── public-docs/
 │       └── docs/ADR.md
-├── .github/
-└── .opencode/
+└── .github/
 ```
 
 ## Main Areas
@@ -77,8 +76,6 @@ migrated; `v1.4.0` is historical context, not a release tag in this repository.
 - `workflows/`: official workflow definitions for project work.
 - `protocols/`: update protocols for workflow, handoff, tasks, decisions and artifacts, including conditional mobile/desktop performance and motion validation for web and visual projects.
 - `schemas/`: canonical structures for engineering artifacts.
-- `.opencode/`: Framework-side OpenCode compatibility source; client installation
-  is optional and is managed through `adapters/opencode/`.
 - `PROJECT_TEMPLATE/.ai/`: client-project coordination and state files copied by the bootstrap.
 - `docs/`: Framework governance decisions and audit evidence.
 - `docs/reference/`: non-normative source guides retained for provenance.
@@ -131,11 +128,12 @@ own `.gitignore` and must adopt this rule manually if desired.
 
 The Framework is CLI-neutral by default. OpenAI Codex can use `AGENTS.md`;
 Anthropic Claude Code can use `CLAUDE.md`; Google Gemini CLI can use `GEMINI.md`;
-OpenCode can use the optional `opencode.jsonc` adapter. No adapter changes the
-canonical Framework.
+OpenCode can use the optional `opencode.jsonc` adapter. Its instructions point
+to canonical Framework agents and workflows; it does not install a separate
+root `.opencode/` tree or Framework-level MCP configuration.
 
-See `adapters/README.md` for the adapter matrix and `.opencode/README.md` for
-Framework-side OpenCode compatibility details.
+See `adapters/README.md` for the adapter matrix and
+`adapters/opencode/README.md` for OpenCode setup details.
 
 PT-BR template coverage and remaining translation work are documented in
 `locales/pt-BR/TRANSLATION_STATUS.md`.

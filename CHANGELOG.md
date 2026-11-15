@@ -31,6 +31,9 @@ migrated to this clean public repository.
 * Extended the existing conditional motion-design guidance and project workflow
   without adding a new agent, workflow phase, external dependency or fixed
   performance target.
+* Removed the duplicated Framework-root `.opencode/` tree and standalone MCP
+  configuration. OpenCode remains an optional shared adapter that points to
+  canonical Framework agents and workflows.
 
 ---
 

@@ -18,9 +18,10 @@
     "__LF_ENGINEERING_SYSTEM_PATH__/protocols/ARTIFACT_UPDATE.md",
     "__LF_ENGINEERING_SYSTEM_PATH__/protocols/PERFORMANCE_VALIDATION.md",
 
-    "__LF_ENGINEERING_SYSTEM_PATH__/.opencode/agents/engineering-manager.md",
-    "__LF_ENGINEERING_SYSTEM_PATH__/.opencode/agents/orchestrator.md",
-    "__LF_ENGINEERING_SYSTEM_PATH__/.opencode/orchestrator.md"
+    "__LF_ENGINEERING_SYSTEM_PATH__/AGENTS.md",
+    "__LF_ENGINEERING_SYSTEM_PATH__/agents/Engineering-Manager/SPECS.md",
+    "__LF_ENGINEERING_SYSTEM_PATH__/workflows/NEW_PROJECT.md",
+    "__LF_ENGINEERING_SYSTEM_PATH__/workflows/STANDARD_DEVELOPMENT.md"
   ],
 
   "references": {

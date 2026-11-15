@@ -72,6 +72,10 @@ class BootstrapSafety(unittest.TestCase):
             config_text = (target / 'opencode.jsonc').read_text(encoding='utf-8')
             json.loads(config_text)
             self.assertNotIn('__LF_ENGINEERING_SYSTEM_PATH__', config_text)
+            self.assertIn('agents/Engineering-Manager/SPECS.md', config_text)
+            self.assertIn('workflows/NEW_PROJECT.md', config_text)
+            self.assertIn('workflows/STANDARD_DEVELOPMENT.md', config_text)
+            self.assertNotIn('/.opencode/', config_text)
 
     def test_missing_locale_is_detected_before_writing(self):
         shutil.rmtree(self.framework / 'locales/pt-BR/PROJECT_TEMPLATE')

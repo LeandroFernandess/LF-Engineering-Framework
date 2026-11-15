@@ -1,13 +1,13 @@
 {
   "review_date": "2026-11-15",
-  "source_baseline": "0c2d31a; working-tree maintenance recorded in ADR-022",
+  "source_baseline": "6e70289; working-tree maintenance recorded in ADR-023",
   "reviewed_pairs": [
     {
       "source": "CHANGELOG.md",
       "translation": "locales/pt-BR/public-docs/CHANGELOG.md",
-      "source_sha256": "1915727365d89f340127b12bcaa10dbf4d17650fc48eee227262a74ed970cc6b",
-      "translation_sha256": "1d03c1efb22dcc6fdd2b02912f4db5f6854dbe21ddf0a76e033d6e3153c81f6b",
-      "scope": "New Unreleased entries only"
+      "source_sha256": "e8e3d16fba4dd9c1d0ed96543b7adf9cce71c286fa5ab0be6c408b8b406181dd",
+      "translation_sha256": "89173731b7f8bbb3f4dd50fd96d099db8ec231b925d1c5b4641897b710f9e702",
+      "scope": "New Unreleased entries only, including the Framework-root OpenCode cleanup and retained shared adapter."
     },
     {
       "source": "CONTRIBUTING.md",
@@ -26,9 +26,9 @@
     {
       "source": "OVERVIEW.md",
       "translation": "locales/pt-BR/public-docs/OVERVIEW.md",
-      "scope": "Framework purpose, adoption claims, supported entrypoints, dependency boundaries and release references compared.",
-      "source_sha256": "1e07013fe85db9f0222f626f47adbc9c18d9580251f668a493b73a9a98a0dfbb",
-      "translation_sha256": "830a4e1e46d49f7889cfd3fe42fb3b765cf13ddc8a22d7c5d817d96b31c4a453"
+      "scope": "Framework purpose, adoption claims, supported entrypoints, OpenCode adapter paths, dependency boundaries and release references compared.",
+      "source_sha256": "1416a28305aa87f1d6f4cd15a016516e369e707c1fe5c1045848b80042c36810",
+      "translation_sha256": "e5754eb6917b454d5f2b15bd0091b249373b062d3541d81610806d925a86aa81"
     },
     {
       "source": "PROJECT_TEMPLATE/.ai/artifacts.md",
@@ -180,9 +180,9 @@
     {
       "source": "README.md",
       "translation": "README.pt-BR.md",
-      "source_sha256": "02a0b2b46302331cce7d1f0b3bd6f8137ffedf2192d83ec7eff70d8c45c9ae5c",
-      "translation_sha256": "5d2dbba5a6ebb9e23671922da6f5808508aed02513b46c26fb79d9abfb17714c",
-      "scope": "Setup instructions and language policy; navigation intentionally differs"
+      "source_sha256": "24faa07711c91064073c3b72cc233b9bcd5079ff39fa6e37d6dbac48defd2c5e",
+      "translation_sha256": "9bc5045c96559510b431395dd832aaa697b819b0efa30d4e53d5df87995015ee",
+      "scope": "Setup instructions, language policy, shared adapter choices and canonical OpenCode references compared; navigation intentionally differs."
     },
     {
       "source": "ROADMAP.md",
@@ -208,9 +208,9 @@
     {
       "source": "TESTING.md",
       "translation": "locales/pt-BR/public-docs/TESTING.md",
-      "source_sha256": "e4610812276a2c77a437fd78592fbfa44e3f7df46fb6b7ffa22d6b0d6faf63fc",
-      "translation_sha256": "95fe7d0b463995afd844ec1d51c53ac0646a25eec1dbb8da4d11d873e1cf5748",
-      "scope": "New assistant and documentation check instructions"
+      "source_sha256": "553a7e8588c8486c20e4878490f031024eec201321a2c6cc6b73c80393709b36",
+      "translation_sha256": "e22c9806885bdb575a5bb49354719ae9f5003c52057f5cb293a4e6267ffb76a2",
+      "scope": "Setup assistant, OpenCode adapter source references, standalone-tree absence and documentation check instructions compared."
     },
     {
       "source": "agents/AGENT_INTERACTION_MAP.md",
@@ -691,9 +691,9 @@
     {
       "source": "docs/ADR.md",
       "translation": "locales/pt-BR/docs/ADR.md",
-      "source_sha256": "4c034ffcea467f42e6ff2fc531afc712952400050d715bdf2cc8e36891c42135",
-      "translation_sha256": "85a20d4e96f7ac1cbd5058002fad72474e638a70669dcc1a4c2b3be39b5f7f9d",
-      "scope": "ADR-022 only"
+      "source_sha256": "5cb2e5914787a9a7399774840e34af262de4b988fb936bca726c263d178e7266",
+      "translation_sha256": "a1dfb4a1d329a412be255dc80d5ad60cfc3a0c0bef896686e332e3b7b7e98b02",
+      "scope": "ADR-023 decision, alternatives, consequences and related artifacts compared with the PT-BR mirror."
     },
     {
       "source": "docs/security-audit/README.md",
@@ -755,8 +755,8 @@
       "source": "knowledge/ENGINEERING_ELEPHANT_GOLDFISH.md",
       "translation": "locales/pt-BR/knowledge/ENGINEERING_ELEPHANT_GOLDFISH.md",
       "scope": "Compared optional status, core model, proposed phases A-H, governance and approval rules, risks, pilot and future integration sequence; agent mappings and structural blocks checked.",
-      "source_sha256": "872cf6f498f967bd023a74e355208055f168ec16e8e64cc1cb2ff4656b4b82aa",
-      "translation_sha256": "e2810eda5a7a98e7d2813916c46fe0a10a85bcb58823a0293272ec8d4268fc40"
+      "source_sha256": "2cf7fd44a0636ac80498c66ee442168421228fd443984ec89c1443b76816bb23",
+      "translation_sha256": "60da303a24515c8144fd64ee2cefbd500780890374cd5f7a4758da437449f830"
     },
     {
       "source": "knowledge/ENGINEERING_FIELD_GUIDE.md",

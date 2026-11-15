@@ -59,11 +59,9 @@ repositório predecessor foi importada. Uma execução local gera um relatório 
 - Preservação de README, AGENTS, `.gitignore`, `.ai/`, documentação e
   configuração de CLI existentes.
 - Arquivos ocultos e caminhos com espaços.
-- Substituição do placeholder OpenCode e parsing JSON quando o runtime está
-  disponível.
-- A configuração GitHub MCP do Framework é analisada e permanece desativada,
-  fixada em uma versão e somente leitura; a validação não inicia Docker nem
-  autentica no GitHub.
+- Substituição do placeholder, parsing JSON e referências do adapter OpenCode
+  aos agentes/workflows canônicos do Framework; a árvore independente e a
+  configuração MCP na raiz do Framework devem permanecer ausentes.
 - Rejeição de idioma e adapter inválidos.
 - Recusa de operação dentro do diretório do Framework.
 - Paridade estrutural de arquivos, headings, tabelas, blocos de código e

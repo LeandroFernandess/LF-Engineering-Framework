@@ -50,8 +50,7 @@ histórico, branches e tags do repositório privado anterior não foram migrados
 │       ├── agents/ knowledge/ workflows/ protocols/ schemas/
 │       ├── public-docs/
 │       └── docs/ADR.md
-├── .github/
-└── .opencode/
+└── .github/
 ```
 
 - `PROJECT_TEMPLATE/`: base copiada para projetos clientes.
@@ -85,6 +84,12 @@ Não exige Node.js ou Python nem instala ferramentas externas. O idioma controla
 o terminal e os novos documentos; a biblioteca mantém ambos os idiomas, com
 EN-US como fonte canônica. Arquivos existentes são preservados; executar novamente
 não migra idioma ou integração.
+
+O adapter `generic` continua sendo o padrão; Codex, Claude, Gemini e OpenCode
+podem ser selecionados pelo mesmo assistente. OpenCode usa
+`adapters/opencode/` e aponta para agentes e workflows canônicos, sem manter
+uma árvore independente na raiz. Consulte `adapters/README.md` para a matriz
+de integrações.
 
 Use `--no-animation`/`--no-color` (PowerShell: `-NoAnimation`/`-NoColor`)
 para uma apresentação estática. `NO_COLOR` também desativa cores.

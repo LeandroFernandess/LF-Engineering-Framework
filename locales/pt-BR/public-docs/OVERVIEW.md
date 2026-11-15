@@ -30,11 +30,11 @@ A primeira release pública, `v1.5.0`, inclui o snapshot do Framework e as quatr
 
 ## Estado atual
 
-O repositório contém o Framework canônico, agentes especializados, módulos de conhecimento, workflows, protocolos, schemas, o `PROJECT_TEMPLATE/` neutro em relação a fornecedores, scripts nativos de bootstrap, pacotes de idioma e adapters opcionais. `.opencode/` é a fonte de compatibilidade do Framework e inclui uma configuração opcional do GitHub MCP, desativada por padrão e não copiada pelo bootstrap. O repositório público é `LeandroFernandess/LF-Engineering-Framework`; ele começa com um único commit limpo na branch `main`, sem o histórico, branches ou tags do repositório predecessor.
+O repositório contém o Framework canônico, agentes especializados, módulos de conhecimento, workflows, protocolos, schemas, o `PROJECT_TEMPLATE/` neutro em relação a fornecedores, scripts nativos de bootstrap, pacotes de idioma e adapters opcionais. O OpenCode está disponível pelo caminho compartilhado `adapters/opencode/` e usa as fontes canônicas de agentes e workflows; a árvore de compatibilidade independente `.opencode/` na raiz e sua configuração GitHub MCP foram removidas. O repositório público é `LeandroFernandess/LF-Engineering-Framework`; ele começa com um único commit limpo na branch `main`, sem o histórico, branches ou tags do repositório predecessor.
 
 Os documentos públicos de contexto da release e os quatro módulos suplementares opcionais aprovados de Knowledge têm espelhos PT-BR no checkout atual. Os espelhos suplementares são verificados separadamente quanto à presença, correspondência de versões, status opcional aprovado e paridade estrutural; permanecem fora do grafo obrigatório de dependências. A aprovação não autoriza instalação ou integração de ferramentas externas. A avaliação independente Goldfish do piloto de motion design passou na compreensão com ressalvas, mas não passou na crítica nem na prontidão para implementação; o piloto não comprova um gate de prontidão bem-sucedido.
 
-O bootstrap padrão copia a base neutra do projeto usando comandos nativos de shell no macOS/Linux ou Windows PowerShell. Aceita a seleção explícita do idioma `en-US` ou `pt-BR` e usa o adapter `generic` por padrão. A configuração OpenCode é gerada somente quando `--adapter opencode` é selecionado; arquivos e configurações existentes são preservados. O servidor GitHub MCP separado, usado no próprio repositório do Framework, fica desativado por padrão, tem a imagem fixada em uma release, é restrito a ferramentas de repositório somente leitura e exige habilitação local explícita. Ele não altera o adapter de projetos clientes nem o caminho `generic`.
+O bootstrap padrão copia a base neutra do projeto usando comandos nativos de shell no macOS/Linux ou Windows PowerShell. Aceita a seleção explícita do idioma `en-US` ou `pt-BR` e usa o adapter `generic` por padrão. A configuração OpenCode é gerada somente quando `--adapter opencode` é selecionado e aponta para agentes e workflows canônicos do Framework. Arquivos e configurações existentes são preservados. O Framework não configura um servidor GitHub MCP separado; o OpenCode continua como uma escolha opcional no workflow compartilhado de bootstrap, com `generic` como padrão.
 
 Os assistentes locais recomendados (`setup.sh` e `setup.ps1`) orientam a escolha de idioma, diretório do projeto e integração antes de aplicar o bootstrap nativo existente. A assinatura 2D LF é estática quando a animação está desativada ou o terminal oferece suporte limitado; os quadros de atividade aparecem somente enquanto o bootstrap trabalha. A ferramenta continua local e não adiciona runtime ou dependência de pacote.
 
@@ -116,7 +116,7 @@ O estado `.ai/` de manutenção na raiz e os dados de execução `workflow-graph
 
 ### Dependências locais
 
-`.opencode/node_modules/`, `package.json` e `package-lock.json` eram ferramentas locais do adapter e foram removidos da superfície de publicação. A documentação canônica do adapter `.opencode/` e os arquivos de agentes permanecem.
+`.opencode/node_modules/`, `.opencode/package.json` e `.opencode/package-lock.json` locais já haviam sido removidos. Esta limpeza também remove a árvore de compatibilidade independente `.opencode/` da raiz do Framework. O adapter opcional em `adapters/opencode/` permanece e aponta para os documentos canônicos de `agents/` e `workflows/`.
 
 ## Documentação de publicação
 
@@ -160,7 +160,7 @@ Use estes limites para reduzir divergências futuras:
 - `workflows/`: sequência de fases e transições.
 - `protocols/`: formatos de atualização e regras de handoff.
 - `schemas/`: estrutura dos artefatos.
-- `adapters/`: adapters opcionais de CLI; `.opencode/` é somente a fonte de compatibilidade OpenCode do Framework.
+- `adapters/`: adapters opcionais de CLI que usam agentes e workflows canônicos do Framework, incluindo o adapter OpenCode selecionado pelo bootstrap.
 - `PROJECT_TEMPLATE/`: arquivos copiados para projetos clientes.
 - `README.md`: explicação pública concisa.
 
@@ -175,7 +175,7 @@ O repositório oferece validadores nativos leves que verificam:
 - paridade estrutural de cabeçalhos, separadores de tabela, blocos de código e limites de comentários HTML nos templates;
 - correspondência de arquivos e paridade estrutural dos espelhos canônicos de agentes, workflows, protocolos, schemas e Knowledge estável, bem como dos quatro espelhos suplementares opcionais aprovados de Knowledge, em seus grupos de validação separados;
 - sintaxe válida do bootstrap shell e parsing da configuração OpenCode opcional quando há runtime compatível com JSON;
-- parsing da configuração GitHub MCP do Framework, que permanece desativada por padrão, fixada em versão, restrita a ferramentas de repositório e configurada como somente leitura; a validação não inicia Docker nem autentica no GitHub.
+- ausência da árvore `.opencode/` na raiz do Framework e referências do adapter aos documentos canônicos de agente e workflow, sem configurar um servidor MCP separado.
 - paridade estrutural dos espelhos ativos de `OVERVIEW`, `ROADMAP`, `CHANGELOG` e ADRs quanto a hierarquia de títulos, tabelas, blocos de código e comentários HTML.
 - presença de um único arquivo de release com os dois pacotes de idioma; a seleção do idioma continua sendo explícita no bootstrap.
 

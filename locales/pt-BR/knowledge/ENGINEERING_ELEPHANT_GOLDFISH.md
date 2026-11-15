@@ -995,7 +995,7 @@ Os gates existentes de funcionalidade, segurança, arquitetura, qualidade de có
 | `REVIEW.md` | Análise após implementação | Comparar explicitamente a implementação com o design e a rubrica |
 | Relatório de QA | Validação independente | Incluir evidências de que os riscos do design foram testados |
 | `knowledge/INDEX.md` | Descoberta de módulos | Manter módulos opcionais aprovados separados da cadeia obrigatória de dependências |
-| `.opencode/orchestrator.md` | Roteamento de agentes | Adicionar encaminhamento de prontidão de design e recuperação após aprovação |
+| `workflows/STANDARD_DEVELOPMENT.md` | Roteamento de agentes | Adicionar encaminhamento de prontidão de design e recuperação após aprovação |
 
 ---
 
@@ -1074,7 +1074,7 @@ Isso detecta contexto oculto na sessão original antes que ele vire código e re
 
 Alvos:
 
-- `.opencode/orchestrator.md`
+- `workflows/STANDARD_DEVELOPMENT.md`
 - `knowledge/ENGINEERING_AGENT_GUIDELINES.md`
 - `knowledge/ENGINEERING_AI_COLLABORATION.md`
 - `protocols/AGENT_HANDOFF.md`

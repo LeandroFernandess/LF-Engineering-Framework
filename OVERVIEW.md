@@ -35,9 +35,10 @@ and contain platform-specific integration only.
 
 The repository contains the canonical Framework, specialized agents, knowledge
 modules, workflows, protocols, schemas, the vendor-neutral `PROJECT_TEMPLATE/`,
-native bootstrap scripts, language packs and optional adapters. `.opencode/` is
-Framework-side compatibility source and includes an optional GitHub MCP
-configuration that is disabled by default; it is not copied by the bootstrap.
+native bootstrap scripts, language packs and optional adapters. OpenCode is
+available through the shared `adapters/opencode/` path and uses canonical agent
+and workflow sources; the separate Framework-root `.opencode/` compatibility
+tree and GitHub MCP configuration have been removed.
 Active public release-context documents and all four approved optional
 supplemental Knowledge modules have PT-BR mirrors in the current checkout. The
 supplemental mirrors are checked separately for presence, version parity,
@@ -53,11 +54,11 @@ checks did not pass; the pilot is not evidence of a successful readiness gate.
 The default bootstrap now copies the vendor-neutral project base with native
 macOS/Linux shell or Windows PowerShell commands. It accepts explicit `en-US` or
 `pt-BR` language selection and defaults to the `generic` adapter. OpenCode
-configuration is generated only when `--adapter opencode` is selected; existing
-project files and configurations are preserved. The separate Framework-side
-GitHub MCP server is disabled by default, pinned to a release, restricted to
-read-only repository tools and requires explicit local enablement; it does not
-change the client adapter or `generic` path.
+configuration is generated only when `--adapter opencode` is selected and points
+to the canonical Framework agents and workflows. Existing project files and
+configurations are preserved. The Framework does not configure a separate
+GitHub MCP server; OpenCode remains an optional choice in the shared bootstrap
+workflow, with `generic` as the default.
 
 The recommended local setup entrypoints (`setup.sh` and `setup.ps1`) guide users
 through language, project-directory and integration selection before applying
@@ -158,9 +159,11 @@ described only eight agents. Current public guidance is maintained in
 
 ### Local dependencies
 
-`.opencode/node_modules/`, `package.json` and `package-lock.json` were local
-adapter tooling and were removed from the publication surface. The canonical
-`.opencode/` adapter documentation and agent files remain.
+Local `.opencode/node_modules/`, `.opencode/package.json` and
+`.opencode/package-lock.json` had already been removed. This cleanup also
+removes the standalone Framework-root `.opencode/` compatibility tree. The
+optional adapter in `adapters/opencode/` remains and points to canonical
+`agents/` and `workflows/` documents.
 
 ## Publication Documentation
 
@@ -215,8 +218,8 @@ Use these boundaries to reduce future drift:
 - `workflows/`: phase sequence and transitions.
 - `protocols/`: update formats and handoff rules.
 - `schemas/`: artifact structure.
-- `adapters/`: optional CLI adapters; `.opencode/` is Framework-side OpenCode
-  compatibility source only.
+- `adapters/`: optional CLI adapters that use canonical Framework agents and
+  workflows, including the OpenCode adapter selected through bootstrap.
 - `PROJECT_TEMPLATE/`: files copied into client projects.
 - `README.md`: concise public explanation.
 
@@ -233,11 +236,11 @@ The repository now provides lightweight native validation commands that check:
 - canonical agent, workflow, protocol, schema and stable Knowledge mirrors, as
   well as the four approved optional supplemental Knowledge mirrors, retain file and
   structural parity in their respective validation groups;
-- the shell bootstrap has valid syntax and the optional OpenCode configuration
-  parses when a JSON-capable runtime is available.
-- the Framework-side GitHub MCP configuration parses and remains disabled by
-  default, version-pinned, restricted to repository tools and configured
-  read-only; validation does not start Docker or authenticate with GitHub.
+- the shell bootstrap has valid syntax and the optional OpenCode adapter
+  configuration parses when a JSON-capable runtime is available;
+- the Framework-root `.opencode/` tree is absent and the adapter references the
+  canonical agent and workflow documents, without configuring a separate MCP
+  server.
 - active public `OVERVIEW`, `ROADMAP`, `CHANGELOG` and ADR mirrors retain
   structural parity for heading outlines, tables, code fences and HTML comments.
 - one release archive contains both language packs; language selection remains
