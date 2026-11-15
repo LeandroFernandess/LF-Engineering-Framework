@@ -46,6 +46,9 @@ predecessor tag was imported. A local run generates a current report.
 
 ## Covered scenarios
 
+- Both setup assistants display the maintainer contact in help and the 2D LF
+  signature at startup; bootstrap activity frames are cleared on completion and
+  interruption, and narrow/no-animation paths remain static.
 - New project dry-run does not create the target directory.
 - New project application copies the selected language template.
 - PT-BR template and Framework path rendering.
@@ -97,3 +100,28 @@ authorization. The pull-request rule does not require an approving review so the
 single maintainer can merge after checks pass. Restrict write/admin access and
 reassess this policy before granting write access to another person. These access
 controls remain separate from the workflow's validation gates.
+
+## Assistant and documentation checks
+
+```sh
+python3 scripts/check-docs.py
+python3 -m unittest discover -s scripts/tests -v
+```
+
+On Windows use `python` when that is the available launcher. Python is a
+maintainer/CI dependency, not an assistant dependency. The CI matrix runs tests
+on all three platforms. Pseudoterminal sessions run on POSIX; Windows runs native
+bootstrap tests and redirected-input rejection tests. Before a release, manually
+validate language selection, confirmation, cancellation, Ctrl+C, the 2D
+signature and the static fallback in an interactive Windows Terminal. Check a
+narrow POSIX terminal and a basic terminal with animation disabled as well.
+
+Documentation checks cover local inline and reference links, headings and HTML
+anchors outside fenced code. Literal template paths are not treated as links:
+they refer to generated projects or the external library. External URLs are not
+fetched. READMEs have different structures per language; their links and review
+are checked without requiring heading parity.
+
+`locales/translation-review.json` records reviewed-pair hashes. After changing
+one, compare source and translation, record renewed review and update the SHA-256
+hashes. Never refresh hashes solely to silence a failing check.

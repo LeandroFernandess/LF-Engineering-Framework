@@ -276,7 +276,7 @@ Responsável:
 
 Tech Lead Agent
 
-Implementation / selected CLI
+Desenvolvedor
 
 ---
 
@@ -308,7 +308,7 @@ Melhorias do Knowledge
 
 Responsável:
 
-Implementation / selected CLI
+Desenvolvedor
 
 Tech Lead Agent
 

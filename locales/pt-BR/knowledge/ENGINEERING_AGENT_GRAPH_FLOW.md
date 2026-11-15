@@ -98,7 +98,7 @@ O candidato mais forte para adoção é a disciplina determinística do grafo: n
 
 Os candidatos mais fracos ou de maior risco são entrega autônoma, roteamento baseado em feromônios, integração ampla com provedores, recuperação neural e alegações de velocidade de tokens ou entrega. Exigem evidências medidas em projetos e limites de confiança mais fortes antes da adoção.
 
-A recomendação para o LF é um piloto opcional e delegado usando o ledger manual do `agf` primeiro; só depois avaliar um plugin OpenCode, caso o benefício medido supere os custos semânticos, operacionais e de segurança.
+A recomendação para o LF é um piloto opcional e delegado, começando pelo uso manual da CLI do `agf`; avaliar um plugin OpenCode somente se o benefício medido superar os custos semânticos, operacionais e de segurança.
 
 ---
 
@@ -166,7 +166,7 @@ As instruções públicas dos agentes agrupam um ciclo de nove fases em SHAPE, B
 8. DEPLOY: passar o gate de deployment e exportar o estado final.
 9. LISTENING: adicionar achados ou iniciar um novo ciclo a partir dos resultados observados.
 
-O LF tem um ciclo de vida mais longo e mais orientado a artefatos. Os ciclos devem ser mapeados, não mesclados casualmente. Fases do `agf` podem fornecer pontos de verificação de execução dentro de um workflow LF, enquanto o LF continua responsável pelos contratos de artefatos e decisões de aprovação.
+O LF tem um ciclo de vida mais longo e mais orientado a artefatos. Os dois ciclos de vida devem ser mapeados, não mesclados casualmente. Fases do `agf` podem fornecer pontos de verificação de execução dentro de um workflow LF, enquanto o LF continua responsável pelos contratos de artefatos e decisões de aprovação.
 
 ## Sequência LF recomendada
 

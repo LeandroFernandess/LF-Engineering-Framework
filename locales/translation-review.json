@@ -1,0 +1,1000 @@
+{
+  "review_date": "2026-11-15",
+  "source_baseline": "0c2d31a; working-tree maintenance recorded in ADR-022",
+  "reviewed_pairs": [
+    {
+      "source": "CHANGELOG.md",
+      "translation": "locales/pt-BR/public-docs/CHANGELOG.md",
+      "source_sha256": "1915727365d89f340127b12bcaa10dbf4d17650fc48eee227262a74ed970cc6b",
+      "translation_sha256": "1d03c1efb22dcc6fdd2b02912f4db5f6854dbe21ddf0a76e033d6e3153c81f6b",
+      "scope": "New Unreleased entries only"
+    },
+    {
+      "source": "CONTRIBUTING.md",
+      "translation": "locales/pt-BR/public-docs/CONTRIBUTING.md",
+      "scope": "Contribution steps, review expectations, repository boundaries and maintainer references compared.",
+      "source_sha256": "76969f65c2252dbc76c662813c6939219f5ce3f30e6e656763f8ebff70b7d6e2",
+      "translation_sha256": "c515d9ad14cb4655f5d3e516e70de070942e1962be7af1ff9b0b3df02518c228"
+    },
+    {
+      "source": "FIRST_PROMPT_TEMPLATE.md",
+      "translation": "locales/pt-BR/public-docs/FIRST_PROMPT_TEMPLATE.md",
+      "scope": "Prompt sections, approval boundaries, optional MCP suggestions, setup language and copy-ready placeholders compared.",
+      "source_sha256": "354709cf8d2b702a54b3b70e4d2ef81f3f6b83790832599a191191777b5e401e",
+      "translation_sha256": "c8fe1ff6a906b1c936c9d6a04e9219bfdf71679fc2ca1ecc7eb0ccf6299eb5ba"
+    },
+    {
+      "source": "OVERVIEW.md",
+      "translation": "locales/pt-BR/public-docs/OVERVIEW.md",
+      "scope": "Framework purpose, adoption claims, supported entrypoints, dependency boundaries and release references compared.",
+      "source_sha256": "1e07013fe85db9f0222f626f47adbc9c18d9580251f668a493b73a9a98a0dfbb",
+      "translation_sha256": "830a4e1e46d49f7889cfd3fe42fb3b765cf13ddc8a22d7c5d817d96b31c4a453"
+    },
+    {
+      "source": "PROJECT_TEMPLATE/.ai/artifacts.md",
+      "translation": "locales/pt-BR/PROJECT_TEMPLATE/.ai/artifacts.md",
+      "scope": "Template responsibilities, required content, state transitions, identifiers and operational boundaries compared.",
+      "source_sha256": "740d53b22fa191c3e9235f0e87a2f200e3eb6fbed2346e6017274fbc97165dc0",
+      "translation_sha256": "6b76c12fc862941011982cc496f22811a864cd3f5bd97a5af3d2248e0a0364b0"
+    },
+    {
+      "source": "PROJECT_TEMPLATE/.ai/contracts.md",
+      "translation": "locales/pt-BR/PROJECT_TEMPLATE/.ai/contracts.md",
+      "scope": "Upstream prerequisites, permitted exceptions, required artifacts, ownership boundaries and artifact identifiers compared.",
+      "source_sha256": "718f8f8b8e0789a377f160f1105ad8faadb6e93c07cf355ab566bc6fa53184c5",
+      "translation_sha256": "1220720c76425ea5490fbd302d9b56d587b106ac0844723da8f493bd8a656a70"
+    },
+    {
+      "source": "PROJECT_TEMPLATE/.ai/decisions.md",
+      "translation": "locales/pt-BR/PROJECT_TEMPLATE/.ai/decisions.md",
+      "scope": "Decision-record purpose, status and rationale fields, approval boundaries and file references compared.",
+      "source_sha256": "8465f10e2043343d28cba5bd16982bdca89143869881c794d797a6935ff0fad3",
+      "translation_sha256": "a49037aaf7913c83df18e37a6ddef68555d4f1ba815648f777c1a021515480af"
+    },
+    {
+      "source": "PROJECT_TEMPLATE/.ai/handoff.md",
+      "translation": "locales/pt-BR/PROJECT_TEMPLATE/.ai/handoff.md",
+      "scope": "Handoff responsibilities, evidence, next actions, unresolved risks and recipient context compared.",
+      "source_sha256": "3025c7e9c1f21367dd4bf5b165239b388926e4418fd04397d83b4987551010f2",
+      "translation_sha256": "71ac2d3a160a1ba2f5761f312a7cc29e6b206a60f7d7561f52f735bc8f66b208"
+    },
+    {
+      "source": "PROJECT_TEMPLATE/.ai/state/current-agent.md",
+      "translation": "locales/pt-BR/PROJECT_TEMPLATE/.ai/state/current-agent.md",
+      "scope": "State fields, status ownership, handoff timing, update rules and technical identifiers compared with the PT-BR template.",
+      "source_sha256": "6d85507faf7894ce9f8a94ba48553a0e76e4171d70e8edb29a2f7dd7e8f9509e",
+      "translation_sha256": "f0de373130883ee52b3f25dc616ed8162858680e4ff742611f6be23e1043c06c"
+    },
+    {
+      "source": "PROJECT_TEMPLATE/.ai/state/current-phase.md",
+      "translation": "locales/pt-BR/PROJECT_TEMPLATE/.ai/state/current-phase.md",
+      "scope": "State fields, status ownership, handoff timing, update rules and technical identifiers compared with the PT-BR template.",
+      "source_sha256": "57e74877d40482cc4a1d25e2ee5c2c8439ac299ae3b2e492e0cfed2dc31841a0",
+      "translation_sha256": "237b93e8c2a89b7b7735be511137376b9591ea315f53e64698201e0ed570fb39"
+    },
+    {
+      "source": "PROJECT_TEMPLATE/.ai/state/next-actions.md",
+      "translation": "locales/pt-BR/PROJECT_TEMPLATE/.ai/state/next-actions.md",
+      "scope": "State fields, status ownership, handoff timing, update rules and technical identifiers compared with the PT-BR template.",
+      "source_sha256": "673b96341e9af9a80ff936fb59221d9531eb955694c34bd5d42ab08610275f4c",
+      "translation_sha256": "9b3c27bd631ffdc7f08b34d48d8cea6a8c86d718a425e48a825193090b879ae4"
+    },
+    {
+      "source": "PROJECT_TEMPLATE/.ai/state/project-summary.md",
+      "translation": "locales/pt-BR/PROJECT_TEMPLATE/.ai/state/project-summary.md",
+      "scope": "State fields, status ownership, handoff timing, update rules and technical identifiers compared with the PT-BR template.",
+      "source_sha256": "93082a13f290cec79831e54573b965b52fc62065b556c6e1bfef1dc4ccfcf239",
+      "translation_sha256": "eaae698723f5f430dd74db69a0deeacf7169041b5c7ef3cb1d511503d4906873"
+    },
+    {
+      "source": "PROJECT_TEMPLATE/.ai/state/risks.md",
+      "translation": "locales/pt-BR/PROJECT_TEMPLATE/.ai/state/risks.md",
+      "scope": "State fields, status ownership, handoff timing, update rules and technical identifiers compared with the PT-BR template.",
+      "source_sha256": "6be0426f7e98e72ffdca585065cf0866fba3782c2c410d271c262514fa0f4f9f",
+      "translation_sha256": "62095f1be0d69502c641d69b626cc15ce7b9ef5940454d5d1ff98db52bc501c5"
+    },
+    {
+      "source": "PROJECT_TEMPLATE/.ai/tasks.md",
+      "translation": "locales/pt-BR/PROJECT_TEMPLATE/.ai/tasks.md",
+      "scope": "Template responsibilities, required content, state transitions, identifiers and operational boundaries compared.",
+      "source_sha256": "1ac4746df9a523ff798fcb8726e41e51bcf72164ff1f8881a9ebc0298590d0a1",
+      "translation_sha256": "3e9b56677e5d2ad8d1bf1433bb0a9fe222b314347f550a02ecfc9222e611ed52"
+    },
+    {
+      "source": "PROJECT_TEMPLATE/.ai/workflow.md",
+      "translation": "locales/pt-BR/PROJECT_TEMPLATE/.ai/workflow.md",
+      "scope": "Workflow order, artifact gates, owners, exception handling and state references compared.",
+      "source_sha256": "7ecf7df6410c4764cd5830051dd5555b71cf75e2a668df42eef0838336fe3642",
+      "translation_sha256": "25f7a0daaef6b5c8163176caa2aca1b46923bad1a52ca71c48bceff1c4a5c607"
+    },
+    {
+      "source": "PROJECT_TEMPLATE/AGENTS.md",
+      "translation": "locales/pt-BR/PROJECT_TEMPLATE/AGENTS.md",
+      "scope": "Project operating rules, canonical sources, state updates, boundary rules and artifact-contract references compared.",
+      "source_sha256": "78c5dd9311cc0a5099ee713441079cdc62058b1b62e2196d1341daabe4d4d53e",
+      "translation_sha256": "34b58de6f54229c0db31707a16af504ed1277e82f553bd563a26982aba243f46"
+    },
+    {
+      "source": "PROJECT_TEMPLATE/LF_ENGINEERING.md",
+      "translation": "locales/pt-BR/PROJECT_TEMPLATE/LF_ENGINEERING.md",
+      "scope": "Framework relationship, authority boundaries, setup instructions and repository-path placeholder compared.",
+      "source_sha256": "ce97dfe2197a0442b5a7ff7c5615af1a23740b8d344f8c35de397131de75e47c",
+      "translation_sha256": "1236db4fa28eba85e2fa8a28a981a0c34f6ff228d3c976a9266f8c0091eca366"
+    },
+    {
+      "source": "PROJECT_TEMPLATE/README.md",
+      "translation": "locales/pt-BR/PROJECT_TEMPLATE/README.md",
+      "scope": "Template purpose, setup, language selection, generated-file behavior and artifact references compared.",
+      "source_sha256": "1461a4cd9db530642ba8889b8e33f73fd5d88be1dae47d983c9757302755743c",
+      "translation_sha256": "e9cadd28b5b20e000a31133dabbf34f5477489387ce545bd4d1997b0dde12b96"
+    },
+    {
+      "source": "PROJECT_TEMPLATE/docs/ADR.md",
+      "translation": "locales/pt-BR/PROJECT_TEMPLATE/docs/ADR.md",
+      "scope": "Required sections, acceptance and approval rules, artifact dependencies, conditional guidance and technical identifiers compared.",
+      "source_sha256": "41aa357f9b7e4e47cba20c056bf4c093836b654527112246f70dc76f6d205b73",
+      "translation_sha256": "d84c7ac0bfa097acf2f91f2129334e69902db10781c9a84a0e9a9821ea72f182"
+    },
+    {
+      "source": "PROJECT_TEMPLATE/docs/ARCHITECTURE.md",
+      "translation": "locales/pt-BR/PROJECT_TEMPLATE/docs/ARCHITECTURE.md",
+      "scope": "Required sections, acceptance and approval rules, artifact dependencies, conditional guidance and technical identifiers compared.",
+      "source_sha256": "af2766fa09579ec4a6117de6d45051d6ad7ecc9f1aeaadae35d1a7a5ed3da0fd",
+      "translation_sha256": "ab4bdf2c6789229b127e13deafabac2c297cf788c680209851a324edda409000"
+    },
+    {
+      "source": "PROJECT_TEMPLATE/docs/DESIGN.md",
+      "translation": "locales/pt-BR/PROJECT_TEMPLATE/docs/DESIGN.md",
+      "scope": "Required sections, acceptance and approval rules, artifact dependencies, conditional guidance and technical identifiers compared.",
+      "source_sha256": "b699712061f90ca941e94fec754d113efe3e2e84129f5acfe5d268d23661144f",
+      "translation_sha256": "33450e4c2264210028f722b6b02a92aa6f86974642a0880efd4089b6317fb197"
+    },
+    {
+      "source": "PROJECT_TEMPLATE/docs/PERFORMANCE_VALIDATION_REPORT.md",
+      "translation": "locales/pt-BR/PROJECT_TEMPLATE/docs/PERFORMANCE_VALIDATION_REPORT.md",
+      "scope": "Required sections, acceptance and approval rules, artifact dependencies, conditional guidance and technical identifiers compared.",
+      "source_sha256": "214776de972f64006d9b3a9f492f8f8af61c59aef95b25a87792318b92538948",
+      "translation_sha256": "80c111a49d76d6ad4313cc5cf17be83d3f2d26da84aacef56330c947d21a324a"
+    },
+    {
+      "source": "PROJECT_TEMPLATE/docs/PRD.md",
+      "translation": "locales/pt-BR/PROJECT_TEMPLATE/docs/PRD.md",
+      "scope": "Required sections, acceptance and approval rules, artifact dependencies, conditional guidance and technical identifiers compared.",
+      "source_sha256": "37baaa8bbefd5bf4b659faa3aa1ac17c3fc262824ef2889430830b661e4a62d8",
+      "translation_sha256": "19c87b7c2ea9c93f49c28a3cd377e6741b98a369a7de0419e4f04db816988873"
+    },
+    {
+      "source": "PROJECT_TEMPLATE/docs/SPRINTS.md",
+      "translation": "locales/pt-BR/PROJECT_TEMPLATE/docs/SPRINTS.md",
+      "scope": "Required sections, acceptance and approval rules, artifact dependencies, conditional guidance and technical identifiers compared.",
+      "source_sha256": "bfdaf5b8cc8fb4fab5296958d3bd1a9b9e200227e67a542183cc14bbdf3ee64b",
+      "translation_sha256": "0c6a2773bb583856826e7be6a7e3242cc29aee3469f339aa0b1dc5f10692a132"
+    },
+    {
+      "source": "PROJECT_TEMPLATE/docs/TECH_DEBT_AUDIT.md",
+      "translation": "locales/pt-BR/PROJECT_TEMPLATE/docs/TECH_DEBT_AUDIT.md",
+      "scope": "Required sections, acceptance and approval rules, artifact dependencies, conditional guidance and technical identifiers compared.",
+      "source_sha256": "c82a0c8c2c8c27d36cf32c415bbeecc69f6642699349d06245307f2af3b746ac",
+      "translation_sha256": "9e07c8241fc9af00693a54ddfd1308086f09fb007ed897ba5388b3e3b9dbcf3e"
+    },
+    {
+      "source": "README.md",
+      "translation": "README.pt-BR.md",
+      "source_sha256": "02a0b2b46302331cce7d1f0b3bd6f8137ffedf2192d83ec7eff70d8c45c9ae5c",
+      "translation_sha256": "5d2dbba5a6ebb9e23671922da6f5808508aed02513b46c26fb79d9abfb17714c",
+      "scope": "Setup instructions and language policy; navigation intentionally differs"
+    },
+    {
+      "source": "ROADMAP.md",
+      "translation": "locales/pt-BR/public-docs/ROADMAP.md",
+      "scope": "Current and historical roadmap status, milestones, caveats and scope descriptions compared.",
+      "source_sha256": "1bd975dc4e8e963f523ddbd86ac4f206acf8ce32dfd8315139f816b501c65d6e",
+      "translation_sha256": "997951b41740c66aa6801e22f16d73026752a8ceff0f31046d7b04a07bd8e154"
+    },
+    {
+      "source": "SECURITY.md",
+      "translation": "locales/pt-BR/public-docs/SECURITY.md",
+      "scope": "Vulnerability-reporting channel, disclosure process, contact details and security-policy limits compared.",
+      "source_sha256": "7a854c87a2fb76e6cd18a4a6dfef55749d7814c24200c08b05c33a9c5a68695f",
+      "translation_sha256": "f990304f9687a6725cfcee45b5d71eb4ca577350393e3eca5e273eb3c487df88"
+    },
+    {
+      "source": "START_PROJECTS.en-US.md",
+      "translation": "locales/pt-BR/public-docs/START_PROJECTS.md",
+      "source_sha256": "497cc114a48312a85883a7ebe3e6a5fe7479b8efbd9a8e3370b045011ef175fb",
+      "translation_sha256": "ab94fabb0585a911cf90ff3f991c1259d2ae733e3cffe1280ddd7cf1d1421f7e",
+      "scope": "Getting-started instructions and coverage claims"
+    },
+    {
+      "source": "TESTING.md",
+      "translation": "locales/pt-BR/public-docs/TESTING.md",
+      "source_sha256": "e4610812276a2c77a437fd78592fbfa44e3f7df46fb6b7ffa22d6b0d6faf63fc",
+      "translation_sha256": "95fe7d0b463995afd844ec1d51c53ac0646a25eec1dbb8da4d11d873e1cf5748",
+      "scope": "New assistant and documentation check instructions"
+    },
+    {
+      "source": "agents/AGENT_INTERACTION_MAP.md",
+      "translation": "locales/pt-BR/agents/AGENT_INTERACTION_MAP.md",
+      "scope": "Agent handoff sequence, conditional routing, role names and next-agent references compared.",
+      "source_sha256": "71bcc0fd64b38cb1264a9144979fb73bb9dfdb5b3def14fb7eed0dc88770f8a2",
+      "translation_sha256": "89c2a71794f0ff1bb4409dfb10a3eb6d741caa8570dab067b115f2165e33b833"
+    },
+    {
+      "source": "agents/Code-Reviewer/CHANGELOG.md",
+      "translation": "locales/pt-BR/agents/Code-Reviewer/CHANGELOG.md",
+      "scope": "Version history, status changes, dates and named agent or artifact references compared.",
+      "source_sha256": "8011f03c1f9de7c82b4a7afcec7919ea00d9a5ed5cf1c55dbaaef43de86cca69",
+      "translation_sha256": "6dd1db7435e06947adb2489c04ea6d9c13a4f1560730df5e44e9e629278a53f7"
+    },
+    {
+      "source": "agents/Code-Reviewer/CONFIGURATION.md",
+      "translation": "locales/pt-BR/agents/Code-Reviewer/CONFIGURATION.md",
+      "scope": "Configuration purpose, platform-independent requirements, adapter boundaries and identifiers compared.",
+      "source_sha256": "26b1bc3d1977de00fd713b1b5a5f285e9c0165bc6363fe664934ea6c1ca035b9",
+      "translation_sha256": "4f7a185222f15bf1f4a0abef637d6c22d7c90c0e3625150993514a8d1572b531"
+    },
+    {
+      "source": "agents/Code-Reviewer/CONTEXT.md",
+      "translation": "locales/pt-BR/agents/Code-Reviewer/CONTEXT.md",
+      "scope": "Agent context, responsibility boundaries, upstream dependencies and named artifacts compared.",
+      "source_sha256": "971dad18ea78a25b92a593859a19c7d6a1f272bbb8b8faaff0fce9d1739b99fd",
+      "translation_sha256": "4fc09cc4084669f9bd70459de98b313911160cb64a3140e9d5baf958ec7a9721"
+    },
+    {
+      "source": "agents/Code-Reviewer/KNOWLEDGE.md",
+      "translation": "locales/pt-BR/agents/Code-Reviewer/KNOWLEDGE.md",
+      "scope": "Knowledge references, applicability conditions, responsibility boundaries and technical identifiers compared.",
+      "source_sha256": "be49ba3b2bc321eb799e71fc0d281429106085ac6c4512a89aa3b03bb4296811",
+      "translation_sha256": "c3b9af452c3f7ae14f16e5f80d7cd912d1807389e63637bdcdbc07e04c701684"
+    },
+    {
+      "source": "agents/Code-Reviewer/README.md",
+      "translation": "locales/pt-BR/agents/Code-Reviewer/README.md",
+      "scope": "Agent purpose, when-to-use guidance, inputs, outputs and handoff references compared.",
+      "source_sha256": "863b1accd59b53c43c251fcfbdfc75002b3525f962190db81c4cc0fcf42c5e21",
+      "translation_sha256": "929b4eafcfcc494eafeda3ed496a13b3484efc6003e359f6e176a2b526141327"
+    },
+    {
+      "source": "agents/Code-Reviewer/SPECS.md",
+      "translation": "locales/pt-BR/agents/Code-Reviewer/SPECS.md",
+      "source_sha256": "6b90f7d518f576c750997efd3b7045d718769d2b8759eed431c98800a4ec5df7",
+      "translation_sha256": "18e5617c36a999038201c2abf7b628e87ad7d6c0f5f5bdfff975cd493b1878ac",
+      "scope": "Full specification translation; responsibilities, conditional rules and identifiers compared"
+    },
+    {
+      "source": "agents/Design-System-Analyst/CHANGELOG.md",
+      "translation": "locales/pt-BR/agents/Design-System-Analyst/CHANGELOG.md",
+      "scope": "Version history, status changes, dates and named agent or artifact references compared.",
+      "source_sha256": "9158977daf6cc734cfdcf84c5f554c606310399c90f9b554a85fb64433d30d52",
+      "translation_sha256": "6865123b30caae3c7658533212432a3b0ddf13f127fa731f2049e3eaed485268"
+    },
+    {
+      "source": "agents/Design-System-Analyst/CONFIGURATION.md",
+      "translation": "locales/pt-BR/agents/Design-System-Analyst/CONFIGURATION.md",
+      "scope": "Configuration purpose, platform-independent requirements, adapter boundaries and identifiers compared.",
+      "source_sha256": "3f250fdbb461eb765d4a46bd2561cc1f5e6d842b0a1f2b4f98333618cbbfaa33",
+      "translation_sha256": "246d531dfe04d00c6f49ca88b3c2cc3dec3b5648b97bd9c32981d53f8261bdc6"
+    },
+    {
+      "source": "agents/Design-System-Analyst/CONTEXT.md",
+      "translation": "locales/pt-BR/agents/Design-System-Analyst/CONTEXT.md",
+      "scope": "Agent context, responsibility boundaries, upstream dependencies and named artifacts compared.",
+      "source_sha256": "c66474f6950042490d8ae97430f01b5cf0d7f3e63e4c60a527a129d82d928065",
+      "translation_sha256": "6bc53b9ea18df646a5dfc994b8716f271badc3f993341da754fd9bd081b72c1c"
+    },
+    {
+      "source": "agents/Design-System-Analyst/KNOWLEDGE.md",
+      "translation": "locales/pt-BR/agents/Design-System-Analyst/KNOWLEDGE.md",
+      "scope": "Knowledge references, applicability conditions, responsibility boundaries and technical identifiers compared.",
+      "source_sha256": "c5932fd2622d59ca5f2403502d894384f4b87b493256b077ae7cafce09a4fc6c",
+      "translation_sha256": "35c3b1d027e9f45880ca82a9318bfee7c636dce584f91790a6040b3e5abdea8a"
+    },
+    {
+      "source": "agents/Design-System-Analyst/README.md",
+      "translation": "locales/pt-BR/agents/Design-System-Analyst/README.md",
+      "scope": "Agent purpose, when-to-use guidance, inputs, outputs and handoff references compared.",
+      "source_sha256": "92de2fc5aae78a3f0a7c2f5ce7df7bb53f967cf09df069aa201c4d4969ceeb38",
+      "translation_sha256": "3c8820cac186700923c1e2c8ffd553d313d4191ffbcc5fd9695a8910ceb4f861"
+    },
+    {
+      "source": "agents/Design-System-Analyst/SPECS.md",
+      "translation": "locales/pt-BR/agents/Design-System-Analyst/SPECS.md",
+      "source_sha256": "4be6ab1c81777d0c238fd2babed2bd673edcd10af58bbe5927aa973f8e2a95ec",
+      "translation_sha256": "795d9bced0828a359ab509679e163a030ab3d79a6b37d32560d5ca9ec4d976f3",
+      "scope": "Full specification translation; responsibilities, conditional rules and identifiers compared"
+    },
+    {
+      "source": "agents/Documentation/CHANGELOG.md",
+      "translation": "locales/pt-BR/agents/Documentation/CHANGELOG.md",
+      "scope": "Version history, status changes, dates and named agent or artifact references compared.",
+      "source_sha256": "69a9e222b602b12fd33266db9071656eb8abe0e408e4fcea681422fb02b57027",
+      "translation_sha256": "122101c969002abc46cc3e25e85ce4467f923ebf460b6f40a2c931cb653a692f"
+    },
+    {
+      "source": "agents/Documentation/CONFIGURATION.md",
+      "translation": "locales/pt-BR/agents/Documentation/CONFIGURATION.md",
+      "scope": "Configuration purpose, platform-independent requirements, adapter boundaries and identifiers compared.",
+      "source_sha256": "3aa117c216765067b80e30c4d56a90b2c5ab816b6e993a2d9f3cfbf695e6d0b6",
+      "translation_sha256": "6ef3936d8f6a019ef5dd2c5ee69a68023c3faeccbd77e7aa29346066b9e93a1a"
+    },
+    {
+      "source": "agents/Documentation/CONTEXT.md",
+      "translation": "locales/pt-BR/agents/Documentation/CONTEXT.md",
+      "scope": "Agent context, responsibility boundaries, upstream dependencies and named artifacts compared.",
+      "source_sha256": "a2c8a8ce3c85f5e00671473b304530da35bdb6a178bc8e6b1475c21d83241522",
+      "translation_sha256": "10cec07a77e39f6242466018e1d4e05d34cf14ab3691de6c94581ba3ab4e58ad"
+    },
+    {
+      "source": "agents/Documentation/KNOWLEDGE.md",
+      "translation": "locales/pt-BR/agents/Documentation/KNOWLEDGE.md",
+      "scope": "Knowledge references, applicability conditions, responsibility boundaries and technical identifiers compared.",
+      "source_sha256": "4fe704dbdc3e621a756ea0ba7c7c0a1b3458a5bf8a450ebbaa1c1193007a4480",
+      "translation_sha256": "e5aab8d30aa3468715af959a5ac15a0a86b694de8668775948584cf9abd09bed"
+    },
+    {
+      "source": "agents/Documentation/README.md",
+      "translation": "locales/pt-BR/agents/Documentation/README.md",
+      "scope": "Agent purpose, when-to-use guidance, inputs, outputs and handoff references compared.",
+      "source_sha256": "4c54157ce35fda629a393c58a71428abb2661ed18d8709059995243cf183a77a",
+      "translation_sha256": "4bb98a9ea634ab1cfe29a268947b2ace2617d3f8cc4fc52701ba9a7f84ff7953"
+    },
+    {
+      "source": "agents/Documentation/SPECS.md",
+      "translation": "locales/pt-BR/agents/Documentation/SPECS.md",
+      "source_sha256": "3a5d5dde39451de51601ece0ec26e1683e5d99d4a5888fbbd7b42b23ba01b725",
+      "translation_sha256": "f04d0e82f6f844754dacc0f27e7c9823ded54b88f67e3d76856c77fad2256218",
+      "scope": "Full specification translation; responsibilities, conditional rules and identifiers compared"
+    },
+    {
+      "source": "agents/Engineering-Knowledge-Extractor/CHANGELOG.md",
+      "translation": "locales/pt-BR/agents/Engineering-Knowledge-Extractor/CHANGELOG.md",
+      "scope": "Version history, status changes, dates and named agent or artifact references compared.",
+      "source_sha256": "a1fb00ca9adb6e4c575562bb1bb80cb8535e6b27d441a4652fe9b536439b1d84",
+      "translation_sha256": "86ef32d96282b5c2579527f427fb48313d672529de9a51cbd689bfd636566d5a"
+    },
+    {
+      "source": "agents/Engineering-Knowledge-Extractor/CONFIGURATION.md",
+      "translation": "locales/pt-BR/agents/Engineering-Knowledge-Extractor/CONFIGURATION.md",
+      "scope": "Configuration purpose, platform-independent requirements, adapter boundaries and identifiers compared.",
+      "source_sha256": "7c48d2cf1edcbc6bb20b907ce12607e5ef7588d99e1c212bda8e3d9e6ed8bbb5",
+      "translation_sha256": "8d25843f503b447ae98e8dfd815594c782508989b4b411980a858fd26d3daadc"
+    },
+    {
+      "source": "agents/Engineering-Knowledge-Extractor/CONTEXT.md",
+      "translation": "locales/pt-BR/agents/Engineering-Knowledge-Extractor/CONTEXT.md",
+      "scope": "Agent context, responsibility boundaries, upstream dependencies and named artifacts compared.",
+      "source_sha256": "4114cdcdf485a79e21e5ca8838a52f829f8ddb88b7014ca99bbdd24199abf215",
+      "translation_sha256": "6f8fb8f6b3ca257a78d9d5f30a675fc6fdd8e959ff9a081a23ead67a8de30688"
+    },
+    {
+      "source": "agents/Engineering-Knowledge-Extractor/KNOWLEDGE.md",
+      "translation": "locales/pt-BR/agents/Engineering-Knowledge-Extractor/KNOWLEDGE.md",
+      "scope": "Knowledge references, applicability conditions, responsibility boundaries and technical identifiers compared.",
+      "source_sha256": "a3ef900ad8c9af2f45b49d096eefca38c7f05d92bc1ce82c41f491fa43658ab9",
+      "translation_sha256": "ad637011bf996ba87eb05fc661d697fde9a816e0ff6d2bfaa8937c13f09565dc"
+    },
+    {
+      "source": "agents/Engineering-Knowledge-Extractor/README.md",
+      "translation": "locales/pt-BR/agents/Engineering-Knowledge-Extractor/README.md",
+      "scope": "Agent purpose, when-to-use guidance, inputs, outputs and handoff references compared.",
+      "source_sha256": "8968f6a872695312e7b7e3d7339dfe966e1a381271f6fd9495c53648c1485426",
+      "translation_sha256": "81514357e040d510adb8ffdbbaf779eb9b7ffc176d11fddbb5397d1f42bd411a"
+    },
+    {
+      "source": "agents/Engineering-Knowledge-Extractor/SPECS.md",
+      "translation": "locales/pt-BR/agents/Engineering-Knowledge-Extractor/SPECS.md",
+      "source_sha256": "0a5ecb3774d29d675db6f6307515ab32cd0207607186dce47979f0f205e246ad",
+      "translation_sha256": "8bb37a506f7f2e7913b3ccfa0c11751e3eb8aeb0de52725f233ed90bf49a1229",
+      "scope": "Full specification translation; responsibilities, conditional rules and identifiers compared"
+    },
+    {
+      "source": "agents/Engineering-Manager/CHANGELOG.md",
+      "translation": "locales/pt-BR/agents/Engineering-Manager/CHANGELOG.md",
+      "scope": "Version history, status changes, dates and named agent or artifact references compared.",
+      "source_sha256": "d2ffe0b0cf68b49332d47b4e61b4a68b98a4b29c5b333ceb1f80666b7bebe68a",
+      "translation_sha256": "c0aeeeddfc464344dfa650dd9556f02812023bbefa3b4cba92846d18edb2c1cd"
+    },
+    {
+      "source": "agents/Engineering-Manager/CONFIGURATION.md",
+      "translation": "locales/pt-BR/agents/Engineering-Manager/CONFIGURATION.md",
+      "scope": "Configuration purpose, platform-independent requirements, adapter boundaries and identifiers compared.",
+      "source_sha256": "efe49fd480dc56f48ca3b721993169176f76fa2d02483803ca448f9ce862da5e",
+      "translation_sha256": "daea33bf063620c6cf409032172332fca137506af8318f81dc6c60a96ee14274"
+    },
+    {
+      "source": "agents/Engineering-Manager/CONTEXT.md",
+      "translation": "locales/pt-BR/agents/Engineering-Manager/CONTEXT.md",
+      "scope": "Agent context, responsibility boundaries, upstream dependencies and named artifacts compared.",
+      "source_sha256": "cc80ba575518073d4e1fe37f02720dca96c8e639b19ac14dd4a6dbad2ceb9d00",
+      "translation_sha256": "1e7d06ca57948975b6d484e8c351ea94c9e26ffc1890a4018d3f68010df3fab9"
+    },
+    {
+      "source": "agents/Engineering-Manager/KNOWLEDGE.md",
+      "translation": "locales/pt-BR/agents/Engineering-Manager/KNOWLEDGE.md",
+      "scope": "Knowledge references, applicability conditions, responsibility boundaries and technical identifiers compared.",
+      "source_sha256": "8c40f9c034eb79008b558d40c00846b825a65c81c15b75e7b7925215b92b784f",
+      "translation_sha256": "a166a94f82921dd95b0f7f8a62b857d7f93857242ed8f9f894275d0f765a659e"
+    },
+    {
+      "source": "agents/Engineering-Manager/README.md",
+      "translation": "locales/pt-BR/agents/Engineering-Manager/README.md",
+      "scope": "Agent purpose, when-to-use guidance, inputs, outputs and handoff references compared.",
+      "source_sha256": "54a79e44c62cdaffcf4845140e5dd0d075d65cb6b261f91b419e488edf5f217d",
+      "translation_sha256": "a04ae4af8a105eb2a663d35fb4c28711f52ec42122db4590e57efc88470682e2"
+    },
+    {
+      "source": "agents/Engineering-Manager/SPECS.md",
+      "translation": "locales/pt-BR/agents/Engineering-Manager/SPECS.md",
+      "source_sha256": "6de630212e8da83e5aa0064b1273abeb2bacb4ef987e46b2e305ef348465c15a",
+      "translation_sha256": "ab343dd2e56d860dea4e302c58e0c371814bf7ff017865d3ef6f0e1d4df13114",
+      "scope": "Full specification translation; responsibilities, conditional rules and identifiers compared"
+    },
+    {
+      "source": "agents/Product-Owner/CHANGELOG.md",
+      "translation": "locales/pt-BR/agents/Product-Owner/CHANGELOG.md",
+      "scope": "Version history, status changes, dates and named agent or artifact references compared.",
+      "source_sha256": "f028bd62e085c6e9b876a3354e6ea643d3bed5f326df8384f2a366a4aa078293",
+      "translation_sha256": "92c54c13560eb1ca741c061f8e2a5d54a41830e838b870f40f83f74e7aaef6f7"
+    },
+    {
+      "source": "agents/Product-Owner/CONFIGURATION.md",
+      "translation": "locales/pt-BR/agents/Product-Owner/CONFIGURATION.md",
+      "scope": "Configuration purpose, platform-independent requirements, adapter boundaries and identifiers compared.",
+      "source_sha256": "3bcc4ee5c9800a70f14b534479a8f605357a6f1c2e76a95856be2be3f7ad8117",
+      "translation_sha256": "54cff7dd9e6bae517293da1c3d268054aa4b83b95257c1980d42b86e161c2962"
+    },
+    {
+      "source": "agents/Product-Owner/CONTEXT.md",
+      "translation": "locales/pt-BR/agents/Product-Owner/CONTEXT.md",
+      "scope": "Agent context, responsibility boundaries, upstream dependencies and named artifacts compared.",
+      "source_sha256": "ffca82f911d6c23664baded7bc2ca2dac3775d397e463a1ac439d572a64e93ff",
+      "translation_sha256": "a65511d772b1880de4fc045ce391fa262e5507233cff07657e731e76fcbc48da"
+    },
+    {
+      "source": "agents/Product-Owner/KNOWLEDGE.md",
+      "translation": "locales/pt-BR/agents/Product-Owner/KNOWLEDGE.md",
+      "scope": "Knowledge references, applicability conditions, responsibility boundaries and technical identifiers compared.",
+      "source_sha256": "41202431bda597a70ad8d72b3a7e946aa1f14ece1429b6a7209be80cb3979e9c",
+      "translation_sha256": "d86eb9dd1169459ea138beabcc4a5a4ca822a32e733b01e9b9163621101fa73f"
+    },
+    {
+      "source": "agents/Product-Owner/README.md",
+      "translation": "locales/pt-BR/agents/Product-Owner/README.md",
+      "scope": "Concise agent entrypoint, role boundaries, key outputs, unique mobile/desktop performance requirement and links to canonical details compared with PT-BR.",
+      "source_sha256": "32b7ab120a9ac482e89534d26a8cf992ae33ef1ee7908e6ed01dbd5f1c952514",
+      "translation_sha256": "3521812a82469bc4e031f55854fa3c2b8383c4963239a78c04c867921a06d5f7"
+    },
+    {
+      "source": "agents/Product-Owner/SPECS.md",
+      "translation": "locales/pt-BR/agents/Product-Owner/SPECS.md",
+      "source_sha256": "2b721b33adb818d4632a8adc6768446e05b7e1b421c16ed5212c3bb966cb4573",
+      "translation_sha256": "8557318e242f6fd9b15137c921fe55e35e046d2688677a8333ef2bafe5a670cf",
+      "scope": "Full specification translation; responsibilities, conditional rules and identifiers compared"
+    },
+    {
+      "source": "agents/Prompt-Architect/CHANGELOG.md",
+      "translation": "locales/pt-BR/agents/Prompt-Architect/CHANGELOG.md",
+      "scope": "Version history, status changes, dates and named agent or artifact references compared.",
+      "source_sha256": "bcd2d6656efae3c0b8c9d2b0d64b2e24cd530c9f1f263f6d0c534f42005c404b",
+      "translation_sha256": "786eefbebdd51bd0922a4e09afd9361a3dbd43d53e5efb1e63d6f5dec7f88c4c"
+    },
+    {
+      "source": "agents/Prompt-Architect/CONFIGURATION.md",
+      "translation": "locales/pt-BR/agents/Prompt-Architect/CONFIGURATION.md",
+      "scope": "Configuration purpose, platform-independent requirements, adapter boundaries and identifiers compared.",
+      "source_sha256": "7c91c05b5344b8fbf88a659d1b2cdec632de4aad43ea8c05ff79118564065331",
+      "translation_sha256": "cd423ed82506b2453b17dd9dcbc1ffad5493b742e2b447cd55c2d3d1c73a6491"
+    },
+    {
+      "source": "agents/Prompt-Architect/CONTEXT.md",
+      "translation": "locales/pt-BR/agents/Prompt-Architect/CONTEXT.md",
+      "scope": "Agent context, responsibility boundaries, upstream dependencies and named artifacts compared.",
+      "source_sha256": "4f383ee866053ae71f61bce4fe10d26136038f40290e3a5bdd901abd8087c4e5",
+      "translation_sha256": "b92d472fe6102c77dc5a876d170671fba880ceab6e4230ab737a66a8caac7212"
+    },
+    {
+      "source": "agents/Prompt-Architect/KNOWLEDGE.md",
+      "translation": "locales/pt-BR/agents/Prompt-Architect/KNOWLEDGE.md",
+      "scope": "Knowledge references, applicability conditions, responsibility boundaries and technical identifiers compared.",
+      "source_sha256": "a5ec4f119889096dec98ed08f27f70dde106194fa4946640eec8e00c97893f8e",
+      "translation_sha256": "3145a32d4665772cdc978c56554386221bb69565563dbccb16f4e5dcb782233a"
+    },
+    {
+      "source": "agents/Prompt-Architect/README.md",
+      "translation": "locales/pt-BR/agents/Prompt-Architect/README.md",
+      "scope": "Agent purpose, when-to-use guidance, inputs, outputs and handoff references compared.",
+      "source_sha256": "ec25911a1636b2cb2820d530662cfdf2247d479b43bcc5b998a94f8f1b5cf433",
+      "translation_sha256": "80b45251631d88b07a08b9f3b46c7557e25da281ff38d8b7c0a96d66b4af3118"
+    },
+    {
+      "source": "agents/Prompt-Architect/SPECS.md",
+      "translation": "locales/pt-BR/agents/Prompt-Architect/SPECS.md",
+      "source_sha256": "52fcfe109c975f065551fdbc6648caf7dfeb28485c01bf92e15cc980345ae446",
+      "translation_sha256": "be74676f1ff8d77b3cecb4c1dfbd6fa021d82b4e194cfbe8f30427592fd2a983",
+      "scope": "Full specification translation; responsibilities, conditional rules and identifiers compared"
+    },
+    {
+      "source": "agents/QA-Security/CHANGELOG.md",
+      "translation": "locales/pt-BR/agents/QA-Security/CHANGELOG.md",
+      "scope": "Version history, status changes, dates and named agent or artifact references compared.",
+      "source_sha256": "b2846361116a8cd9f7e237c929c8336979050f8d51e5fadd0ea2fe39c73e185a",
+      "translation_sha256": "7f2c31c778c109c3231b9ef5483bf3302c1436d50333bb46927993db816b8c75"
+    },
+    {
+      "source": "agents/QA-Security/CONFIGURATION.md",
+      "translation": "locales/pt-BR/agents/QA-Security/CONFIGURATION.md",
+      "scope": "Configuration purpose, platform-independent requirements, adapter boundaries and identifiers compared.",
+      "source_sha256": "c71841471add5f6c530c5bd18bd48be10e242ffb9d5cea5e584cc7d7cee424a3",
+      "translation_sha256": "642cb52b60fdd4a0addd141be1cf8d82d2e74fe34025a9308baa9b43debc65c0"
+    },
+    {
+      "source": "agents/QA-Security/CONTEXT.md",
+      "translation": "locales/pt-BR/agents/QA-Security/CONTEXT.md",
+      "scope": "Agent context, responsibility boundaries, upstream dependencies and named artifacts compared.",
+      "source_sha256": "38cb29e3ab1f3c6b68e4bc88314dffae0b56fac418bfe5e374afe2b58105d2a1",
+      "translation_sha256": "37626fbd30cddf1c053b4e53740c74ff23f1c5b0b18ae046b20dd9cdbb8e016e"
+    },
+    {
+      "source": "agents/QA-Security/KNOWLEDGE.md",
+      "translation": "locales/pt-BR/agents/QA-Security/KNOWLEDGE.md",
+      "scope": "Knowledge references, applicability conditions, responsibility boundaries and technical identifiers compared.",
+      "source_sha256": "e82b61d5040da0dcb9fbbe5db288671a0fddfac7116e9fb0e186affc0a7750d3",
+      "translation_sha256": "bc021021654381b47474a7e8ac9cd15ffb4779ee7ee225b00e14c952124fe526"
+    },
+    {
+      "source": "agents/QA-Security/README.md",
+      "translation": "locales/pt-BR/agents/QA-Security/README.md",
+      "scope": "Agent purpose, when-to-use guidance, inputs, outputs and handoff references compared.",
+      "source_sha256": "4a0448db469ef87d1bfebf48e30b1e217f8e9596680cd12a2e65ff5085b85fec",
+      "translation_sha256": "da49e2f477ae72bedf75481f5a7f96e9c82a02c2603fb1daafaaab96927ad1c7"
+    },
+    {
+      "source": "agents/QA-Security/SPECS.md",
+      "translation": "locales/pt-BR/agents/QA-Security/SPECS.md",
+      "source_sha256": "66754092173848561abdde678c77833f78859387a41840b11fa476a1ce8df779",
+      "translation_sha256": "e09fb30b40a5efd62863e5a60c4178ce6e94b8e4c0edb330addc39b4a5dfbd6d",
+      "scope": "Full specification translation; responsibilities, conditional rules and identifiers compared"
+    },
+    {
+      "source": "agents/README.md",
+      "translation": "locales/pt-BR/agents/README.md",
+      "scope": "Agent library structure, platform-independent behavior policy, setup guidance and new-agent documentation sequence compared.",
+      "source_sha256": "655c8c9437f4e789d3528cd344ac20c0ab47d3409b95b313d582d29878a0f4ea",
+      "translation_sha256": "9e4994acec42e83ec5eab5c6f14ff711da2b37de9d6a1cb9cf6e413707bd30ef"
+    },
+    {
+      "source": "agents/Software-Architect/CHANGELOG.md",
+      "translation": "locales/pt-BR/agents/Software-Architect/CHANGELOG.md",
+      "scope": "Version history, status changes, dates and named agent or artifact references compared.",
+      "source_sha256": "4372240473fde09780c20d1cc382d8977a1b2fade207a8bf784274b243af0057",
+      "translation_sha256": "fdf70bbb85f563c42fadb182706af2da17ae3c577dd48b102d4c3284dc0f13b8"
+    },
+    {
+      "source": "agents/Software-Architect/CONFIGURATION.md",
+      "translation": "locales/pt-BR/agents/Software-Architect/CONFIGURATION.md",
+      "scope": "Configuration purpose, platform-independent requirements, adapter boundaries and identifiers compared.",
+      "source_sha256": "229e141e2d850bd293cbc291a3eabcd8d18450b46b53b0e578e86f3982bb658a",
+      "translation_sha256": "3c178d19b72e3c6ed544e41fa8bf1c3fcc9be6ea6afa02a41287ffd66b499e96"
+    },
+    {
+      "source": "agents/Software-Architect/CONTEXT.md",
+      "translation": "locales/pt-BR/agents/Software-Architect/CONTEXT.md",
+      "scope": "Agent context, responsibility boundaries, upstream dependencies and named artifacts compared.",
+      "source_sha256": "1aad66ded1c1a7e1d2373097a1c3858194fda971253edd06d7829e47cab62e6e",
+      "translation_sha256": "fe91aeabc3b01abd7703a7c560563e82690b05bac5b844f155ae8fb97f51e7f8"
+    },
+    {
+      "source": "agents/Software-Architect/KNOWLEDGE.md",
+      "translation": "locales/pt-BR/agents/Software-Architect/KNOWLEDGE.md",
+      "scope": "Knowledge references, applicability conditions, responsibility boundaries and technical identifiers compared.",
+      "source_sha256": "ed44301dff857a2c0242d01070f550fe1822bce5ba5db027ef6e57b7365612d1",
+      "translation_sha256": "554868a0be5722e9bf9ffe8803cae42b561aaaf68efe242a7bcd868786e07d0c"
+    },
+    {
+      "source": "agents/Software-Architect/README.md",
+      "translation": "locales/pt-BR/agents/Software-Architect/README.md",
+      "scope": "Agent purpose, when-to-use guidance, inputs, outputs and handoff references compared.",
+      "source_sha256": "dd18e0bf818b9e7ab9488528e5b8e5bc44f48ce1928a6b0a051f19dfceec4811",
+      "translation_sha256": "8b031e581f0ed6709eb4ac8d3e1bfb6a948dbf0cdcc9249a4fd450b74c3c47c1"
+    },
+    {
+      "source": "agents/Software-Architect/SPECS.md",
+      "translation": "locales/pt-BR/agents/Software-Architect/SPECS.md",
+      "source_sha256": "530ff0364f8c0aab09c1feba62a4a37a77052f7433d956559ede565dc0165552",
+      "translation_sha256": "3ac4f264fbfd220ebb4f21401688e7a5d290790cff07a0808c8e6ae85c0b8b26",
+      "scope": "Full specification translation; responsibilities, conditional rules and identifiers compared"
+    },
+    {
+      "source": "agents/Sprint-Planner/CHANGELOG.md",
+      "translation": "locales/pt-BR/agents/Sprint-Planner/CHANGELOG.md",
+      "scope": "Version history, status changes, dates and named agent or artifact references compared.",
+      "source_sha256": "b1609724adcd554803ac4da5e10894e6e95133f41a127c8555beef4a95ec7474",
+      "translation_sha256": "38b0afb7cb92ac98a2c007ea1522d6bdb1b77e544df1b766f4f9b4811246ecc9"
+    },
+    {
+      "source": "agents/Sprint-Planner/CONFIGURATION.md",
+      "translation": "locales/pt-BR/agents/Sprint-Planner/CONFIGURATION.md",
+      "scope": "Configuration purpose, platform-independent requirements, adapter boundaries and identifiers compared.",
+      "source_sha256": "11461f8dac5e1a8fe40adba7fd065bb5e1b9ec0c4826ef00aada04e5c7916d0c",
+      "translation_sha256": "8e75e44bbfe4cfadef1df4d236a4ae2a0d0618eb36c2b46ac0cbf5173382c8f9"
+    },
+    {
+      "source": "agents/Sprint-Planner/CONTEXT.md",
+      "translation": "locales/pt-BR/agents/Sprint-Planner/CONTEXT.md",
+      "scope": "Agent context, responsibility boundaries, upstream dependencies and named artifacts compared.",
+      "source_sha256": "2204dddf93c283085c8f800927fcbcb12cdaefb37c247df782ef735b949b22c2",
+      "translation_sha256": "29bb04399a891065369b8167239f79685b5b1a5dd9a31c44ef5f81eba63bb8b9"
+    },
+    {
+      "source": "agents/Sprint-Planner/KNOWLEDGE.md",
+      "translation": "locales/pt-BR/agents/Sprint-Planner/KNOWLEDGE.md",
+      "scope": "Knowledge references, applicability conditions, responsibility boundaries and technical identifiers compared.",
+      "source_sha256": "3c4959439809c1bb262986a8dde4021517c7e8414d65ec9304bd12447cf35865",
+      "translation_sha256": "4dc0c1580d86896939a018ed958f28bd2ddade9715e8d3d44bf9b108646a6998"
+    },
+    {
+      "source": "agents/Sprint-Planner/README.md",
+      "translation": "locales/pt-BR/agents/Sprint-Planner/README.md",
+      "scope": "Agent purpose, when-to-use guidance, inputs, outputs and handoff references compared.",
+      "source_sha256": "ba7607fb6dbb3b3faed1a36ebe01bbcf51850550e1b9394dfa68bdd3cdf5818f",
+      "translation_sha256": "e97363049e8bde199078fd118737f8ca6e7dea77d9bfed57f72b95baacd31bc9"
+    },
+    {
+      "source": "agents/Sprint-Planner/SPECS.md",
+      "translation": "locales/pt-BR/agents/Sprint-Planner/SPECS.md",
+      "source_sha256": "4f8c04613aea7b1c663a3b1c39a7b088411a7d5b122436ef7aa1a8c9bb53b97c",
+      "translation_sha256": "4c2ae955370c60b30a8d7eec37075ab154842d5ab9be5053b387b6f72f40590d",
+      "scope": "Full specification translation; responsibilities, conditional rules and identifiers compared"
+    },
+    {
+      "source": "agents/Tech-Lead/CHANGELOG.md",
+      "translation": "locales/pt-BR/agents/Tech-Lead/CHANGELOG.md",
+      "scope": "Version history, status changes, dates and named agent or artifact references compared.",
+      "source_sha256": "21d72797cc3dbc13beaec25e8191c3420a52e392f784b9bcd91821e3203593d5",
+      "translation_sha256": "738febf1f31399f7a03c43ca5347013334b89cef39b35598218c06257675a39a"
+    },
+    {
+      "source": "agents/Tech-Lead/CONFIGURATION.md",
+      "translation": "locales/pt-BR/agents/Tech-Lead/CONFIGURATION.md",
+      "scope": "Configuration purpose, platform-independent requirements, adapter boundaries and identifiers compared.",
+      "source_sha256": "9387e1d6747708e007d6c8d8dd9ab3c331a1140d1b7b3fd305125c527ba36406",
+      "translation_sha256": "8c43f3f6c3c4242d3d2e2b8d69da1c70763a63b54fcba42654d53cb5c5493b27"
+    },
+    {
+      "source": "agents/Tech-Lead/CONTEXT.md",
+      "translation": "locales/pt-BR/agents/Tech-Lead/CONTEXT.md",
+      "scope": "Agent context, responsibility boundaries, upstream dependencies and named artifacts compared.",
+      "source_sha256": "d53ce51bab877b1a50e23181833895ac3cc64917bc9378b1c5321faac5d014f1",
+      "translation_sha256": "9133d7a72daf41c6acd6444cd286f2e6a2476285d3e62a7ad76126f83c8a4713"
+    },
+    {
+      "source": "agents/Tech-Lead/KNOWLEDGE.md",
+      "translation": "locales/pt-BR/agents/Tech-Lead/KNOWLEDGE.md",
+      "scope": "Knowledge references, applicability conditions, responsibility boundaries and technical identifiers compared.",
+      "source_sha256": "6a0e57e82d6b3270295035dd80932dc3d118a5f1c91fb1e2f9691f22f01e7293",
+      "translation_sha256": "38eb240a0974d5c93a4fb3718e8fbf80f476d9d19f5c1b473b906db0dd7182a7"
+    },
+    {
+      "source": "agents/Tech-Lead/README.md",
+      "translation": "locales/pt-BR/agents/Tech-Lead/README.md",
+      "scope": "Agent purpose, when-to-use guidance, inputs, outputs and handoff references compared.",
+      "source_sha256": "c8c1980855ee8a6e2a4bbff0161f9706bf5b60f2de56231df0eca19449d472d7",
+      "translation_sha256": "5c8f50bd9c8afa95e571a55facfa707ebfb50a48e2b361db595da140f7567f1e"
+    },
+    {
+      "source": "agents/Tech-Lead/SPECS.md",
+      "translation": "locales/pt-BR/agents/Tech-Lead/SPECS.md",
+      "source_sha256": "966ed70f8212f55cff5b8bcc89bff9be8ad611d51c3de10a82cadfde587dd21c",
+      "translation_sha256": "5a609baef700c74947c649f82e1ba9d880be30e665ec42df3176143a55cfef38",
+      "scope": "Full specification translation; responsibilities, conditional rules and identifiers compared"
+    },
+    {
+      "source": "docs/ADR.md",
+      "translation": "locales/pt-BR/docs/ADR.md",
+      "source_sha256": "4c034ffcea467f42e6ff2fc531afc712952400050d715bdf2cc8e36891c42135",
+      "translation_sha256": "85a20d4e96f7ac1cbd5058002fad72474e638a70669dcc1a4c2b3be39b5f7f9d",
+      "scope": "ADR-022 only"
+    },
+    {
+      "source": "docs/security-audit/README.md",
+      "translation": "locales/pt-BR/public-docs/SECURITY_AUDIT.md",
+      "scope": "Audit purpose, evidence classes, scope limits, finding severity and security-review boundaries compared.",
+      "source_sha256": "9dc3be1f6d0f343a3338388729bc86129bcd28c83a989710675838df8f6f371a",
+      "translation_sha256": "d368b5b8dc0cb207770208ae82a25f6bfb974a8362ffa1eef8a30b8cad94b008"
+    },
+    {
+      "source": "knowledge/ENGINEERING_AGENT_GRAPH_FLOW.md",
+      "translation": "locales/pt-BR/knowledge/ENGINEERING_AGENT_GRAPH_FLOW.md",
+      "scope": "Compared adoption status, executive synthesis, lifecycle and recommended sequence, security boundaries, pilot controls, risks, decision gate and final principle; technical identifiers and structural blocks checked.",
+      "source_sha256": "c94fff4ae15ec3261540d35b5b4ec3f5d4010e4b516c4d345165a900fa3389c1",
+      "translation_sha256": "b256391ac47273ba887e9491b79c9637bf7dcd186a51143522108cbf255b20bc"
+    },
+    {
+      "source": "knowledge/ENGINEERING_AGENT_GUIDELINES.md",
+      "translation": "locales/pt-BR/knowledge/ENGINEERING_AGENT_GUIDELINES.md",
+      "scope": "Knowledge principles, scope and applicability, named responsibilities, recommendations, caveats and technical identifiers compared.",
+      "source_sha256": "befe4f8b0ec053c4609fee836de80cdbe32f1dda8b3e6a3dafc721a5fd9fb012",
+      "translation_sha256": "34ad56208e2fcd6bdb31baf56e7308ef16cf4a75a65cbc51a3bb83989e661dcf"
+    },
+    {
+      "source": "knowledge/ENGINEERING_AI_COLLABORATION.md",
+      "translation": "locales/pt-BR/knowledge/ENGINEERING_AI_COLLABORATION.md",
+      "scope": "Knowledge principles, scope and applicability, named responsibilities, recommendations, caveats and technical identifiers compared.",
+      "source_sha256": "1473745e1056e6bd451ce14d32e373e4ba90fdea022d6b32b90ff2a2dc7bec30",
+      "translation_sha256": "ffc766b0510b3c0d72b179753f634eed3cd1b99de9096778a1f461dc4ca1f4e3"
+    },
+    {
+      "source": "knowledge/ENGINEERING_ARTIFACTS.md",
+      "translation": "locales/pt-BR/knowledge/ENGINEERING_ARTIFACTS.md",
+      "scope": "Knowledge principles, scope and applicability, named responsibilities, recommendations, caveats and technical identifiers compared.",
+      "source_sha256": "e578bbd724e570e5c0c27cfea7d192b7bf2eaf8c6cf6f1ff2cfdb9220d32407f",
+      "translation_sha256": "fe57458ba9bcf360ed2063e989957e41b0eedb4ee4e8708b9e8833fd350c6be7"
+    },
+    {
+      "source": "knowledge/ENGINEERING_CONTINUOUS_IMPROVEMENT.md",
+      "translation": "locales/pt-BR/knowledge/ENGINEERING_CONTINUOUS_IMPROVEMENT.md",
+      "scope": "Knowledge principles, scope and applicability, named responsibilities, recommendations, caveats and technical identifiers compared.",
+      "source_sha256": "a84d9f4aa11a6ed57141fc3df6161f228d0b4d9e726ec5af6af2d155b610e3b2",
+      "translation_sha256": "367e43be86db782367406e7d559089a92c4c598c9e29a3d10f1d46d68bfa4655"
+    },
+    {
+      "source": "knowledge/ENGINEERING_DECISIONS.md",
+      "translation": "locales/pt-BR/knowledge/ENGINEERING_DECISIONS.md",
+      "scope": "Knowledge principles, scope and applicability, named responsibilities, recommendations, caveats and technical identifiers compared.",
+      "source_sha256": "bd615e8616fb7f5d9be5e0146755ec6d84529ebcab3b50adeecaf091d5cc250e",
+      "translation_sha256": "7d7883cc7282023334d1b306a7c32eaa70affcffff1540776c5b569da43bddad"
+    },
+    {
+      "source": "knowledge/ENGINEERING_DESIGN_PERFORMANCE.md",
+      "translation": "locales/pt-BR/knowledge/ENGINEERING_DESIGN_PERFORMANCE.md",
+      "scope": "Knowledge principles, scope and applicability, named responsibilities, recommendations, caveats and technical identifiers compared.",
+      "source_sha256": "6570427ebcb7079ece431777b09eea5ce3f003ba194f26974ebcee4991596161",
+      "translation_sha256": "cde96bed76116c881b5a7bca71178481566a56424879b30c0f2ff6bc57b769f6"
+    },
+    {
+      "source": "knowledge/ENGINEERING_ELEPHANT_GOLDFISH.md",
+      "translation": "locales/pt-BR/knowledge/ENGINEERING_ELEPHANT_GOLDFISH.md",
+      "scope": "Compared optional status, core model, proposed phases A-H, governance and approval rules, risks, pilot and future integration sequence; agent mappings and structural blocks checked.",
+      "source_sha256": "872cf6f498f967bd023a74e355208055f168ec16e8e64cc1cb2ff4656b4b82aa",
+      "translation_sha256": "e2810eda5a7a98e7d2813916c46fe0a10a85bcb58823a0293272ec8d4268fc40"
+    },
+    {
+      "source": "knowledge/ENGINEERING_FIELD_GUIDE.md",
+      "translation": "locales/pt-BR/knowledge/ENGINEERING_FIELD_GUIDE.md",
+      "scope": "Knowledge principles, scope and applicability, named responsibilities, recommendations, caveats and technical identifiers compared.",
+      "source_sha256": "5b1b706aa4cdfd786ed38f5ab4026920e3dee669fd5312b2d14f4b1b595b51ed",
+      "translation_sha256": "3ba0af288053663ea0435ff2d9585e1cf6cf2adf7e8de50ce21d30085c726a20"
+    },
+    {
+      "source": "knowledge/ENGINEERING_FOUNDATIONS.md",
+      "translation": "locales/pt-BR/knowledge/ENGINEERING_FOUNDATIONS.md",
+      "scope": "Knowledge principles, scope and applicability, named responsibilities, recommendations, caveats and technical identifiers compared.",
+      "source_sha256": "8d401142d1e5f1568bedbd743be3f3732e10e820625dba0d985d0232b3d3cfcf",
+      "translation_sha256": "928c8646cf88cabfcfbdce93d4f5f7fe3cf710fb917bf1355307a6bf906446c1"
+    },
+    {
+      "source": "knowledge/ENGINEERING_GRAPHIFY.md",
+      "translation": "locales/pt-BR/knowledge/ENGINEERING_GRAPHIFY.md",
+      "scope": "Compared core model and pipeline, source/version caveats, security and privacy, integration boundaries, recommendations, adoption gate and final principle; technical identifiers and structural blocks checked.",
+      "source_sha256": "e5a0e43d6b2cdaeb337af29c9fabccede633e7ae26d56e42f36d9ec54f0af3f6",
+      "translation_sha256": "877a8262055623af5709f951cd90a991eec71de2b84f19d34a5d2cf8d928e0d3"
+    },
+    {
+      "source": "knowledge/ENGINEERING_MOTION_DESIGN.md",
+      "translation": "locales/pt-BR/knowledge/ENGINEERING_MOTION_DESIGN.md",
+      "scope": "Knowledge principles, scope and applicability, named responsibilities, recommendations, caveats and technical identifiers compared.",
+      "source_sha256": "15cd768deb7c59f939217dfdb4185b6b91755c6c896965461f963d05d092b17c",
+      "translation_sha256": "cb450dbabf7358a6c260ef346017d59c809aedc1701bdb5369838f353ccc9acc"
+    },
+    {
+      "source": "knowledge/ENGINEERING_QUALITY.md",
+      "translation": "locales/pt-BR/knowledge/ENGINEERING_QUALITY.md",
+      "scope": "Knowledge principles, scope and applicability, named responsibilities, recommendations, caveats and technical identifiers compared.",
+      "source_sha256": "fa4b49ed9015afafcb3cc0d112276a06daf075234c5c2a4c801c3a8ff213dc43",
+      "translation_sha256": "f597dc61b27f50d8b6aa8e4dab4a3e0358e5df21d2984453725d940feb4dc9c4"
+    },
+    {
+      "source": "knowledge/ENGINEERING_RTK.md",
+      "translation": "locales/pt-BR/knowledge/ENGINEERING_RTK.md",
+      "scope": "Compared optional status and command-boundary purpose, measurement claims, telemetry/privacy, installer and supply-chain guidance, pilot controls, risks and adoption gate; commands and numeric claims checked.",
+      "source_sha256": "6aa13dbdf59d9b71fe6b7ab00437d286ed4b413e385ed6c35117b23508a0ff89",
+      "translation_sha256": "85a87fc6baab092eeb06f7d55d0f54c2433913d4670c186f6bef071a2379810b"
+    },
+    {
+      "source": "knowledge/ENGINEERING_STANDARDS.md",
+      "translation": "locales/pt-BR/knowledge/ENGINEERING_STANDARDS.md",
+      "scope": "Knowledge principles, scope and applicability, named responsibilities, recommendations, caveats and technical identifiers compared.",
+      "source_sha256": "2740bbdea9ec96f73427314907eb58fefbf683f2c66cd3d42df6081ab8127990",
+      "translation_sha256": "6773158e7a32568492d2baf805aa4167b69093d973254bed2783ec50a82679c1"
+    },
+    {
+      "source": "knowledge/ENGINEERING_TEMPLATES.md",
+      "translation": "locales/pt-BR/knowledge/ENGINEERING_TEMPLATES.md",
+      "scope": "Knowledge principles, scope and applicability, named responsibilities, recommendations, caveats and technical identifiers compared.",
+      "source_sha256": "c68a94f0637ba66527d077f3bad839e6dc53297d8219a2551bbd14addf9bd679",
+      "translation_sha256": "7ae1e73ba1e101e7fe083a302006cf3033e632dcb5d110bbac7f18dc9392b37d"
+    },
+    {
+      "source": "knowledge/ENGINEERING_WORKFLOW.md",
+      "translation": "locales/pt-BR/knowledge/ENGINEERING_WORKFLOW.md",
+      "scope": "Knowledge principles, scope and applicability, named responsibilities, recommendations, caveats and technical identifiers compared.",
+      "source_sha256": "0429a1438daff390438d07cac2ae4de4039fbe850e829f221c67f95c3e57f44d",
+      "translation_sha256": "a11225226e8a3fc930e9ccb0f72a621ba998d183082f887f17b90dc84c53912b"
+    },
+    {
+      "source": "knowledge/INDEX.md",
+      "translation": "locales/pt-BR/knowledge/INDEX.md",
+      "source_sha256": "fc2df262bd7c804f3dd8f16ffd193efd79224b53add5c69ec618efb0861ac58b",
+      "translation_sha256": "5d5b0f647b603f0e13ec14553042fda35b5e114c55bcbc37009834c6a5930c76",
+      "scope": "Checkout baseline metadata"
+    },
+    {
+      "source": "knowledge/README.md",
+      "translation": "locales/pt-BR/knowledge/README.md",
+      "source_sha256": "531d56689163d4b43e2496231a454a096f4d5794017ebbb8d3f101a14462d50a",
+      "translation_sha256": "26a64f6adcd516e9463f319bd5896a325078e5fc2c0fa555dbc3d7b76ac70e15",
+      "scope": "Stable library metadata"
+    },
+    {
+      "source": "knowledge/REGISTRY.md",
+      "translation": "locales/pt-BR/knowledge/REGISTRY.md",
+      "scope": "Agent responsibilities, inputs and outputs, recommended knowledge, workflow routing, optional-module status and activation conditions compared.",
+      "source_sha256": "d8adb7e634f8120b8ef0e7c08127d624e0abf9939c3043a7a05655be7d5aabb7",
+      "translation_sha256": "aea8631f106cd9d9bad41ff033b08f922eb9f6d5acc7706faa95056d3f4583c3"
+    },
+    {
+      "source": "locales/en-US/README.md",
+      "translation": "locales/pt-BR/README.md",
+      "scope": "Package-language index, installation entrypoints and language-selection policy compared; navigation is intentionally package-specific.",
+      "source_sha256": "2b79d850b47118db1bf6de804a98eb7912cb8c3a917774eae60d7664b53ec3b7",
+      "translation_sha256": "bc60099bcac3eb23936b18bb7cd866ccbc755cd000b72affcb884848564bdd8a"
+    },
+    {
+      "source": "protocols/AGENT_HANDOFF.md",
+      "translation": "locales/pt-BR/protocols/AGENT_HANDOFF.md",
+      "scope": "Protocol purpose, required evidence, owner and recipient responsibilities, update conditions, handoff fields and identifiers compared.",
+      "source_sha256": "a8bd8aa9a8e9a4a3ad050b5ee2b0806f32d76827d88c567c1946f442ccc8560d",
+      "translation_sha256": "aea2e0dea79bdb41d93a816d08b4260854a5c35dd1eac9df3d2de68f77bb08d5"
+    },
+    {
+      "source": "protocols/ARTIFACT_UPDATE.md",
+      "translation": "locales/pt-BR/protocols/ARTIFACT_UPDATE.md",
+      "scope": "Protocol purpose, required evidence, owner and recipient responsibilities, update conditions, handoff fields and identifiers compared.",
+      "source_sha256": "93c2b917aef33aa85a60df321fd3f8d9d1b0dcc70964126014e4047d282e6fe9",
+      "translation_sha256": "964766e0fa1a7cfd3c65a13acfc4845228f328774963670b28534d3e853b3fb3"
+    },
+    {
+      "source": "protocols/DECISION_RECORD.md",
+      "translation": "locales/pt-BR/protocols/DECISION_RECORD.md",
+      "scope": "Protocol purpose, required evidence, owner and recipient responsibilities, update conditions, handoff fields and identifiers compared.",
+      "source_sha256": "8c959d44f1fbfc7ee9147a8b2143429bef9413a60750add70185a99d15389518",
+      "translation_sha256": "8e3323be4e450a87b6b05ee11a0c5fa873dd595a5172071f4015ebe871fea8ff"
+    },
+    {
+      "source": "protocols/PERFORMANCE_VALIDATION.md",
+      "translation": "locales/pt-BR/protocols/PERFORMANCE_VALIDATION.md",
+      "scope": "Protocol purpose, required evidence, owner and recipient responsibilities, update conditions, handoff fields and identifiers compared.",
+      "source_sha256": "096461c3f9904f498a36ed0cf9ab134a134b175408ad42c41d35e560e925218f",
+      "translation_sha256": "33dc1798240c2cd361d110792026c20bd030f9bbd2aef883670aec6901bd5dd0"
+    },
+    {
+      "source": "protocols/TASK_UPDATE.md",
+      "translation": "locales/pt-BR/protocols/TASK_UPDATE.md",
+      "scope": "Protocol purpose, required evidence, owner and recipient responsibilities, update conditions, handoff fields and identifiers compared.",
+      "source_sha256": "b763eb898a844cb25f224f37888bc1df2bf6567988509780d465f64218abadc2",
+      "translation_sha256": "162477299d381e88713c8268e39535ec0cb228c256d65136add3ec1dd5a4cb06"
+    },
+    {
+      "source": "protocols/WORKFLOW_UPDATE.md",
+      "translation": "locales/pt-BR/protocols/WORKFLOW_UPDATE.md",
+      "scope": "Protocol purpose, required evidence, owner and recipient responsibilities, update conditions, handoff fields and identifiers compared.",
+      "source_sha256": "1942d99782777498c07223d84363fbe11271cdb756b16573672c4c6d336d3d8d",
+      "translation_sha256": "aee11395c80ebde3d6235b15fcdfc61e774a46fd38ab8f611b1b286b38cde246"
+    },
+    {
+      "source": "schemas/ADR.schema.md",
+      "translation": "locales/pt-BR/schemas/ADR.schema.md",
+      "scope": "Field meanings, required versus optional content, conditional sections, examples and artifact identifiers compared.",
+      "source_sha256": "d44bd0b791441b84f0c8773b688968bc244af6a271fc46bf9f7831dec2ff4f91",
+      "translation_sha256": "3b4fb3b864f61e86f91d43c4d9e6996ee9ce148f5dd5c233ec3058dac7832af6"
+    },
+    {
+      "source": "schemas/ARCHITECTURE.schema.md",
+      "translation": "locales/pt-BR/schemas/ARCHITECTURE.schema.md",
+      "scope": "Field meanings, required versus optional content, conditional sections, examples and artifact identifiers compared.",
+      "source_sha256": "7ea2ac33e0b72dca1718cac5fbc2382bcc80584d4bcbe766d07e5527ab4aa7bc",
+      "translation_sha256": "db8e4492a5d0340aa14539e6eaf50ad48c91438fd91991c169e44902b66acb76"
+    },
+    {
+      "source": "schemas/DESIGN.schema.md",
+      "translation": "locales/pt-BR/schemas/DESIGN.schema.md",
+      "scope": "Field meanings, required versus optional content, conditional sections, examples and artifact identifiers compared.",
+      "source_sha256": "34424275a027ba9612b8ebb975757097542ce8b8256277c27ddff52d577d0c1a",
+      "translation_sha256": "d59079149e18b7b07350e03b46e98afb7532f21e81048f99ec6793bca4fdee35"
+    },
+    {
+      "source": "schemas/PERFORMANCE_VALIDATION_REPORT.schema.md",
+      "translation": "locales/pt-BR/schemas/PERFORMANCE_VALIDATION_REPORT.schema.md",
+      "scope": "Field meanings, required versus optional content, conditional sections, examples and artifact identifiers compared.",
+      "source_sha256": "4e0f8bc21a695a3067f94e2719eb6eb1b61605a4e53606af65b8d03b8e7cd85a",
+      "translation_sha256": "fe630d97c4a49119aee56ab61da6c42fcef7f78d3fb85916f66a59aca6ea0fdb"
+    },
+    {
+      "source": "schemas/PRD.schema.md",
+      "translation": "locales/pt-BR/schemas/PRD.schema.md",
+      "scope": "Field meanings, required versus optional content, conditional sections, examples and artifact identifiers compared.",
+      "source_sha256": "f731b1a5d81db7862d8c192a4a5fc478d6e5a7d44008a8d18d7b65f15fad8f39",
+      "translation_sha256": "6cd126386cd16597e82bb64582ff0f69c3662c2965cb2282350436c4251a804c"
+    },
+    {
+      "source": "schemas/PROJECT_KNOWLEDGE.schema.md",
+      "translation": "locales/pt-BR/schemas/PROJECT_KNOWLEDGE.schema.md",
+      "scope": "Field meanings, required versus optional content, conditional sections, examples and artifact identifiers compared.",
+      "source_sha256": "24b4c044be4d2f1bbf79ca4179a896266b3aaa4cbae586578db6ad6be8e4b8e1",
+      "translation_sha256": "c5d9acf55796ac6009b1965493b574466670d19be87d7f70a1a3d41c73050de6"
+    },
+    {
+      "source": "schemas/SPRINT.schema.md",
+      "translation": "locales/pt-BR/schemas/SPRINT.schema.md",
+      "scope": "Field meanings, required versus optional content, conditional sections, examples and artifact identifiers compared.",
+      "source_sha256": "4e6d795d3ebcb934b9e1e3eaa3d1a9e7bb3ceefe7a5cafca5d5621d85ed1a0fb",
+      "translation_sha256": "933f4e6f74882eaa4355545193bcff12a4b1f419cda41b8491b41714730b7f43"
+    },
+    {
+      "source": "schemas/TASK.schema.md",
+      "translation": "locales/pt-BR/schemas/TASK.schema.md",
+      "scope": "Field meanings, required versus optional content, conditional sections, examples and artifact identifiers compared.",
+      "source_sha256": "f0194744a750a22dfe2f89ac61152123db557c4a7508991f08a6374987ebe422",
+      "translation_sha256": "a6c798fc289527c8ededefb89f8fd122c41c9e2d4e0aca87eb36cdb5eda3f1d7"
+    },
+    {
+      "source": "schemas/TECH_DEBT_AUDIT.schema.md",
+      "translation": "locales/pt-BR/schemas/TECH_DEBT_AUDIT.schema.md",
+      "scope": "Field meanings, required versus optional content, conditional sections, examples and artifact identifiers compared.",
+      "source_sha256": "844d3fb418204329e40d77d2579eb1dc51ad51858172646173d69f4f924bbba3",
+      "translation_sha256": "471827f799b9b7b03d6c929cbdc78132369c600b3b1464d30f2cf9f9972816fa"
+    },
+    {
+      "source": "workflows/BUG_FIX.md",
+      "translation": "locales/pt-BR/workflows/BUG_FIX.md",
+      "scope": "Workflow sequence, entry and exit conditions, responsible roles, required artifacts, gates, exceptions and handoffs compared.",
+      "source_sha256": "322a4bdaf4a226d440e9eda17bcef86ed57d705ce0b59fc07a8b2a7d889cb770",
+      "translation_sha256": "bfb13963c67e4e09e65763864d4316d1f1e9b28841df2dfa8ee671ab3ab780f5"
+    },
+    {
+      "source": "workflows/DOCUMENTATION.md",
+      "translation": "locales/pt-BR/workflows/DOCUMENTATION.md",
+      "scope": "Workflow sequence, entry and exit conditions, responsible roles, required artifacts, gates, exceptions and handoffs compared.",
+      "source_sha256": "d848bdcdf4c8a131de2956679e243a692ace08652d8ac8d62db4c522cd4f2ebb",
+      "translation_sha256": "85b0833350231cad83809f38bcc217934020d4e4e7e84e1c064bee5289e98fa2"
+    },
+    {
+      "source": "workflows/NEW_PROJECT.md",
+      "translation": "locales/pt-BR/workflows/NEW_PROJECT.md",
+      "scope": "Workflow sequence, entry and exit conditions, responsible roles, required artifacts, gates, exceptions and handoffs compared.",
+      "source_sha256": "c4030ce402aa2017db68679e484f7a0ee79fff1a20784b1d8205e4234f5b65cc",
+      "translation_sha256": "5d9b1435ee21bf896ca09e95928c6ebc5c01e1786dacf9809ece67914a15d15c"
+    },
+    {
+      "source": "workflows/REFACTOR.md",
+      "translation": "locales/pt-BR/workflows/REFACTOR.md",
+      "scope": "Workflow sequence, entry and exit conditions, responsible roles, required artifacts, gates, exceptions and handoffs compared.",
+      "source_sha256": "c66798f386af43255dd1d10e465b636c0008998579c1bf44aa9974939f50c6e8",
+      "translation_sha256": "3c54654a6849263cf9c50875b40d21b4e02b8bbf68793f182073281fce721e35"
+    },
+    {
+      "source": "workflows/STANDARD_DEVELOPMENT.md",
+      "translation": "locales/pt-BR/workflows/STANDARD_DEVELOPMENT.md",
+      "scope": "Workflow sequence, entry and exit conditions, responsible roles, required artifacts, gates, exceptions and handoffs compared.",
+      "source_sha256": "7afb2bc113813996854741e2103a485ec8843dfd2eb89306a6f37366fa2025ec",
+      "translation_sha256": "df9b76bfa2fc1f2d30dbdfc07dace1e2a406ed404c25cb4a3a5b0697a965476d"
+    },
+    {
+      "source": "workflows/TECH_DEBT_AUDIT.md",
+      "translation": "locales/pt-BR/workflows/TECH_DEBT_AUDIT.md",
+      "scope": "Workflow sequence, entry and exit conditions, responsible roles, required artifacts, gates, exceptions and handoffs compared.",
+      "source_sha256": "37fcc56f6bcb8a0dda6b06faab966abae15a43c55074aab9e87bff6b21bc82cb",
+      "translation_sha256": "1a6e70c73d0ff78e5b116a538a7a29218583c92b67863195ad4ebf676b665fa6"
+    }
+  ]
+}

@@ -1,12 +1,12 @@
-## Name
+## Nome
 
 Design System Analyst Agent
 
-## Description
+## Descrição
 
 Especialista em analisar referencias visuais e transforma-las em documentacao de engenharia. Quando solicitado explicitamente, pode propor uma direcao visual inicial sem referencias para um produto visual, mantendo a proposta separada das observacoes.
 
-## Instructions
+## Instruções
 
 # Design System Analyst Agent
 

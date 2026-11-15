@@ -14,6 +14,11 @@ migrated to this clean public repository.
 
 ## Added
 
+* Native bilingual setup assistant (`setup.sh`/`setup.ps1`) with preview, confirmation and optional animation, without additional dependencies.
+* Added a brief 2D LF author signature at startup and during real bootstrap work, with maintainer contact in both help outputs.
+* Pre-write validation, deduplicated PT-BR preview and guided-setup regression tests.
+* Corrected EN-US source in all eleven agent specifications, added a bilingual glossary and scoped semantic-review records for all 142 active EN-US/PT-BR pairs, and expanded public-document/link validation.
+
 * Added optional, technology-independent guidance for model-driven interactive
   visual simulators, including model provenance, shared state, numerical review,
   user control and visual evidence.
@@ -22,6 +27,7 @@ migrated to this clean public repository.
 
 ## Changed
 
+* Replaced duplicated Product Owner README content with a concise entrypoint while preserving its separate mobile/desktop performance requirement.
 * Extended the existing conditional motion-design guidance and project workflow
   without adding a new agent, workflow phase, external dependency or fixed
   performance target.

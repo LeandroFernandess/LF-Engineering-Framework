@@ -4,7 +4,7 @@ Languages: [EN-US](OVERVIEW.md) | [PT-BR](locales/pt-BR/public-docs/OVERVIEW.md)
 
 Published baseline: 1.5.0
 Status: first public stable release `v1.5.0` published 2026-11-03
-Last Updated: 2026-11-04
+Last Updated: 2026-11-15
 
 ## Purpose
 
@@ -58,6 +58,13 @@ project files and configurations are preserved. The separate Framework-side
 GitHub MCP server is disabled by default, pinned to a release, restricted to
 read-only repository tools and requires explicit local enablement; it does not
 change the client adapter or `generic` path.
+
+The recommended local setup entrypoints (`setup.sh` and `setup.ps1`) guide users
+through language, project-directory and integration selection before applying
+the existing native bootstrap. Their brief 2D LF signature is static when
+animation is disabled or terminal support is limited; activity frames appear
+only while the bootstrap is working. This remains local tooling with no added
+runtime or package dependency.
 
 The QA-Security Agent now includes a mandatory trust-boundary and prompt-injection gate, an applicability matrix for the requested security categories, and local-state/temporary-artifact privacy checks. These rules distinguish evidence from authority and do not invent vulnerabilities when a surface is absent. Web and visual projects also use `ENGINEERING_DESIGN_PERFORMANCE`, `PERFORMANCE_VALIDATION.md` and separate mobile/desktop acceptance evidence. The predecessor private repository's `v1.4.0` release added conditional `ENGINEERING_MOTION_DESIGN` guidance and a Motion Review for projects that include motion; this does not add a required phase or animation dependency.
 

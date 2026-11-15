@@ -12,9 +12,9 @@ Nenhum.
 
 Prompt Architect.
 
-## Responsabilidade
+## Notas
 
-Não iniciada.
+Atualize este arquivo sempre que a responsabilidade mudar entre agentes.
 
 ## Última atualização
 

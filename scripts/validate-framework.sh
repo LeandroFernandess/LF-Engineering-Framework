@@ -23,6 +23,12 @@ for directory in agents knowledge workflows protocols schemas PROJECT_TEMPLATE a
 done
 
 for file in \
+  setup.sh \
+  setup.ps1 \
+  scripts/i18n/setup.tsv \
+  scripts/public-document-pairs.tsv \
+  scripts/translation-pairs.tsv \
+  locales/translation-review.json \
   README.md \
   README.pt-BR.md \
   CONTRIBUTING.md \
@@ -89,6 +95,7 @@ expected_placeholders=$(printf '%s\n' \
   fail "unexpected Framework placeholders"
 
 sh "$FRAMEWORK_PATH/scripts/check-locales.sh"
+sh -n "$FRAMEWORK_PATH/setup.sh"
 sh -n "$FRAMEWORK_PATH/scripts/bootstrap.sh"
 sh -n "$FRAMEWORK_PATH/scripts/check-locales.sh"
 sh -n "$FRAMEWORK_PATH/scripts/package-release.sh"

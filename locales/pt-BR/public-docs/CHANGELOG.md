@@ -19,6 +19,11 @@ foram migrados para este repositório público limpo.
 
 ## Adicionado
 
+* Assistente local bilíngue (`setup.sh`/`setup.ps1`), prévia, confirmação e animação opcional sem dependências adicionais.
+* Assinatura 2D breve do autor na abertura e durante trabalho real do bootstrap; ajuda dos dois comandos exibe o contato do responsável pelo instalador.
+* Validação anterior à escrita, prévia PT-BR sem duplicações e testes de regressão da instalação guiada.
+* Fonte EN-US corrigida nas onze especificações de agentes, glossário bilíngue e registros com escopo de revisão semântica dos 142 pares EN-US/PT-BR ativos; validação ampliada de documentos públicos e links.
+
 * Adicionadas orientações opcionais e independentes de tecnologia para
   simuladores visuais interativos orientados por modelo, incluindo proveniência
   do modelo, estado compartilhado, revisão numérica, controle do usuário e
@@ -29,6 +34,7 @@ foram migrados para este repositório público limpo.
 
 ## Alterado
 
+* Substituído o conteúdo duplicado do README do Product Owner por uma página inicial concisa, preservando o requisito específico de performance móvel/desktop.
 * Ampliadas as orientações condicionais existentes de motion design e o workflow
   do projeto sem adicionar agente, fase de workflow, dependência externa ou meta
   fixa de performance.

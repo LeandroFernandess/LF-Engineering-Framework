@@ -4,8 +4,8 @@ Idiomas: [EN-US](../../../OVERVIEW.md) | [PT-BR](OVERVIEW.md)
 
 Baseline publicada: 1.5.0<br>
 Status: primeira release pública estável `v1.5.0` publicada em 2026-11-03<br>
-Última atualização da fonte: 2026-11-04<br>
-Baseline desta tradução: conteúdo de `v1.5.0` e manutenção pós-tag até 2026-11-04; releases anteriores são históricas no repositório predecessor privado<br>
+Última atualização da fonte: 2026-11-15<br>
+Baseline desta tradução: conteúdo de `v1.5.0` e manutenção pós-tag até 2026-11-15; releases anteriores são históricas no repositório predecessor privado<br>
 Fonte: `OVERVIEW.md`
 
 ## Objetivo
@@ -35,6 +35,8 @@ O repositório contém o Framework canônico, agentes especializados, módulos d
 Os documentos públicos de contexto da release e os quatro módulos suplementares opcionais aprovados de Knowledge têm espelhos PT-BR no checkout atual. Os espelhos suplementares são verificados separadamente quanto à presença, correspondência de versões, status opcional aprovado e paridade estrutural; permanecem fora do grafo obrigatório de dependências. A aprovação não autoriza instalação ou integração de ferramentas externas. A avaliação independente Goldfish do piloto de motion design passou na compreensão com ressalvas, mas não passou na crítica nem na prontidão para implementação; o piloto não comprova um gate de prontidão bem-sucedido.
 
 O bootstrap padrão copia a base neutra do projeto usando comandos nativos de shell no macOS/Linux ou Windows PowerShell. Aceita a seleção explícita do idioma `en-US` ou `pt-BR` e usa o adapter `generic` por padrão. A configuração OpenCode é gerada somente quando `--adapter opencode` é selecionado; arquivos e configurações existentes são preservados. O servidor GitHub MCP separado, usado no próprio repositório do Framework, fica desativado por padrão, tem a imagem fixada em uma release, é restrito a ferramentas de repositório somente leitura e exige habilitação local explícita. Ele não altera o adapter de projetos clientes nem o caminho `generic`.
+
+Os assistentes locais recomendados (`setup.sh` e `setup.ps1`) orientam a escolha de idioma, diretório do projeto e integração antes de aplicar o bootstrap nativo existente. A assinatura 2D LF é estática quando a animação está desativada ou o terminal oferece suporte limitado; os quadros de atividade aparecem somente enquanto o bootstrap trabalha. A ferramenta continua local e não adiciona runtime ou dependência de pacote.
 
 O agente QA-Security agora inclui uma etapa obrigatória de fronteira de confiança e resistência a prompt injection, uma matriz de aplicabilidade das categorias de segurança solicitadas e verificações de privacidade do estado local e de artefatos temporários. Essas regras distinguem evidência de autoridade e não inventam vulnerabilidades quando uma superfície não existe. Projetos web e visuais também usam `ENGINEERING_DESIGN_PERFORMANCE`, `PERFORMANCE_VALIDATION.md` e evidências de aceite separadas para mobile e desktop. A release `v1.4.0` do repositório privado predecessor adicionou orientações condicionais `ENGINEERING_MOTION_DESIGN` e uma Revisão de movimento para projetos com movimento; isso não adiciona uma fase obrigatória nem dependência de animação.
 
@@ -171,7 +173,7 @@ O repositório oferece validadores nativos leves que verificam:
 - presença de placeholders operacionais somente nos dois arquivos-fonte esperados;
 - correspondência entre os conjuntos de arquivos dos templates EN-US e PT-BR;
 - paridade estrutural de cabeçalhos, separadores de tabela, blocos de código e limites de comentários HTML nos templates;
-- correspondência de arquivos e paridade estrutural dos espelhos canônicos de agentes, workflows, protocolos, schemas e Knowledge estável, bem como dos quatro espelhos suplementares propostos de Knowledge, em seus grupos de validação separados;
+- correspondência de arquivos e paridade estrutural dos espelhos canônicos de agentes, workflows, protocolos, schemas e Knowledge estável, bem como dos quatro espelhos suplementares opcionais aprovados de Knowledge, em seus grupos de validação separados;
 - sintaxe válida do bootstrap shell e parsing da configuração OpenCode opcional quando há runtime compatível com JSON;
 - parsing da configuração GitHub MCP do Framework, que permanece desativada por padrão, fixada em versão, restrita a ferramentas de repositório e configurada como somente leitura; a validação não inicia Docker nem autentica no GitHub.
 - paridade estrutural dos espelhos ativos de `OVERVIEW`, `ROADMAP`, `CHANGELOG` e ADRs quanto a hierarquia de títulos, tabelas, blocos de código e comentários HTML.
@@ -205,6 +207,7 @@ Esta continua sendo uma camada pequena de validação, não um novo runtime do f
 - [x] Completar traduções PT-BR dos agentes canônicos e do Knowledge estável com verificações de versão-fonte e paridade estrutural; módulos suplementares opcionais aprovados permanecem explicitamente fora do gate obrigatório de locale estável.
 - [x] Gerar e verificar arquivos de release e checksums a partir de um clone limpo.
 - [x] Verificar execução em Windows nativo e o status resultante do GitHub Actions.
+- [x] Publicar a release estável marcada `v1.3.0` depois que os gates externos passaram.
 - [x] Publicar o primeiro snapshot público limpo na branch `main` como `v1.5.0`, sem migrar histórico, branches ou tags do repositório predecessor.
 - [x] Usar identidade GitHub noreply no commit e revisar o snapshot público quanto a caminhos privados, credenciais e contatos não autorizados.
 - [x] Ignorar `.ai/state/` de projetos clientes por padrão, preservando o `.gitignore` de projetos existentes.
@@ -284,7 +287,7 @@ Qualquer adoção futura exige piloto delimitado, fixação de fonte e versão, 
 
 - O Framework é um projeto de documentação e bootstrap, não uma aplicação; não possui runner de testes de aplicação de produto.
 - As avaliações de ferramentas suplementares não substituem evidências de projetos clientes reais.
-- A proveniência histórica do material fornecido a partir de `graphiffy.com` continua sem verificação. O site oficial do Graphify informa que o domínio não resolve mais; ele não é usado como evidência da identidade do pacote ou da release da proposta.
+- A proveniência histórica do material fornecido a partir de `graphiffy.com` continua sem verificação. O site oficial do Graphify informa que o domínio não resolve mais; ele não é usado como evidência da identidade da ferramenta, do pacote ou da release do módulo opcional aprovado.
 
 ## Próxima sessão sugerida
 

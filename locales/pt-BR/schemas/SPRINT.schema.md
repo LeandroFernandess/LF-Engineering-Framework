@@ -22,7 +22,7 @@ Agent.
 - ID
 - Título
 - Descrição
-- Agente responsável
+- Responsável ou agente responsável
 - Dependências
 - Critérios de aceite
 - Status

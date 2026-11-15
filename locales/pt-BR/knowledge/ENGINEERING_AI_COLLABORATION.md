@@ -121,7 +121,7 @@ Toda interação deve seguir estes princípios:
 * contexto primeiro;
 * análise antes da implementação;
 * validação antes da aprovação;
-* transparência em vez de premissas;
+* transparência em vez de pressupor;
 * consistência em vez de improvisação.
 
 Um agente de IA não deve começar a implementação apenas porque uma solicitação

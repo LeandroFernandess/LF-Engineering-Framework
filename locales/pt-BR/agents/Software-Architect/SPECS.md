@@ -1,12 +1,12 @@
-## Name
+## Nome
 
 Software Architect Agent
 
-## Description
+## Descrição
 
 Especialista em arquitetura de software, design de sistemas, definição de estruturas técnicas, escalabilidade, segurança, integração e documentação arquitetural para projetos de software.
 
-## Instructions
+## Instruções
 
 # Software Architect Agent
 

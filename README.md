@@ -86,25 +86,36 @@ migrated; `v1.4.0` is historical context, not a release tag in this repository.
 
 ## New and Existing Projects
 
-Use `START_PROJECTS.en-US.md` or
-`locales/pt-BR/public-docs/START_PROJECTS.md` to create a new project or safely
-adopt an existing project. The default model is:
+Download/clone the Framework. From its root, open the local assistant:
 
-1. Create a separate project directory.
-2. Run `scripts/bootstrap.sh` or `scripts/bootstrap.ps1` with `--adapter
-   generic` (or the equivalent PowerShell parameter).
-3. Select `en-US` or `pt-BR` explicitly.
-4. Keep this framework external and read-only.
-5. Run the workflow through Engineering Manager, Orchestrator, specialized
-   agents, Tech Lead and Engineering Knowledge Extractor.
+```sh
+sh setup.sh
+```
 
-The generated `.gitignore` keeps `.ai/state/` local by default. Existing
-projects retain their own `.gitignore` during bootstrap and must adopt this rule
-manually if desired.
+On Windows PowerShell:
 
-For an existing project, use the same bootstrap in dry-run mode first. It copies
-only missing template files and preserves existing project documents and
-configuration.
+```powershell
+.\setup.ps1
+```
+
+Choose Portuguese or English, enter the project directory and select an
+integration (`generic` by default). Review the preview and confirm application.
+No Node.js or Python is required and no external tools are installed. Language
+controls the terminal and new documents; the library retains both languages,
+with EN-US as the canonical source. Existing files are preserved; running again
+does not migrate language or integration.
+
+Use `--no-animation`/`--no-color` (PowerShell: `-NoAnimation`/`-NoColor`)
+for a static presentation. `NO_COLOR` also disables colors.
+The assistant shows a brief 2D LF signature at startup and uses the same mark
+while real bootstrap work runs; unsupported or narrow terminals get a static
+signature.
+See the [getting-started guide](START_PROJECTS.en-US.md) for details and automation.
+The `scripts/bootstrap.sh` and `scripts/bootstrap.ps1` commands remain
+noninteractive, with dry-run as the default and technical output in English.
+
+The generated `.gitignore` excludes `.ai/state/`; existing projects keep their
+own `.gitignore` and must adopt this rule manually if desired.
 
 ## Operating Rules
 

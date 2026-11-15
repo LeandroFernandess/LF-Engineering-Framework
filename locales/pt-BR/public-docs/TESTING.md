@@ -47,6 +47,9 @@ repositório predecessor foi importada. Uma execução local gera um relatório 
 
 ## Cenários cobertos
 
+- Os dois assistentes exibem o contato do responsável na ajuda e a assinatura 2D
+  LF na abertura; os quadros durante o bootstrap são limpos ao concluir ou
+  interromper, e terminais estreitos/modo estático não animam.
 - Dry-run de projeto novo não cria o diretório-alvo.
 - Aplicação de projeto novo copia o template no idioma selecionado.
 - Template PT-BR e renderização do caminho do Framework.
@@ -97,3 +100,28 @@ revisor para permitir que o único mantenedor faça merge após a aprovação do
 checks. Restrinja o acesso de escrita/admin e reavalie esta política antes de
 conceder acesso de escrita a outra pessoa. Esses controles são independentes dos
 gates de validação do workflow.
+
+## Verificações do assistente e da documentação
+
+```sh
+python3 scripts/check-docs.py
+python3 -m unittest discover -s scripts/tests -v
+```
+
+No Windows use `python` quando esse for o launcher disponível. Python é uma
+dependência de manutenção/CI, não do assistente. A matriz de CI executa os testes
+nas três plataformas. As sessões com pseudoterminal são executadas em POSIX;
+o Windows executa os testes nativos de bootstrap e recusa de entrada redirecionada.
+Antes de uma release, valide manualmente a seleção de idioma, confirmação,
+cancelamento, Ctrl+C, assinatura 2D e fallback estático no Windows Terminal.
+Verifique também um terminal POSIX estreito e um terminal básico sem animação.
+
+A verificação documental cobre links locais inline e por referência, títulos e
+âncoras HTML fora de blocos de código. Caminhos literais de templates não são
+tratados como links: referem-se ao projeto gerado ou à biblioteca externa.
+URLs externas não são acessadas. READMEs possuem estrutura diferente por idioma;
+seus links e revisão são verificados, sem exigir paridade de títulos.
+
+`locales/translation-review.json` registra hashes dos pares revisados. Após
+alterar um deles, compare fonte e tradução, registre a nova revisão e atualize
+os hashes SHA-256. Nunca atualize hashes apenas para silenciar uma falha.

@@ -67,35 +67,36 @@ histórico, branches e tags do repositório privado anterior não foram migrados
 
 ## Início rápido
 
-O modo `generic` é o padrão e não depende de OpenCode, Codex, Claude Code,
-Gemini, Node.js ou Python. Baixe o Framework e execute primeiro um dry-run:
+Baixe/clone o Framework. Na raiz, abra o assistente local:
 
 ```sh
-FRAMEWORK_PATH="$(pwd)" # Execute na raiz do repositório clonado.
-
-sh "$FRAMEWORK_PATH/scripts/bootstrap.sh" \
-  --framework-path "$FRAMEWORK_PATH" \
-  --language pt-BR \
-  --adapter generic \
-  --target "$HOME/Projetos/MeuProjeto" \
-  --dry-run
+sh setup.sh
 ```
 
-Depois revise as linhas `ADD` e `PRESERVE` e execute novamente com `--apply`.
-No Windows, use `scripts/bootstrap.ps1` conforme
-`locales/pt-BR/public-docs/START_PROJECTS.md`.
+No Windows PowerShell:
 
-O `.gitignore` gerado mantém `.ai/state/` local por padrão. Projetos existentes
-preservam seu próprio `.gitignore` durante o bootstrap e precisam adotar essa
-regra manualmente, se desejado.
+```powershell
+.\setup.ps1
+```
 
-Idiomas disponíveis: `en-US` e `pt-BR`. Adapters disponíveis: `generic`,
-`codex` (OpenAI), `claude` (Anthropic), `gemini` (Google) e `opencode`.
+Escolha português ou inglês, informe o diretório do projeto e selecione a
+integração (`generic` é o padrão). Revise a prévia e confirme a aplicação.
+Não exige Node.js ou Python nem instala ferramentas externas. O idioma controla
+o terminal e os novos documentos; a biblioteca mantém ambos os idiomas, com
+EN-US como fonte canônica. Arquivos existentes são preservados; executar novamente
+não migra idioma ou integração.
 
-A release pública `v1.5.0` inclui os dois templates de idioma, os espelhos PT-BR
-e as quatro correções pós-`v1.4.0` descritas em `CHANGELOG.md`. A cobertura e as
-exclusões intencionais da tradução estão detalhadas em
-`locales/pt-BR/TRANSLATION_STATUS.md`.
+Use `--no-animation`/`--no-color` (PowerShell: `-NoAnimation`/`-NoColor`)
+para uma apresentação estática. `NO_COLOR` também desativa cores.
+O assistente mostra uma assinatura 2D LF breve na abertura e usa a mesma marca
+durante o trabalho real do bootstrap; terminais estreitos ou sem suporte recebem
+uma assinatura estática.
+Consulte o [guia de início](locales/pt-BR/public-docs/START_PROJECTS.md) para detalhes
+e automação. Os comandos `scripts/bootstrap.sh` e `scripts/bootstrap.ps1`
+continuam não interativos, com dry-run padrão e saída técnica em inglês.
+
+O `.gitignore` gerado exclui `.ai/state/`; projetos existentes preservam seu
+`.gitignore` e devem adotar essa regra manualmente, se desejado.
 
 ## Modelo de segurança
 

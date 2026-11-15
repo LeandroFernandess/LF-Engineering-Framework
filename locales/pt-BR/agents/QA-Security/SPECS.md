@@ -1,12 +1,12 @@
-## Name
+## Nome
 
 Quality Assurance & Security Agent
 
-## Description
+## Descrição
 
 Especialista em auditoria técnica de software, segurança, performance, acessibilidade, observabilidade, qualidade de código e conformidade com boas práticas antes da aprovação definitiva de uma sprint.
 
-## Instructions
+## Instruções
 
 # Quality Assurance & Security Agent
 

@@ -83,21 +83,29 @@ if [ -e "$TARGET_PATH" ] && [ ! -d "$TARGET_PATH" ]; then
   exit 1
 fi
 
-if [ -d "$TARGET_PATH" ]; then
-  TARGET_PATH=$(CDPATH= cd "$TARGET_PATH" && pwd -P)
-elif [ "$APPLY" -eq 1 ]; then
-  mkdir -p "$TARGET_PATH"
-  TARGET_PATH=$(CDPATH= cd "$TARGET_PATH" && pwd -P)
-else
-  target_parent=$(dirname "$TARGET_PATH")
-  target_name=$(basename "$TARGET_PATH")
-  while [ ! -d "$target_parent" ]; do
-    target_name="$(basename "$target_parent")/$target_name"
-    target_parent=$(dirname "$target_parent")
-  done
-  target_parent=$(CDPATH= cd "$target_parent" && pwd -P)
-  TARGET_PATH="$target_parent/$target_name"
-fi
+# Resolve existing components physically before interpreting '..'. Missing
+# components are normalized without creating anything, including in apply mode.
+case "$TARGET_PATH" in /*) ;; *) TARGET_PATH="$PWD/$TARGET_PATH" ;; esac
+remaining=$TARGET_PATH
+resolved=/
+while [ -n "$remaining" ]; do
+  part=${remaining%%/*}
+  case "$remaining" in */*) remaining=${remaining#*/} ;; *) remaining= ;; esac
+  case "$part" in
+    ''|.) continue ;;
+    ..) resolved=$(dirname "$resolved"); continue ;;
+  esac
+  candidate="${resolved%/}/$part"
+  if [ -d "$candidate" ]; then
+    resolved=$(CDPATH= cd "$candidate" && pwd -P)
+  elif [ -e "$candidate" ] || [ -L "$candidate" ]; then
+    echo "The target path must be a directory: $candidate" >&2
+    exit 1
+  else
+    resolved=$candidate
+  fi
+done
+TARGET_PATH=$resolved
 
 case "$TARGET_PATH/" in
   "$FRAMEWORK_PATH/"*)
@@ -123,6 +131,11 @@ assert_safe_target_parent() {
         ;;
     esac
 
+    if [ -e "$safe_parent_path" ] && [ ! -d "$safe_parent_path" ]; then
+      echo "The target path must be a directory: $safe_parent_path" >&2
+      exit 1
+    fi
+
     if [ -L "$safe_parent_path" ]; then
       echo "Refusing to write through a symlinked target directory: $safe_parent_path" >&2
       exit 1
@@ -145,6 +158,19 @@ if [ ! -d "$TEMPLATE_PATH" ]; then
   exit 1
 fi
 
+if [ "$LANGUAGE" = pt-BR ] && [ ! -d "$LOCALE_TEMPLATE_PATH" ]; then
+  echo "Localized template was not found: $LOCALE_TEMPLATE_PATH" >&2
+  exit 1
+fi
+
+# Reuse the complete read-only walk to validate all destinations and adapter
+# inputs before the first write. Apply still checks each destination again.
+if [ "$APPLY" -eq 1 ]; then
+  sh "$SCRIPT_DIR/bootstrap.sh" --framework-path "$FRAMEWORK_PATH" \
+    --target "$TARGET_PATH" --language "$LANGUAGE" --adapter "$ADAPTER" --dry-run >/dev/null
+  mkdir -p "$TARGET_PATH"
+fi
+
 copy_tree() {
   source_root=$1
   [ -d "$source_root" ] || return 0
@@ -152,6 +178,10 @@ copy_tree() {
   find "$source_root" -print | while IFS= read -r source_path; do
     [ "$source_path" = "$source_root" ] && continue
     relative_path=${source_path#"$source_root"/}
+    # Locale overlay owns these paths in both preview and apply.
+    if [ "$source_root" = "$TEMPLATE_PATH" ] && [ -e "$LOCALE_TEMPLATE_PATH/$relative_path" ]; then
+      continue
+    fi
     destination="$TARGET_PATH/$relative_path"
 
     if [ -e "$destination" ] || [ -L "$destination" ]; then
@@ -160,6 +190,10 @@ copy_tree() {
     fi
 
     assert_safe_target_parent "$destination"
+    if [ "$relative_path" = LF_ENGINEERING.md ] && ! grep -Fq '__LF_ENGINEERING_SYSTEM_PATH__' "$source_path"; then
+      echo "Framework placeholder was not found in LF_ENGINEERING.md." >&2
+      exit 1
+    fi
 
     if [ "$APPLY" -eq 0 ]; then
       printf 'ADD %s\n' "$relative_path"
@@ -258,6 +292,10 @@ case "$ADAPTER" in
       echo "OpenCode adapter configuration was not found: $source_path" >&2
       exit 1
     fi
+    if [ ! -e "$destination" ] && ! grep -Fq '__LF_ENGINEERING_SYSTEM_PATH__' "$source_path"; then
+      echo "Framework placeholder was not found in the OpenCode adapter." >&2
+      exit 1
+    fi
     if [ -e "$destination" ] || [ -L "$destination" ]; then
       printf 'PRESERVE opencode.jsonc\n'
     elif [ "$APPLY" -eq 0 ]; then
@@ -265,7 +303,8 @@ case "$ADAPTER" in
       printf 'ADD opencode.jsonc\n'
     else
       assert_safe_target_parent "$destination"
-      escaped_framework_path=$(printf '%s' "$FRAMEWORK_PATH" | sed 's/[\\&|]/\\&/g')
+      json_framework_path=$(printf '%s' "$FRAMEWORK_PATH" | sed 's/\\/\\\\/g; s/"/\\"/g')
+      escaped_framework_path=$(printf '%s' "$json_framework_path" | sed 's/[\\&|]/\\&/g')
       temporary_config=$(mktemp "${TMPDIR:-/tmp}/lf-opencode.jsonc.XXXXXX")
       sed "s|__LF_ENGINEERING_SYSTEM_PATH__|$escaped_framework_path|g" \
         "$source_path" > "$temporary_config"
@@ -290,16 +329,21 @@ elif [ "$APPLY" -eq 0 ]; then
 else
   assert_safe_target_parent "$installation_file"
   mkdir -p "$(dirname "$installation_file")"
+  installation_title='LF Engineering System Installation'
+  installation_description='This file records how the project base was initialized. Existing project files were preserved by the bootstrap.'
+  if [ "$LANGUAGE" = pt-BR ]; then
+    installation_title='Instalação do LF Engineering System'
+    installation_description='Este arquivo registra como a base do projeto foi inicializada. Os arquivos existentes foram preservados pelo bootstrap.'
+  fi
   cat > "$installation_file" <<EOF
-# LF Engineering System Installation
+# $installation_title
 
 - Language: $LANGUAGE
 - Adapter: $ADAPTER
 - Framework path: $FRAMEWORK_PATH
 - Framework: external read-only library
 
-This file records how the project base was initialized. Existing project files
-were preserved by the bootstrap.
+$installation_description
 EOF
 fi
 

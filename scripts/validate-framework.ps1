@@ -46,6 +46,9 @@ function Get-MarkdownStructureSignature([string]$Path) {
 ) | ForEach-Object { Require-Directory $_ }
 
 @(
+  "setup.sh", "setup.ps1", "scripts/i18n/setup.tsv",
+  "scripts/public-document-pairs.tsv", "scripts/translation-pairs.tsv",
+  "locales/translation-review.json",
   "README.md",
   "README.pt-BR.md",
   "CONTRIBUTING.md",
@@ -244,13 +247,10 @@ foreach ($canonicalRootName in @("agents", "workflows", "protocols", "schemas", 
   }
 }
 
-$publicDocumentPairs = @(
-  @{ Source = "OVERVIEW.md"; Pt = "locales\pt-BR\public-docs\OVERVIEW.md" },
-  @{ Source = "ROADMAP.md"; Pt = "locales\pt-BR\public-docs\ROADMAP.md" },
-  @{ Source = "CHANGELOG.md"; Pt = "locales\pt-BR\public-docs\CHANGELOG.md" },
-  @{ Source = "docs\security-audit\README.md"; Pt = "locales\pt-BR\public-docs\SECURITY_AUDIT.md" },
-  @{ Source = "docs\ADR.md"; Pt = "locales\pt-BR\docs\ADR.md" }
-)
+$publicDocumentPairs = Get-Content -LiteralPath (Join-Path $FrameworkPath 'scripts/public-document-pairs.tsv') | ForEach-Object {
+  $parts = $_.Split('|')
+  @{ Source = $parts[0]; Pt = $parts[1] }
+}
 foreach ($pair in $publicDocumentPairs) {
   $sourceDocumentPath = Join-Path $FrameworkPath $pair.Source
   $ptDocumentPath = Join-Path $FrameworkPath $pair.Pt

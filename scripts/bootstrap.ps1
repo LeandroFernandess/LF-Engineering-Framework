@@ -1,4 +1,4 @@
-param(
+﻿param(
   [string]$FrameworkPath = "",
   [string]$TargetPath = (Get-Location).Path,
   [ValidateSet("en-US", "pt-BR")]
@@ -99,7 +99,11 @@ if ((Test-Path -LiteralPath $TargetPath -PathType Any) -and
   throw "The target path must be a directory: $TargetPath"
 }
 
+if ($Language -eq 'pt-BR' -and -not (Test-Path -LiteralPath $localeTemplatePath -PathType Container)) {
+  throw "Localized template was not found: $localeTemplatePath"
+}
 if ($Apply) {
+  & $PSCommandPath -FrameworkPath $FrameworkPath -TargetPath $TargetPath -Language $Language -Adapter $Adapter -DryRun | Out-Null
   New-Item -ItemType Directory -Force -Path $TargetPath | Out-Null
 }
 
@@ -123,6 +127,9 @@ function Assert-SafeTargetParent([string]$Destination) {
 
     $entry = Get-Item -LiteralPath $parentPath -Force -ErrorAction SilentlyContinue
     if ($null -ne $entry) {
+      if (-not $entry.PSIsContainer) {
+        throw "The target path must be a directory: $parentPath"
+      }
       $isLinkedDirectory =
         ($entry.Attributes -band [System.IO.FileAttributes]::ReparsePoint) -ne 0
       if ($entry.PSObject.Properties.Name -contains "LinkType" -and
@@ -248,6 +255,9 @@ function Copy-TreeMissingOnly {
 
   foreach ($entry in $entries) {
     $relativePath = $entry.FullName.Substring($SourceRoot.Length).TrimStart('\', '/')
+    if ($SourceRoot -eq $templatePath -and (Test-Path -LiteralPath (Join-Path $localeTemplatePath $relativePath))) {
+      continue
+    }
     $destination = Join-Path $TargetPath $relativePath
 
     if (Test-Path -LiteralPath $destination -PathType Any) {
@@ -256,6 +266,10 @@ function Copy-TreeMissingOnly {
     }
 
     Assert-SafeTargetParent $destination
+    if ($relativePath -eq 'LF_ENGINEERING.md' -and
+        -not (Get-Content -Raw -Encoding UTF8 -LiteralPath $entry.FullName).Contains('__LF_ENGINEERING_SYSTEM_PATH__')) {
+      throw "Framework placeholder was not found in LF_ENGINEERING.md."
+    }
 
     if (-not $Apply) {
       Write-Output "ADD $relativePath"
@@ -265,7 +279,7 @@ function Copy-TreeMissingOnly {
       $parent = Split-Path -Parent $destination
       New-Item -ItemType Directory -Force -Path $parent | Out-Null
       if ($relativePath -eq "LF_ENGINEERING.md") {
-        $content = Get-Content -Raw -LiteralPath $entry.FullName
+        $content = Get-Content -Raw -Encoding UTF8 -LiteralPath $entry.FullName
         if (-not $content.Contains("__LF_ENGINEERING_SYSTEM_PATH__")) {
           throw "Framework placeholder was not found in LF_ENGINEERING.md."
         }
@@ -335,6 +349,16 @@ switch ($Adapter) {
     }
 
     $destination = Join-Path $TargetPath "opencode.jsonc"
+    if (-not (Test-Path -LiteralPath $destination)) {
+      $content = Get-Content -Raw -Encoding UTF8 -LiteralPath $sourcePath
+      if (-not $content.Contains("__LF_ENGINEERING_SYSTEM_PATH__")) {
+        throw "Framework placeholder was not found in the OpenCode adapter."
+      }
+      $escapedFrameworkPath = ($FrameworkPath | ConvertTo-Json -Compress)
+      $escapedFrameworkPath = $escapedFrameworkPath.Substring(1, $escapedFrameworkPath.Length - 2)
+      $content = $content.Replace("__LF_ENGINEERING_SYSTEM_PATH__", $escapedFrameworkPath)
+      $null = $content | ConvertFrom-Json -ErrorAction Stop
+    }
     if (Test-Path -LiteralPath $destination -PathType Any) {
       Write-Output "PRESERVE opencode.jsonc"
     } elseif (-not $Apply) {
@@ -342,20 +366,11 @@ switch ($Adapter) {
       Write-Output "ADD opencode.jsonc"
     } else {
       Assert-SafeTargetParent $destination
-      $content = Get-Content -Raw -LiteralPath $sourcePath
-      if (-not $content.Contains("__LF_ENGINEERING_SYSTEM_PATH__")) {
-        throw "Framework placeholder was not found in the OpenCode adapter."
-      }
-
-      $escapedFrameworkPath = $FrameworkPath.Replace('\', '\\')
-      $content = $content.Replace("__LF_ENGINEERING_SYSTEM_PATH__", $escapedFrameworkPath)
-      $null = $content | ConvertFrom-Json -ErrorAction Stop
-
-      $temporaryConfig = Join-Path $TargetPath ".opencode.jsonc.tmp"
+      $temporaryConfig = Join-Path $TargetPath (".opencode." + [Guid]::NewGuid().ToString('N') + ".tmp")
       try {
         $utf8NoBom = New-Object System.Text.UTF8Encoding($false)
         [System.IO.File]::WriteAllText($temporaryConfig, $content, $utf8NoBom)
-        Move-Item -LiteralPath $temporaryConfig -Destination $destination -Force
+        Move-Item -LiteralPath $temporaryConfig -Destination $destination
       } finally {
         if (Test-Path -LiteralPath $temporaryConfig) {
           Remove-Item -LiteralPath $temporaryConfig -Force
@@ -378,16 +393,21 @@ if (Test-Path -LiteralPath $installationFile -PathType Any) {
   Assert-SafeTargetParent $installationFile
   $parent = Split-Path -Parent $installationFile
   New-Item -ItemType Directory -Force -Path $parent | Out-Null
+  $installationTitle = 'LF Engineering System Installation'
+  $installationDescription = 'This file records how the project base was initialized. Existing project files were preserved by the bootstrap.'
+  if ($Language -eq 'pt-BR') {
+    $installationTitle = 'Instalação do LF Engineering System'
+    $installationDescription = 'Este arquivo registra como a base do projeto foi inicializada. Os arquivos existentes foram preservados pelo bootstrap.'
+  }
   $installationContent = @"
-# LF Engineering System Installation
+# $installationTitle
 
 - Language: $Language
 - Adapter: $Adapter
 - Framework path: $FrameworkPath
 - Framework: external read-only library
 
-This file records how the project base was initialized. Existing project files
-were preserved by the bootstrap.
+$installationDescription
 "@
   $utf8NoBom = New-Object System.Text.UTF8Encoding($false)
   [System.IO.File]::WriteAllText($installationFile, $installationContent, $utf8NoBom)

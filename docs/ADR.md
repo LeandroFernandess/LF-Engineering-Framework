@@ -1476,3 +1476,67 @@ this ADR records post-tag maintenance only and does not authorize a release.
 - `CHANGELOG.md`, `OVERVIEW.md` and PT-BR mirrors
 - [teardown](https://github.com/elvarofficial/teardown)
 - [How I Turn Any Machine Into a 3D Simulator You Can Take Apart](https://teapawt.org/elvar_official/article/2116174609355571402)
+
+## ADR-022 - Native bilingual setup assistant and translation review tracking
+
+### Status
+
+Accepted for implementation; no release publication authorized.
+
+### Date
+
+2026-11-15
+
+### Context
+
+The native bootstrap already supports two template languages, but first-time
+users must assemble flags and repeat the command after reviewing a dry-run.
+Its technical output is English. Canonical agent specifications contained
+Portuguese prose despite the declared EN-US source policy. Existing parity
+checks did not cover every active public document or certify semantic accuracy.
+
+### Decision
+
+- Add local `setup.sh` and `setup.ps1` entrypoints with language, target and
+  integration selection, a complete preview and explicit default-no confirmation.
+- Preserve native bootstrap flags, dry-run defaults and English technical output
+  for automation. Localize the assistant and new installation descriptions;
+  preserve machine-facing record keys. Existing files are never migrated.
+- Use native shell/PowerShell only; no global install, package registry, remote
+  execution or optional-tool installation. Keep both language libraries and
+  canonical root references. Default integration remains `generic`.
+- Show a brief 2D LF signature at startup (five frames over 600 ms), then animate
+  the same mark only during real bootstrap work. `--no-animation`, narrow/basic
+  terminals and consoles without virtual-terminal support use a static signature;
+  `NO_COLOR` suppresses color. Clear work frames on completion or interruption.
+  Never hide the cursor or estimate a percentage.
+- Display the owner's setup contact in the installer opening and help only.
+  Keep the existing `SECURITY.md` contact as the separate vulnerability
+  reporting channel.
+- Resolve target boundaries and perform a full dry-run preflight before writes;
+  recheck destinations during application. Application is not transactional:
+  failures may leave newly copied files, and retries preserve them.
+- Translate all eleven canonical agent specifications into EN-US without changing
+  responsibilities or contract identifiers. Maintain the PT-BR prose and a
+  bilingual glossary. Inventory every active EN-US/PT-BR source pair, require a
+  semantic review record and keep review fingerprints separate from structural
+  coverage validation.
+- Share the active public-document pair list across native validators. Keep
+  READMEs as an intentional structural exception because their navigation differs;
+  check their presence, links and reviewed content instead.
+
+### Alternatives Considered
+
+An npm package, remote download-and-execute installer and full-screen terminal UI
+would introduce runtime, distribution or terminal complexity beyond this need.
+Replacing the existing CLI output would break automation. Treating structural
+parity as semantic certification would hide translation drift.
+
+### Consequences
+
+Both native implementations require equivalent behavior tests. Python is used
+only for maintainer/CI documentation and regression checks, not installation.
+Changed reviewed documents require renewed comparison and fingerprint updates;
+structural parity does not certify semantic quality. Native Windows/Linux
+evidence must come from their CI jobs; macOS PowerShell execution does not
+establish Windows ACL or console compatibility.

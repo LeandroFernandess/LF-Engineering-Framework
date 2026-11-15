@@ -1,7 +1,7 @@
 # LF Engineering Knowledge
 
-Version: 0.1.0<br>
-Status: Draft<br>
+Published Framework Baseline: 1.5.0<br>
+Status: Stable library with post-tag maintenance; module versions are independent.<br>
 Owner: Leandro Fernandes
 
 ---

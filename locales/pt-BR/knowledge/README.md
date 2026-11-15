@@ -1,7 +1,7 @@
 # Knowledge de engenharia LF
 
-Versão: 0.1.0
-Status: Rascunho
+Baseline publicada do Framework: 1.5.0
+Status: Biblioteca estável com manutenção pós-tag; versões dos módulos são independentes.
 Responsável: Leandro Fernandes
 
 ---

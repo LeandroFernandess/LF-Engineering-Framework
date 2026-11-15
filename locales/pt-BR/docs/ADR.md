@@ -1251,3 +1251,67 @@ manutenção pós-tag e não autoriza uma release.
 - `CHANGELOG.md`, `OVERVIEW.md` e espelhos PT-BR
 - [teardown](https://github.com/elvarofficial/teardown)
 - [Como transformo qualquer máquina em um simulador 3D que você pode desmontar](https://teapawt.org/elvar_official/article/2116174609355571402)
+
+## ADR-022 - Assistente nativo bilíngue e rastreamento da revisão de traduções
+
+### Status
+
+Aceito para implementação; nenhuma publicação de release autorizada.
+
+### Data
+
+2026-11-15
+
+### Contexto
+
+O bootstrap nativo já permite dois idiomas de template, mas novos usuários
+precisam montar flags e repetir o comando após revisar um dry-run.
+Sua saída técnica é em inglês. As especificações canônicas dos agentes continham
+prosa em português apesar da política de fonte EN-US. As verificações existentes
+não cobriam todos os documentos públicos ativos nem certificavam a semântica.
+
+### Decisão
+
+- Adicionar entradas locais `setup.sh` e `setup.ps1` com seleção de idioma,
+  destino e integração, prévia completa e confirmação explícita com padrão não.
+- Preservar flags, dry-run padrão e saída técnica em inglês do bootstrap para
+  automação. Traduzir o assistente e novas descrições de instalação; preservar
+  chaves técnicas do registro. Arquivos existentes nunca são migrados.
+- Usar somente shell/PowerShell nativos; sem instalação global, registro de
+  pacotes, execução remota ou instalação de ferramentas opcionais. Manter as duas
+  bibliotecas e referências canônicas da raiz. Integração padrão: `generic`.
+- Exibir uma assinatura 2D LF breve na abertura (cinco quadros em 600 ms) e
+  animar a mesma marca somente durante trabalho real do bootstrap. `--no-animation`,
+  terminais estreitos/simples e consoles sem suporte a terminal virtual usam uma
+  assinatura estática; `NO_COLOR` suprime as cores. Limpar quadros ao concluir ou
+  interromper. Nunca ocultar o cursor nem estimar percentuais.
+- Exibir `Leandro Fernandes` e o contato de instalação indicado pelo responsável
+  somente na abertura e na ajuda do assistente. Manter o contato atual de
+  `SECURITY.md` como canal separado para relatar vulnerabilidades.
+- Resolver fronteiras do destino e executar uma prévia completa antes de gravar;
+  conferir destinos novamente ao aplicar. A aplicação não é transacional:
+  falhas podem deixar arquivos novos, que serão preservados na repetição.
+- Traduzir as onze especificações canônicas para EN-US sem alterar
+  responsabilidades ou identificadores de contrato. Manter a prosa PT-BR e um
+  glossário bilíngue. Inventariar todos os pares ativos EN-US/PT-BR, exigir um
+  registro de revisão semântica para cada par e manter os hashes separados da
+  cobertura estrutural.
+- Compartilhar a lista de pares públicos ativos entre os validadores nativos.
+  Manter os READMEs como exceção estrutural intencional pela navegação diferente;
+  verificar sua presença, links e conteúdo revisado.
+
+### Alternativas consideradas
+
+Pacote npm, instalador remoto que baixa e executa e interface de terminal em tela
+cheia acrescentariam complexidade de runtime, distribuição ou terminal além da
+necessidade. Substituir a saída atual quebraria automações. Tratar paridade
+estrutural como certificação semântica esconderia divergências de tradução.
+
+### Consequências
+
+As duas implementações exigem testes equivalentes de comportamento. Python é
+usado apenas nas verificações de documentação e regressão dos mantenedores/CI,
+não na instalação. Documentos revisados que mudarem exigem nova comparação e
+atualização dos hashes; paridade estrutural não certifica qualidade semântica.
+Evidências nativas de Windows/Linux devem vir dos jobs de CI; executar PowerShell
+no macOS não comprova compatibilidade de ACL ou console no Windows.

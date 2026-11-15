@@ -41,6 +41,11 @@ jobs:
       - name: Test dynamic security inspector
         run: python -m unittest discover -s docs/security-audit -p 'test_*.py' -v
 
+      - name: Check documentation and guided setup
+        run: |
+          python scripts/check-docs.py
+          python -m unittest discover -s scripts/tests -v
+
       - name: Validate shell bootstrap and locale packs
         if: runner.os != 'Windows'
         shell: bash

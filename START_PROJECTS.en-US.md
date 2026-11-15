@@ -27,6 +27,28 @@ The generated `.gitignore` excludes `/.ai/state/` so coordination state remains
 local by default. Existing projects retain their `.gitignore` during bootstrap
 and must add this rule manually if they want the same protection.
 
+## Recommended local assistant
+
+After downloading/cloning, run `sh setup.sh` on macOS/Linux or `.\setup.ps1`
+on Windows PowerShell from the Framework root. Choose the language, external
+project directory and integration; review the file and permission preview and confirm.
+Confirmation defaults to no. EOF or cancellation before application does not change
+project files. If application fails or is interrupted, correct the cause and run
+again: newly written files can remain and will be preserved.
+
+The assistant requires interactive input/output and does not run in CI.
+Use `--no-animation`/`--no-color` or PowerShell `-NoAnimation`/`-NoColor`.
+`NO_COLOR` disables colors; basic or narrow terminals use a static signature.
+The brief 2D LF opening animation runs once (up to 600 ms); activity frames
+appear only while the bootstrap is working, without estimated percentages.
+
+Selection changes assistant messages and new documents. It does not translate
+existing files or change references to the external canonical library.
+The previous installation record is preserved; language/integration differences
+produce a warning. Reconcile preserved instructions and configuration manually.
+The following sections document noninteractive commands for automation;
+their technical output remains in English for compatibility.
+
 ## 2. Choose language and adapter
 
 The options are independent:
@@ -40,11 +62,7 @@ The options are independent:
 project template. Translation coverage is tracked in
 `locales/pt-BR/TRANSLATION_STATUS.md`.
 
-The public `v1.5.0` release contains both template packs, and selection happens
-at bootstrap time. Translation coverage is not exhaustive across supplemental
-modules and extended public documents; consult
-`locales/pt-BR/TRANSLATION_STATUS.md` before treating PT-BR as equivalent to all
-EN-US content.
+The distribution retains both languages. All four optional supplemental modules and active public documents have PT-BR mirrors. Presence and structural parity do not certify semantic equivalence; consult `locales/pt-BR/TRANSLATION_STATUS.md` for reviewed scope.
 
 The `generic` mode installs `LF_ENGINEERING.md`, `AGENTS.md`, `.ai/`, `docs/`,
 `README.md` and `.gitignore`. Adapters add only CLI-specific integration:

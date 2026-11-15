@@ -30,6 +30,29 @@ local por padrão. Projetos existentes preservam seu `.gitignore` durante o
 bootstrap e precisam adicionar essa regra manualmente se desejarem a mesma
 proteção.
 
+## Assistente local recomendado
+
+Após baixar/clonar, execute `sh setup.sh` no macOS/Linux ou `.\setup.ps1`
+no Windows PowerShell, na raiz do Framework. Escolha idioma, diretório do projeto
+externo e integração; confira os arquivos e permissões da prévia e confirme.
+A confirmação padrão é não. EOF ou cancelamento antes da aplicação não alteram
+arquivos do projeto. Se a aplicação falhar ou for interrompida, corrija a causa e
+execute novamente: arquivos novos já gravados podem permanecer e serão preservados.
+
+O assistente exige entrada e saída interativas e não executa em CI.
+Use `--no-animation`/`--no-color` ou `-NoAnimation`/`-NoColor` no PowerShell.
+`NO_COLOR` desativa cores; terminais simples ou estreitos usam uma assinatura
+estática. A abertura animada 2D LF é breve e executa uma vez (até 600 ms); os
+quadros de atividade aparecem somente enquanto o bootstrap trabalha, sem
+percentuais estimados.
+
+A seleção altera as mensagens do assistente e os documentos novos. Não traduz
+arquivos existentes nem muda as referências à biblioteca canônica externa.
+O registro anterior é preservado; diferenças de idioma/integração geram aviso.
+Revise manualmente instruções e configurações preservadas.
+As seções seguintes documentam comandos não interativos para automação;
+a saída técnica desses comandos permanece em inglês por compatibilidade.
+
 ## 2. Escolher idioma e adapter
 
 As opções são independentes:
@@ -43,11 +66,7 @@ As opções são independentes:
 técnico. A cobertura de tradução é registrada em
 `locales/pt-BR/TRANSLATION_STATUS.md`.
 
-A release pública `v1.5.0` contém os dois templates de idioma e a seleção
-acontece no bootstrap. A cobertura da tradução não é integral em módulos
-suplementares e documentos públicos extensos; consulte
-`locales/pt-BR/TRANSLATION_STATUS.md` antes de tratar PT-BR como equivalente a
-todo o conteúdo EN-US.
+A distribuição mantém ambos os idiomas. Os quatro módulos suplementares opcionais e os documentos públicos ativos têm espelhos PT-BR. Presença e paridade estrutural não certificam equivalência semântica; consulte `locales/pt-BR/TRANSLATION_STATUS.md` para o escopo revisado.
 
 O modo `generic` instala `LF_ENGINEERING.md`, `AGENTS.md`, `.ai/`, `docs/`,
 `README.md` e `.gitignore`. Os adapters adicionam apenas a integração específica
