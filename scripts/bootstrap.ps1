@@ -273,7 +273,8 @@ function Copy-TreeMissingOnly {
 
   foreach ($entry in $entries) {
     $relativePath = $entry.FullName.Substring($SourceRoot.Length).TrimStart('\', '/')
-    if ($relativePath -in @('docs/DESIGN.md', 'docs/PERFORMANCE_VALIDATION_REPORT.md', 'docs/TECH_DEBT_AUDIT.md')) {
+    $portableRelativePath = $relativePath -replace '\\', '/'
+    if ($portableRelativePath -in @('docs/DESIGN.md', 'docs/PERFORMANCE_VALIDATION_REPORT.md', 'docs/TECH_DEBT_AUDIT.md')) {
       continue
     }
     if ($SourceRoot -eq $templatePath -and (Test-Path -LiteralPath (Join-Path $localeTemplatePath $relativePath))) {

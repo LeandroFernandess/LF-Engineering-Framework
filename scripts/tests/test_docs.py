@@ -31,8 +31,8 @@ class DocumentationLinks(unittest.TestCase):
             (root / 'scripts').mkdir()
             source = root / 'source.md'
             translation = root / 'translation.md'
-            source.write_text('Canonical source\n', encoding='utf-8')
-            translation.write_text('Fonte canônica\n', encoding='utf-8')
+            source.write_bytes(b'Canonical source\n')
+            translation.write_bytes('Fonte canônica\n'.encode('utf-8'))
             (root / 'scripts/translation-pairs.tsv').write_text(
                 'source.md|translation.md\n', encoding='utf-8')
             entry = {
