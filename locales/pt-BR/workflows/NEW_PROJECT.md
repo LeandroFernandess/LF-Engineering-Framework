@@ -12,11 +12,10 @@ implementação, validação da entrega e extração de conhecimento pós-entreg
 
 1. Crie o diretório do novo projeto fora do repositório do LF Engineering
    System.
-2. Execute o bootstrap nativo com o idioma e adapter selecionados; `generic` é
-   o padrão.
-3. Se um adapter de fornecedor for selecionado, crie ou valide seu entrypoint
-   de projeto e mantenha o LF Engineering System como framework externo somente
-   leitura.
+2. Execute o bootstrap nativo com idioma explícito e um adapter obrigatório:
+   Codex, Claude, Gemini ou OpenCode.
+3. Crie ou valide o entrypoint do adapter escolhido e mantenha o LF Engineering
+   System como framework externo somente leitura.
 4. Confirme que `LF_ENGINEERING.md` e `AGENTS.md` definem as fronteiras do
    projeto, o uso somente leitura do Framework e as regras de atualização de
    estado.
@@ -117,8 +116,8 @@ Engineering Manager
   condicional; não introduza uma biblioteca nem uma nova fase de workflow.
 - Engineering Knowledge Extractor executa após a aprovação da entrega. Ele
   recomenda melhorias para o Framework, mas não o modifica.
-- O adapter `generic` é suficiente para qualquer assistente de IA compatível.
-  Codex, Claude Code, Gemini CLI e OpenCode são opcionais.
+- Selecione explicitamente um adapter de CLI suportado em cada bootstrap:
+  Codex, Claude Code, Gemini CLI ou OpenCode.
 - Se um artefato upstream estiver ausente, crie-o primeiro ou registre a
   exceção em `.ai/decisions.md`.
 - Não modifique o LF Engineering System ao operar dentro de um projeto cliente,
@@ -173,8 +172,8 @@ Engineering Manager
 - A primeira sprint ou conjunto de tarefas é executável.
 - O estado dos handoffs está atualizado.
 - O bootstrap copiou o template de idioma selecionado para a raiz do projeto.
-- O entrypoint do adapter selecionado, quando houver, referencia ou carrega o
-  LF Engineering System como framework externo somente leitura.
+- O entrypoint do adapter selecionado referencia ou carrega o LF Engineering
+  System como framework externo somente leitura.
 - `AGENTS.md` confirma as fronteiras do projeto e o uso somente leitura do
   Framework.
 - Os arquivos necessários de `.ai/` e `.ai/state/` existem e não contêm

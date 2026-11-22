@@ -1,6 +1,7 @@
 CHANGELOG.md|locales/pt-BR/public-docs/CHANGELOG.md
 CONTRIBUTING.md|locales/pt-BR/public-docs/CONTRIBUTING.md
 FIRST_PROMPT_TEMPLATE.md|locales/pt-BR/public-docs/FIRST_PROMPT_TEMPLATE.md
+GET_STARTED.md|locales/pt-BR/public-docs/GET_STARTED.md
 OVERVIEW.md|locales/pt-BR/public-docs/OVERVIEW.md
 PROJECT_TEMPLATE/.ai/artifacts.md|locales/pt-BR/PROJECT_TEMPLATE/.ai/artifacts.md
 PROJECT_TEMPLATE/.ai/contracts.md|locales/pt-BR/PROJECT_TEMPLATE/.ai/contracts.md
@@ -134,6 +135,10 @@ schemas/PROJECT_KNOWLEDGE.schema.md|locales/pt-BR/schemas/PROJECT_KNOWLEDGE.sche
 schemas/SPRINT.schema.md|locales/pt-BR/schemas/SPRINT.schema.md
 schemas/TASK.schema.md|locales/pt-BR/schemas/TASK.schema.md
 schemas/TECH_DEBT_AUDIT.schema.md|locales/pt-BR/schemas/TECH_DEBT_AUDIT.schema.md
+project-skills/en-US/lf-approved-implementation/SKILL.md|locales/pt-BR/project-skills/lf-approved-implementation/SKILL.md
+project-skills/en-US/lf-delivery-review/SKILL.md|locales/pt-BR/project-skills/lf-delivery-review/SKILL.md
+project-skills/en-US/lf-project-onboarding/SKILL.md|locales/pt-BR/project-skills/lf-project-onboarding/SKILL.md
+project-skills/en-US/lf-project-planning/SKILL.md|locales/pt-BR/project-skills/lf-project-planning/SKILL.md
 workflows/BUG_FIX.md|locales/pt-BR/workflows/BUG_FIX.md
 workflows/DOCUMENTATION.md|locales/pt-BR/workflows/DOCUMENTATION.md
 workflows/NEW_PROJECT.md|locales/pt-BR/workflows/NEW_PROJECT.md

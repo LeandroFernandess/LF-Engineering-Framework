@@ -20,6 +20,11 @@ No Windows PowerShell:
 .\scripts\test-bootstrap.ps1
 ```
 
+No macOS, se o PowerShell local criar `StartupProfileData-NonInteractive` no
+diretório de trabalho, inicie esses comandos em uma pasta temporária e informe
+os caminhos absolutos dos scripts. O PowerShell pode criar esse arquivo antes
+de os scripts começarem; remova o arquivo temporário após o processo terminar.
+
 Execute os testes de regressão do inspetor dinâmico (Python 3.10+; somente
 biblioteca padrão):
 
@@ -47,20 +52,23 @@ repositório predecessor foi importada. Uma execução local gera um relatório 
 
 ## Cenários cobertos
 
-- Os dois assistentes exibem o contato do responsável na ajuda e a assinatura 2D
-  LF na abertura; os quadros durante o bootstrap são limpos ao concluir ou
-  interromper, e terminais estreitos/modo estático não animam.
+- Os dois assistentes exibem o contato do responsável na ajuda e no
+  cabeçalho de abertura. Os menus são verticais, as escolhas aceitas são destacadas e
+  `b` volta uma etapa preservando as respostas anteriores. A atividade do
+  bootstrap usa uma linha antes da prévia alinhada; terminais estreitos/modo
+  estático não animam.
 - Dry-run de projeto novo não cria o diretório-alvo.
 - Aplicação de projeto novo copia o template no idioma selecionado.
-- Template PT-BR e renderização do caminho do Framework.
-- Adapters generic, Codex, Claude, Gemini e OpenCode.
-- A suíte PowerShell do Windows omite `-Adapter` uma vez e verifica que o padrão
-  é `generic`, sem instalar entrypoints específicos de fornecedores.
+- Seleção do template PT-BR, links públicos versionados ao Framework e registros
+  instalados sem caminhos de máquina.
+- Adapters Codex, Claude, Gemini e OpenCode nos fluxos interativo e direto do
+  bootstrap. A escolha é obrigatória; valor vazio ou não suportado falha antes
+  de criar o destino.
 - Preservação de README, AGENTS, `.gitignore`, `.ai/`, documentação e
   configuração de CLI existentes.
 - Arquivos ocultos e caminhos com espaços.
-- Substituição do placeholder, parsing JSON e referências do adapter OpenCode
-  aos agentes/workflows canônicos do Framework; a árvore independente e a
+- Substituição do placeholder de referência remota, parsing JSON, fixação de
+  versão e instruções canônicas do adapter OpenCode; a árvore independente e a
   configuração MCP na raiz do Framework devem permanecer ausentes.
 - Rejeição de idioma e adapter inválidos.
 - Recusa de operação dentro do diretório do Framework.
@@ -111,7 +119,7 @@ dependência de manutenção/CI, não do assistente. A matriz de CI executa os t
 nas três plataformas. As sessões com pseudoterminal são executadas em POSIX;
 o Windows executa os testes nativos de bootstrap e recusa de entrada redirecionada.
 Antes de uma release, valide manualmente a seleção de idioma, confirmação,
-cancelamento, Ctrl+C, assinatura 2D e fallback estático no Windows Terminal.
+cancelamento, Ctrl+C, cabeçalho de abertura e indicador de atividade estático no Windows Terminal.
 Verifique também um terminal POSIX estreito e um terminal básico sem animação.
 
 A verificação documental cobre links locais inline e por referência, títulos e

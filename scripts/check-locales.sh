@@ -193,9 +193,9 @@ if ! grep -Fq '**Versão da fonte:** 1.5.0' "$STATUS_FILE"; then
   exit 1
 fi
 
-pt_placeholder_files=$(grep -R -l -F '__LF_ENGINEERING_SYSTEM_PATH__' "$PT_TEMPLATE" | sort || true)
-if [ "$pt_placeholder_files" != "$PT_TEMPLATE/LF_ENGINEERING.md" ]; then
-  echo "PT-BR template contains an unexpected operational placeholder." >&2
+pt_legacy_placeholder_files=$(grep -R -l -F '__LF_ENGINEERING_SYSTEM_PATH__' "$PT_TEMPLATE" | sort || true)
+if [ -n "$pt_legacy_placeholder_files" ]; then
+  echo "PT-BR template contains a legacy machine-specific path placeholder." >&2
   exit 1
 fi
 

@@ -61,6 +61,11 @@ jobs:
           ref: ${{ needs.resolve-tag.outputs.commit }}
           persist-credentials: false
 
+      - name: Set up Python to build platform and language packages
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
       - name: Build archives and checksums
         shell: bash
         env:
@@ -137,9 +142,19 @@ jobs:
           test -f "dist/$archive_base.zip"
           test -f dist/SHA256SUMS
 
+          release_assets=("dist/$archive_base.tar.gz" "dist/$archive_base.zip")
+          for platform in macos linux windows; do
+            for language in en-US pt-BR; do
+              extension=tar.gz
+              if [[ "$platform" == windows ]]; then extension=zip; fi
+              asset="dist/lf-engineering-framework-$RELEASE_TAG-$platform-$language.$extension"
+              test -f "$asset"
+              release_assets+=("$asset")
+            done
+          done
+
           gh release create "$RELEASE_TAG" \
-            "dist/$archive_base.tar.gz" \
-            "dist/$archive_base.zip" \
+            "${release_assets[@]}" \
             dist/SHA256SUMS \
             --verify-tag \
             --title "LF Engineering Framework $RELEASE_TAG" \

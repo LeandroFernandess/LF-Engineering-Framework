@@ -34,6 +34,7 @@ for file in \
   locales/translation-review.json \
   README.md \
   README.pt-BR.md \
+  GET_STARTED.md \
   CONTRIBUTING.md \
   SECURITY.md \
   TESTING.md \
@@ -61,6 +62,7 @@ for file in \
   locales/pt-BR/README.md \
   locales/pt-BR/TRANSLATION_STATUS.md \
   locales/pt-BR/public-docs/CONTRIBUTING.md \
+  locales/pt-BR/public-docs/GET_STARTED.md \
   locales/pt-BR/public-docs/SECURITY.md \
   locales/pt-BR/public-docs/SECURITY_AUDIT.md \
   locales/pt-BR/public-docs/TESTING.md \
@@ -72,11 +74,21 @@ for file in \
   PROJECT_TEMPLATE/AGENTS.md \
   PROJECT_TEMPLATE/LF_ENGINEERING.md \
   PROJECT_TEMPLATE/README.md \
+  project-skills/en-US/lf-project-onboarding/SKILL.md \
+  project-skills/en-US/lf-project-planning/SKILL.md \
+  project-skills/en-US/lf-approved-implementation/SKILL.md \
+  project-skills/en-US/lf-delivery-review/SKILL.md \
+  locales/pt-BR/project-skills/lf-project-onboarding/SKILL.md \
+  locales/pt-BR/project-skills/lf-project-planning/SKILL.md \
+  locales/pt-BR/project-skills/lf-approved-implementation/SKILL.md \
+  locales/pt-BR/project-skills/lf-delivery-review/SKILL.md \
   adapters/opencode/opencode.jsonc \
   scripts/bootstrap.sh \
   scripts/bootstrap.ps1 \
   scripts/check-locales.sh \
   scripts/package-release.sh \
+  scripts/package_installers.py \
+  scripts/tests/test_package_installers.py \
   scripts/validate-framework.sh \
   scripts/validate-framework.ps1 \
   scripts/test-bootstrap.sh \
@@ -87,11 +99,13 @@ done
 [ ! -e "$FRAMEWORK_PATH/PROJECT_TEMPLATE/opencode.jsonc" ] || \
   fail "OpenCode configuration must be optional"
 
-placeholder='__LF_ENGINEERING_SYSTEM_PATH__'
+legacy_path_placeholder='__LF_ENGINEERING_SYSTEM_PATH__'
+legacy_path_files=$(cd "$FRAMEWORK_PATH" && grep -R -l -F "$legacy_path_placeholder" PROJECT_TEMPLATE adapters | LC_ALL=C sort || true)
+[ -z "$legacy_path_files" ] || fail "machine-specific Framework path placeholders remain"
+
+placeholder='__LF_ENGINEERING_SYSTEM_REF__'
 placeholder_files=$(cd "$FRAMEWORK_PATH" && grep -R -l -F "$placeholder" PROJECT_TEMPLATE adapters | LC_ALL=C sort || true)
-expected_placeholders=$(printf '%s\n' \
-  'PROJECT_TEMPLATE/LF_ENGINEERING.md' \
-  'adapters/opencode/opencode.jsonc' | LC_ALL=C sort)
+expected_placeholders='adapters/opencode/opencode.jsonc'
 [ "$placeholder_files" = "$expected_placeholders" ] || \
   fail "unexpected Framework placeholders"
 
@@ -108,14 +122,30 @@ if command -v node >/dev/null 2>&1; then
     const fs = require("fs");
     const config = JSON.parse(fs.readFileSync(process.argv[1], "utf8"));
     const required = [
-      "__LF_ENGINEERING_SYSTEM_PATH__/AGENTS.md",
-      "__LF_ENGINEERING_SYSTEM_PATH__/agents/Engineering-Manager/SPECS.md",
-      "__LF_ENGINEERING_SYSTEM_PATH__/workflows/NEW_PROJECT.md",
-      "__LF_ENGINEERING_SYSTEM_PATH__/workflows/STANDARD_DEVELOPMENT.md",
+      "https://raw.githubusercontent.com/LeandroFernandess/LF-Engineering-Framework/__LF_ENGINEERING_SYSTEM_REF__/AGENTS.md",
+      "https://raw.githubusercontent.com/LeandroFernandess/LF-Engineering-Framework/__LF_ENGINEERING_SYSTEM_REF__/agents/Engineering-Manager/SPECS.md",
+      "https://raw.githubusercontent.com/LeandroFernandess/LF-Engineering-Framework/__LF_ENGINEERING_SYSTEM_REF__/workflows/NEW_PROJECT.md",
+      "https://raw.githubusercontent.com/LeandroFernandess/LF-Engineering-Framework/__LF_ENGINEERING_SYSTEM_REF__/workflows/STANDARD_DEVELOPMENT.md",
     ];
     const instructions = config.instructions || [];
     if (required.some((value) => !instructions.includes(value))) {
       throw new Error("OpenCode adapter must reference canonical Framework instructions and workflows.");
+    }
+    const reference = config.references?.["lf-engineering-framework"];
+    if (!reference || reference.repository !== "LeandroFernandess/LF-Engineering-Framework" || reference.branch !== "__LF_ENGINEERING_SYSTEM_REF__") {
+      throw new Error("OpenCode adapter must use the versioned official Framework repository.");
+    }
+    const permissions = config.permissions || [];
+    const frameworkPath = "*/repos/github.com/LeandroFernandess/LF-Engineering-Framework/*";
+    const expectedPermissions = [
+      ["external_directory", "allow"],
+      ["read", "allow"],
+      ["edit", "deny"],
+    ];
+    if (expectedPermissions.some(([action, effect]) => !permissions.some((rule) =>
+      rule.action === action && rule.resource === frameworkPath && rule.effect === effect
+    ))) {
+      throw new Error("OpenCode adapter must keep the external Framework reference read-only.");
     }
     if (instructions.some((value) => value.includes("/.opencode/")) || config.mcp) {
       throw new Error("OpenCode adapter must not depend on a standalone Framework tree or MCP server.");

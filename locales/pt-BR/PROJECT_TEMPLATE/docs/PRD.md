@@ -4,23 +4,33 @@
 
 Descreva o problema, os usuários-alvo e o resultado desejado.
 
+---
+
 ## Usuários e stakeholders
 
 Descreva os usuários-alvo e os stakeholders relevantes. Quando disponíveis,
 referencie o método, a data e as limitações da pesquisa com usuários que informe
 uma decisão; não inclua dados pessoais identificáveis dos participantes.
 
+---
+
 ## Objetivos
 
 Liste objetivos mensuráveis do produto.
+
+---
 
 ## Requisitos
 
 Liste requisitos funcionais e não funcionais com fonte ou justificativa.
 
+---
+
 ## Critérios de aceitação
 
 Escreva critérios observáveis para a primeira entrega.
+
+---
 
 ## Performance e experiência responsiva (quando aplicável)
 
@@ -37,6 +47,8 @@ seu uso pretendido, fidelidade, impacto nas decisões e limitações visíveis a
 usuário. Não sugira validação de engenharia sem evidências de domínio incluídas no
 escopo aprovado.
 
+---
+
 ## Riscos e premissas
 
 Liste premissas explícitas, perguntas abertas e riscos. Não invente valores
@@ -45,6 +57,8 @@ desconhecidos.
 Quando a pesquisa com usuários informar uma premissa ou questão aberta, vincule
 as evidências relevantes e suas limitações aqui ou na seção aplicável do PRD. Não
 crie um artefato de pesquisa separado como requisito.
+
+---
 
 ## Questões abertas
 

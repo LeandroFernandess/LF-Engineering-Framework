@@ -21,6 +21,11 @@ On Windows PowerShell:
 .\scripts\test-bootstrap.ps1
 ```
 
+On macOS, if the local PowerShell creates `StartupProfileData-NonInteractive`
+in its working directory, start these commands from a temporary directory and
+pass the absolute paths to the scripts. PowerShell can create this file before
+the scripts begin; remove the temporary file after the process exits.
+
 Run the dynamic inspector regression tests (Python 3.10+; standard library only):
 
 ```sh
@@ -46,21 +51,24 @@ predecessor tag was imported. A local run generates a current report.
 
 ## Covered scenarios
 
-- Both setup assistants display the maintainer contact in help and the 2D LF
-  signature at startup; bootstrap activity frames are cleared on completion and
-  interruption, and narrow/no-animation paths remain static.
+- Both setup assistants display the maintainer contact in help and in the
+  startup header. Menus are vertical, accepted choices are highlighted,
+  and `b` returns one step while preserving earlier answers. Bootstrap activity
+  uses one line before the aligned preview; narrow/no-animation paths remain
+  static.
 - New project dry-run does not create the target directory.
 - New project application copies the selected language template.
-- PT-BR template and Framework path rendering.
-- Generic, Codex, Claude, Gemini and OpenCode adapters.
-- The Windows PowerShell suite omits `-Adapter` once and verifies that the
-  default is `generic` without installing vendor-specific entrypoints.
+- PT-BR template selection, version-pinned public Framework links and
+  machine-path-free project records.
+- Codex, Claude, Gemini and OpenCode adapters through both interactive and
+  direct bootstrap paths. A selection is required; blank and unsupported values
+  fail before the target is created.
 - Existing README, AGENTS, `.gitignore`, `.ai/`, documentation and CLI
   configuration preservation.
 - Hidden state files and paths containing spaces.
-- OpenCode adapter placeholder replacement, JSON parsing and references to
-  canonical Framework agents/workflows; the standalone Framework-root tree and
-  MCP configuration must remain absent.
+- OpenCode remote-reference placeholder replacement, JSON parsing, version
+  pinning and canonical Framework instructions; the standalone Framework-root
+  tree and MCP configuration must remain absent.
 - Invalid language and adapter rejection.
 - Refusal to operate inside the Framework directory.
 - PT-BR template file and structural parity for headings, tables, code fences
@@ -110,8 +118,8 @@ On Windows use `python` when that is the available launcher. Python is a
 maintainer/CI dependency, not an assistant dependency. The CI matrix runs tests
 on all three platforms. Pseudoterminal sessions run on POSIX; Windows runs native
 bootstrap tests and redirected-input rejection tests. Before a release, manually
-validate language selection, confirmation, cancellation, Ctrl+C, the 2D
-signature and the static fallback in an interactive Windows Terminal. Check a
+validate language selection, confirmation, cancellation, Ctrl+C, the
+startup header and the static activity indicator in an interactive Windows Terminal. Check a
 narrow POSIX terminal and a basic terminal with animation disabled as well.
 
 Documentation checks cover local inline and reference links, headings and HTML

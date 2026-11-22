@@ -15,18 +15,31 @@ migrated to this clean public repository.
 ## Added
 
 * Native bilingual setup assistant (`setup.sh`/`setup.ps1`) with preview, confirmation and optional animation, without additional dependencies.
-* Added a brief 2D LF author signature at startup and during real bootstrap work, with maintainer contact in both help outputs.
+* Added a static header with maintainer contact and a one-line bootstrap activity indicator.
 * Pre-write validation, deduplicated PT-BR preview and guided-setup regression tests.
-* Corrected EN-US source in all eleven agent specifications, added a bilingual glossary and scoped semantic-review records for all 142 active EN-US/PT-BR pairs, and expanded public-document/link validation.
+* Corrected EN-US source in all eleven agent specifications, added a bilingual glossary and scoped semantic-review records for all 143 active EN-US/PT-BR pairs, and expanded public-document/link validation.
+* Added bilingual `GET_STARTED` instructions with exact macOS/Linux/Windows commands and a source-checkout fallback while platform packages are unavailable.
+* Added six versioned OS/language installer packages with checksum and manifest validation, separate Framework/project destinations, and a no-overwrite install path.
+* Reworked first-run prompts to select the operating system and language in English.
+* Added vertical option menus, immediate selection highlights, one-step `b` navigation, and a compact aligned preview with inclusion/preservation counts.
 
 * Added optional, technology-independent guidance for model-driven interactive
   visual simulators, including model provenance, shared state, numerical review,
   user control and visual evidence.
 * Added an optional, copy-ready first-prompt template for project onboarding,
   with explicit approval boundaries and non-mandatory creator MCP suggestions.
+* Added localized project copies of `START_PROJECTS.md` and
+  `FIRST_PROMPT_TEMPLATE.md`, with links to the official Framework repository
+  pinned to the installed package version where available.
+* Added four short, Framework-owned bilingual project skills for onboarding,
+  planning, approved implementation and delivery review. The bootstrap installs
+  them under `.claude/skills/` for Claude and `.agents/skills/` for Codex,
+  Gemini and OpenCode; language packages include only their selected skill set.
 
 ## Changed
 
+* Required an explicit Codex, Claude, Gemini or OpenCode selection in both interactive and direct bootstraps; removed implicit adapter selection.
+* Added section dividers to project PRD templates and the stages, review and summaries of guided setup.
 * Replaced duplicated Product Owner README content with a concise entrypoint while preserving its separate mobile/desktop performance requirement.
 * Extended the existing conditional motion-design guidance and project workflow
   without adding a new agent, workflow phase, external dependency or fixed
@@ -34,6 +47,10 @@ migrated to this clean public repository.
 * Removed the duplicated Framework-root `.opencode/` tree and standalone MCP
   configuration. OpenCode remains an optional shared adapter that points to
   canonical Framework agents and workflows.
+* Removed machine-specific Framework locations from installed project
+  documents and records. OpenCode now uses a version-pinned remote repository
+  reference instead of a local installation path.
+* Kept the native bootstrap noninteractive and added package assets to release automation without publishing a new tag in this change.
 
 ---
 

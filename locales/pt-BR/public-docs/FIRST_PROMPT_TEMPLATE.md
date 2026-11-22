@@ -6,12 +6,18 @@ Idioma-fonte: EN-US<br>
 Fonte: `FIRST_PROMPT_TEMPLATE.md`
 
 Use este prompt copiável para iniciar uma conversa de projeto com um assistente
-de IA após clonar o LF Engineering Framework. Ele complementa, mas não substitui,
-o [guia de início](START_PROJECTS.md) nem o bootstrap do projeto.
+de IA após instalar ou fazer checkout do LF Engineering Framework. Ele
+complementa, mas não substitui, o [guia de instalação](GET_STARTED.md) nem o
+bootstrap do projeto.
 
-Mantenha o checkout do Framework separado do projeto cliente. Para comandos de
-configuração, seleção de idioma e adoção segura de projetos existentes, siga
-primeiro o guia de início.
+Mantenha a biblioteca do Framework separada do projeto cliente. Para comandos
+por plataforma, seleção de idioma e adoção segura de projetos existentes, siga
+primeiro o guia de instalação.
+
+Workflows, definições de agentes e conhecimentos canônicos continuam na
+biblioteca externa do Framework. Use a fonte oficial identificada no contexto
+`LF_ENGINEERING.md` do projeto; as pastas completas do Framework não devem
+estar no projeto cliente.
 
 ## Como usar
 
@@ -31,8 +37,8 @@ Comece pela descoberta e pelo planejamento; ainda não implemente nem altere
 arquivos.
 
 ## Contexto
-- Caminho do checkout do Framework: [caminho ou informe que não está acessível]
-- Caminho do projeto cliente: [caminho, ainda não criado ou não aplicável]
+- Disponibilidade do Framework: [acessível neste ambiente / usar o repositório oficial / indisponível]
+- Projeto cliente: [existente / ainda não criado / não aplicável]
 - Modo do projeto: [projeto novo / projeto existente / consulta ao Framework]
 - Idioma do projeto: [en-US / pt-BR]
 - Assistente, editor e adapter: [opcional; informe apenas o que está em uso]
@@ -43,9 +49,9 @@ arquivos.
 - Fora de escopo: [liste ou informe que ainda não foi definido]
 
 ## Instruções
-1. Confirme a quais repositórios e caminhos você realmente tem acesso. Trate o LF
-   Engineering Framework como biblioteca externa somente leitura e faça mudanças
-   apenas no projeto cliente, depois que eu aprovar um plano.
+1. Confirme quais fontes do projeto e do Framework estão realmente disponíveis.
+   Trate o LF Engineering Framework como biblioteca externa somente leitura e
+   faça mudanças apenas no projeto cliente, depois que eu aprovar um plano.
 2. Leia primeiro as instruções aplicáveis ao projeto. Em um projeto cliente com
    bootstrap, inspecione `AGENTS.md`, `LF_ENGINEERING.md` e `.ai/contracts.md`
    quando existirem. Se o projeto ainda não tiver bootstrap ou faltarem entradas

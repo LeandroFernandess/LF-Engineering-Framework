@@ -1,13 +1,13 @@
 {
-  "review_date": "2026-11-15",
-  "source_baseline": "6e70289; working-tree maintenance recorded in ADR-023",
+  "review_date": "2026-11-19",
+  "source_baseline": "6e70289; working-tree maintenance recorded in ADR-024",
   "reviewed_pairs": [
     {
       "source": "CHANGELOG.md",
       "translation": "locales/pt-BR/public-docs/CHANGELOG.md",
-      "source_sha256": "e8e3d16fba4dd9c1d0ed96543b7adf9cce71c286fa5ab0be6c408b8b406181dd",
-      "translation_sha256": "89173731b7f8bbb3f4dd50fd96d099db8ec231b925d1c5b4641897b710f9e702",
-      "scope": "New Unreleased entries only, including the Framework-root OpenCode cleanup and retained shared adapter."
+      "source_sha256": "a7783eafd34a32186a9fbb3ba13643bc3322619785f6eb4f52a8ef7e370e14f3",
+      "translation_sha256": "f1498f3779bc91ef4411fdf51a13d173b1bd411f286f6c3175b8e8e994bb38d3",
+      "scope": "Unreleased bilingual installers, versioned machine-independent source records, localized guides, owned project skills and delivery boundaries compared with PT-BR."
     },
     {
       "source": "CONTRIBUTING.md",
@@ -19,16 +19,23 @@
     {
       "source": "FIRST_PROMPT_TEMPLATE.md",
       "translation": "locales/pt-BR/public-docs/FIRST_PROMPT_TEMPLATE.md",
-      "scope": "Prompt sections, approval boundaries, optional MCP suggestions, setup language and copy-ready placeholders compared.",
-      "source_sha256": "354709cf8d2b702a54b3b70e4d2ef81f3f6b83790832599a191191777b5e401e",
-      "translation_sha256": "c8fe1ff6a906b1c936c9d6a04e9219bfdf71679fc2ca1ecc7eb0ccf6299eb5ba"
+      "scope": "Public Framework source, project-local onboarding context, available-source checks and approval boundaries compared with PT-BR.",
+      "source_sha256": "68a997e46d4fd7ba7f43f9e7cdb3a4fdd465fbd00b6d51930d7c05b759a93d2b",
+      "translation_sha256": "d5b02c35a2526cc01604dd76325290fe69c4a5caeead793e1c3b3e9cbff2864d"
+    },
+    {
+      "source": "GET_STARTED.md",
+      "translation": "locales/pt-BR/public-docs/GET_STARTED.md",
+      "scope": "Current setup guidance: required named integration choices, no implicit selection and installer navigation compared section by section.",
+      "source_sha256": "2eab76ae60dd9f907fac9dfde7e5b7181a219a79458902754066a75c99d20c73",
+      "translation_sha256": "70dc7b59e30a63b4ddf2fb6ae2b378bbdd1d332dc067e28119a934e351b2a5f7"
     },
     {
       "source": "OVERVIEW.md",
       "translation": "locales/pt-BR/public-docs/OVERVIEW.md",
-      "scope": "Framework purpose, adoption claims, supported entrypoints, OpenCode adapter paths, dependency boundaries and release references compared.",
-      "source_sha256": "1416a28305aa87f1d6f4cd15a016516e369e707c1fe5c1045848b80042c36810",
-      "translation_sha256": "e5754eb6917b454d5f2b15bd0091b249373b062d3541d81610806d925a86aa81"
+      "scope": "Current adapter behavior and named choices compared with PT-BR; historical release records remain unchanged.",
+      "source_sha256": "effc9416c30938522c7558d2c14db9148eba1ba99f287787b02da578308112e1",
+      "translation_sha256": "df6974083d4de6062a8e1e86bd63da91284e51dd05ecccbd2c71141f7e3d9abd"
     },
     {
       "source": "PROJECT_TEMPLATE/.ai/artifacts.md",
@@ -110,23 +117,23 @@
     {
       "source": "PROJECT_TEMPLATE/AGENTS.md",
       "translation": "locales/pt-BR/PROJECT_TEMPLATE/AGENTS.md",
-      "scope": "Project operating rules, canonical sources, state updates, boundary rules and artifact-contract references compared.",
-      "source_sha256": "78c5dd9311cc0a5099ee713441079cdc62058b1b62e2196d1341daabe4d4d53e",
-      "translation_sha256": "34b58de6f54229c0db31707a16af504ed1277e82f553bd563a26982aba243f46"
+      "scope": "Project operating rules, canonical Framework repository source, state updates, boundary rules and artifact-contract references compared.",
+      "source_sha256": "9f5e355cf1b6f133f4eeb3167ac6520007bf0875b8f553d007dd9171a0859558",
+      "translation_sha256": "c1865f5ad526ca220046e9166d00bbb60cdf6c1084b437df26bbc560b6e4c876"
     },
     {
       "source": "PROJECT_TEMPLATE/LF_ENGINEERING.md",
       "translation": "locales/pt-BR/PROJECT_TEMPLATE/LF_ENGINEERING.md",
-      "scope": "Framework relationship, authority boundaries, setup instructions and repository-path placeholder compared.",
-      "source_sha256": "ce97dfe2197a0442b5a7ff7c5615af1a23740b8d344f8c35de397131de75e47c",
-      "translation_sha256": "1236db4fa28eba85e2fa8a28a981a0c34f6ff228d3c976a9266f8c0091eca366"
+      "scope": "Framework relationship, public source, authority boundaries, setup instructions and absence of a machine-specific checkout path compared.",
+      "source_sha256": "30aa037d34c96e96bad00745fe385fa4ac1a0dd2962cfd1315bcf19f63198996",
+      "translation_sha256": "2b4b1b05ed57b45550c9b69920e8c53cb8093049f25d483af965e79bd5a8a6d5"
     },
     {
       "source": "PROJECT_TEMPLATE/README.md",
       "translation": "locales/pt-BR/PROJECT_TEMPLATE/README.md",
-      "scope": "Template purpose, setup, language selection, generated-file behavior and artifact references compared.",
-      "source_sha256": "1461a4cd9db530642ba8889b8e33f73fd5d88be1dae47d983c9757302755743c",
-      "translation_sha256": "e9cadd28b5b20e000a31133dabbf34f5477489387ce545bd4d1997b0dde12b96"
+      "scope": "Template setup guidance for the versioned public source record, explicit adapter selection and project boundaries compared with PT-BR.",
+      "source_sha256": "ba2011f2739de4b4dc1263633df73c8cf93d892cc3aa0bc6add9c88f34babf46",
+      "translation_sha256": "8e4ec8489b34a35ce1f708073ab1d1fc941b67eebe881e4bbc98739b0f6effa2"
     },
     {
       "source": "PROJECT_TEMPLATE/docs/ADR.md",
@@ -159,9 +166,9 @@
     {
       "source": "PROJECT_TEMPLATE/docs/PRD.md",
       "translation": "locales/pt-BR/PROJECT_TEMPLATE/docs/PRD.md",
-      "scope": "Required sections, acceptance and approval rules, artifact dependencies, conditional guidance and technical identifiers compared.",
-      "source_sha256": "37baaa8bbefd5bf4b659faa3aa1ac17c3fc262824ef2889430830b661e4a62d8",
-      "translation_sha256": "19c87b7c2ea9c93f49c28a3cd377e6741b98a369a7de0419e4f04db816988873"
+      "scope": "Major PRD topic dividers compared for matching placement in EN and PT-BR templates.",
+      "source_sha256": "b204483888b6fa4cc2f3c2e518a097b5909ecc2fa8d6c6d6a5891f6d5d09214b",
+      "translation_sha256": "0a89d74d5060a68df1123a885eff9c9c7309e8bb5092cd5100643b2e2e08ee30"
     },
     {
       "source": "PROJECT_TEMPLATE/docs/SPRINTS.md",
@@ -180,9 +187,9 @@
     {
       "source": "README.md",
       "translation": "README.pt-BR.md",
-      "source_sha256": "24faa07711c91064073c3b72cc233b9bcd5079ff39fa6e37d6dbac48defd2c5e",
-      "translation_sha256": "9bc5045c96559510b431395dd832aaa697b819b0efa30d4e53d5df87995015ee",
-      "scope": "Setup instructions, language policy, shared adapter choices and canonical OpenCode references compared; navigation intentionally differs."
+      "source_sha256": "83b0fa69fdb9d21f5ee6e3179951db571e5a1678d0fa31639220201b0ca938d7",
+      "translation_sha256": "afd9ac93cdea78ea488c62bc50191919317a24bf6cd49e63f779312e143de837",
+      "scope": "Project guides, four owned skills, adapter-specific skill destinations, package language scope and versioned public source record compared with PT-BR."
     },
     {
       "source": "ROADMAP.md",
@@ -201,16 +208,16 @@
     {
       "source": "START_PROJECTS.en-US.md",
       "translation": "locales/pt-BR/public-docs/START_PROJECTS.md",
-      "source_sha256": "497cc114a48312a85883a7ebe3e6a5fe7479b8efbd9a8e3370b045011ef175fb",
-      "translation_sha256": "ab94fabb0585a911cf90ff3f991c1259d2ae733e3cffe1280ddd7cf1d1421f7e",
-      "scope": "Getting-started instructions and coverage claims"
+      "source_sha256": "0b7942637d01b40dbb919a9dacf97de29f42223e7237f54b0079142939a88a03",
+      "translation_sha256": "b357d7d8fd3581b096e2c5ee452716d71282d6f0d32ab72e4f17f8b06b194b46",
+      "scope": "Localized project guide, versioned public Framework source, four adapter-routed skills, package behavior and project boundaries compared with PT-BR."
     },
     {
       "source": "TESTING.md",
       "translation": "locales/pt-BR/public-docs/TESTING.md",
-      "source_sha256": "553a7e8588c8486c20e4878490f031024eec201321a2c6cc6b73c80393709b36",
-      "translation_sha256": "e22c9806885bdb575a5bb49354719ae9f5003c52057f5cb293a4e6267ffb76a2",
-      "scope": "Setup assistant, OpenCode adapter source references, standalone-tree absence and documentation check instructions compared."
+      "source_sha256": "00fb1f9a705ded919b0eb3e0cfd4b04b8689d83a6dadec4e19c252ea3096bf05",
+      "translation_sha256": "ac3d60d533423c36a7a84229c3b3938864ce21c798d8e2b8fa6ec40d6b5e66c1",
+      "scope": "Validation matrix, setup checks and temporary working directory guidance for PowerShell compared with PT-BR."
     },
     {
       "source": "agents/AGENT_INTERACTION_MAP.md",
@@ -691,9 +698,9 @@
     {
       "source": "docs/ADR.md",
       "translation": "locales/pt-BR/docs/ADR.md",
-      "source_sha256": "5cb2e5914787a9a7399774840e34af262de4b988fb936bca726c263d178e7266",
-      "translation_sha256": "a1dfb4a1d329a412be255dc80d5ad60cfc3a0c0bef896686e332e3b7b7e98b02",
-      "scope": "ADR-023 decision, alternatives, consequences and related artifacts compared with the PT-BR mirror."
+      "source_sha256": "00413e881213f15313a9dd4e13db87565d7b5d7831a3a7eed40667ab8dd18b57",
+      "translation_sha256": "5fffcddd35a816be5f2a011881a75074aecbd6c00e39c3b4f48ef3937f1142af",
+      "scope": "ADR-026 localized guides and routing skills, plus ADR-027 machine-independent versioned Framework references, compared with PT-BR."
     },
     {
       "source": "docs/security-audit/README.md",
@@ -971,9 +978,9 @@
     {
       "source": "workflows/NEW_PROJECT.md",
       "translation": "locales/pt-BR/workflows/NEW_PROJECT.md",
-      "scope": "Workflow sequence, entry and exit conditions, responsible roles, required artifacts, gates, exceptions and handoffs compared.",
-      "source_sha256": "c4030ce402aa2017db68679e484f7a0ee79fff1a20784b1d8205e4234f5b65cc",
-      "translation_sha256": "5d9b1435ee21bf896ca09e95928c6ebc5c01e1786dacf9809ece67914a15d15c"
+      "scope": "Required explicit named adapter selection and validation guidance compared with PT-BR.",
+      "source_sha256": "208048e0a4127cb4361adc887778a50d0ac9be77721966c52a252858f8decfb0",
+      "translation_sha256": "38ccbe62fb0a0bb1a9f1aba2950e113fbf1b751118fb9362be254efb432088a0"
     },
     {
       "source": "workflows/REFACTOR.md",
@@ -995,6 +1002,34 @@
       "scope": "Workflow sequence, entry and exit conditions, responsible roles, required artifacts, gates, exceptions and handoffs compared.",
       "source_sha256": "37fcc56f6bcb8a0dda6b06faab966abae15a43c55074aab9e87bff6b21bc82cb",
       "translation_sha256": "1a6e70c73d0ff78e5b116a538a7a29218583c92b67863195ad4ebf676b665fa6"
+    },
+    {
+      "source": "project-skills/en-US/lf-approved-implementation/SKILL.md",
+      "translation": "locales/pt-BR/project-skills/lf-approved-implementation/SKILL.md",
+      "scope": "Approved-scope implementation, project boundaries, source discovery, state updates and evidence reporting compared with PT-BR.",
+      "source_sha256": "e0d720034436ab4b12124e29aa5cd718ed3a947a618def6cf6a1685b8ab4cd54",
+      "translation_sha256": "e0170ecd2b5db4c365552538d7226a853c7c2161eab23242971c98b9cb0aa3e0"
+    },
+    {
+      "source": "project-skills/en-US/lf-delivery-review/SKILL.md",
+      "translation": "locales/pt-BR/project-skills/lf-delivery-review/SKILL.md",
+      "scope": "Plan alignment, canonical review roles, source discovery, conditional checks and evidence-based readiness compared with PT-BR.",
+      "source_sha256": "3e92e4109433747557b8fb970a6102b32da30f000ee20c8ae479fd8c6ff013e7",
+      "translation_sha256": "22c9fc15574e7b94931a9c329f8b910b3f228f75126735a8cfdc1f6f86352ff8"
+    },
+    {
+      "source": "project-skills/en-US/lf-project-onboarding/SKILL.md",
+      "translation": "locales/pt-BR/project-skills/lf-project-onboarding/SKILL.md",
+      "scope": "Project instructions, public Framework source discovery, onboarding workflow, required-file checks and machine-independent installation record compared with PT-BR.",
+      "source_sha256": "d6215323f8a14052ec951bb97610e3336616c8b5b948dadf2131da6edadae159",
+      "translation_sha256": "d6dd42d315061de5403efea6c713622efa6b7bfd905c03faac56eb0f5d160c63"
+    },
+    {
+      "source": "project-skills/en-US/lf-project-planning/SKILL.md",
+      "translation": "locales/pt-BR/project-skills/lf-project-planning/SKILL.md",
+      "scope": "Workflow routing, upstream contracts, versioned public source, scoped planning and explicit approval boundary compared with PT-BR.",
+      "source_sha256": "f19f44893378eeb39ae7062ffb5eda8f3a1960e8758526113eead714db094b83",
+      "translation_sha256": "2640a41f8b8e665af40ddc91d1666cf98618df91bd358b6c221aaf08a93016d2"
     }
   ]
 }

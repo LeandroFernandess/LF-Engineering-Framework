@@ -4,8 +4,8 @@ Idiomas: [EN-US](../../../OVERVIEW.md) | [PT-BR](OVERVIEW.md)
 
 Baseline publicada: 1.5.0<br>
 Status: primeira release pública estável `v1.5.0` publicada em 2026-11-03<br>
-Última atualização da fonte: 2026-11-15<br>
-Baseline desta tradução: conteúdo de `v1.5.0` e manutenção pós-tag até 2026-11-15; releases anteriores são históricas no repositório predecessor privado<br>
+Última atualização da fonte: 2026-11-19<br>
+Baseline desta tradução: conteúdo de `v1.5.0` e manutenção pós-tag até 2026-11-19; releases anteriores são históricas no repositório predecessor privado<br>
 Fonte: `OVERVIEW.md`
 
 ## Objetivo
@@ -26,7 +26,7 @@ O LF Engineering System é um framework de engenharia de software assistida por 
 
 O Framework continua sendo a fonte canônica da verdade. Ferramentas externas e agentes de IA são assistentes, não autoridades.
 
-A primeira release pública, `v1.5.0`, inclui o snapshot do Framework e as quatro mudanças de manutenção feitas após a `v1.4.0` no repositório privado predecessor. O histórico, branches, tags e artefatos daquele repositório não foram migrados; `v1.4.0` é contexto histórico e não possui tag neste repositório público. O adapter `generic` continua sendo o padrão, enquanto adapters de CLI nomeados permanecem opcionais e contêm somente integração específica de plataforma.
+A primeira release pública, `v1.5.0`, inclui o snapshot do Framework e as quatro mudanças de manutenção feitas após a `v1.4.0` no repositório privado predecessor. O histórico, branches, tags e artefatos daquele repositório não foram migrados; `v1.4.0` é contexto histórico e não possui tag neste repositório público. O assistente atual exige a seleção explícita de um adapter de CLI nomeado. Os assets publicados da `v1.5.0` permanecem inalterados.
 
 ## Estado atual
 
@@ -34,9 +34,9 @@ O repositório contém o Framework canônico, agentes especializados, módulos d
 
 Os documentos públicos de contexto da release e os quatro módulos suplementares opcionais aprovados de Knowledge têm espelhos PT-BR no checkout atual. Os espelhos suplementares são verificados separadamente quanto à presença, correspondência de versões, status opcional aprovado e paridade estrutural; permanecem fora do grafo obrigatório de dependências. A aprovação não autoriza instalação ou integração de ferramentas externas. A avaliação independente Goldfish do piloto de motion design passou na compreensão com ressalvas, mas não passou na crítica nem na prontidão para implementação; o piloto não comprova um gate de prontidão bem-sucedido.
 
-O bootstrap padrão copia a base neutra do projeto usando comandos nativos de shell no macOS/Linux ou Windows PowerShell. Aceita a seleção explícita do idioma `en-US` ou `pt-BR` e usa o adapter `generic` por padrão. A configuração OpenCode é gerada somente quando `--adapter opencode` é selecionado e aponta para agentes e workflows canônicos do Framework. Arquivos e configurações existentes são preservados. O Framework não configura um servidor GitHub MCP separado; o OpenCode continua como uma escolha opcional no workflow compartilhado de bootstrap, com `generic` como padrão.
+O bootstrap nativo copia a base neutra do projeto usando shell no macOS/Linux ou Windows PowerShell. Exige a escolha explícita do idioma `en-US` ou `pt-BR` e de um adapter nomeado: `codex`, `claude`, `gemini` ou `opencode`. A configuração OpenCode aponta para agentes e workflows canônicos do Framework. Arquivos e configurações existentes são preservados. O Framework não configura um servidor GitHub MCP separado.
 
-Os assistentes locais recomendados (`setup.sh` e `setup.ps1`) orientam a escolha de idioma, diretório do projeto e integração antes de aplicar o bootstrap nativo existente. A assinatura 2D LF é estática quando a animação está desativada ou o terminal oferece suporte limitado; os quadros de atividade aparecem somente enquanto o bootstrap trabalha. A ferramenta continua local e não adiciona runtime ou dependência de pacote.
+Os assistentes locais recomendados (`setup.sh` e `setup.ps1`) orientam a escolha de idioma, diretório do projeto e integração antes de aplicar o bootstrap nativo existente. Eles exibem um cabeçalho estático e um indicador de atividade durante o bootstrap. A ferramenta continua local e não adiciona runtime ou dependência de pacote.
 
 O agente QA-Security agora inclui uma etapa obrigatória de fronteira de confiança e resistência a prompt injection, uma matriz de aplicabilidade das categorias de segurança solicitadas e verificações de privacidade do estado local e de artefatos temporários. Essas regras distinguem evidência de autoridade e não inventam vulnerabilidades quando uma superfície não existe. Projetos web e visuais também usam `ENGINEERING_DESIGN_PERFORMANCE`, `PERFORMANCE_VALIDATION.md` e evidências de aceite separadas para mobile e desktop. A release `v1.4.0` do repositório privado predecessor adicionou orientações condicionais `ENGINEERING_MOTION_DESIGN` e uma Revisão de movimento para projetos com movimento; isso não adiciona uma fase obrigatória nem dependência de animação.
 
@@ -112,7 +112,7 @@ O estado `.ai/` de manutenção na raiz e os dados de execução `workflow-graph
 
 ### Prompt de continuidade
 
-`CONTINUATION_PROMPT.md` era um artefato de continuidade de sessão, não um componente do Framework, e foi removido da superfície pública porque descrevia somente oito agentes. As orientações públicas atuais estão em `README.md`, `README.pt-BR.md`, `START_PROJECTS.en-US.md`, `locales/pt-BR/public-docs/START_PROJECTS.md` e `OVERVIEW.md`.
+`CONTINUATION_PROMPT.md` era um artefato de continuidade de sessão, não um componente do Framework, e foi removido da superfície pública porque descrevia somente oito agentes. As orientações públicas atuais estão em `README.md`, `README.pt-BR.md`, `GET_STARTED.md`, seu espelho PT-BR, `START_PROJECTS.en-US.md`, seu espelho PT-BR e `OVERVIEW.md`.
 
 ### Dependências locais
 
@@ -129,7 +129,7 @@ O README público é a entrada concisa. Mantenha-o atualizado quanto a:
 - Como inicializar um projeto cliente.
 - Como agentes e artefatos se relacionam.
 - O que é obrigatório, condicional ou experimental.
-- Como funcionam o bootstrap genérico e os adapters de CLI opcionais.
+- Como funcionam o bootstrap nativo e os adapters de CLI nomeados.
 - Como contribuir e relatar problemas.
 
 O README deve apontar para `OVERVIEW.md` para o contexto completo de arquitetura e publicação.
@@ -142,11 +142,14 @@ A primeira release pública `v1.5.0` está publicada, com arquivos compactados e
 - Bootstrap multilíngue nativo e adapters de CLI opcionais.
 - Correções nos nomes canônicos de artefatos.
 - Remoção de referências duplicadas e obsoletas.
-- Ferramentas suplementares e adapters de CLI nomeados permanecem opcionais, com `generic` como padrão.
+- Um adapter de CLI nomeado é selecionado explicitamente em cada operação de bootstrap.
 
-O repositório publica um único arquivo de release que contém os dois pacotes de
-idioma. O bootstrap seleciona explicitamente o idioma do projeto; arquivos de
-release separados por idioma não fazem parte da política de publicação.
+O release mantém dois arquivos completos de código-fonte e adiciona seis
+pacotes menores de instalação: macOS, Linux e Windows em `en-US` e `pt-BR`. O
+instalador de primeira execução seleciona um pacote correspondente após o
+usuário escolher sistema operacional e idioma. Os assets da `v1.5.0` são
+anteriores a esses pacotes; uma release posterior precisa publicá-los para
+ativar o novo fluxo.
 
 ### Limites das fontes da verdade
 
@@ -177,7 +180,8 @@ O repositório oferece validadores nativos leves que verificam:
 - sintaxe válida do bootstrap shell e parsing da configuração OpenCode opcional quando há runtime compatível com JSON;
 - ausência da árvore `.opencode/` na raiz do Framework e referências do adapter aos documentos canônicos de agente e workflow, sem configurar um servidor MCP separado.
 - paridade estrutural dos espelhos ativos de `OVERVIEW`, `ROADMAP`, `CHANGELOG` e ADRs quanto a hierarquia de títulos, tabelas, blocos de código e comentários HTML.
-- presença de um único arquivo de release com os dois pacotes de idioma; a seleção do idioma continua sendo explícita no bootstrap.
+- o fluxo de release mantém os dois arquivos completos do código-fonte e inclui
+  seis pacotes de instalação por sistema e idioma no manifesto de checksums.
 
 As suítes de teste do bootstrap também cobrem dry-run, adoção que copia somente arquivos ausentes, arquivos ocultos, caminhos com espaços, seleção de adapters, opções inválidas, proteção de fronteira do Framework incluindo links de diretório e substituição de placeholders OpenCode. Verificações mais amplas do repositório — como links Markdown, estrutura de agentes, busca por segredos e `git diff --check` — continuam sendo verificações de release, não promessas do validador nativo do Framework.
 

@@ -19,14 +19,15 @@ Document the main technologies, runtime requirements and external services.
 └── docs/
 ```
 
-The bootstrap records the selected language, adapter and external Framework path
-in `.ai/framework-installation.md` when that file is absent.
+The bootstrap records the selected language, adapter and official Framework
+source in `.ai/framework-installation.md` when that file is absent. It does not
+store a machine-specific installation location in project documentation.
 
 ## Engineering Process
 
 This project uses the LF Engineering System for agent-assisted planning,
 documentation, review and delivery validation. The Framework is CLI-neutral;
 OpenCode, Codex, Claude Code, Gemini CLI and other compatible assistants can use
-the same project documents through optional adapters. Web or visual projects
-additionally use the design-performance module and validate mobile and desktop
-separately before approval.
+the same project documents through adapters. The bootstrap requires selecting
+one explicitly. Web or visual projects additionally use the design-performance
+module and validate mobile and desktop separately before approval.

@@ -4,7 +4,7 @@ Languages: [EN-US](OVERVIEW.md) | [PT-BR](locales/pt-BR/public-docs/OVERVIEW.md)
 
 Published baseline: 1.5.0
 Status: first public stable release `v1.5.0` published 2026-11-03
-Last Updated: 2026-11-15
+Last Updated: 2026-11-19
 
 ## Purpose
 
@@ -28,8 +28,8 @@ The first public release, `v1.5.0`, includes the Framework snapshot and the four
 maintenance changes made after `v1.4.0` in the predecessor private repository.
 That earlier repository's history, branches, tags and assets were not migrated;
 `v1.4.0` is historical context and has no tag in this public repository. The
-`generic` adapter remains the default, while named CLI adapters remain optional
-and contain platform-specific integration only.
+current setup requires an explicitly selected named CLI adapter. The published
+`v1.5.0` assets remain unchanged.
 
 ## Current State
 
@@ -51,20 +51,17 @@ The independent Goldfish evaluation of the motion-design pilot passed
 comprehension with qualifications, while critic and implementation-readiness
 checks did not pass; the pilot is not evidence of a successful readiness gate.
 
-The default bootstrap now copies the vendor-neutral project base with native
-macOS/Linux shell or Windows PowerShell commands. It accepts explicit `en-US` or
-`pt-BR` language selection and defaults to the `generic` adapter. OpenCode
-configuration is generated only when `--adapter opencode` is selected and points
-to the canonical Framework agents and workflows. Existing project files and
-configurations are preserved. The Framework does not configure a separate
-GitHub MCP server; OpenCode remains an optional choice in the shared bootstrap
-workflow, with `generic` as the default.
+The native bootstrap copies the vendor-neutral project base with macOS/Linux
+shell or Windows PowerShell commands. It requires explicit `en-US` or `pt-BR`
+language and one named adapter: `codex`, `claude`, `gemini` or `opencode`.
+OpenCode configuration points to the canonical Framework agents and workflows.
+Existing project files and configurations are preserved. The Framework does
+not configure a separate GitHub MCP server.
 
 The recommended local setup entrypoints (`setup.sh` and `setup.ps1`) guide users
 through language, project-directory and integration selection before applying
-the existing native bootstrap. Their brief 2D LF signature is static when
-animation is disabled or terminal support is limited; activity frames appear
-only while the bootstrap is working. This remains local tooling with no added
+the existing native bootstrap. They show a static header and an activity
+indicator while the bootstrap runs. This remains local tooling with no added
 runtime or package dependency.
 
 The QA-Security Agent now includes a mandatory trust-boundary and prompt-injection gate, an applicability matrix for the requested security categories, and local-state/temporary-artifact privacy checks. These rules distinguish evidence from authority and do not invent vulnerabilities when a surface is absent. Web and visual projects also use `ENGINEERING_DESIGN_PERFORMANCE`, `PERFORMANCE_VALIDATION.md` and separate mobile/desktop acceptance evidence. The predecessor private repository's `v1.4.0` release added conditional `ENGINEERING_MOTION_DESIGN` guidance and a Motion Review for projects that include motion; this does not add a required phase or animation dependency.
@@ -154,8 +151,8 @@ or a public source of truth.
 `CONTINUATION_PROMPT.md` was a session continuity artifact rather than a
 Framework component and was removed from the publication surface because it
 described only eight agents. Current public guidance is maintained in
-`README.md`, `README.pt-BR.md`, `START_PROJECTS.en-US.md`,
-`locales/pt-BR/public-docs/START_PROJECTS.md` and `OVERVIEW.md`.
+`README.md`, `README.pt-BR.md`, `GET_STARTED.md`, its PT-BR mirror,
+`START_PROJECTS.en-US.md`, its PT-BR mirror and `OVERVIEW.md`.
 
 ### Local dependencies
 
@@ -176,7 +173,7 @@ The public README is the concise entry point. Keep it current on:
 - How to bootstrap a client project.
 - How agents and artifacts relate.
 - What is mandatory, conditional or experimental.
-- How the generic bootstrap and optional CLI adapters work.
+- How the native bootstrap and named CLI adapters work.
 - How to contribute and report issues.
 
 The README should link to `OVERVIEW.md` for the full architectural and publication context.
@@ -196,12 +193,13 @@ agent and bootstrap behavior:
 - Native multilingual bootstrap and optional CLI adapters.
 - Canonical artifact-name corrections.
 - Removed duplicate and obsolete references.
-- Supplemental tools and named CLI adapters kept optional, with `generic` as the
-  default.
+- A named CLI adapter is selected explicitly for each bootstrap operation.
 
-The repository publishes one release archive containing both language packs.
-The bootstrap selects the project language explicitly; separate language-only
-archives are not part of the publication policy.
+The release retains two full-source archives and adds six smaller installer
+archives: macOS, Linux and Windows for both `en-US` and `pt-BR`. The first-run
+installer selects one matching archive after the user chooses the operating
+system and language. Existing `v1.5.0` assets predate these packages; a later
+release must publish them before the new package path is available.
 
 ### Source-of-truth boundaries
 
@@ -243,8 +241,8 @@ The repository now provides lightweight native validation commands that check:
   server.
 - active public `OVERVIEW`, `ROADMAP`, `CHANGELOG` and ADR mirrors retain
   structural parity for heading outlines, tables, code fences and HTML comments.
-- one release archive contains both language packs; language selection remains
-  an explicit bootstrap choice.
+- the release workflow retains the two full-source archives and includes six
+  platform/language installer packages in the checksum manifest.
 
 The bootstrap test suites additionally cover dry-run behavior, copy-missing-only
 adoption, hidden files, paths with spaces, adapter selection, invalid options,

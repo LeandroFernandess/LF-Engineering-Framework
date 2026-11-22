@@ -8,8 +8,8 @@ Read `LF_ENGINEERING.md` for the vendor-neutral project context.
 
 ## Agent Source
 
-Use the canonical agent definitions from the LF Engineering System path recorded
-in `LF_ENGINEERING.md`:
+Use the canonical agent definitions from the LF Engineering Framework
+repository identified in `LF_ENGINEERING.md`:
 
 - `agents/Prompt-Architect/`
 - `agents/Engineering-Manager/`
@@ -42,8 +42,8 @@ in `LF_ENGINEERING.md`:
 ## Project Boundary Rules
 
 - The project repository is the only editable area by default.
-- Treat LF-ENGINEERING-SYSTEM as an external read-only engineering library.
-- Consult LF-ENGINEERING-SYSTEM only when framework, workflow, protocol, schema or agent guidance is needed.
+- Treat the LF Engineering Framework as an external, read-only engineering library.
+- Consult the Framework only when workflow, protocol, schema, knowledge or agent guidance is needed.
 - Do not alter LF-ENGINEERING-SYSTEM files during execution inside this project.
 - If a framework change appears necessary, stop and ask for explicit confirmation outside the client project workflow.
 

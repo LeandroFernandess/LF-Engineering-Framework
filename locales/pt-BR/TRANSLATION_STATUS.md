@@ -13,7 +13,7 @@
   `locales/pt-BR/public-docs/`; o espelho do ADR fica em
   `locales/pt-BR/docs/ADR.md`. Os caminhos PT-BR de compatibilidade na raiz
   foram removidos; `README.pt-BR.md` continua como página inicial.
-- **Revisão semântica:** os 142 pares ativos do inventário EN-US/PT-BR têm
+- **Revisão semântica:** os 143 pares ativos do inventário EN-US/PT-BR têm
   registros com escopo explícito e fingerprints atuais em
   `locales/translation-review.json`. A revisão compara conteúdo e termos no
   escopo descrito por par; a automação detecta mudanças posteriores, mas não
@@ -55,9 +55,9 @@ playbook legado foi removido da superfície atual. O guia detalhado em
 `docs/reference/` é preservado como fonte não normativa; somente requisitos
 adotados nos documentos canônicos são operacionais.
 
-O projeto mantém um único arquivo de release com os dois pacotes de idioma; não
-serão criados arquivos de release separados por idioma. A seleção de idioma
-continua explícita no bootstrap.
+O release mantém arquivos completos de código-fonte e inclui seis pacotes
+menores: macOS, Linux e Windows, cada sistema em `en-US` e `pt-BR`. O usuário
+seleciona um pacote correspondente ao sistema e idioma escolhidos.
 
 Quando uma tradução for publicada, mantenha o caminho equivalente, registre o
 baseline correto da fonte e revise conteúdo e paridade estrutural. Os módulos
@@ -81,13 +81,16 @@ bilíngue está em `docs/GLOSSARY.md`. Os registros em
 seus hashes sinalizam alterações posteriores; eles não substituem a revisão
 humana nem certificam automaticamente a semântica.
 
-Os dez pares públicos de `scripts/public-document-pairs.tsv` agora participam da
+Os onze pares públicos de `scripts/public-document-pairs.tsv` agora participam da
 validação estrutural nativa. READMEs são exceção estrutural intencional: possuem
-navegação diferente, mas são revisados e têm links verificados. Todos os 142
+navegação diferente, mas são revisados e têm links verificados. Todos os 143
 pares ativos têm revisão registrada; módulos extensos indicam no registro quais
 seções foram comparadas. A checagem automatizada verifica presença, links,
 estrutura e fingerprints, não a qualidade linguística por conta própria.
 
 Os dois assistentes localizam mensagens e documentos novos. A saída dos comandos
 nativos de automação e as chaves técnicas do registro permanecem em inglês por
-compatibilidade. Arquivos existentes não são traduzidos nem migrados.
+compatibilidade. Arquivos existentes não são traduzidos nem migrados. O fluxo
+de instalação oferece arquivos completos do código-fonte e seis pacotes menores
+por sistema operacional e idioma, escolhidos após as respostas do usuário. Os
+pacotes incluem o prompt de início e os guias no idioma selecionado.

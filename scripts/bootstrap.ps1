@@ -3,8 +3,7 @@
   [string]$TargetPath = (Get-Location).Path,
   [ValidateSet("en-US", "pt-BR")]
   [string]$Language = "en-US",
-  [ValidateSet("generic", "codex", "claude", "gemini", "opencode")]
-  [string]$Adapter = "generic",
+  [string]$Adapter,
   [switch]$Apply,
   [switch]$DryRun
 )
@@ -75,6 +74,13 @@ if ($DryRun) {
   $Apply = $false
 }
 
+if ([string]::IsNullOrWhiteSpace($Adapter)) {
+  throw "Adapter is required. Choose codex, claude, gemini or opencode."
+}
+if ($Adapter -notin @("codex", "claude", "gemini", "opencode")) {
+  throw "Adapter is not supported: $Adapter"
+}
+
 if ([string]::IsNullOrWhiteSpace($FrameworkPath)) {
   $scriptDirectory = Split-Path -Parent $MyInvocation.MyCommand.Path
   $FrameworkPath = Split-Path -Parent $scriptDirectory
@@ -82,6 +88,18 @@ if ([string]::IsNullOrWhiteSpace($FrameworkPath)) {
 
 $FrameworkPath = Resolve-BoundaryPath $FrameworkPath
 $TargetPath = Resolve-BoundaryPath $TargetPath
+$script:FrameworkRepository = "https://github.com/LeandroFernandess/LF-Engineering-Framework"
+$script:FrameworkRef = "main"
+$frameworkManifestPath = Join-Path $FrameworkPath "framework-manifest.json"
+if (Test-Path -LiteralPath $frameworkManifestPath -PathType Leaf) {
+  try { $frameworkManifest = Get-Content -Raw -LiteralPath $frameworkManifestPath | ConvertFrom-Json }
+  catch { throw "Framework package manifest is invalid." }
+  $manifestVersion = [string]$frameworkManifest.framework_version
+  if ($manifestVersion -notmatch '^v?(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)$') {
+    throw "Framework package manifest version is invalid."
+  }
+  $script:FrameworkRef = $manifestVersion
+}
 $templatePath = Join-Path $FrameworkPath "PROJECT_TEMPLATE"
 $localeTemplatePath = Join-Path $FrameworkPath "locales\$Language\PROJECT_TEMPLATE"
 
@@ -255,6 +273,9 @@ function Copy-TreeMissingOnly {
 
   foreach ($entry in $entries) {
     $relativePath = $entry.FullName.Substring($SourceRoot.Length).TrimStart('\', '/')
+    if ($relativePath -in @('docs/DESIGN.md', 'docs/PERFORMANCE_VALIDATION_REPORT.md', 'docs/TECH_DEBT_AUDIT.md')) {
+      continue
+    }
     if ($SourceRoot -eq $templatePath -and (Test-Path -LiteralPath (Join-Path $localeTemplatePath $relativePath))) {
       continue
     }
@@ -266,11 +287,6 @@ function Copy-TreeMissingOnly {
     }
 
     Assert-SafeTargetParent $destination
-    if ($relativePath -eq 'LF_ENGINEERING.md' -and
-        -not (Get-Content -Raw -Encoding UTF8 -LiteralPath $entry.FullName).Contains('__LF_ENGINEERING_SYSTEM_PATH__')) {
-      throw "Framework placeholder was not found in LF_ENGINEERING.md."
-    }
-
     if (-not $Apply) {
       Write-Output "ADD $relativePath"
     } elseif ($entry.PSIsContainer) {
@@ -278,17 +294,7 @@ function Copy-TreeMissingOnly {
     } else {
       $parent = Split-Path -Parent $destination
       New-Item -ItemType Directory -Force -Path $parent | Out-Null
-      if ($relativePath -eq "LF_ENGINEERING.md") {
-        $content = Get-Content -Raw -Encoding UTF8 -LiteralPath $entry.FullName
-        if (-not $content.Contains("__LF_ENGINEERING_SYSTEM_PATH__")) {
-          throw "Framework placeholder was not found in LF_ENGINEERING.md."
-        }
-        $content = $content.Replace("__LF_ENGINEERING_SYSTEM_PATH__", $FrameworkPath)
-        $utf8NoBom = New-Object System.Text.UTF8Encoding($false)
-        [System.IO.File]::WriteAllText($destination, $content, $utf8NoBom)
-      } else {
-        Copy-Item -LiteralPath $entry.FullName -Destination $destination
-      }
+      Copy-Item -LiteralPath $entry.FullName -Destination $destination
     }
   }
 }
@@ -311,6 +317,92 @@ function Copy-AdapterFile {
     $parent = Split-Path -Parent $destination
     New-Item -ItemType Directory -Force -Path $parent | Out-Null
     Copy-Item -LiteralPath $SourcePath -Destination $destination
+  }
+}
+
+function Get-FrameworkDocumentUrl([string]$RelativePath) {
+  return "$script:FrameworkRepository/blob/$script:FrameworkRef/$RelativePath"
+}
+
+function Copy-ProjectFile([string]$SourcePath, [string]$RelativePath) {
+  if (-not (Test-Path -LiteralPath $SourcePath -PathType Leaf)) {
+    throw "Project starter file was not found: $SourcePath"
+  }
+
+  $destination = Join-Path $TargetPath $RelativePath
+  if (Test-Path -LiteralPath $destination -PathType Any) {
+    Write-Output "PRESERVE $RelativePath"
+  } elseif (-not $Apply) {
+    Assert-SafeTargetParent $destination
+    Write-Output "ADD $RelativePath"
+  } else {
+    Assert-SafeTargetParent $destination
+    $parent = Split-Path -Parent $destination
+    New-Item -ItemType Directory -Force -Path $parent | Out-Null
+    Copy-Item -LiteralPath $SourcePath -Destination $destination
+  }
+}
+
+function Copy-ProjectGuide([string]$SourcePath, [string]$RelativePath) {
+  if (-not (Test-Path -LiteralPath $SourcePath -PathType Leaf)) {
+    throw "Project starter guide was not found: $SourcePath"
+  }
+
+  $destination = Join-Path $TargetPath $RelativePath
+  if (Test-Path -LiteralPath $destination -PathType Any) {
+    Write-Output "PRESERVE $RelativePath"
+    return
+  }
+  if (-not $Apply) {
+    Assert-SafeTargetParent $destination
+    Write-Output "ADD $RelativePath"
+    return
+  }
+
+  Assert-SafeTargetParent $destination
+  $parent = Split-Path -Parent $destination
+  New-Item -ItemType Directory -Force -Path $parent | Out-Null
+  if ($Language -eq 'pt-BR') {
+    $getStartedUrl = Get-FrameworkDocumentUrl 'locales/pt-BR/public-docs/GET_STARTED.md'
+    $otherStartGuideUrl = Get-FrameworkDocumentUrl 'START_PROJECTS.en-US.md'
+    $otherPromptUrl = Get-FrameworkDocumentUrl 'FIRST_PROMPT_TEMPLATE.md'
+  } else {
+    $getStartedUrl = Get-FrameworkDocumentUrl 'GET_STARTED.md'
+    $otherStartGuideUrl = Get-FrameworkDocumentUrl 'locales/pt-BR/public-docs/START_PROJECTS.md'
+    $otherPromptUrl = Get-FrameworkDocumentUrl 'locales/pt-BR/public-docs/FIRST_PROMPT_TEMPLATE.md'
+  }
+  $content = Get-Content -Raw -Encoding UTF8 -LiteralPath $SourcePath
+  $content = $content.Replace('](GET_STARTED.md)', "]($getStartedUrl)")
+  $content = $content.Replace('locales/pt-BR/public-docs/START_PROJECTS.md)', "$otherStartGuideUrl)")
+  $content = $content.Replace('../../../START_PROJECTS.en-US.md)', "$otherStartGuideUrl)")
+  $content = $content.Replace('locales/pt-BR/public-docs/FIRST_PROMPT_TEMPLATE.md)', "$otherPromptUrl)")
+  $content = $content.Replace('../../../FIRST_PROMPT_TEMPLATE.md)', "$otherPromptUrl)")
+  $utf8NoBom = New-Object System.Text.UTF8Encoding($false)
+  [System.IO.File]::WriteAllText($destination, $content, $utf8NoBom)
+}
+
+function Install-ProjectGuides {
+  if ($Language -eq 'pt-BR') {
+    $guideSource = Join-Path $FrameworkPath 'locales/pt-BR/public-docs/START_PROJECTS.md'
+    $promptSource = Join-Path $FrameworkPath 'locales/pt-BR/public-docs/FIRST_PROMPT_TEMPLATE.md'
+  } else {
+    $guideSource = Join-Path $FrameworkPath 'START_PROJECTS.en-US.md'
+    $promptSource = Join-Path $FrameworkPath 'FIRST_PROMPT_TEMPLATE.md'
+  }
+  Copy-ProjectGuide $guideSource 'START_PROJECTS.md'
+  Copy-ProjectGuide $promptSource 'FIRST_PROMPT_TEMPLATE.md'
+}
+
+function Install-ProjectSkills {
+  if ($Language -eq 'pt-BR') {
+    $sourceRoot = Join-Path $FrameworkPath 'locales/pt-BR/project-skills'
+  } else {
+    $sourceRoot = Join-Path $FrameworkPath 'project-skills/en-US'
+  }
+  if ($Adapter -eq 'claude') { $destinationRoot = '.claude/skills' }
+  else { $destinationRoot = '.agents/skills' }
+  foreach ($skill in @('lf-project-onboarding', 'lf-project-planning', 'lf-approved-implementation', 'lf-delivery-review')) {
+    Copy-ProjectFile (Join-Path $sourceRoot "$skill/SKILL.md") (Join-Path $destinationRoot "$skill/SKILL.md")
   }
 }
 
@@ -351,12 +443,10 @@ switch ($Adapter) {
     $destination = Join-Path $TargetPath "opencode.jsonc"
     if (-not (Test-Path -LiteralPath $destination)) {
       $content = Get-Content -Raw -Encoding UTF8 -LiteralPath $sourcePath
-      if (-not $content.Contains("__LF_ENGINEERING_SYSTEM_PATH__")) {
-        throw "Framework placeholder was not found in the OpenCode adapter."
+      if (-not $content.Contains("__LF_ENGINEERING_SYSTEM_REF__")) {
+        throw "Framework reference placeholder was not found in the OpenCode adapter."
       }
-      $escapedFrameworkPath = ($FrameworkPath | ConvertTo-Json -Compress)
-      $escapedFrameworkPath = $escapedFrameworkPath.Substring(1, $escapedFrameworkPath.Length - 2)
-      $content = $content.Replace("__LF_ENGINEERING_SYSTEM_PATH__", $escapedFrameworkPath)
+      $content = $content.Replace("__LF_ENGINEERING_SYSTEM_REF__", $script:FrameworkRef)
       $null = $content | ConvertFrom-Json -ErrorAction Stop
     }
     if (Test-Path -LiteralPath $destination -PathType Any) {
@@ -381,6 +471,9 @@ switch ($Adapter) {
   }
 }
 
+Install-ProjectGuides
+Install-ProjectSkills
+
 Protect-LocalState
 
 $installationFile = Join-Path $TargetPath ".ai\framework-installation.md"
@@ -404,7 +497,7 @@ if (Test-Path -LiteralPath $installationFile -PathType Any) {
 
 - Language: $Language
 - Adapter: $Adapter
-- Framework path: $FrameworkPath
+- Framework source: $script:FrameworkRepository/tree/$script:FrameworkRef
 - Framework: external read-only library
 
 $installationDescription

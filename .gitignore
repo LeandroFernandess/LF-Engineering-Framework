@@ -6,6 +6,8 @@ workflow-graph/
 __pycache__/
 *.py[cod]
 .opencode.*.tmp
+.DS_Store
+StartupProfileData-NonInteractive
 
 # Local release output
 dist/

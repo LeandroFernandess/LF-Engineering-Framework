@@ -55,6 +55,7 @@ if (Test-Path -LiteralPath (Join-Path $FrameworkPath ".opencode") -PathType Any)
   "locales/translation-review.json",
   "README.md",
   "README.pt-BR.md",
+  "GET_STARTED.md",
   "CONTRIBUTING.md",
   "SECURITY.md",
   "TESTING.md",
@@ -82,6 +83,7 @@ if (Test-Path -LiteralPath (Join-Path $FrameworkPath ".opencode") -PathType Any)
   "locales\pt-BR\README.md",
   "locales\pt-BR\TRANSLATION_STATUS.md",
   "locales\pt-BR\public-docs\CONTRIBUTING.md",
+  "locales\pt-BR\public-docs\GET_STARTED.md",
   "locales\pt-BR\public-docs\SECURITY.md",
   "locales\pt-BR\public-docs\SECURITY_AUDIT.md",
   "locales\pt-BR\public-docs\TESTING.md",
@@ -93,11 +95,21 @@ if (Test-Path -LiteralPath (Join-Path $FrameworkPath ".opencode") -PathType Any)
   "PROJECT_TEMPLATE\AGENTS.md",
   "PROJECT_TEMPLATE\LF_ENGINEERING.md",
   "PROJECT_TEMPLATE\README.md",
+  "project-skills\en-US\lf-project-onboarding\SKILL.md",
+  "project-skills\en-US\lf-project-planning\SKILL.md",
+  "project-skills\en-US\lf-approved-implementation\SKILL.md",
+  "project-skills\en-US\lf-delivery-review\SKILL.md",
+  "locales\pt-BR\project-skills\lf-project-onboarding\SKILL.md",
+  "locales\pt-BR\project-skills\lf-project-planning\SKILL.md",
+  "locales\pt-BR\project-skills\lf-approved-implementation\SKILL.md",
+  "locales\pt-BR\project-skills\lf-delivery-review\SKILL.md",
   "adapters\opencode\opencode.jsonc",
   "scripts\bootstrap.sh",
   "scripts\bootstrap.ps1",
   "scripts\check-locales.sh",
   "scripts\package-release.sh",
+  "scripts\package_installers.py",
+  "scripts\tests\test_package_installers.py",
   "scripts\validate-framework.sh",
   "scripts\validate-framework.ps1",
   "scripts\test-bootstrap.sh",
@@ -108,7 +120,18 @@ if (Test-Path -LiteralPath (Join-Path $FrameworkPath "PROJECT_TEMPLATE\opencode.
   Fail "OpenCode configuration must be optional"
 }
 
-$placeholder = "__LF_ENGINEERING_SYSTEM_PATH__"
+$legacyPathPlaceholder = "__LF_ENGINEERING_SYSTEM_PATH__"
+$legacyPathFiles = @(
+  Get-ChildItem -LiteralPath (Join-Path $FrameworkPath "PROJECT_TEMPLATE") -Force -Recurse -File |
+    Select-String -SimpleMatch $legacyPathPlaceholder -List
+  Get-ChildItem -LiteralPath (Join-Path $FrameworkPath "adapters") -Force -Recurse -File |
+    Select-String -SimpleMatch $legacyPathPlaceholder -List
+)
+if ($legacyPathFiles.Count -gt 0) {
+  Fail "Machine-specific Framework path placeholders remain"
+}
+
+$placeholder = "__LF_ENGINEERING_SYSTEM_REF__"
 $placeholderFiles = @(
   Get-ChildItem -LiteralPath (Join-Path $FrameworkPath "PROJECT_TEMPLATE") -Force -Recurse -File |
     Select-String -SimpleMatch $placeholder -List |
@@ -121,7 +144,6 @@ $placeholderFiles = @($placeholderFiles | Sort-Object -Unique | ForEach-Object {
   $_.Substring($FrameworkPath.Length + 1).Replace([System.IO.Path]::DirectorySeparatorChar, "/")
 })
 $expectedPlaceholders = @(
-  "PROJECT_TEMPLATE/LF_ENGINEERING.md",
   "adapters/opencode/opencode.jsonc"
 )
 if ((Compare-Object $expectedPlaceholders $placeholderFiles).Count -gt 0) {
@@ -303,14 +325,33 @@ $configPath = Join-Path $FrameworkPath "adapters\opencode\opencode.jsonc"
 $configContent = Get-Content -Raw -LiteralPath $configPath
 $config = $configContent | ConvertFrom-Json -ErrorAction Stop
 $requiredInstructions = @(
-  "__LF_ENGINEERING_SYSTEM_PATH__/AGENTS.md",
-  "__LF_ENGINEERING_SYSTEM_PATH__/agents/Engineering-Manager/SPECS.md",
-  "__LF_ENGINEERING_SYSTEM_PATH__/workflows/NEW_PROJECT.md",
-  "__LF_ENGINEERING_SYSTEM_PATH__/workflows/STANDARD_DEVELOPMENT.md"
+  "https://raw.githubusercontent.com/LeandroFernandess/LF-Engineering-Framework/__LF_ENGINEERING_SYSTEM_REF__/AGENTS.md",
+  "https://raw.githubusercontent.com/LeandroFernandess/LF-Engineering-Framework/__LF_ENGINEERING_SYSTEM_REF__/agents/Engineering-Manager/SPECS.md",
+  "https://raw.githubusercontent.com/LeandroFernandess/LF-Engineering-Framework/__LF_ENGINEERING_SYSTEM_REF__/workflows/NEW_PROJECT.md",
+  "https://raw.githubusercontent.com/LeandroFernandess/LF-Engineering-Framework/__LF_ENGINEERING_SYSTEM_REF__/workflows/STANDARD_DEVELOPMENT.md"
 )
 foreach ($instruction in $requiredInstructions) {
   if (@($config.instructions) -notcontains $instruction) {
     Fail "OpenCode adapter must reference canonical Framework instruction: $instruction"
+  }
+}
+if ($config.references.'lf-engineering-framework'.repository -ne "LeandroFernandess/LF-Engineering-Framework" -or
+    $config.references.'lf-engineering-framework'.branch -ne "__LF_ENGINEERING_SYSTEM_REF__") {
+  Fail "OpenCode adapter must use the versioned official Framework repository"
+}
+$frameworkPermissionResource = "*/repos/github.com/LeandroFernandess/LF-Engineering-Framework/*"
+$expectedFrameworkPermissions = @(
+  @{ action = "external_directory"; effect = "allow" },
+  @{ action = "read"; effect = "allow" },
+  @{ action = "edit"; effect = "deny" }
+)
+foreach ($expected in $expectedFrameworkPermissions) {
+  if (@($config.permissions | Where-Object {
+        $_.action -eq $expected.action -and
+        $_.resource -eq $frameworkPermissionResource -and
+        $_.effect -eq $expected.effect
+      }).Count -eq 0) {
+    Fail "OpenCode adapter must keep the external Framework reference read-only"
   }
 }
 if (@($config.instructions | Where-Object { $_ -match '(^|[/\\])\.opencode([/\\]|$)' }).Count -gt 0 -or

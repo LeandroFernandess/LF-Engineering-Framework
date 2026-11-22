@@ -21,7 +21,5 @@ Adapter file was not found: 	Arquivo da integração não encontrado:
 OpenCode adapter configuration was not found: 	Configuração da integração OpenCode não encontrada:
 Local state directory was not created: 	Diretório de estado local não criado:
 Generated opencode.jsonc.	Arquivo opencode.jsonc gerado.
-Framework placeholder was not fully replaced.	O marcador do caminho do Framework não foi totalmente substituído.
-Framework placeholder was not found in LF_ENGINEERING.md.	Marcador do caminho do Framework não encontrado em LF_ENGINEERING.md.
 PROJECT_TEMPLATE was not found under 	PROJECT_TEMPLATE não encontrado em
-Framework placeholder was not found in the OpenCode adapter.	Marcador do caminho do Framework não encontrado na integração OpenCode.
+Framework reference placeholder was not found in the OpenCode adapter.	Marcador da referência do Framework não encontrado na integração OpenCode.

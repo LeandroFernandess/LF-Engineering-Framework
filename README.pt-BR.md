@@ -18,10 +18,15 @@ histórico, branches e tags do repositório privado anterior não foram migrados
 - `docs/reference/LF_DESIGN_PERFORMANCE_GUIDE.md`: guia detalhado de referência para design e
   performance; os requisitos operacionais adotados estão no módulo e protocolo
   canônicos.
-- `locales/pt-BR/public-docs/START_PROJECTS.md`: guia de início em PT-BR.
-- `START_PROJECTS.en-US.md`: guia de início em inglês.
+- `GET_STARTED.md` e `locales/pt-BR/public-docs/GET_STARTED.md`: comandos de
+  instalação por sistema operacional e idioma, em EN-US e PT-BR.
+- `locales/pt-BR/public-docs/START_PROJECTS.md` e
+  `START_PROJECTS.en-US.md`: guia detalhado de configuração manual e automação.
+  O bootstrap também instala uma cópia no idioma selecionado como
+  `START_PROJECTS.md` em cada projeto cliente.
 - `FIRST_PROMPT_TEMPLATE.md` e `locales/pt-BR/public-docs/FIRST_PROMPT_TEMPLATE.md`:
-  modelo opcional de primeiro prompt em EN-US e PT-BR.
+  modelo opcional de primeiro prompt em EN-US e PT-BR; uma cópia localizada é
+  instalada no projeto cliente.
 - `ROADMAP.md` e `locales/pt-BR/public-docs/ROADMAP.md`: roadmap EN-US e PT-BR.
 - `CHANGELOG.md` e `locales/pt-BR/public-docs/CHANGELOG.md`: changelog EN-US e PT-BR.
 - `OVERVIEW.md` e `locales/pt-BR/public-docs/OVERVIEW.md`: contexto de publicação EN-US e PT-BR.
@@ -38,6 +43,7 @@ histórico, branches e tags do repositório privado anterior não foram migrados
 ├── README.md
 ├── README.pt-BR.md
 ├── PROJECT_TEMPLATE/
+├── project-skills/en-US/
 ├── agents/ knowledge/ workflows/ protocols/ schemas/
 ├── adapters/
 ├── scripts/
@@ -47,6 +53,7 @@ histórico, branches e tags do repositório privado anterior não foram migrados
 │   ├── en-US/README.md
 │   └── pt-BR/
 │       ├── PROJECT_TEMPLATE/
+│       ├── project-skills/
 │       ├── agents/ knowledge/ workflows/ protocols/ schemas/
 │       ├── public-docs/
 │       └── docs/ADR.md
@@ -54,6 +61,8 @@ histórico, branches e tags do repositório privado anterior não foram migrados
 ```
 
 - `PROJECT_TEMPLATE/`: base copiada para projetos clientes.
+- `project-skills/`: quatro skills curtas de orientação para projetos em EN-US;
+  as versões PT-BR ficam em `locales/pt-BR/project-skills/`.
 - `adapters/`: integrações opcionais com CLIs específicos.
 - `scripts/`: bootstrap nativo para macOS/Linux e Windows PowerShell.
 - `locales/`: espelhos técnicos e documentos públicos PT-BR; os arquivos
@@ -66,42 +75,49 @@ histórico, branches e tags do repositório privado anterior não foram migrados
 
 ## Início rápido
 
-Baixe/clone o Framework. Na raiz, abra o assistente local:
+Comece pelo [guia de início](locales/pt-BR/public-docs/GET_STARTED.md). Ele baixa
+um inicializador pequeno, pergunta o sistema operacional e o idioma e instala
+o pacote de release correspondente em uma pasta separada para a biblioteca do
+Framework. No macOS ou Linux:
 
 ```sh
-sh setup.sh
+curl -fsSL https://raw.githubusercontent.com/LeandroFernandess/LF-Engineering-Framework/main/setup.sh -o lf-framework-setup.sh
+sh ./lf-framework-setup.sh
 ```
 
-No Windows PowerShell:
+No Windows PowerShell, siga os comandos de download e execução do
+[GET_STARTED](locales/pt-BR/public-docs/GET_STARTED.md). O assistente mostra as
+mudanças do projeto antes de aplicá-las; arquivos existentes são preservados.
 
-```powershell
-.\setup.ps1
-```
+O assistente exige a escolha de um adapter: Codex, Claude, Gemini ou OpenCode.
+O OpenCode usa
+`adapters/opencode/` e aponta para agentes e workflows canônicos. Consulte
+`adapters/README.md` para a matriz de integrações.
 
-Escolha português ou inglês, informe o diretório do projeto e selecione a
-integração (`generic` é o padrão). Revise a prévia e confirme a aplicação.
-Não exige Node.js ou Python nem instala ferramentas externas. O idioma controla
-o terminal e os novos documentos; a biblioteca mantém ambos os idiomas, com
-EN-US como fonte canônica. Arquivos existentes são preservados; executar novamente
-não migra idioma ou integração.
+A versão publicada atualmente, `v1.5.0`, é anterior aos novos assets por
+sistema/idioma. Até que uma release inclua esses pacotes, use a alternativa de
+checkout completo documentada no GET_STARTED. O guia detalhado de configuração
+manual e automação continua em
+[START_PROJECTS](locales/pt-BR/public-docs/START_PROJECTS.md).
 
-O adapter `generic` continua sendo o padrão; Codex, Claude, Gemini e OpenCode
-podem ser selecionados pelo mesmo assistente. OpenCode usa
-`adapters/opencode/` e aponta para agentes e workflows canônicos, sem manter
-uma árvore independente na raiz. Consulte `adapters/README.md` para a matriz
-de integrações.
-
-Use `--no-animation`/`--no-color` (PowerShell: `-NoAnimation`/`-NoColor`)
-para uma apresentação estática. `NO_COLOR` também desativa cores.
-O assistente mostra uma assinatura 2D LF breve na abertura e usa a mesma marca
-durante o trabalho real do bootstrap; terminais estreitos ou sem suporte recebem
-uma assinatura estática.
-Consulte o [guia de início](locales/pt-BR/public-docs/START_PROJECTS.md) para detalhes
-e automação. Os comandos `scripts/bootstrap.sh` e `scripts/bootstrap.ps1`
-continuam não interativos, com dry-run padrão e saída técnica em inglês.
+O assistente não exige runtime Node.js ou Python. `--no-animation` e
+`--no-color` (PowerShell: `-NoAnimation` e `-NoColor`) selecionam uma
+apresentação estática, e `NO_COLOR` desativa as cores. Os comandos nativos
+`scripts/bootstrap.sh` e `scripts/bootstrap.ps1` continuam não interativos, usam
+dry-run por padrão e mantêm a saída técnica em inglês.
 
 O `.gitignore` gerado exclui `.ai/state/`; projetos existentes preservam seu
 `.gitignore` e devem adotar essa regra manualmente, se desejado.
+
+O bootstrap também copia os guias localizados `START_PROJECTS.md` e
+`FIRST_PROMPT_TEMPLATE.md` para a raiz do projeto e instala quatro skills:
+`lf-project-onboarding`, `lf-project-planning`, `lf-approved-implementation` e
+`lf-delivery-review`. Claude as recebe em `.claude/skills/`; Codex, Gemini e
+OpenCode, em `.agents/skills/`. Cada skill curta encaminha às fontes canônicas
+externas do Framework usando a fonte pública versionada registrada em
+`.ai/framework-installation.md`. O bootstrap preserva guias e skills existentes,
+não copia `GET_STARTED.md`, não importa skills externas nem copia diretórios
+completos do Framework para o projeto.
 
 ## Modelo de segurança
 

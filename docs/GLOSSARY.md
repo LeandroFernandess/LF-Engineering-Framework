@@ -21,16 +21,15 @@ caminhos, opções de comandos, placeholders ou identificadores de contrato.
 | approved optional | opcional aprovado | Does not authorize installation / Não autoriza instalação |
 | finding | achado | Evidence-backed review result / Resultado de revisão com evidência |
 | not verified | não verificado | Missing evidence, not approval / Evidência ausente, não aprovação |
-| 2D terminal signature | assinatura 2D no terminal | Text-based LF mark; no portrait or external asset / Marca LF em texto; sem retrato ou recurso externo |
 | static fallback | fallback estático | Preserve the mark when animation or terminal control is unavailable / Preservar a marca sem animação ou controle do terminal |
 
 `MANAGER_BRIEF`, `PROCEED`, `NEEDS_CLARIFICATION`, work-type enums, file names,
 `RF-001`/`RNF-001`, and installation-record keys (`Language`, `Adapter`,
-`Framework path`, `Framework`) remain stable in both languages. Human-facing
+`Framework source`, `Framework`) remain stable in both languages. Human-facing
 status labels may be translated; identifiers consumed by tools must not be.
 
 `MANAGER_BRIEF`, `PROCEED`, `NEEDS_CLARIFICATION`, enums de tipo de trabalho,
 nomes de arquivos, `RF-001`/`RNF-001` e chaves do registro de instalação
-(`Language`, `Adapter`, `Framework path`, `Framework`) permanecem estáveis.
+(`Language`, `Adapter`, `Framework source`, `Framework`) permanecem estáveis.
 Rótulos de status para leitura humana podem ser traduzidos; identificadores
 consumidos por ferramentas não devem ser alterados.

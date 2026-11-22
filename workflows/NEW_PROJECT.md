@@ -9,10 +9,10 @@ This workflow covers project initialization, planning, implementation readiness,
 ## Steps
 
 1. Create the new project directory outside the LF Engineering System repository.
-2. Run the native bootstrap with the selected language and adapter; `generic` is
-   the default.
-3. If a vendor adapter is selected, create or validate its project entrypoint
-   and keep LF Engineering System as an external read-only framework.
+2. Run the native bootstrap with an explicit language and one required adapter:
+   Codex, Claude, Gemini or OpenCode.
+3. Create or validate the selected adapter's project entrypoint and keep LF
+   Engineering System as an external read-only framework.
 4. Confirm `LF_ENGINEERING.md` and `AGENTS.md` define project boundaries,
    framework read-only usage and state update rules.
 5. Start with Engineering Manager to classify the raw user demand, identify ambiguities and generate `MANAGER_BRIEF`.
@@ -65,8 +65,8 @@ Engineering Manager
 - `docs/DESIGN.md` is conditional; skip it for non-visual projects and when neither references nor an explicit proposal request exist.
 - Load `ENGINEERING_MOTION_DESIGN` when motion is planned or reviewed, or when an explicitly requested model-driven interactive visual simulator is in scope. Otherwise record the conditional skip; do not introduce a library or a new workflow phase.
 - Engineering Knowledge Extractor runs after delivery approval. It recommends framework improvements but does not modify the framework.
-- The `generic` adapter is sufficient for any compatible AI assistant. Codex,
-  Claude Code, Gemini CLI and OpenCode adapters are optional.
+- Select one supported CLI adapter explicitly for each bootstrap: Codex, Claude
+  Code, Gemini CLI or OpenCode.
 - If an upstream artifact is missing, create it first or record the exception in `.ai/decisions.md`.
 - Do not modify LF Engineering System while operating inside a client project unless explicitly approved.
 
@@ -117,8 +117,8 @@ Engineering Manager
 - First sprint or task set is executable.
 - Agent handoff state is current.
 - The bootstrap copied the selected language template into the project root.
-- The selected adapter entrypoint, when any, references or loads LF Engineering
-  System as an external read-only framework.
+- The selected adapter entrypoint references or loads LF Engineering System as
+  an external read-only framework.
 - `AGENTS.md` confirms project boundaries and framework read-only usage.
 - Required `.ai/` and `.ai/state/` files exist and contain no unresolved operational `TBD` placeholders.
 - Conditional design analysis is either completed or explicitly skipped.

@@ -32,9 +32,8 @@ Run `sh scripts/check-locales.sh` after changing locale content to verify
 template file parity and structural parity for the stable library, approved
 optional supplemental modules and active public-document mirrors.
 
-The project uses one release archive containing both language packs; it does not
-publish separate language-specific archives. This avoids duplicate release
-artifacts and checksums; users select the installed project language with the
-bootstrap command. The approved optional supplemental modules remain outside the
-mandatory stable library even though their mirrors are required by the separate
-locale check.
+The release retains full-source archives and adds six smaller installer
+archives: macOS, Linux and Windows for each supported language. The installer
+selects one matching archive after the user chooses the system and language.
+The approved optional supplemental modules remain outside the mandatory stable
+library even though their mirrors are required by the separate locale check.

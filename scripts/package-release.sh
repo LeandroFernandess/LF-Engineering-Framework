@@ -26,12 +26,14 @@ case "$OUTPUT_DIR" in
   /*) ;;
   *) OUTPUT_DIR="$REPOSITORY_ROOT/$OUTPUT_DIR" ;;
 esac
-mkdir -p "$OUTPUT_DIR"
-OUTPUT_DIR=$(CDPATH= cd "$OUTPUT_DIR" && pwd -P)
 
 if [ -n "$(git -C "$REPOSITORY_ROOT" status --porcelain)" ]; then
   fail "the repository must be clean before packaging a release"
 fi
+
+command -v python3 >/dev/null 2>&1 || fail "python3 is required to build the platform/language packages"
+mkdir -p "$OUTPUT_DIR"
+OUTPUT_DIR=$(CDPATH= cd "$OUTPUT_DIR" && pwd -P)
 
 archive_base="lf-engineering-framework-v$VERSION"
 prefix="$archive_base/"
@@ -53,22 +55,44 @@ git -C "$REPOSITORY_ROOT" archive \
   --output="$zip_archive" \
   HEAD
 
+python3 "$SCRIPT_DIR/package_installers.py" \
+  --root "$REPOSITORY_ROOT" \
+  --output "$OUTPUT_DIR" \
+  --version "v$VERSION"
+
 case "$(command -v sha256sum 2>/dev/null || true)" in
   "")
     command -v shasum >/dev/null 2>&1 || fail "sha256sum or shasum is required"
     (
       cd "$OUTPUT_DIR"
-      shasum -a 256 "$(basename "$tar_archive")" "$(basename "$zip_archive")" > "$(basename "$checksums")"
+      set -- "$archive_base.tar.gz" "$archive_base.zip"
+      for platform in macos linux windows; do
+        for language in en-US pt-BR; do
+          extension=tar.gz
+          [ "$platform" = windows ] && extension=zip
+          set -- "$@" "lf-engineering-framework-v$VERSION-$platform-$language.$extension"
+        done
+      done
+      shasum -a 256 "$@" > "$(basename "$checksums")"
     )
     ;;
   *)
     (
       cd "$OUTPUT_DIR"
-      sha256sum "$(basename "$tar_archive")" "$(basename "$zip_archive")" > "$(basename "$checksums")"
+      set -- "$archive_base.tar.gz" "$archive_base.zip"
+      for platform in macos linux windows; do
+        for language in en-US pt-BR; do
+          extension=tar.gz
+          [ "$platform" = windows ] && extension=zip
+          set -- "$@" "lf-engineering-framework-v$VERSION-$platform-$language.$extension"
+        done
+      done
+      sha256sum "$@" > "$(basename "$checksums")"
     )
     ;;
 esac
 
 echo "Created: $tar_archive"
 echo "Created: $zip_archive"
+echo "Created platform and language packages for macOS, Linux and Windows"
 echo "Created: $checksums"

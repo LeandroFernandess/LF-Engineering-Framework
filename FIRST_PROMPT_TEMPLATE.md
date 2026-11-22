@@ -3,12 +3,18 @@
 Languages: [EN-US](FIRST_PROMPT_TEMPLATE.md) | [PT-BR](locales/pt-BR/public-docs/FIRST_PROMPT_TEMPLATE.md)
 
 Use this copy-ready prompt to begin a project conversation with an AI assistant
-after cloning the LF Engineering Framework. It complements, but does not replace,
-the [getting-started guide](START_PROJECTS.en-US.md) or the project bootstrap.
+after installing or checking out the LF Engineering Framework. It complements,
+but does not replace, the [installation guide](GET_STARTED.md) or the project
+bootstrap.
 
-Keep the Framework checkout separate from the client project. For setup commands,
-language selection and safe adoption of existing projects, follow the getting-
-started guide first.
+Keep the Framework library separate from the client project. For platform
+commands, language selection and safe adoption of existing projects, follow
+the installation guide first.
+
+Canonical workflows, agent definitions and knowledge remain in the external
+Framework library. Use the official source identified in the project's
+`LF_ENGINEERING.md` context; do not expect the complete Framework directories
+in the client project.
 
 ## How to use
 
@@ -27,8 +33,8 @@ I want to start using the LF Engineering System for the project described below.
 Begin with discovery and planning; do not implement or change files yet.
 
 ## Context
-- Framework checkout path: [path, or say that it is not accessible]
-- Client project path: [path, not created yet, or not applicable]
+- Framework source availability: [available in this environment / use the official repository / unavailable]
+- Client project: [existing / not created yet / not applicable]
 - Project mode: [new project / existing project / Framework consultation]
 - Project language: [en-US / pt-BR]
 - Assistant, editor and adapter: [optional; name only what is actually in use]
@@ -39,9 +45,9 @@ Begin with discovery and planning; do not implement or change files yet.
 - Out of scope: [list, or not yet defined]
 
 ## Instructions
-1. Confirm which repositories and paths you can actually access. Treat the LF
-   Engineering Framework as an external, read-only library and make changes only
-   inside the client project after I approve a plan.
+1. Confirm which project and Framework sources are actually available. Treat
+   the LF Engineering Framework as an external, read-only library and make
+   changes only inside the client project after I approve a plan.
 2. Read the applicable project instructions first. In a bootstrapped client
    project, inspect `AGENTS.md`, `LF_ENGINEERING.md` and `.ai/contracts.md` when
    present. If the project is not bootstrapped or required inputs are missing,

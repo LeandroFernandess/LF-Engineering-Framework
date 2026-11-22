@@ -15,10 +15,14 @@ migrated; `v1.4.0` is historical context, not a release tag in this repository.
 - `docs/reference/LF_DESIGN_PERFORMANCE_GUIDE.md`: detailed Portuguese design/performance
   reference; adopted operational requirements are defined in the canonical
   knowledge module and protocol.
-- `START_PROJECTS.en-US.md`: official English setup guide.
-- `locales/pt-BR/public-docs/START_PROJECTS.md`: official PT-BR setup guide.
+- `GET_STARTED.md`: prioritized OS-specific install steps and first-run package
+  installer.
+- `START_PROJECTS.en-US.md` and its PT-BR mirror: detailed manual setup and
+  automation guide. The bootstrap also installs the selected-language guide
+  into each client project as `START_PROJECTS.md`.
 - `FIRST_PROMPT_TEMPLATE.md`: optional copy-ready first prompt for starting a
-  project conversation after cloning the Framework.
+  project conversation after cloning the Framework; a localized copy is
+  installed in the client project.
 - `AGENTS.md`: project-level agent operating rules.
 - `ROADMAP.md`: planned framework evolution.
 - `CHANGELOG.md`: implemented framework changes.
@@ -43,7 +47,9 @@ migrated; `v1.4.0` is historical context, not a release tag in this repository.
 ├── README.md
 ├── README.pt-BR.md
 ├── AGENTS.md
+├── GET_STARTED.md
 ├── START_PROJECTS.en-US.md
+├── project-skills/en-US/
 ├── PROJECT_TEMPLATE/
 ├── agents/
 ├── knowledge/
@@ -58,6 +64,7 @@ migrated; `v1.4.0` is historical context, not a release tag in this repository.
 │   ├── en-US/README.md
 │   └── pt-BR/
 │       ├── PROJECT_TEMPLATE/
+│       ├── project-skills/
 │       ├── agents/ knowledge/ workflows/ protocols/ schemas/
 │       ├── public-docs/
 │       └── docs/ADR.md
@@ -67,6 +74,8 @@ migrated; `v1.4.0` is historical context, not a release tag in this repository.
 ## Main Areas
 
 - `PROJECT_TEMPLATE/`: base structure copied into new client projects.
+- `project-skills/`: four short EN-US project guidance skills; the PT-BR
+  versions are under `locales/pt-BR/project-skills/`.
 - `adapters/`: optional integrations for specific AI assistants or CLIs.
 - `scripts/`: native macOS/Linux and Windows PowerShell bootstrap commands.
 - `locales/`: PT-BR mirrors and public translations; EN-US canonical technical
@@ -83,36 +92,42 @@ migrated; `v1.4.0` is historical context, not a release tag in this repository.
 
 ## New and Existing Projects
 
-Download/clone the Framework. From its root, open the local assistant:
+Start with the [Get Started guide](GET_STARTED.md). It downloads a small
+launcher, asks for the operating system and language, then installs the matching
+release package into a separate Framework library folder. On macOS or Linux:
 
 ```sh
-sh setup.sh
+curl -fsSL https://raw.githubusercontent.com/LeandroFernandess/LF-Engineering-Framework/main/setup.sh -o lf-framework-setup.sh
+sh ./lf-framework-setup.sh
 ```
 
-On Windows PowerShell:
+On Windows PowerShell, follow the download and execution commands in
+[GET_STARTED.md](GET_STARTED.md). The interactive assistant previews project
+changes before applying them; existing files are preserved.
 
-```powershell
-.\setup.ps1
-```
+The currently published `v1.5.0` predates the platform/language assets. Until a
+release includes those packages, use the source-checkout fallback in
+GET_STARTED.md. The full walkthrough for manual setup and automation remains in
+[START_PROJECTS.en-US.md](START_PROJECTS.en-US.md).
 
-Choose Portuguese or English, enter the project directory and select an
-integration (`generic` by default). Review the preview and confirm application.
-No Node.js or Python is required and no external tools are installed. Language
-controls the terminal and new documents; the library retains both languages,
-with EN-US as the canonical source. Existing files are preserved; running again
-does not migrate language or integration.
-
-Use `--no-animation`/`--no-color` (PowerShell: `-NoAnimation`/`-NoColor`)
-for a static presentation. `NO_COLOR` also disables colors.
-The assistant shows a brief 2D LF signature at startup and uses the same mark
-while real bootstrap work runs; unsupported or narrow terminals get a static
-signature.
-See the [getting-started guide](START_PROJECTS.en-US.md) for details and automation.
-The `scripts/bootstrap.sh` and `scripts/bootstrap.ps1` commands remain
-noninteractive, with dry-run as the default and technical output in English.
+The assistant requires no Node.js or Python runtime. `--no-animation` and
+`--no-color` (PowerShell: `-NoAnimation` and `-NoColor`) select a static
+presentation, and `NO_COLOR` disables colors. Native `scripts/bootstrap.sh` and
+`scripts/bootstrap.ps1` remain noninteractive, default to dry-run and keep
+technical output in English.
 
 The generated `.gitignore` excludes `.ai/state/`; existing projects keep their
 own `.gitignore` and must adopt this rule manually if desired.
+
+The bootstrap also copies localized `START_PROJECTS.md` and
+`FIRST_PROMPT_TEMPLATE.md` guides to the project root, plus four project skills:
+`lf-project-onboarding`, `lf-project-planning`, `lf-approved-implementation` and
+`lf-delivery-review`. Claude receives them under `.claude/skills/`; Codex,
+Gemini and OpenCode receive them under `.agents/skills/`. Each small skill
+routes to the external canonical Framework files using the versioned public
+source recorded in `.ai/framework-installation.md`. The bootstrap preserves existing guide and
+skill files, does not copy `GET_STARTED.md`, and does not import external skills
+or copy full Framework directories into the project.
 
 ## Operating Rules
 

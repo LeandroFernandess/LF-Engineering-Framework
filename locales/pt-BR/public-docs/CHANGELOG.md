@@ -20,9 +20,13 @@ foram migrados para este repositório público limpo.
 ## Adicionado
 
 * Assistente local bilíngue (`setup.sh`/`setup.ps1`), prévia, confirmação e animação opcional sem dependências adicionais.
-* Assinatura 2D breve do autor na abertura e durante trabalho real do bootstrap; ajuda dos dois comandos exibe o contato do responsável pelo instalador.
+* Adicionados um cabeçalho estático com o contato do responsável e um indicador de atividade do bootstrap em uma linha.
 * Validação anterior à escrita, prévia PT-BR sem duplicações e testes de regressão da instalação guiada.
-* Fonte EN-US corrigida nas onze especificações de agentes, glossário bilíngue e registros com escopo de revisão semântica dos 142 pares EN-US/PT-BR ativos; validação ampliada de documentos públicos e links.
+* Fonte EN-US corrigida nas onze especificações de agentes, glossário bilíngue e registros com escopo de revisão semântica dos 143 pares EN-US/PT-BR ativos; validação ampliada de documentos públicos e links.
+* Adicionado o guia bilíngue `GET_STARTED`, com comandos exatos para macOS/Linux/Windows e alternativa por checkout enquanto os pacotes por plataforma não estiverem disponíveis.
+* Adicionados seis pacotes de instalação versionados por sistema/idioma, com validação de checksum e manifesto e destinos separados para Framework e projeto, sem sobrescrita.
+* Reorganizadas as primeiras perguntas para selecionar sistema operacional e idioma em inglês.
+* Adicionados menus verticais, destaque imediato das escolhas, navegação de uma etapa com `b` e prévia compacta alinhada com totais de inclusão e preservação.
 
 * Adicionadas orientações opcionais e independentes de tecnologia para
   simuladores visuais interativos orientados por modelo, incluindo proveniência
@@ -31,9 +35,18 @@ foram migrados para este repositório público limpo.
 * Adicionado um modelo opcional e copiável de primeiro prompt para iniciar
   projetos, com limites explícitos de aprovação e sugestões de MCP do criador não
   obrigatórias.
+* Adicionadas cópias localizadas de `START_PROJECTS.md` e
+  `FIRST_PROMPT_TEMPLATE.md` aos projetos, com links ao repositório oficial do
+  Framework fixados na versão instalada quando disponível.
+* Adicionadas quatro skills bilíngues curtas, mantidas pelo Framework, para
+  integração inicial, planejamento, implementação aprovada e revisão de entrega.
+  O bootstrap as instala em `.claude/skills/` para Claude e `.agents/skills/`
+  para Codex, Gemini e OpenCode; cada pacote de idioma inclui somente suas skills.
 
 ## Alterado
 
+* Tornada obrigatória a escolha explícita entre Codex, Claude, Gemini ou OpenCode nos bootstraps interativo e direto; removida a seleção implícita de adapter.
+* Adicionados divisores aos templates de PRD e às etapas, à revisão e aos resumos da instalação guiada.
 * Substituído o conteúdo duplicado do README do Product Owner por uma página inicial concisa, preservando o requisito específico de performance móvel/desktop.
 * Ampliadas as orientações condicionais existentes de motion design e o workflow
   do projeto sem adicionar agente, fase de workflow, dependência externa ou meta
@@ -41,6 +54,11 @@ foram migrados para este repositório público limpo.
 * Removidas a árvore `.opencode/` duplicada na raiz do Framework e a configuração
   MCP independente. O OpenCode continua disponível como adapter opcional
   compartilhado, apontando para agentes e workflows canônicos do Framework.
+* Removidas dos documentos e registros instalados as localizações do Framework
+  específicas de cada computador. O registro identifica a fonte pública e sua
+  versão; o OpenCode usa uma referência remota do repositório sem caminho de
+  instalação local.
+* Mantido o bootstrap nativo não interativo e adicionados assets ao fluxo de release, sem publicar uma nova tag nesta alteração.
 
 ---
 
