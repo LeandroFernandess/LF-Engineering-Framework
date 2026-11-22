@@ -4,6 +4,7 @@ import importlib.util
 import json
 import shutil
 import subprocess
+import sys
 import tarfile
 import tempfile
 import unittest
@@ -114,6 +115,10 @@ class InstallerPackages(unittest.TestCase):
 
             adapters = ("codex", "claude", "gemini", "opencode")
             adapter_index = 0
+            host_platform = {
+                "win32": "windows",
+                "darwin": "macos",
+            }.get(sys.platform, "linux")
             for platform in package_installers.PLATFORMS:
                 for language in package_installers.LANGUAGES:
                     archive_path = next(
@@ -132,6 +137,12 @@ class InstallerPackages(unittest.TestCase):
                     target = output / f"project-{platform}-{language}"
                     adapter = adapters[adapter_index % len(adapters)]
                     adapter_index += 1
+
+                    # Run each platform's installer on its native runner. The
+                    # Windows shell cannot faithfully exercise POSIX bootstrap
+                    # paths, and emulating a foreign platform hides path bugs.
+                    if platform != host_platform:
+                        continue
 
                     if platform == "windows":
                         powershell = shutil.which("pwsh") or shutil.which("powershell")

@@ -219,7 +219,7 @@ class BootstrapSafety(unittest.TestCase):
                         self.assertEqual(result.returncode, 0, result.stderr)
                         self.assertFalse(target.exists())
                         additions = [
-                            x
+                            x.replace("\\", "/")
                             for x in result.stdout.splitlines()
                             if x.startswith("ADD ")
                         ]

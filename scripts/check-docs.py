@@ -92,6 +92,12 @@ def translation_pair_inventory(path):
     return pairs, errors
 
 
+def semantic_fingerprint(path):
+    """Hash Markdown content consistently across LF and CRLF checkouts."""
+    content = path.read_bytes().replace(b'\r\n', b'\n').replace(b'\r', b'\n')
+    return hashlib.sha256(content).hexdigest()
+
+
 def translation_review_errors(root):
     manifest = root / 'scripts/translation-pairs.tsv'
     review_path = root / 'locales/translation-review.json'
@@ -119,7 +125,7 @@ def translation_review_errors(root):
             if not path.is_file():
                 errors.append(f'{relative}: reviewed translation pair file is missing')
                 continue
-            digest = hashlib.sha256(path.read_bytes()).hexdigest()
+            digest = semantic_fingerprint(path)
             if digest != entry.get(key + '_sha256'):
                 errors.append(f'{relative}: changed since semantic review; review the pair and update its fingerprint')
     for source, translation in sorted(expected - recorded):

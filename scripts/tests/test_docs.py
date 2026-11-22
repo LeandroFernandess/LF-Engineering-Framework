@@ -1,5 +1,4 @@
 import importlib.util
-import hashlib
 import json
 from pathlib import Path
 import tempfile
@@ -39,8 +38,8 @@ class DocumentationLinks(unittest.TestCase):
             entry = {
                 'source': 'source.md',
                 'translation': 'translation.md',
-                'source_sha256': hashlib.sha256(source.read_bytes()).hexdigest(),
-                'translation_sha256': hashlib.sha256(translation.read_bytes()).hexdigest(),
+                'source_sha256': docs.semantic_fingerprint(source),
+                'translation_sha256': docs.semantic_fingerprint(translation),
                 'scope': 'Meaning, identifiers and omissions reviewed',
             }
             (root / 'locales').mkdir()
@@ -49,6 +48,11 @@ class DocumentationLinks(unittest.TestCase):
             errors, active, reviewed = docs.translation_review_errors(root)
             self.assertEqual(errors, [])
             self.assertEqual((active, reviewed), (1, 1))
+
+            source.write_bytes(source.read_bytes().replace(b'\n', b'\r\n'))
+            translation.write_bytes(translation.read_bytes().replace(b'\n', b'\r\n'))
+            errors, _, _ = docs.translation_review_errors(root)
+            self.assertEqual(errors, [])
 
             source.write_text('Changed source\n', encoding='utf-8')
             errors, _, _ = docs.translation_review_errors(root)
