@@ -142,7 +142,8 @@ try {
   Assert-True ((Select-String -LiteralPath (Join-Path $testRoot "new-dry-run.txt") -SimpleMatch "ADD AGENTS.md" -Quiet)) "dry-run did not report AGENTS.md"
   Assert-True ((Select-String -LiteralPath (Join-Path $testRoot "new-dry-run.txt") -SimpleMatch "ADD START_PROJECTS.md" -Quiet)) "dry-run did not report the local start guide"
   Assert-True ((Select-String -LiteralPath (Join-Path $testRoot "new-dry-run.txt") -SimpleMatch "ADD FIRST_PROMPT_TEMPLATE.md" -Quiet)) "dry-run did not report the local prompt template"
-  Assert-True ((Select-String -LiteralPath (Join-Path $testRoot "new-dry-run.txt") -SimpleMatch "ADD .claude/skills/lf-project-onboarding/SKILL.md" -Quiet)) "dry-run did not report Claude skills"
+  $newDryRun = (Get-Content -Raw -Encoding UTF8 -LiteralPath (Join-Path $testRoot "new-dry-run.txt")).Replace('\', '/')
+  Assert-True ($newDryRun.Contains("ADD .claude/skills/lf-project-onboarding/SKILL.md")) "dry-run did not report Claude skills"
 
   & $bootstrap -FrameworkPath $FrameworkPath -TargetPath $newProject -Language pt-BR -Adapter claude -Apply | Out-File (Join-Path $testRoot "new-apply.txt")
    Assert-True (Test-Path -LiteralPath (Join-Path $newProject ".ai\contracts.md") -PathType Leaf) "contracts were not copied"
@@ -185,7 +186,8 @@ try {
   Assert-True ($projectGuide.Contains("https://github.com/LeandroFernandess/LF-Engineering-Framework/blob/main/locales/pt-BR/public-docs/GET_STARTED.md")) "guide does not link to the official Framework source"
   Assert-True ($projectGuide.Contains("FIRST_PROMPT_TEMPLATE.md)")) "guide does not link to the local prompt"
   $repeatPreview = @(& $bootstrap -FrameworkPath $FrameworkPath -TargetPath $newProject -Language pt-BR -Adapter claude -DryRun)
-  Assert-True (-not ($repeatPreview | Where-Object { ([string]$_) -match '^ADD (START_PROJECTS.md|FIRST_PROMPT_TEMPLATE.md|\.claude/skills/)' })) "second bootstrap preview proposed guide or skill additions"
+  $repeatPreviewPaths = @($repeatPreview | ForEach-Object { ([string]$_).Replace('\', '/') })
+  Assert-True (-not ($repeatPreviewPaths | Where-Object { $_ -match '^ADD (START_PROJECTS.md|FIRST_PROMPT_TEMPLATE.md|\.claude/skills/)' })) "second bootstrap preview proposed guide or skill additions"
 
   $missingAdapterProject = Join-Path $testRoot "missing adapter project"
   $missingAdapterFailed = $false
