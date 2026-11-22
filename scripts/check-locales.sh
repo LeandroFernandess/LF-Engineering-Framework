@@ -129,12 +129,7 @@ for canonical_root in agents workflows protocols schemas knowledge; do
   done < "$canonical_source_files"
 done
 
-for relative_path in \
-  "OVERVIEW.md|locales/pt-BR/public-docs/OVERVIEW.md" \
-  "ROADMAP.md|locales/pt-BR/public-docs/ROADMAP.md" \
-  "CHANGELOG.md|locales/pt-BR/public-docs/CHANGELOG.md" \
-  "docs/security-audit/README.md|locales/pt-BR/public-docs/SECURITY_AUDIT.md" \
-  "docs/ADR.md|locales/pt-BR/docs/ADR.md"; do
+while IFS= read -r relative_path; do
   source_relative=${relative_path%%|*}
   pt_relative=${relative_path#*|}
   source_path="$FRAMEWORK_PATH/$source_relative"
@@ -157,7 +152,7 @@ for relative_path in \
   source_comments=$(awk '{ openings += gsub(/<!--/, ""); closings += gsub(/-->/, "") } END { printf "%d %d", openings, closings }' "$source_path")
   pt_comments=$(awk '{ openings += gsub(/<!--/, ""); closings += gsub(/-->/, "") } END { printf "%d %d", openings, closings }' "$pt_path")
   [ "$source_comments" = "$pt_comments" ] || { echo "PT-BR public document comment parity failed: $pt_relative" >&2; exit 1; }
-done
+done < "$FRAMEWORK_PATH/scripts/public-document-pairs.tsv"
 
 for module_name in \
   ENGINEERING_ELEPHANT_GOLDFISH \
@@ -198,9 +193,9 @@ if ! grep -Fq '**Versão da fonte:** 1.5.0' "$STATUS_FILE"; then
   exit 1
 fi
 
-pt_placeholder_files=$(grep -R -l -F '__LF_ENGINEERING_SYSTEM_PATH__' "$PT_TEMPLATE" | sort || true)
-if [ "$pt_placeholder_files" != "$PT_TEMPLATE/LF_ENGINEERING.md" ]; then
-  echo "PT-BR template contains an unexpected operational placeholder." >&2
+pt_legacy_placeholder_files=$(grep -R -l -F '__LF_ENGINEERING_SYSTEM_PATH__' "$PT_TEMPLATE" | sort || true)
+if [ -n "$pt_legacy_placeholder_files" ]; then
+  echo "PT-BR template contains a legacy machine-specific path placeholder." >&2
   exit 1
 fi
 

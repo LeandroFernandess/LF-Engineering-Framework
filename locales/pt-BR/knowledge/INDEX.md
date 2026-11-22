@@ -150,8 +150,7 @@ fase de workflow.
 
 Baseline publicada do Framework: 1.5.0
 
-Status do checkout: corresponde à primeira release pública `v1.5.0`; o histórico
-do repositório privado predecessor e suas tags anteriores não foram migrados.
+Status do checkout: Manutenção pós-tag além de `v1.5.0`; consulte `CHANGELOG.md`. O histórico do repositório privado predecessor e suas tags anteriores não foram migrados.
 
 Responsável: Leandro Fernandes
 

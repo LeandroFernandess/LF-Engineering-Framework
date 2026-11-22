@@ -18,13 +18,23 @@ require_directory() {
   [ -d "$FRAMEWORK_PATH/$1" ] || fail "missing directory: $1"
 }
 
-for directory in agents knowledge workflows protocols schemas PROJECT_TEMPLATE adapters locales scripts docs .github .opencode; do
+for directory in agents knowledge workflows protocols schemas PROJECT_TEMPLATE adapters locales scripts docs .github; do
   require_directory "$directory"
 done
 
+[ ! -e "$FRAMEWORK_PATH/.opencode" ] || \
+  fail "standalone Framework-root OpenCode tree must be absent; use adapters/opencode"
+
 for file in \
+  setup.sh \
+  setup.ps1 \
+  scripts/i18n/setup.tsv \
+  scripts/public-document-pairs.tsv \
+  scripts/translation-pairs.tsv \
+  locales/translation-review.json \
   README.md \
   README.pt-BR.md \
+  GET_STARTED.md \
   CONTRIBUTING.md \
   SECURITY.md \
   TESTING.md \
@@ -46,14 +56,13 @@ for file in \
   .github/ISSUE_TEMPLATE/bug_report.md \
   .github/ISSUE_TEMPLATE/feature_request.md \
   .github/PULL_REQUEST_TEMPLATE.md \
-  .opencode/README.md \
-  .opencode/opencode.jsonc \
   adapters/README.md \
   locales/README.md \
   locales/en-US/README.md \
   locales/pt-BR/README.md \
   locales/pt-BR/TRANSLATION_STATUS.md \
   locales/pt-BR/public-docs/CONTRIBUTING.md \
+  locales/pt-BR/public-docs/GET_STARTED.md \
   locales/pt-BR/public-docs/SECURITY.md \
   locales/pt-BR/public-docs/SECURITY_AUDIT.md \
   locales/pt-BR/public-docs/TESTING.md \
@@ -65,11 +74,21 @@ for file in \
   PROJECT_TEMPLATE/AGENTS.md \
   PROJECT_TEMPLATE/LF_ENGINEERING.md \
   PROJECT_TEMPLATE/README.md \
+  project-skills/en-US/lf-project-onboarding/SKILL.md \
+  project-skills/en-US/lf-project-planning/SKILL.md \
+  project-skills/en-US/lf-approved-implementation/SKILL.md \
+  project-skills/en-US/lf-delivery-review/SKILL.md \
+  locales/pt-BR/project-skills/lf-project-onboarding/SKILL.md \
+  locales/pt-BR/project-skills/lf-project-planning/SKILL.md \
+  locales/pt-BR/project-skills/lf-approved-implementation/SKILL.md \
+  locales/pt-BR/project-skills/lf-delivery-review/SKILL.md \
   adapters/opencode/opencode.jsonc \
   scripts/bootstrap.sh \
   scripts/bootstrap.ps1 \
   scripts/check-locales.sh \
   scripts/package-release.sh \
+  scripts/package_installers.py \
+  scripts/tests/test_package_installers.py \
   scripts/validate-framework.sh \
   scripts/validate-framework.ps1 \
   scripts/test-bootstrap.sh \
@@ -80,54 +99,58 @@ done
 [ ! -e "$FRAMEWORK_PATH/PROJECT_TEMPLATE/opencode.jsonc" ] || \
   fail "OpenCode configuration must be optional"
 
-placeholder='__LF_ENGINEERING_SYSTEM_PATH__'
+legacy_path_placeholder='__LF_ENGINEERING_SYSTEM_PATH__'
+legacy_path_files=$(cd "$FRAMEWORK_PATH" && grep -R -l -F "$legacy_path_placeholder" PROJECT_TEMPLATE adapters | LC_ALL=C sort || true)
+[ -z "$legacy_path_files" ] || fail "machine-specific Framework path placeholders remain"
+
+placeholder='__LF_ENGINEERING_SYSTEM_REF__'
 placeholder_files=$(cd "$FRAMEWORK_PATH" && grep -R -l -F "$placeholder" PROJECT_TEMPLATE adapters | LC_ALL=C sort || true)
-expected_placeholders=$(printf '%s\n' \
-  'PROJECT_TEMPLATE/LF_ENGINEERING.md' \
-  'adapters/opencode/opencode.jsonc' | LC_ALL=C sort)
+expected_placeholders='adapters/opencode/opencode.jsonc'
 [ "$placeholder_files" = "$expected_placeholders" ] || \
   fail "unexpected Framework placeholders"
 
 sh "$FRAMEWORK_PATH/scripts/check-locales.sh"
+sh -n "$FRAMEWORK_PATH/setup.sh"
 sh -n "$FRAMEWORK_PATH/scripts/bootstrap.sh"
 sh -n "$FRAMEWORK_PATH/scripts/check-locales.sh"
 sh -n "$FRAMEWORK_PATH/scripts/package-release.sh"
 
 if command -v node >/dev/null 2>&1; then
-  temporary_config=$(mktemp "${TMPDIR:-/tmp}/lf-opencode-validation.XXXXXX")
-  cleanup() {
-    rm -f "$temporary_config"
-  }
-  trap cleanup EXIT HUP INT TERM
-  escaped_framework_path=$(printf '%s' "$FRAMEWORK_PATH" | sed 's/[\\&|]/\\&/g')
-  sed "s|$placeholder|$escaped_framework_path|g" \
-    "$FRAMEWORK_PATH/adapters/opencode/opencode.jsonc" > "$temporary_config"
   node -e 'const fs=require("fs"); JSON.parse(fs.readFileSync(process.argv[1], "utf8"));' \
-    "$temporary_config"
+    "$FRAMEWORK_PATH/adapters/opencode/opencode.jsonc"
   node -e '
     const fs = require("fs");
     const config = JSON.parse(fs.readFileSync(process.argv[1], "utf8"));
-    const server = config?.mcp?.servers?.github;
-    if (!server || server.type !== "local" || server.disabled !== true) {
-      throw new Error("GitHub MCP server must be local and disabled by default.");
-    }
-    const command = server.command || [];
     const required = [
-      "127.0.0.1:8085:8085",
-      "GITHUB_OAUTH_CALLBACK_PORT=8085",
-      "GITHUB_OAUTH_SCOPES=public_repo",
-      "GITHUB_TOOLSETS=repos",
-      "GITHUB_READ_ONLY=true",
+      "https://raw.githubusercontent.com/LeandroFernandess/LF-Engineering-Framework/__LF_ENGINEERING_SYSTEM_REF__/AGENTS.md",
+      "https://raw.githubusercontent.com/LeandroFernandess/LF-Engineering-Framework/__LF_ENGINEERING_SYSTEM_REF__/agents/Engineering-Manager/SPECS.md",
+      "https://raw.githubusercontent.com/LeandroFernandess/LF-Engineering-Framework/__LF_ENGINEERING_SYSTEM_REF__/workflows/NEW_PROJECT.md",
+      "https://raw.githubusercontent.com/LeandroFernandess/LF-Engineering-Framework/__LF_ENGINEERING_SYSTEM_REF__/workflows/STANDARD_DEVELOPMENT.md",
     ];
-    if (command[0] !== "docker" || command[1] !== "run" ||
-        required.some((value) => !command.includes(value))) {
-      throw new Error("GitHub MCP server must use the loopback callback and read-only repository settings.");
+    const instructions = config.instructions || [];
+    if (required.some((value) => !instructions.includes(value))) {
+      throw new Error("OpenCode adapter must reference canonical Framework instructions and workflows.");
     }
-    const image = command.find((value) => value.startsWith("ghcr.io/github/github-mcp-server:"));
-    if (!image || !/^ghcr\.io\/github\/github-mcp-server:v\d+\.\d+\.\d+$/.test(image)) {
-      throw new Error("GitHub MCP server image must be pinned to a release version.");
+    const reference = config.references?.["lf-engineering-framework"];
+    if (!reference || reference.repository !== "LeandroFernandess/LF-Engineering-Framework" || reference.branch !== "__LF_ENGINEERING_SYSTEM_REF__") {
+      throw new Error("OpenCode adapter must use the versioned official Framework repository.");
     }
-  ' "$FRAMEWORK_PATH/.opencode/opencode.jsonc"
+    const permissions = config.permissions || [];
+    const frameworkPath = "*/repos/github.com/LeandroFernandess/LF-Engineering-Framework/*";
+    const expectedPermissions = [
+      ["external_directory", "allow"],
+      ["read", "allow"],
+      ["edit", "deny"],
+    ];
+    if (expectedPermissions.some(([action, effect]) => !permissions.some((rule) =>
+      rule.action === action && rule.resource === frameworkPath && rule.effect === effect
+    ))) {
+      throw new Error("OpenCode adapter must keep the external Framework reference read-only.");
+    }
+    if (instructions.some((value) => value.includes("/.opencode/")) || config.mcp) {
+      throw new Error("OpenCode adapter must not depend on a standalone Framework tree or MCP server.");
+    }
+  ' "$FRAMEWORK_PATH/adapters/opencode/opencode.jsonc"
 else
   echo "Node.js not found; OpenCode JSON syntax check skipped."
 fi

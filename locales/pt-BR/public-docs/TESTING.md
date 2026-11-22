@@ -20,6 +20,11 @@ No Windows PowerShell:
 .\scripts\test-bootstrap.ps1
 ```
 
+No macOS, se o PowerShell local criar `StartupProfileData-NonInteractive` no
+diretório de trabalho, inicie esses comandos em uma pasta temporária e informe
+os caminhos absolutos dos scripts. O PowerShell pode criar esse arquivo antes
+de os scripts começarem; remova o arquivo temporário após o processo terminar.
+
 Execute os testes de regressão do inspetor dinâmico (Python 3.10+; somente
 biblioteca padrão):
 
@@ -47,20 +52,24 @@ repositório predecessor foi importada. Uma execução local gera um relatório 
 
 ## Cenários cobertos
 
+- Os dois assistentes exibem o contato do responsável na ajuda e no
+  cabeçalho de abertura. Os menus são verticais, as escolhas aceitas são destacadas e
+  `b` volta uma etapa preservando as respostas anteriores. A atividade do
+  bootstrap usa uma linha antes da prévia alinhada; terminais estreitos/modo
+  estático não animam.
 - Dry-run de projeto novo não cria o diretório-alvo.
 - Aplicação de projeto novo copia o template no idioma selecionado.
-- Template PT-BR e renderização do caminho do Framework.
-- Adapters generic, Codex, Claude, Gemini e OpenCode.
-- A suíte PowerShell do Windows omite `-Adapter` uma vez e verifica que o padrão
-  é `generic`, sem instalar entrypoints específicos de fornecedores.
+- Seleção do template PT-BR, links públicos versionados ao Framework e registros
+  instalados sem caminhos de máquina.
+- Adapters Codex, Claude, Gemini e OpenCode nos fluxos interativo e direto do
+  bootstrap. A escolha é obrigatória; valor vazio ou não suportado falha antes
+  de criar o destino.
 - Preservação de README, AGENTS, `.gitignore`, `.ai/`, documentação e
   configuração de CLI existentes.
 - Arquivos ocultos e caminhos com espaços.
-- Substituição do placeholder OpenCode e parsing JSON quando o runtime está
-  disponível.
-- A configuração GitHub MCP do Framework é analisada e permanece desativada,
-  fixada em uma versão e somente leitura; a validação não inicia Docker nem
-  autentica no GitHub.
+- Substituição do placeholder de referência remota, parsing JSON, fixação de
+  versão e instruções canônicas do adapter OpenCode; a árvore independente e a
+  configuração MCP na raiz do Framework devem permanecer ausentes.
 - Rejeição de idioma e adapter inválidos.
 - Recusa de operação dentro do diretório do Framework.
 - Paridade estrutural de arquivos, headings, tabelas, blocos de código e
@@ -97,3 +106,28 @@ revisor para permitir que o único mantenedor faça merge após a aprovação do
 checks. Restrinja o acesso de escrita/admin e reavalie esta política antes de
 conceder acesso de escrita a outra pessoa. Esses controles são independentes dos
 gates de validação do workflow.
+
+## Verificações do assistente e da documentação
+
+```sh
+python3 scripts/check-docs.py
+python3 -m unittest discover -s scripts/tests -v
+```
+
+No Windows use `python` quando esse for o launcher disponível. Python é uma
+dependência de manutenção/CI, não do assistente. A matriz de CI executa os testes
+nas três plataformas. As sessões com pseudoterminal são executadas em POSIX;
+o Windows executa os testes nativos de bootstrap e recusa de entrada redirecionada.
+Antes de uma release, valide manualmente a seleção de idioma, confirmação,
+cancelamento, Ctrl+C, cabeçalho de abertura e indicador de atividade estático no Windows Terminal.
+Verifique também um terminal POSIX estreito e um terminal básico sem animação.
+
+A verificação documental cobre links locais inline e por referência, títulos e
+âncoras HTML fora de blocos de código. Caminhos literais de templates não são
+tratados como links: referem-se ao projeto gerado ou à biblioteca externa.
+URLs externas não são acessadas. READMEs possuem estrutura diferente por idioma;
+seus links e revisão são verificados, sem exigir paridade de títulos.
+
+`locales/translation-review.json` registra hashes dos pares revisados. Após
+alterar um deles, compare fonte e tradução, registre a nova revisão e atualize
+os hashes SHA-256. Nunca atualize hashes apenas para silenciar uma falha.

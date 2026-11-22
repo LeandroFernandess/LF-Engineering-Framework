@@ -86,8 +86,9 @@ Alta quando o projeto tem interface web ou visual; caso contrário, condicional.
 
 Finalidade
 
-Define expectativas condicionais de aceite de movimento e evidências, além de
-fidelidade do simulador, validação do modelo e riscos residuais para governança.
+Define expectativas condicionais de aceite de movimento e evidências, além da
+fidelidade do simulador, evidências de validação do modelo e expectativas sobre
+riscos residuais para governança.
 
 Importância
 

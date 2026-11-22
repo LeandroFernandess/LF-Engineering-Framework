@@ -32,8 +32,8 @@ evidência relativos e o nome do diretório, não a raiz absoluta.
 O inspetor usa somente a biblioteca padrão do Python. Não executa código ou
 comandos do projeto, não usa rede, não altera permissões e não apaga arquivos.
 Ignora diretórios comuns de dependências/build e não segue links simbólicos.
-Correspondências de formatos de credenciais são reportadas somente por tipo,
-caminho e linha; o valor encontrado nunca é copiado para o PDF.
+Correspondências de alta confiança a formatos de credenciais são reportadas
+somente por tipo, caminho e linha; o valor encontrado nunca é copiado para o PDF.
 
 ## Interpretação
 

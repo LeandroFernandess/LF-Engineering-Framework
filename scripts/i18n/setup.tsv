@@ -1,0 +1,25 @@
+ADD 	ADICIONAR
+PRESERVE 	PRESERVAR
+RESTRICT .ai/state to owner-only permissions (0700 directories, 0600 files)	RESTRINGIR .ai/state ao usuário atual (0700 em diretórios, 0600 em arquivos; ACLs no Windows)
+LF Engineering System bootstrap	Instalação do LF Engineering System
+Language: 	Idioma:
+Adapter: 	Integração:
+Target: 	Destino:
+Secured .ai/state permissions (0700 directories, 0600 files).	Permissões de .ai/state restritas ao usuário (0700 em diretórios, 0600 em arquivos).
+Secured .ai/state permissions for the current user.	Permissões de .ai/state restritas ao usuário atual.
+Bootstrap applied without overwriting existing files.	Instalação aplicada sem sobrescrever arquivos existentes.
+Dry run only. Re-run with --apply to write missing files.	Prévia concluída. Nenhum arquivo foi alterado.
+Dry run only. Re-run with -Apply to write missing files.	Prévia concluída. Nenhum arquivo foi alterado.
+The target project must be outside the Framework directory.	O projeto de destino deve ficar fora do diretório do Framework.
+The target path must be a directory: 	O destino deve ser um diretório:
+Destination escapes the target project directory: 	O destino sai do diretório do projeto:
+Destination is outside the target project directory: 	O destino está fora do diretório do projeto:
+Refusing to write through a symlinked target directory: 	Escrita recusada em diretório de destino com link simbólico:
+Refusing to write through a linked target directory: 	Escrita recusada em diretório de destino com link:
+Localized template was not found: 	Template traduzido não encontrado:
+Adapter file was not found: 	Arquivo da integração não encontrado:
+OpenCode adapter configuration was not found: 	Configuração da integração OpenCode não encontrada:
+Local state directory was not created: 	Diretório de estado local não criado:
+Generated opencode.jsonc.	Arquivo opencode.jsonc gerado.
+PROJECT_TEMPLATE was not found under 	PROJECT_TEMPLATE não encontrado em
+Framework reference placeholder was not found in the OpenCode adapter.	Marcador da referência do Framework não encontrado na integração OpenCode.

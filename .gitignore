@@ -5,7 +5,9 @@ workflow-graph/
 # Local validation and language caches
 __pycache__/
 *.py[cod]
-.opencode.jsonc.tmp
+.opencode.*.tmp
+.DS_Store
+StartupProfileData-NonInteractive
 
 # Local release output
 dist/

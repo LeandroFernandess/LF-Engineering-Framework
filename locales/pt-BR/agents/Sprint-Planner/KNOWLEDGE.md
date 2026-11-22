@@ -128,9 +128,9 @@ Alta quando aplicável.
 Finalidade
 
 Fornece orientação condicional para tarefas e evidências de aceite de
-comportamento de movimento, alternativas para movimento reduzido e verificações
-de consistência de estado/numerais e validação visual para simuladores orientados
-por modelo.
+comportamento de movimento, alternativas para movimento reduzido, verificações
+de consistência numérica e de estado e validação visual para simuladores
+orientados por modelo.
 
 Importância
 

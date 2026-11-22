@@ -8,8 +8,8 @@ Leia `LF_ENGINEERING.md` para conhecer o contexto neutro de fornecedor.
 
 ## Fonte dos agentes
 
-Use as definições canônicas de agentes do LF Engineering System no caminho
-registrado em `LF_ENGINEERING.md`:
+Use as definições canônicas de agentes do repositório LF Engineering Framework
+identificado em `LF_ENGINEERING.md`:
 
 - `agents/Prompt-Architect/`
 - `agents/Engineering-Manager/`
@@ -55,10 +55,10 @@ registrado em `LF_ENGINEERING.md`:
 ## Fronteiras do projeto
 
 - O repositório do projeto é a única área editável por padrão.
-- Trate LF-ENGINEERING-SYSTEM como biblioteca de engenharia externa e somente
-  leitura.
-- Consulte LF-ENGINEERING-SYSTEM somente quando precisar de orientação sobre
-  Framework, workflow, protocolo, schema ou agente.
+- Trate o LF Engineering Framework como biblioteca de engenharia externa e
+  somente leitura.
+- Consulte o Framework somente quando precisar de orientação sobre workflow,
+  protocolo, schema, conhecimento ou agente.
 - Não altere arquivos do LF-ENGINEERING-SYSTEM durante o trabalho neste projeto.
 - Se uma mudança no Framework parecer necessária, pare e peça confirmação fora
   do workflow do projeto cliente.

@@ -1476,3 +1476,363 @@ this ADR records post-tag maintenance only and does not authorize a release.
 - `CHANGELOG.md`, `OVERVIEW.md` and PT-BR mirrors
 - [teardown](https://github.com/elvarofficial/teardown)
 - [How I Turn Any Machine Into a 3D Simulator You Can Take Apart](https://teapawt.org/elvar_official/article/2116174609355571402)
+
+## ADR-022 - Native bilingual setup assistant and translation review tracking
+
+### Status
+
+Accepted for implementation; no release publication authorized.
+
+### Date
+
+2026-11-15
+
+### Context
+
+The native bootstrap already supports two template languages, but first-time
+users must assemble flags and repeat the command after reviewing a dry-run.
+Its technical output is English. Canonical agent specifications contained
+Portuguese prose despite the declared EN-US source policy. Existing parity
+checks did not cover every active public document or certify semantic accuracy.
+
+### Decision
+
+- Add local `setup.sh` and `setup.ps1` entrypoints with language, target and
+  integration selection, a complete preview and explicit default-no confirmation.
+- Preserve native bootstrap flags, dry-run defaults and English technical output
+  for automation. Localize the assistant and new installation descriptions;
+  preserve machine-facing record keys. Existing files are never migrated.
+- Use native shell/PowerShell only; no global install, package registry, remote
+  execution or optional-tool installation. Keep both language libraries and
+  canonical root references. Default integration remains `generic`.
+- The original startup presentation is superseded by ADR-026. Animate the
+  activity indicator during bootstrap work where supported, respect
+  `--no-animation` and `NO_COLOR`, and clear the indicator on completion or
+  interruption. Never hide the cursor or estimate a percentage.
+- Display the owner's setup contact in the installer opening and help only.
+  Keep the existing `SECURITY.md` contact as the separate vulnerability
+  reporting channel.
+- Resolve target boundaries and perform a full dry-run preflight before writes;
+  recheck destinations during application. Application is not transactional:
+  failures may leave newly copied files, and retries preserve them.
+- Translate all eleven canonical agent specifications into EN-US without changing
+  responsibilities or contract identifiers. Maintain the PT-BR prose and a
+  bilingual glossary. Inventory every active EN-US/PT-BR source pair, require a
+  semantic review record and keep review fingerprints separate from structural
+  coverage validation.
+- Share the active public-document pair list across native validators. Keep
+  READMEs as an intentional structural exception because their navigation differs;
+  check their presence, links and reviewed content instead.
+
+### Alternatives Considered
+
+An npm package, remote download-and-execute installer and full-screen terminal UI
+would introduce runtime, distribution or terminal complexity beyond this need.
+Replacing the existing CLI output would break automation. Treating structural
+parity as semantic certification would hide translation drift.
+
+### Consequences
+
+Both native implementations require equivalent behavior tests. Python is used
+only for maintainer/CI documentation and regression checks, not installation.
+Changed reviewed documents require renewed comparison and fingerprint updates;
+structural parity does not certify semantic quality. Native Windows/Linux
+evidence must come from their CI jobs; macOS PowerShell execution does not
+establish Windows ACL or console compatibility.
+
+## ADR-023 - Keep OpenCode in the shared optional adapter
+
+Status: Accepted for implementation on 2026-11-15. This decision does not
+authorize a release or publication.
+
+### Context
+
+The Framework maintained two OpenCode surfaces: the shared optional adapter
+under `adapters/opencode/` and a separate root `.opencode/` tree containing
+duplicated agent/orchestrator files and a Framework-side GitHub MCP
+configuration. The separate tree duplicated canonical workflow guidance and
+could drift from the same agent and workflow sources used by other adapters.
+
+### Decision
+
+- Remove the Framework-root `.opencode/` directory, including its duplicate
+  agent/orchestrator definitions and standalone MCP configuration.
+- Supersede the Framework-side GitHub MCP setup described by ADR-011; retain
+  that ADR as historical decision context.
+- Keep `adapters/opencode/` as the optional OpenCode adapter selected through
+  the shared bootstrap workflow, alongside the other named adapters.
+- Point its generated instructions at canonical Framework sources:
+  `AGENTS.md`, `agents/Engineering-Manager/SPECS.md`,
+  `workflows/NEW_PROJECT.md` and `workflows/STANDARD_DEVELOPMENT.md`.
+- Keep `generic` as the default. Do not add OpenCode configuration to the
+  generic project template or configure a separate Framework-level MCP server.
+- Preserve existing client-project OpenCode files and user configuration.
+
+### Alternatives Considered
+
+Keeping both trees would retain duplicate instructions and recurring
+consistency work. Removing OpenCode support entirely would remove an existing
+optional adapter and break parity with the other shared integrations.
+
+### Consequences
+
+The repository has one maintained OpenCode integration path. The root
+`.opencode/` tree must remain absent, and validators check that the optional
+adapter parses and references canonical agent/workflow sources. Projects that
+already have OpenCode configuration are not migrated or deleted by this
+Framework cleanup.
+
+### Related Artifacts
+
+- `adapters/opencode/README.md`
+- `adapters/opencode/opencode.jsonc`
+- `scripts/validate-framework.sh`
+- `scripts/validate-framework.ps1`
+- `scripts/tests/test_setup.py`
+
+## ADR-024 - OS and language scoped first-run packages
+
+### Status
+
+Accepted for implementation on 2026-11-15. This decision does not authorize a
+release publication.
+
+### Context
+
+The setup assistants required a full repository checkout and began with a
+branded screen before the user could select a target operating system or
+language. New users also had to infer the native command for their platform,
+while the current release assets did not distinguish platform or language.
+
+### Decision
+
+- Make `GET_STARTED.md` the primary, exact installation guide, with equivalent
+  EN-US and PT-BR versions. Keep `START_PROJECTS` as the detailed source-checkout,
+  manual and automation reference.
+- Ask for the operating system first and language second in English. Reject an
+  operating-system choice that does not match the running terminal. Then show a
+  header with the maintainer email and GitHub and LinkedIn links. Respect static/basic terminals, `NO_COLOR`, and the
+  explicit no-animation option; never hide the cursor or estimate progress.
+- List menu options vertically and highlight each accepted selection. Accept
+  `b` at each prompt to revisit exactly one step, retaining earlier answers and
+  asking later steps again; explain that the first prompt has no previous step.
+  Back navigation never changes project files or removes an installed library.
+- Use a compact one-line bootstrap indicator, then show the preview in aligned
+  state, label and path columns with counts for additions and preserved files.
+  Insert explicit separators in localized labels so layout does not depend on
+  trailing spaces in language data.
+- Keep a small native shell/PowerShell launcher as the first download. After the
+  user chooses platform, language and separate Framework/project destinations,
+  fetch the matching release asset only after showing its version and asking
+  for confirmation. Preserve a full source-checkout fallback until such assets
+  exist in a published release.
+- Publish six versioned installer archives: macOS, Linux and Windows, each in
+  `en-US` and `pt-BR`. Retain the two full-source archives and one checksum list.
+  Each installer archive contains the native setup/bootstrap scripts, the
+  onboarding prompt and language-scoped getting-started/manual guides, and the
+  Framework library required for the selected workflow.
+- Supersede ADR-015's single full-source archive packaging constraint; retain
+  the historical decision and changelog entry as context for earlier releases.
+- Verify the selected archive against its SHA-256 entry, reject unsafe archive
+  paths and unsupported filesystem entries, then validate its manifest before
+  installing into a new Framework folder. Never overwrite an existing library
+  destination. Preview project changes and require a separate default-no
+  confirmation before applying; preserve existing project files.
+- Do not add an installation runtime dependency. Python may build packages in
+  maintainer/CI release tooling; user setup remains native shell/PowerShell.
+- Treat release checksums as transport/integrity checks, not an independent
+  publisher signature. The package flow activates only after a release includes
+  the six assets. A release tag or publication still requires separate approval.
+
+### Alternatives Considered
+
+Requiring the full Git clone keeps distribution simple but does not meet the
+requested guided, platform/language-scoped install. A global package manager,
+remote shell pipeline or new runtime would add installation dependencies or
+reduce reviewability. Cross-installing a different operating system's runtime
+from the current terminal would not reliably execute its native bootstrap.
+
+### Consequences
+
+The release job must build and publish six additional archives and include all
+eight archives in `SHA256SUMS`. The shell and PowerShell installers require
+equivalent behavior and archive-safety tests. Documentation must state when
+assets are not yet available and retain a working checkout path. The user
+selects a separate Framework library and client project location, and the
+installer must reject overlaps and existing library destinations.
+
+### Related Artifacts
+
+- `GET_STARTED.md` and `locales/pt-BR/public-docs/GET_STARTED.md`
+- `setup.sh`, `setup.ps1`, `scripts/bootstrap.sh`, `scripts/bootstrap.ps1`
+- `scripts/package_installers.py` and its tests
+- `scripts/package-release.sh` and `.github/workflows/release.yml`
+- `README.md`, `README.pt-BR.md`, and `START_PROJECTS` language pair
+- GitHub release assets and `SHA256SUMS`
+
+## ADR-025 - Require an explicit named CLI adapter
+
+### Status
+
+Accepted for implementation on 2026-11-19.
+
+### Context
+
+The interactive and direct bootstraps allowed setup to continue without a
+named CLI integration. The review preview placed file changes and permission
+state in one continuous block.
+
+### Decision
+
+- Require an explicit adapter in both native bootstraps. Accept only `codex`,
+  `claude`, `gemini` and `opencode`; reject missing, blank or unsupported values
+  before creating the project directory.
+- Keep the shared vendor-neutral template in every installation and apply the
+  selected adapter's project entrypoint or configuration. Do not migrate or
+  delete files or installation records in existing client projects.
+- Remove the retired adapter documentation and update current setup guides,
+  workflows, adapter references and EN-US/PT-BR mirrors. Preserve historical
+  ADR, changelog and release-plan records as context for earlier behavior.
+- Separate the PRD template topics and guided-installation preview sections
+  with width-aware horizontal rules.
+
+### Alternatives Considered
+
+Keeping an implicit no-adapter path would allow setup to finish without a named
+integration. Renaming that path would still represent the absence of a selected
+integration as a choice. Neither meets the explicit-selection requirement.
+
+### Consequences
+
+Direct bootstrap callers must now pass one of the four supported adapters. Both
+language templates and current EN-US/PT-BR setup documentation must remain
+aligned. The installer continues to preserve existing client files and records.
+
+### Related Artifacts
+
+- `setup.sh`, `setup.ps1`, `scripts/bootstrap.sh` and `scripts/bootstrap.ps1`
+- `scripts/tests/test_setup.py` and the shell/PowerShell bootstrap tests
+- `GET_STARTED.md`, `START_PROJECTS.en-US.md` and `workflows/NEW_PROJECT.md`
+- `PROJECT_TEMPLATE/docs/PRD.md` and its PT-BR mirror
+
+## ADR-026 - Localized project guides and routing skills
+
+### Status
+
+Accepted for implementation on 2026-11-19. This decision does not authorize a
+release publication or tag.
+
+### Date
+
+2026-11-19
+
+### Context
+
+The bootstrap installed the project coordination base and selected adapter but
+left the detailed onboarding guides and skill-based entrypoints in the external
+Framework checkout. New projects needed a small, language-matched route to the
+canonical workflows and agents without embedding a second Framework library.
+Stage previews also needed clearer separation.
+
+### Decision
+
+- Install localized copies of `START_PROJECTS.md` and
+  `FIRST_PROMPT_TEMPLATE.md` in the client project root. Rewrite links so the
+  selected guide and prompt resolve locally and external installation guidance
+  resolves through the Framework path recorded in `.ai/framework-installation.md`.
+  Do not copy `GET_STARTED.md`, which explains how to install the library.
+- Provide four short, Framework-owned skills in EN-US and PT-BR:
+  `lf-project-onboarding`, `lf-project-planning`,
+  `lf-approved-implementation` and `lf-delivery-review`. They route to canonical
+  agent definitions and workflows through the recorded external path instead
+  of duplicating Framework content.
+- Install those skills under `.claude/skills/` for Claude and `.agents/skills/`
+  for Codex, Gemini and OpenCode. Preserve existing files and include only the
+  selected language's skill sources in each platform/language package. Do not
+  import or install external skills.
+- Keep the client project limited to its coordination files, selected adapter,
+  the two starter guides and four short skills. Do not copy full Framework
+  directories for agents, knowledge, workflows, protocols or schemas.
+- Use a static text header and width-aware dividers before the main stages, review and installation summaries, with a
+  single blank line between the installation-record title and its table.
+- Preserve dry-run, no-overwrite and idempotent bootstrap behavior. Do not
+  publish a release or create a tag as part of this decision.
+
+### Alternatives Considered
+
+Leaving the guides and skills only in the external checkout requires users to
+locate that checkout before receiving onboarding help. Copying the full library
+or installing external skills adds duplicate or unreviewed content to client
+projects. Neither option provides the small, language-scoped project entrypoint
+specified by the approved plan.
+
+### Consequences
+
+Both native bootstraps and the package builder must install the same localized
+guides and adapter-specific skill paths. Bootstrap and package tests must verify
+language selection, preservation, idempotence, external links and the absence of
+full Framework directories. EN-US and PT-BR setup documentation must describe
+the four skills and their boundary.
+
+### Related Artifacts
+
+- `setup.sh`, `setup.ps1`, `scripts/bootstrap.sh` and `scripts/bootstrap.ps1`
+- `scripts/package_installers.py`, `scripts/test-bootstrap.sh` and
+  `scripts/test-bootstrap.ps1`
+- `project-skills/en-US/` and `locales/pt-BR/project-skills/`
+- `START_PROJECTS.en-US.md`, `locales/pt-BR/public-docs/START_PROJECTS.md`,
+  `FIRST_PROMPT_TEMPLATE.md` and its PT-BR mirror
+- `README.md`, `README.pt-BR.md` and both changelog language files
+
+## ADR-027 - Machine-independent installed Framework references
+
+### Status
+
+Accepted for implementation on 2026-11-20. This decision does not authorize a
+release publication or tag.
+
+### Date
+
+2026-11-20
+
+### Context
+
+Installed project documents and the installation record included the absolute
+path of the Framework checkout on the maintainer's computer. Those references
+made the generated files machine-specific and directed users to a path they did
+not have.
+
+### Decision
+
+- Identify the canonical Framework source in installed documents and
+  `.ai/framework-installation.md` with the public repository URL and the
+  installed release or manifest version. Do not write the local Framework
+  checkout path or a `file://` URL into installed project files.
+- Keep the OpenCode instructions and read-only repository reference pinned to
+  the same version identifier.
+- Keep local checkout paths only in commands that users execute in their own
+  environment; generated project records must describe the Framework and its
+  version, not the maintainer's computer.
+- Preserve earlier ADRs as historical records and update current guides,
+  templates, skills, validators and installation tests to reflect this rule.
+
+### Alternatives Considered
+
+Recording the local path is convenient only on the machine that performed the
+installation. Omitting the source entirely leaves project skills without a
+canonical reference. The public versioned source is portable and traceable.
+
+### Consequences
+
+Both native bootstraps derive the source version from the Framework manifest,
+falling back to `main` for a source checkout without a manifest. Installed
+guides use public repository links, and OpenCode resolves canonical files from
+the matching remote branch. Tests must reject machine-specific paths and verify
+the recorded version, skills and adapter files for each language package.
+
+### Related Artifacts
+
+- `scripts/bootstrap.sh`, `scripts/bootstrap.ps1` and `adapters/opencode/opencode.jsonc`
+- `PROJECT_TEMPLATE/`, `project-skills/`, and their PT-BR mirrors
+- `scripts/tests/test_setup.py`, package tests and native bootstrap tests
+- `README.md`, `START_PROJECTS.en-US.md`, and `locales/pt-BR/public-docs/`

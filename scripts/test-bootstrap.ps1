@@ -140,31 +140,77 @@ try {
   & $bootstrap -FrameworkPath $FrameworkPath -TargetPath $newProject -Language pt-BR -Adapter claude -DryRun | Out-File (Join-Path $testRoot "new-dry-run.txt")
   Assert-True (-not (Test-Path -LiteralPath $newProject -PathType Any)) "dry-run created the target"
   Assert-True ((Select-String -LiteralPath (Join-Path $testRoot "new-dry-run.txt") -SimpleMatch "ADD AGENTS.md" -Quiet)) "dry-run did not report AGENTS.md"
+  Assert-True ((Select-String -LiteralPath (Join-Path $testRoot "new-dry-run.txt") -SimpleMatch "ADD START_PROJECTS.md" -Quiet)) "dry-run did not report the local start guide"
+  Assert-True ((Select-String -LiteralPath (Join-Path $testRoot "new-dry-run.txt") -SimpleMatch "ADD FIRST_PROMPT_TEMPLATE.md" -Quiet)) "dry-run did not report the local prompt template"
+  $newDryRun = (Get-Content -Raw -Encoding UTF8 -LiteralPath (Join-Path $testRoot "new-dry-run.txt")).Replace('\', '/')
+  Assert-True ($newDryRun.Contains("ADD .claude/skills/lf-project-onboarding/SKILL.md")) "dry-run did not report Claude skills"
 
   & $bootstrap -FrameworkPath $FrameworkPath -TargetPath $newProject -Language pt-BR -Adapter claude -Apply | Out-File (Join-Path $testRoot "new-apply.txt")
    Assert-True (Test-Path -LiteralPath (Join-Path $newProject ".ai\contracts.md") -PathType Leaf) "contracts were not copied"
+  foreach ($required in @(
+    "AGENTS.md", "LF_ENGINEERING.md", "README.md",
+    ".ai/workflow.md", ".ai/handoff.md", ".ai/decisions.md", ".ai/tasks.md", ".ai/artifacts.md",
+    ".ai/state/current-phase.md", ".ai/state/current-agent.md", ".ai/state/project-summary.md",
+    ".ai/state/next-actions.md", ".ai/state/risks.md",
+    "docs/PRD.md", "docs/ARCHITECTURE.md", "docs/SPRINTS.md", "docs/ADR.md"
+  )) {
+    Assert-True (Test-Path -LiteralPath (Join-Path $newProject $required) -PathType Leaf) "required project file $required was not installed"
+  }
    Assert-True ((Select-String -LiteralPath (Join-Path $newProject ".gitignore") -SimpleMatch "/.ai/state/" -Quiet)) "new projects do not ignore local state by default"
    Assert-OwnerOnlyStatePath (Join-Path $newProject ".ai\state") $true
   Assert-OwnerOnlyStatePath (Join-Path $newProject ".ai\state\current-phase.md") $false
   Assert-True (Test-Path -LiteralPath (Join-Path $newProject "CLAUDE.md") -PathType Leaf) "Claude adapter was not copied"
   Assert-True ((Select-String -LiteralPath (Join-Path $newProject "AGENTS.md") -SimpleMatch "Instruções dos agentes" -Quiet)) "PT-BR template was not selected"
-  Assert-True ((Select-String -LiteralPath (Join-Path $newProject "LF_ENGINEERING.md") -SimpleMatch $FrameworkPath -Quiet)) "Framework path was not rendered"
-  Assert-True (-not (Test-Path -LiteralPath (Join-Path $newProject "opencode.jsonc") -PathType Any)) "generic project received OpenCode config"
+  Assert-True ((Select-String -LiteralPath (Join-Path $newProject "LF_ENGINEERING.md") -SimpleMatch "https://github.com/LeandroFernandess/LF-Engineering-Framework" -Quiet)) "official Framework source was not documented"
+  foreach ($document in @(Get-ChildItem -LiteralPath $newProject -Filter "*.md" -Recurse -File)) {
+    $documentContent = Get-Content -Raw -Encoding UTF8 -LiteralPath $document.FullName
+    Assert-True (-not $documentContent.Contains($FrameworkPath)) "machine-specific Framework path leaked into $($document.Name)"
+    Assert-True (-not $documentContent.Contains("file://")) "local file URI leaked into $($document.Name)"
+  }
+  Assert-True (-not (Test-Path -LiteralPath (Join-Path $newProject "opencode.jsonc") -PathType Any)) "Claude selection received OpenCode config"
+  Assert-True (Test-Path -LiteralPath (Join-Path $newProject "START_PROJECTS.md") -PathType Leaf) "localized start guide was not installed"
+  Assert-True (Test-Path -LiteralPath (Join-Path $newProject "FIRST_PROMPT_TEMPLATE.md") -PathType Leaf) "localized first prompt was not installed"
+  Assert-True (-not (Test-Path -LiteralPath (Join-Path $newProject "GET_STARTED.md") -PathType Any)) "GET_STARTED.md was copied into the project"
+  Assert-True (-not (Test-Path -LiteralPath (Join-Path $newProject "PROJECT_BRIEF.md") -PathType Any)) "conditional PROJECT_BRIEF.md was copied before the workflow required it"
+  foreach ($conditional in @("docs/DESIGN.md", "docs/PERFORMANCE_VALIDATION_REPORT.md", "docs/TECH_DEBT_AUDIT.md")) {
+    Assert-True (-not (Test-Path -LiteralPath (Join-Path $newProject $conditional) -PathType Any)) "conditional artifact $conditional was copied before the workflow required it"
+  }
+  foreach ($directory in @("agents", "knowledge", "workflows", "protocols", "schemas")) {
+    Assert-True (-not (Test-Path -LiteralPath (Join-Path $newProject $directory) -PathType Any)) "full Framework directory $directory was copied"
+  }
+  foreach ($skill in @("lf-project-onboarding", "lf-project-planning", "lf-approved-implementation", "lf-delivery-review")) {
+    Assert-True (Test-Path -LiteralPath (Join-Path $newProject ".claude/skills/$skill/SKILL.md") -PathType Leaf) "Claude skill $skill was not installed"
+  }
+  Assert-True ((Select-String -LiteralPath (Join-Path $newProject ".claude/skills/lf-project-onboarding/SKILL.md") -SimpleMatch "Integração inicial de projeto LF" -Quiet)) "PT-BR skill source was not selected"
+  $projectGuide = Get-Content -Raw -Encoding UTF8 -LiteralPath (Join-Path $newProject "START_PROJECTS.md")
+  Assert-True ($projectGuide.Contains("https://github.com/LeandroFernandess/LF-Engineering-Framework/blob/main/locales/pt-BR/public-docs/GET_STARTED.md")) "guide does not link to the official Framework source"
+  Assert-True ($projectGuide.Contains("FIRST_PROMPT_TEMPLATE.md)")) "guide does not link to the local prompt"
+  $repeatPreview = @(& $bootstrap -FrameworkPath $FrameworkPath -TargetPath $newProject -Language pt-BR -Adapter claude -DryRun)
+  $repeatPreviewPaths = @($repeatPreview | ForEach-Object { ([string]$_).Replace('\', '/') })
+  Assert-True (-not ($repeatPreviewPaths | Where-Object { $_ -match '^ADD (START_PROJECTS.md|FIRST_PROMPT_TEMPLATE.md|\.claude/skills/)' })) "second bootstrap preview proposed guide or skill additions"
 
-  $defaultProject = Join-Path $testRoot "default adapter project"
-  & $bootstrap -FrameworkPath $FrameworkPath -TargetPath $defaultProject -Language pt-BR -DryRun | Out-File (Join-Path $testRoot "default-dry-run.txt")
-  Assert-True (-not (Test-Path -LiteralPath $defaultProject -PathType Any)) "default-adapter dry-run created the target"
-  & $bootstrap -FrameworkPath $FrameworkPath -TargetPath $defaultProject -Language pt-BR -Apply | Out-File (Join-Path $testRoot "default-apply.txt")
-  Assert-True (Test-Path -LiteralPath (Join-Path $defaultProject ".ai\contracts.md") -PathType Leaf) "default adapter did not copy contracts"
-  Assert-True ((Get-Content -Raw -LiteralPath (Join-Path $defaultProject ".ai\framework-installation.md")) -match '(?m)^- Adapter: generic\r?$') "generic is not the default adapter"
-  Assert-True (-not (Test-Path -LiteralPath (Join-Path $defaultProject "CLAUDE.md") -PathType Any)) "default adapter unexpectedly installed Claude entrypoint"
-  Assert-True (-not (Test-Path -LiteralPath (Join-Path $defaultProject "GEMINI.md") -PathType Any)) "default adapter unexpectedly installed Gemini entrypoint"
-  Assert-True (-not (Test-Path -LiteralPath (Join-Path $defaultProject "opencode.jsonc") -PathType Any)) "default adapter unexpectedly installed OpenCode config"
+  $missingAdapterProject = Join-Path $testRoot "missing adapter project"
+  $missingAdapterFailed = $false
+  try { & $bootstrap -FrameworkPath $FrameworkPath -TargetPath $missingAdapterProject -Language pt-BR -DryRun | Out-Null }
+  catch { $missingAdapterFailed = $true }
+  Assert-True $missingAdapterFailed "bootstrap accepted a missing adapter"
+  Assert-True (-not (Test-Path -LiteralPath $missingAdapterProject -PathType Any)) "missing-adapter validation created the target"
+
+  $genericAdapterProject = Join-Path $testRoot "generic adapter project"
+  $genericAdapterFailed = $false
+  try { & $bootstrap -FrameworkPath $FrameworkPath -TargetPath $genericAdapterProject -Language pt-BR -Adapter generic -DryRun | Out-Null }
+  catch { $genericAdapterFailed = $true }
+  Assert-True $genericAdapterFailed "bootstrap accepted the removed generic adapter"
+  Assert-True (-not (Test-Path -LiteralPath $genericAdapterProject -PathType Any)) "generic-adapter validation created the target"
 
   $existingProject = Join-Path $testRoot "existing project"
   $nestedStateDirectory = Join-Path $existingProject ".ai\state\archive\subdir"
-  New-Item -ItemType Directory -Force -Path (Join-Path $existingProject "docs"), $nestedStateDirectory | Out-Null
+  $existingSkillDirectory = Join-Path $existingProject ".claude/skills/lf-project-onboarding"
+  New-Item -ItemType Directory -Force -Path (Join-Path $existingProject "docs"), $nestedStateDirectory, $existingSkillDirectory | Out-Null
   Set-Content -LiteralPath (Join-Path $existingProject "README.md") -Value "project-owned README"
+  Set-Content -LiteralPath (Join-Path $existingProject "START_PROJECTS.md") -Value "project-owned guide"
+  Set-Content -LiteralPath (Join-Path $existingProject "FIRST_PROMPT_TEMPLATE.md") -Value "project-owned prompt"
+  Set-Content -LiteralPath (Join-Path $existingSkillDirectory "SKILL.md") -Value "project-owned skill"
   Set-Content -LiteralPath (Join-Path $existingProject "AGENTS.md") -Value "project-owned AGENTS"
   Set-Content -LiteralPath (Join-Path $existingProject ".gitignore") -Value "project-owned ignore"
   Set-Content -LiteralPath (Join-Path $existingProject "CLAUDE.md") -Value "project-owned CLAUDE"
@@ -189,6 +235,9 @@ try {
   $nestedStateFilePermissionsBefore = Get-StatePermissionToken $nestedStateFile
 
   & $bootstrap -FrameworkPath $FrameworkPath -TargetPath $existingProject -Language en-US -Adapter claude -DryRun | Out-File (Join-Path $testRoot "existing-dry-run.txt")
+  Assert-True ((Select-String -LiteralPath (Join-Path $testRoot "existing-dry-run.txt") -SimpleMatch "PRESERVE START_PROJECTS.md" -Quiet)) "existing guide was not preserved"
+  Assert-True ((Select-String -LiteralPath (Join-Path $testRoot "existing-dry-run.txt") -SimpleMatch "PRESERVE FIRST_PROMPT_TEMPLATE.md" -Quiet)) "existing prompt was not preserved"
+  Assert-True ((Select-String -LiteralPath (Join-Path $testRoot "existing-dry-run.txt") -Pattern 'PRESERVE \.claude[\\/]skills[\\/]lf-project-onboarding[\\/]SKILL\.md' -Quiet)) "existing skill was not preserved"
   Assert-True ((Select-String -LiteralPath (Join-Path $testRoot "existing-dry-run.txt") -Pattern 'PRESERVE \.ai[\\/]state[\\/]current-phase\.md' -Quiet)) "hidden state was not preserved"
   Assert-True ((Select-String -LiteralPath (Join-Path $testRoot "existing-dry-run.txt") -SimpleMatch "RESTRICT .ai/state to owner-only permissions" -Quiet)) "dry-run did not report local-state permission hardening"
   Assert-True ((Get-StatePermissionToken $stateDirectory) -eq $stateDirectoryPermissionsBefore) "dry-run changed state-directory permissions"
@@ -200,6 +249,9 @@ try {
 
   & $bootstrap -FrameworkPath $FrameworkPath -TargetPath $existingProject -Language en-US -Adapter claude -Apply | Out-File (Join-Path $testRoot "existing-apply.txt")
   Assert-True ((Get-Content -Raw -LiteralPath (Join-Path $existingProject "README.md")).Trim() -eq "project-owned README") "README was overwritten"
+  Assert-True ((Get-Content -Raw -LiteralPath (Join-Path $existingProject "START_PROJECTS.md")).Trim() -eq "project-owned guide") "existing guide was overwritten"
+  Assert-True ((Get-Content -Raw -LiteralPath (Join-Path $existingProject "FIRST_PROMPT_TEMPLATE.md")).Trim() -eq "project-owned prompt") "existing prompt was overwritten"
+  Assert-True ((Get-Content -Raw -LiteralPath (Join-Path $existingSkillDirectory "SKILL.md")).Trim() -eq "project-owned skill") "existing skill was overwritten"
   Assert-True ((Get-Content -Raw -LiteralPath (Join-Path $existingProject "AGENTS.md")).Trim() -eq "project-owned AGENTS") "AGENTS.md was overwritten"
   Assert-True ((Get-Content -Raw -LiteralPath (Join-Path $existingProject ".gitignore")).Trim() -eq "project-owned ignore") ".gitignore was overwritten"
   Assert-True ((Get-Content -Raw -LiteralPath (Join-Path $existingProject "CLAUDE.md")).Trim() -eq "project-owned CLAUDE") "CLAUDE.md was overwritten"
@@ -219,8 +271,26 @@ try {
   & $bootstrap -FrameworkPath $FrameworkPath -TargetPath $opencodeProject -Language en-US -Adapter opencode -Apply | Out-File (Join-Path $testRoot "opencode-apply.txt")
   $configPath = Join-Path $opencodeProject "opencode.jsonc"
   Assert-True (Test-Path -LiteralPath $configPath -PathType Leaf) "OpenCode config was not generated"
-  Assert-True ((Get-Content -Raw -LiteralPath $configPath) -notmatch "__LF_ENGINEERING_SYSTEM_PATH__") "OpenCode placeholder was not replaced"
-  $null = Get-Content -Raw -LiteralPath $configPath | ConvertFrom-Json -ErrorAction Stop
+  $configContent = Get-Content -Raw -LiteralPath $configPath
+  Assert-True ($configContent -notmatch "__LF_ENGINEERING_SYSTEM_REF__") "OpenCode reference placeholder was not replaced"
+  Assert-True ($configContent.Contains('"repository": "LeandroFernandess/LF-Engineering-Framework"')) "OpenCode repository reference was not generated"
+  Assert-True ($configContent.Contains('"branch": "main"')) "OpenCode reference was not pinned to the selected Framework source"
+  $config = $configContent | ConvertFrom-Json -ErrorAction Stop
+  $frameworkPermissionResource = "*/repos/github.com/LeandroFernandess/LF-Engineering-Framework/*"
+  foreach ($expected in @(
+    @{ action = "external_directory"; effect = "allow" },
+    @{ action = "read"; effect = "allow" },
+    @{ action = "edit"; effect = "deny" }
+  )) {
+    Assert-True (@($config.permissions | Where-Object {
+      $_.action -eq $expected.action -and
+      $_.resource -eq $frameworkPermissionResource -and
+      $_.effect -eq $expected.effect
+    }).Count -gt 0) "OpenCode Framework permission $($expected.action) was not configured safely"
+  }
+  foreach ($skill in @("lf-project-onboarding", "lf-project-planning", "lf-approved-implementation", "lf-delivery-review")) {
+    Assert-True (Test-Path -LiteralPath (Join-Path $opencodeProject ".agents/skills/$skill/SKILL.md") -PathType Leaf) "OpenCode skill $skill was not installed"
+  }
 
   foreach ($adapter in @("codex", "gemini")) {
     $adapterProject = Join-Path $testRoot ("adapter-" + $adapter)
@@ -233,6 +303,10 @@ try {
       Assert-True (Test-Path -LiteralPath (Join-Path $adapterProject "GEMINI.md") -PathType Leaf) "gemini adapter was not copied"
       Assert-True (-not (Test-Path -LiteralPath (Join-Path $adapterProject "CLAUDE.md") -PathType Any)) "gemini received Claude adapter"
     }
+    foreach ($skill in @("lf-project-onboarding", "lf-project-planning", "lf-approved-implementation", "lf-delivery-review")) {
+      Assert-True (Test-Path -LiteralPath (Join-Path $adapterProject ".agents/skills/$skill/SKILL.md") -PathType Leaf) "$adapter skill $skill was not installed"
+    }
+    Assert-True (-not (Test-Path -LiteralPath (Join-Path $adapterProject ".claude/skills") -PathType Any)) "$adapter received Claude's skill directory"
   }
 
   $invalidLanguageBlocked = $false

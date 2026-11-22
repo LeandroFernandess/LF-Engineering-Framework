@@ -14,4 +14,4 @@ Nenhuma registrada.
 
 ## Última atualização
 
-Atualize após cada etapa do workflow.
+Atualize após cada handoff.

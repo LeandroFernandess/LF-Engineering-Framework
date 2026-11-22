@@ -15,8 +15,14 @@ migrated; `v1.4.0` is historical context, not a release tag in this repository.
 - `docs/reference/LF_DESIGN_PERFORMANCE_GUIDE.md`: detailed Portuguese design/performance
   reference; adopted operational requirements are defined in the canonical
   knowledge module and protocol.
-- `START_PROJECTS.en-US.md`: official English setup guide.
-- `locales/pt-BR/public-docs/START_PROJECTS.md`: official PT-BR setup guide.
+- `GET_STARTED.md`: prioritized OS-specific install steps and first-run package
+  installer.
+- `START_PROJECTS.en-US.md` and its PT-BR mirror: detailed manual setup and
+  automation guide. The bootstrap also installs the selected-language guide
+  into each client project as `START_PROJECTS.md`.
+- `FIRST_PROMPT_TEMPLATE.md`: optional copy-ready first prompt for starting a
+  project conversation after cloning the Framework; a localized copy is
+  installed in the client project.
 - `AGENTS.md`: project-level agent operating rules.
 - `ROADMAP.md`: planned framework evolution.
 - `CHANGELOG.md`: implemented framework changes.
@@ -41,7 +47,9 @@ migrated; `v1.4.0` is historical context, not a release tag in this repository.
 ├── README.md
 ├── README.pt-BR.md
 ├── AGENTS.md
+├── GET_STARTED.md
 ├── START_PROJECTS.en-US.md
+├── project-skills/en-US/
 ├── PROJECT_TEMPLATE/
 ├── agents/
 ├── knowledge/
@@ -56,16 +64,18 @@ migrated; `v1.4.0` is historical context, not a release tag in this repository.
 │   ├── en-US/README.md
 │   └── pt-BR/
 │       ├── PROJECT_TEMPLATE/
+│       ├── project-skills/
 │       ├── agents/ knowledge/ workflows/ protocols/ schemas/
 │       ├── public-docs/
 │       └── docs/ADR.md
-├── .github/
-└── .opencode/
+└── .github/
 ```
 
 ## Main Areas
 
 - `PROJECT_TEMPLATE/`: base structure copied into new client projects.
+- `project-skills/`: four short EN-US project guidance skills; the PT-BR
+  versions are under `locales/pt-BR/project-skills/`.
 - `adapters/`: optional integrations for specific AI assistants or CLIs.
 - `scripts/`: native macOS/Linux and Windows PowerShell bootstrap commands.
 - `locales/`: PT-BR mirrors and public translations; EN-US canonical technical
@@ -75,8 +85,6 @@ migrated; `v1.4.0` is historical context, not a release tag in this repository.
 - `workflows/`: official workflow definitions for project work.
 - `protocols/`: update protocols for workflow, handoff, tasks, decisions and artifacts, including conditional mobile/desktop performance and motion validation for web and visual projects.
 - `schemas/`: canonical structures for engineering artifacts.
-- `.opencode/`: Framework-side OpenCode compatibility source; client installation
-  is optional and is managed through `adapters/opencode/`.
 - `PROJECT_TEMPLATE/.ai/`: client-project coordination and state files copied by the bootstrap.
 - `docs/`: Framework governance decisions and audit evidence.
 - `docs/reference/`: non-normative source guides retained for provenance.
@@ -84,25 +92,42 @@ migrated; `v1.4.0` is historical context, not a release tag in this repository.
 
 ## New and Existing Projects
 
-Use `START_PROJECTS.en-US.md` or
-`locales/pt-BR/public-docs/START_PROJECTS.md` to create a new project or safely
-adopt an existing project. The default model is:
+Start with the [Get Started guide](GET_STARTED.md). It downloads a small
+launcher, asks for the operating system and language, then installs the matching
+release package into a separate Framework library folder. On macOS or Linux:
 
-1. Create a separate project directory.
-2. Run `scripts/bootstrap.sh` or `scripts/bootstrap.ps1` with `--adapter
-   generic` (or the equivalent PowerShell parameter).
-3. Select `en-US` or `pt-BR` explicitly.
-4. Keep this framework external and read-only.
-5. Run the workflow through Engineering Manager, Orchestrator, specialized
-   agents, Tech Lead and Engineering Knowledge Extractor.
+```sh
+curl -fsSL https://raw.githubusercontent.com/LeandroFernandess/LF-Engineering-Framework/main/setup.sh -o lf-framework-setup.sh
+sh ./lf-framework-setup.sh
+```
 
-The generated `.gitignore` keeps `.ai/state/` local by default. Existing
-projects retain their own `.gitignore` during bootstrap and must adopt this rule
-manually if desired.
+On Windows PowerShell, follow the download and execution commands in
+[GET_STARTED.md](GET_STARTED.md). The interactive assistant previews project
+changes before applying them; existing files are preserved.
 
-For an existing project, use the same bootstrap in dry-run mode first. It copies
-only missing template files and preserves existing project documents and
-configuration.
+The currently published `v1.5.0` predates the platform/language assets. Until a
+release includes those packages, use the source-checkout fallback in
+GET_STARTED.md. The full walkthrough for manual setup and automation remains in
+[START_PROJECTS.en-US.md](START_PROJECTS.en-US.md).
+
+The assistant requires no Node.js or Python runtime. `--no-animation` and
+`--no-color` (PowerShell: `-NoAnimation` and `-NoColor`) select a static
+presentation, and `NO_COLOR` disables colors. Native `scripts/bootstrap.sh` and
+`scripts/bootstrap.ps1` remain noninteractive, default to dry-run and keep
+technical output in English.
+
+The generated `.gitignore` excludes `.ai/state/`; existing projects keep their
+own `.gitignore` and must adopt this rule manually if desired.
+
+The bootstrap also copies localized `START_PROJECTS.md` and
+`FIRST_PROMPT_TEMPLATE.md` guides to the project root, plus four project skills:
+`lf-project-onboarding`, `lf-project-planning`, `lf-approved-implementation` and
+`lf-delivery-review`. Claude receives them under `.claude/skills/`; Codex,
+Gemini and OpenCode receive them under `.agents/skills/`. Each small skill
+routes to the external canonical Framework files using the versioned public
+source recorded in `.ai/framework-installation.md`. The bootstrap preserves existing guide and
+skill files, does not copy `GET_STARTED.md`, and does not import external skills
+or copy full Framework directories into the project.
 
 ## Operating Rules
 
@@ -118,11 +143,12 @@ configuration.
 
 The Framework is CLI-neutral by default. OpenAI Codex can use `AGENTS.md`;
 Anthropic Claude Code can use `CLAUDE.md`; Google Gemini CLI can use `GEMINI.md`;
-OpenCode can use the optional `opencode.jsonc` adapter. No adapter changes the
-canonical Framework.
+OpenCode can use the optional `opencode.jsonc` adapter. Its instructions point
+to canonical Framework agents and workflows; it does not install a separate
+root `.opencode/` tree or Framework-level MCP configuration.
 
-See `adapters/README.md` for the adapter matrix and `.opencode/README.md` for
-Framework-side OpenCode compatibility details.
+See `adapters/README.md` for the adapter matrix and
+`adapters/opencode/README.md` for OpenCode setup details.
 
 PT-BR template coverage and remaining translation work are documented in
 `locales/pt-BR/TRANSLATION_STATUS.md`.

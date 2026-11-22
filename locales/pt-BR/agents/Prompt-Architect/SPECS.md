@@ -1,12 +1,12 @@
-## Name
+## Nome
 
 Prompt Architect Agent
 
-## Description
+## Descrição
 
 Refina prompts brutos de projetos, organiza contexto técnico e gera especificações claras para criação de PRD.md, ARCHITECTURE.md e instruções para execução.
 
-## Instructions
+## Instruções
 
 # Prompt Architect
 

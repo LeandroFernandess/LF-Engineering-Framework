@@ -2,7 +2,7 @@
 
 - **Idioma-fonte:** EN-US
 - **Versão da fonte:** 1.5.0 (primeira baseline pública estável).
-- **Última revisão:** 2026-11-04
+- **Última revisão:** 2026-11-15
 - **Escopo:** registrar a cobertura PT-BR da primeira release pública `v1.5.0`,
   as atualizações de manutenção pós-tag no checkout atual e distinguir os
   registros de versões anteriores do repositório privado predecessor.
@@ -13,9 +13,11 @@
   `locales/pt-BR/public-docs/`; o espelho do ADR fica em
   `locales/pt-BR/docs/ADR.md`. Os caminhos PT-BR de compatibilidade na raiz
   foram removidos; `README.pt-BR.md` continua como página inicial.
-- **Revisão semântica:** os espelhos do overview, roadmap, changelog, testing e
-  ADR foram comparados às fontes nesta atualização; a validação automatizada
-  continua verificando somente presença e estrutura, não certificando a tradução.
+- **Revisão semântica:** os 143 pares ativos do inventário EN-US/PT-BR têm
+  registros com escopo explícito e fingerprints atuais em
+  `locales/translation-review.json`. A revisão compara conteúdo e termos no
+  escopo descrito por par; a automação detecta mudanças posteriores, mas não
+  certifica a qualidade semântica.
 - **Cobertura publicada em `v1.5.0`:** inclui templates EN-US/PT-BR, espelhos
   PT-BR dos documentos públicos ativos, as quatro correções posteriores à
   `v1.4.0` do predecessor e a regra padrão para manter `.ai/state/` local.
@@ -42,7 +44,7 @@
 | `knowledge/` estável | Evoluiu em versões anteriores | Espelhos PT-BR incluídos | `ENGINEERING_MOTION_DESIGN` permanece condicional; módulos suplementares aprovados continuam opcionais. |
 | Manutenção pós-tag | Fora da baseline publicada `v1.5.0` | Orientações e espelhos atualizados no checkout atual | A extensão opcional de simulação interativa não altera a release publicada nem adiciona dependências. |
 | `knowledge/` suplementar opcional aprovado | Não fazia parte de baselines anteriores | Quatro espelhos incluídos e verificados separadamente | Permanecem fora do grafo obrigatório de dependências. |
-| Documentos públicos extensos ativos | Não faziam parte das primeiras tranches históricas | Espelhos PT-BR incluídos e revisados semanticamente | `public-docs/` contém overview, roadmap, changelog e guias; `docs/ADR.md` contém o espelho do ADR. |
+| Documentos públicos extensos ativos | Não faziam parte das primeiras tranches históricas | Espelhos PT-BR incluídos e revisados semanticamente | `public-docs/` contém overview, roadmap, changelog, guias e o modelo de primeiro prompt; `docs/ADR.md` contém o espelho do ADR. |
 | Referências legadas/de apoio | Fora do escopo de tradução ativa | Guia-fonte preservado | O guia em `docs/reference/` é detalhado e não normativo por si só. |
 
 Nota de cobertura: as versões anteriores descritas no changelog pertencem ao
@@ -53,9 +55,9 @@ playbook legado foi removido da superfície atual. O guia detalhado em
 `docs/reference/` é preservado como fonte não normativa; somente requisitos
 adotados nos documentos canônicos são operacionais.
 
-O projeto mantém um único arquivo de release com os dois pacotes de idioma; não
-serão criados arquivos de release separados por idioma. A seleção de idioma
-continua explícita no bootstrap.
+O release mantém arquivos completos de código-fonte e inclui seis pacotes
+menores: macOS, Linux e Windows, cada sistema em `en-US` e `pt-BR`. O usuário
+seleciona um pacote correspondente ao sistema e idioma escolhidos.
 
 Quando uma tradução for publicada, mantenha o caminho equivalente, registre o
 baseline correto da fonte e revise conteúdo e paridade estrutural. Os módulos
@@ -63,3 +65,32 @@ suplementares são opcionais e permanecem fora do grafo obrigatório de
 dependências; a tradução PT-BR não altera essa fronteira. EN-US continua sendo o
 idioma-fonte técnico; os espelhos PT-BR preservam o status opcional aprovado,
 sem tornar obrigatória a adoção de qualquer módulo.
+
+## Revisão de manutenção de 2026-11-15
+
+Fonte de partida: checkout `0c2d31a`; alterações desta manutenção são posteriores
+à baseline publicada. As onze especificações `agents/*/SPECS.md` foram traduzidas
+para EN-US e comparadas à prosa dos espelhos PT-BR. Regras condicionais, limites de
+responsabilidade e identificadores foram preservados. Os rótulos descritivos
+iniciais dos espelhos passaram a usar português.
+
+READMEs, guias de início, índice e README do Knowledge, textos novos do changelog,
+ADR-022 e instruções novas de testes foram alinhados nos dois idiomas. O glossário
+bilíngue está em `docs/GLOSSARY.md`. Os registros em
+`locales/translation-review.json` informam o escopo comparado para cada par e
+seus hashes sinalizam alterações posteriores; eles não substituem a revisão
+humana nem certificam automaticamente a semântica.
+
+Os onze pares públicos de `scripts/public-document-pairs.tsv` agora participam da
+validação estrutural nativa. READMEs são exceção estrutural intencional: possuem
+navegação diferente, mas são revisados e têm links verificados. Todos os 143
+pares ativos têm revisão registrada; módulos extensos indicam no registro quais
+seções foram comparadas. A checagem automatizada verifica presença, links,
+estrutura e fingerprints, não a qualidade linguística por conta própria.
+
+Os dois assistentes localizam mensagens e documentos novos. A saída dos comandos
+nativos de automação e as chaves técnicas do registro permanecem em inglês por
+compatibilidade. Arquivos existentes não são traduzidos nem migrados. O fluxo
+de instalação oferece arquivos completos do código-fonte e seis pacotes menores
+por sistema operacional e idioma, escolhidos após as respostas do usuário. Os
+pacotes incluem o prompt de início e os guias no idioma selecionado.

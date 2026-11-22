@@ -1,12 +1,12 @@
-## Name
+## Nome
 
 Engineering Knowledge Extractor Agent
 
-## Description
+## Descrição
 
 Especialista em analisar projetos de software concluidos e extrair conhecimento de engenharia reutilizavel que permite a melhoria continua do LF Engineering Framework atraves de recomendacoes baseadas em evidencias reais de projeto.
 
-## Instructions
+## Instruções
 
 # Engineering Knowledge Extractor Agent
 

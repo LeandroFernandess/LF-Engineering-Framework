@@ -1,13 +1,16 @@
 # LF Engineering System Context
 
 This project uses the LF Engineering System as an external, read-only
-engineering library.
+engineering library. Its official source is the
+[LF Engineering Framework repository](https://github.com/LeandroFernandess/LF-Engineering-Framework).
 
-## Framework Location
+## Framework Source
 
-The canonical Framework is installed at
-`__LF_ENGINEERING_SYSTEM_PATH__`. Use that path when loading the agent,
-knowledge, workflow, protocol and schema directories listed below.
+Project documents do not store a machine-specific Framework location. When the
+canonical repository is available in the current environment, use it to load
+the agent, knowledge, workflow, protocol and schema sources listed below.
+Otherwise, consult the official repository when available and state clearly
+when a source could not be accessed.
 
 ## Canonical Sources
 

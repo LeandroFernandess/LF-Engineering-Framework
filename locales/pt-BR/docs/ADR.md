@@ -1251,3 +1251,381 @@ manutenção pós-tag e não autoriza uma release.
 - `CHANGELOG.md`, `OVERVIEW.md` e espelhos PT-BR
 - [teardown](https://github.com/elvarofficial/teardown)
 - [Como transformo qualquer máquina em um simulador 3D que você pode desmontar](https://teapawt.org/elvar_official/article/2116174609355571402)
+
+## ADR-022 - Assistente nativo bilíngue e rastreamento da revisão de traduções
+
+### Status
+
+Aceito para implementação; nenhuma publicação de release autorizada.
+
+### Data
+
+2026-11-15
+
+### Contexto
+
+O bootstrap nativo já permite dois idiomas de template, mas novos usuários
+precisam montar flags e repetir o comando após revisar um dry-run.
+Sua saída técnica é em inglês. As especificações canônicas dos agentes continham
+prosa em português apesar da política de fonte EN-US. As verificações existentes
+não cobriam todos os documentos públicos ativos nem certificavam a semântica.
+
+### Decisão
+
+- Adicionar entradas locais `setup.sh` e `setup.ps1` com seleção de idioma,
+  destino e integração, prévia completa e confirmação explícita com padrão não.
+- Preservar flags, dry-run padrão e saída técnica em inglês do bootstrap para
+  automação. Traduzir o assistente e novas descrições de instalação; preservar
+  chaves técnicas do registro. Arquivos existentes nunca são migrados.
+- Usar somente shell/PowerShell nativos; sem instalação global, registro de
+  pacotes, execução remota ou instalação de ferramentas opcionais. Manter as duas
+  bibliotecas e referências canônicas da raiz. Integração padrão: `generic`.
+- A apresentação inicial foi substituída pela decisão ADR-026. Animar o
+  indicador durante a execução do bootstrap quando houver suporte, respeitar
+  `--no-animation` e `NO_COLOR` e limpar o indicador ao concluir ou interromper.
+  Nunca ocultar o cursor nem estimar percentuais.
+- Exibir `Leandro Fernandes` e o contato de instalação indicado pelo responsável
+  somente na abertura e na ajuda do assistente. Manter o contato atual de
+  `SECURITY.md` como canal separado para relatar vulnerabilidades.
+- Resolver fronteiras do destino e executar uma prévia completa antes de gravar;
+  conferir destinos novamente ao aplicar. A aplicação não é transacional:
+  falhas podem deixar arquivos novos, que serão preservados na repetição.
+- Traduzir as onze especificações canônicas para EN-US sem alterar
+  responsabilidades ou identificadores de contrato. Manter a prosa PT-BR e um
+  glossário bilíngue. Inventariar todos os pares ativos EN-US/PT-BR, exigir um
+  registro de revisão semântica para cada par e manter os hashes separados da
+  cobertura estrutural.
+- Compartilhar a lista de pares públicos ativos entre os validadores nativos.
+  Manter os READMEs como exceção estrutural intencional pela navegação diferente;
+  verificar sua presença, links e conteúdo revisado.
+
+### Alternativas consideradas
+
+Pacote npm, instalador remoto que baixa e executa e interface de terminal em tela
+cheia acrescentariam complexidade de runtime, distribuição ou terminal além da
+necessidade. Substituir a saída atual quebraria automações. Tratar paridade
+estrutural como certificação semântica esconderia divergências de tradução.
+
+### Consequências
+
+As duas implementações exigem testes equivalentes de comportamento. Python é
+usado apenas nas verificações de documentação e regressão dos mantenedores/CI,
+não na instalação. Documentos revisados que mudarem exigem nova comparação e
+atualização dos hashes; paridade estrutural não certifica qualidade semântica.
+Evidências nativas de Windows/Linux devem vir dos jobs de CI; executar PowerShell
+no macOS não comprova compatibilidade de ACL ou console no Windows.
+
+## ADR-023 - Manter OpenCode no adapter opcional compartilhado
+
+Status: Aceito para implementação em 2026-11-15. Esta decisão não autoriza
+release ou publicação.
+
+### Contexto
+
+O Framework mantinha duas superfícies de OpenCode: o adapter opcional
+compartilhado em `adapters/opencode/` e uma árvore `.opencode/` separada na
+raiz, com arquivos duplicados de agentes/orquestrador e uma configuração
+GitHub MCP do lado do Framework. A árvore separada duplicava orientações
+canônicas de workflow e podia divergir das mesmas fontes de agentes e workflows
+usadas pelos outros adapters.
+
+### Decisão
+
+- Remover o diretório `.opencode/` da raiz do Framework, incluindo as definições
+  duplicadas de agentes/orquestrador e a configuração MCP independente.
+- Substituir a configuração GitHub MCP do lado do Framework descrita na ADR-011;
+  manter essa ADR apenas como contexto histórico da decisão.
+- Manter `adapters/opencode/` como adapter OpenCode opcional, selecionado pelo
+  fluxo compartilhado de bootstrap junto aos demais adapters nomeados.
+- Apontar as instruções geradas para as fontes canônicas do Framework:
+  `AGENTS.md`, `agents/Engineering-Manager/SPECS.md`,
+  `workflows/NEW_PROJECT.md` e `workflows/STANDARD_DEVELOPMENT.md`.
+- Manter `generic` como padrão. Não adicionar configuração OpenCode ao template
+  genérico do projeto nem configurar um servidor MCP separado no Framework.
+- Preservar arquivos OpenCode e configurações existentes nos projetos clientes.
+
+### Alternativas consideradas
+
+Manter as duas árvores conservaria instruções duplicadas e trabalho recorrente
+de alinhamento. Remover completamente o suporte ao OpenCode eliminaria um
+adapter opcional existente e quebraria a paridade com as outras integrações
+compartilhadas.
+
+### Consequências
+
+O repositório terá um único caminho mantido de integração com OpenCode. A árvore
+`.opencode/` da raiz deve permanecer ausente; validadores verificam que o adapter
+opcional pode ser analisado e aponta para fontes canônicas de agente/workflow.
+Projetos que já possuem configuração OpenCode não são migrados nem limpos por
+esta alteração no Framework.
+
+### Artefatos relacionados
+
+- `adapters/opencode/README.md`
+- `adapters/opencode/opencode.jsonc`
+- `scripts/validate-framework.sh`
+- `scripts/validate-framework.ps1`
+- `scripts/tests/test_setup.py`
+
+## ADR-024 - Pacotes de primeira execução por sistema e idioma
+
+### Status
+
+Aceito para implementação em 2026-11-15. Esta decisão não autoriza publicar uma
+release.
+
+### Contexto
+
+Os assistentes de instalação exigiam o checkout completo do repositório e
+começavam por uma tela de marca antes de o usuário escolher sistema operacional
+ou idioma. Novos usuários também precisavam deduzir o comando nativo da
+plataforma, enquanto os assets da release atual não distinguiam sistema ou
+idioma.
+
+### Decisão
+
+- Tornar `GET_STARTED.md` o guia principal e exato de instalação, com versões
+  equivalentes em EN-US e PT-BR. Manter `START_PROJECTS` como referência
+  detalhada para checkout do código-fonte, configuração manual e automação.
+- Perguntar primeiro o sistema operacional e depois o idioma, em inglês.
+  Recusar uma escolha de sistema diferente do terminal em execução. Em seguida,
+  mostrar um cabeçalho com o e-mail do mantenedor e links do GitHub e LinkedIn. Respeitar terminais estáticos/simples,
+  `NO_COLOR` e a opção para desativar animação; nunca ocultar o cursor nem estimar
+  progresso.
+- Listar as opções dos menus verticalmente e destacar cada escolha aceita.
+  Aceitar `b` em cada pergunta para revisitar exatamente uma etapa, mantendo as
+  respostas anteriores e perguntando novamente as etapas posteriores; explicar
+  que a primeira pergunta não tem etapa anterior. Voltar nunca altera arquivos
+  do projeto nem remove uma biblioteca instalada.
+- Usar um indicador compacto de uma linha durante o bootstrap e depois mostrar
+  a prévia em colunas alinhadas de estado, rótulo e caminho, com totais de itens
+  adicionados e preservados. Inserir separadores explícitos nos rótulos
+  traduzidos para que o layout não dependa de espaços finais nos dados de idioma.
+- Manter um inicializador nativo pequeno de shell/PowerShell como primeiro
+  download. Depois que o usuário selecionar sistema, idioma e destinos separados
+  para biblioteca Framework/projeto, buscar o asset de release correspondente
+  somente após mostrar sua versão e pedir confirmação. Preservar a alternativa
+  de checkout completo até que os assets existam em uma release publicada.
+- Publicar seis arquivos de instalação versionados: macOS, Linux e Windows, cada
+  um em `en-US` e `pt-BR`. Manter os dois arquivos de código-fonte completo e uma
+  lista de checksums. Cada pacote inclui os scripts nativos de setup/bootstrap,
+  o prompt de início e os guias de início e configuração no idioma selecionado,
+  além da biblioteca necessária ao fluxo selecionado.
+- Substituir a restrição de empacotamento de um único arquivo-fonte completo da
+  ADR-015; manter a decisão histórica e o registro no changelog como contexto de
+  releases anteriores.
+- Verificar o asset selecionado pela entrada SHA-256 correspondente, recusar
+  caminhos inseguros e itens de sistema de arquivos não suportados e validar o
+  manifesto antes de instalar em uma nova pasta do Framework. Nunca sobrescrever
+  um destino de biblioteca existente. Pré-visualizar mudanças no projeto e pedir
+  uma confirmação padrão não, separada, antes de aplicar; preservar arquivos
+  existentes do projeto.
+- Não adicionar dependências de instalação. Python pode montar pacotes na
+  ferramenta de release de mantenedores/CI; a instalação do usuário continua em
+  shell/PowerShell nativos.
+- Tratar checksums de release como verificação de integridade/transporte, não
+  como assinatura independente do publicador. O fluxo de pacotes só fica ativo
+  após uma release incluir os seis assets. Uma tag ou publicação exige aprovação
+  separada.
+
+### Alternativas consideradas
+
+Exigir o clone Git completo mantém a distribuição simples, mas não atende à
+instalação guiada e específica por plataforma/idioma. Um gerenciador global de
+pacotes, pipeline de shell remoto ou novo runtime adicionaria dependências de
+instalação ou reduziria a possibilidade de revisão. Instalar o runtime de outro
+sistema operacional a partir do terminal atual não executaria seu bootstrap
+nativo de forma confiável.
+
+### Consequências
+
+O job de release precisa gerar e publicar seis arquivos adicionais e incluir os
+oito arquivos em `SHA256SUMS`. Os instaladores shell e PowerShell exigem testes
+equivalentes de comportamento e segurança de arquivos compactados. A
+documentação precisa informar quando os assets ainda não estão disponíveis e
+manter um caminho de checkout funcional. O usuário escolhe destinos separados
+para biblioteca do Framework e projeto cliente; o instalador deve recusar
+sobreposição e destino de biblioteca já existente.
+
+### Artefatos relacionados
+
+- `GET_STARTED.md` e `locales/pt-BR/public-docs/GET_STARTED.md`
+- `setup.sh`, `setup.ps1`, `scripts/bootstrap.sh`, `scripts/bootstrap.ps1`
+- `scripts/package_installers.py` e seus testes
+- `scripts/package-release.sh` e `.github/workflows/release.yml`
+- `README.md`, `README.pt-BR.md` e o par de idiomas `START_PROJECTS`
+- Assets de release do GitHub e `SHA256SUMS`
+
+## ADR-025 - Exigir adapter de CLI nomeado
+
+### Status
+
+Aceito para implementação em 2026-11-19.
+
+### Contexto
+
+Os bootstraps interativo e direto permitiam continuar a instalação sem uma
+integração nomeada de CLI. A prévia contínua misturava alterações de arquivos
+e estado de permissões.
+
+### Decisão
+
+- Exigir um adapter explícito nos dois bootstraps nativos. Aceitar somente
+  `codex`, `claude`, `gemini` e `opencode`; recusar valores ausentes, vazios ou
+  não suportados antes de criar o diretório do projeto.
+- Manter o template compartilhado e neutro em todas as instalações e aplicar o
+  entrypoint ou a configuração do adapter selecionado. Não migrar nem excluir
+  arquivos ou registros de instalação em projetos clientes existentes.
+- Remover a documentação do adapter descontinuado e atualizar guias atuais,
+  workflows, referências de adapters e espelhos EN-US/PT-BR. Preservar ADRs,
+  changelogs e planos históricos como contexto do comportamento anterior.
+- Separar os tópicos do template de PRD e as seções da prévia de instalação
+  guiada com linhas horizontais ajustadas à largura do terminal.
+
+### Alternativas consideradas
+
+Manter um caminho sem seleção implícita permitiria concluir a instalação sem
+uma integração nomeada. Renomear esse caminho ainda representaria a ausência de
+uma integração selecionada como uma escolha. Nenhuma das alternativas atende à
+exigência de seleção explícita.
+
+### Consequências
+
+Quem chama o bootstrap diretamente deve informar um dos quatro adapters
+suportados. Os dois templates de idioma e a documentação atual EN-US/PT-BR devem
+permanecer alinhados. O instalador continua preservando arquivos e registros
+existentes do projeto cliente.
+
+### Artefatos relacionados
+
+- `setup.sh`, `setup.ps1`, `scripts/bootstrap.sh` e `scripts/bootstrap.ps1`
+- `scripts/tests/test_setup.py` e os testes de bootstrap shell/PowerShell
+- `GET_STARTED.md`, `START_PROJECTS.en-US.md` e `workflows/NEW_PROJECT.md`
+- `PROJECT_TEMPLATE/docs/PRD.md` e seu espelho PT-BR
+
+## ADR-026 - Guias locais e skills de encaminhamento para projetos
+
+### Status
+
+Aceito para implementação em 2026-11-19. Esta decisão não autoriza a publicação
+de uma release ou a criação de uma tag.
+
+### Data
+
+2026-11-19
+
+### Contexto
+
+O bootstrap instalava a base de coordenação do projeto e o adapter selecionado,
+mas deixava os guias detalhados e as skills de entrada no checkout externo do
+Framework. Projetos novos precisavam de um caminho pequeno e no idioma correto
+para os workflows e agentes canônicos, sem incorporar uma segunda biblioteca.
+As prévias das etapas também precisavam de uma separação mais clara.
+
+### Decisão
+
+- Instalar cópias localizadas de `START_PROJECTS.md` e
+  `FIRST_PROMPT_TEMPLATE.md` na raiz do projeto cliente. Ajustar os links para
+  que o guia e o prompt selecionados apontem para cópias locais e a documentação
+  externa use o caminho do Framework registrado em
+  `.ai/framework-installation.md`. Não copiar `GET_STARTED.md`, que explica como
+  instalar a biblioteca.
+- Disponibilizar quatro skills curtas, mantidas pelo Framework, em EN-US e
+  PT-BR: `lf-project-onboarding`, `lf-project-planning`,
+  `lf-approved-implementation` e `lf-delivery-review`. Elas encaminham às
+  definições canônicas de agentes e workflows pelo caminho externo registrado,
+  sem duplicar o conteúdo do Framework.
+- Instalar as skills em `.claude/skills/` para Claude e em `.agents/skills/`
+  para Codex, Gemini e OpenCode. Preservar arquivos existentes e incluir nos
+  pacotes por sistema/idioma somente as skills do idioma selecionado. Não
+  importar nem instalar skills externas.
+- Manter no projeto cliente somente seus arquivos de coordenação, o adapter
+  selecionado, os dois guias iniciais e as quatro skills curtas. Não copiar
+  diretórios completos do Framework de agentes, conhecimento, workflows,
+  protocolos ou schemas.
+- Usar um cabeçalho estático de texto e divisores ajustados à largura antes
+  das etapas principais, da revisão e dos resumos da instalação, com apenas uma
+  linha em branco entre o título do registro e a tabela.
+- Preservar o dry-run, a proteção contra sobrescrita e o comportamento
+  idempotente do bootstrap. Não publicar release nem criar tag nesta decisão.
+
+### Alternativas consideradas
+
+Manter os guias e skills apenas no checkout externo exige que usuários encontrem
+esse checkout antes de receber orientação inicial. Copiar a biblioteca inteira
+ou instalar skills externas adiciona conteúdo duplicado ou não revisado aos
+projetos. Nenhuma alternativa fornece a pequena entrada localizada definida no
+plano aprovado.
+
+### Consequências
+
+Os dois bootstraps nativos e o montador de pacotes devem instalar os mesmos
+guias localizados e os caminhos de skills específicos por adapter. Os testes de
+bootstrap e pacote devem conferir idioma, preservação, idempotência, links
+externos e ausência de diretórios completos do Framework. A documentação EN-US
+e PT-BR deve descrever as quatro skills e seus limites.
+
+### Artefatos relacionados
+
+- `setup.sh`, `setup.ps1`, `scripts/bootstrap.sh` e `scripts/bootstrap.ps1`
+- `scripts/package_installers.py`, `scripts/test-bootstrap.sh` e
+  `scripts/test-bootstrap.ps1`
+- `project-skills/en-US/` e `locales/pt-BR/project-skills/`
+- `START_PROJECTS.en-US.md`, `locales/pt-BR/public-docs/START_PROJECTS.md`,
+  `FIRST_PROMPT_TEMPLATE.md` e seu espelho PT-BR
+- `README.md`, `README.pt-BR.md` e os dois changelogs de idioma
+
+## ADR-027 - Referências ao Framework instaladas sem dependência da máquina
+
+### Status
+
+Aceito para implementação em 2026-11-20. Esta decisão não autoriza a publicação
+de uma release ou a criação de uma tag.
+
+### Data
+
+2026-11-20
+
+### Contexto
+
+Documentos de projeto instalados e o registro de instalação incluíam o caminho
+absoluto do checkout do Framework no computador do responsável. Essas
+referências tornavam os arquivos gerados dependentes da máquina e apontavam para
+um caminho que outros usuários não tinham.
+
+### Decisão
+
+- Identificar a fonte canônica do Framework nos documentos instalados e em
+  `.ai/framework-installation.md` pela URL do repositório público e pela versão
+  instalada da release ou do manifesto. Não gravar em arquivos instalados o
+  caminho local do checkout nem URLs `file://`.
+- Manter as instruções do OpenCode e sua referência remota somente leitura
+  fixadas no mesmo identificador de versão.
+- Manter caminhos de checkout locais apenas nos comandos que usuários executam
+  em seus próprios ambientes; os registros gerados devem descrever o Framework
+  e sua versão, não o computador do responsável.
+- Preservar ADRs anteriores como registros históricos e atualizar guias,
+  templates, skills, validadores e testes de instalação atuais para refletir
+  esta regra.
+
+### Alternativas consideradas
+
+Registrar o caminho local só é conveniente na máquina que realizou a instalação.
+Omitir completamente a fonte deixa as skills de projeto sem uma referência
+canônica. A fonte pública versionada é portátil e rastreável.
+
+### Consequências
+
+Os dois bootstraps nativos derivam a versão da fonte do manifesto do Framework,
+com fallback para `main` em checkouts sem manifesto. Os guias instalados usam
+links públicos do repositório, e o OpenCode resolve os arquivos canônicos pela
+branch remota correspondente. Os testes devem rejeitar caminhos específicos de
+uma máquina e conferir a versão registrada, as skills e os arquivos do adapter
+em cada pacote de idioma.
+
+### Artefatos relacionados
+
+- `scripts/bootstrap.sh`, `scripts/bootstrap.ps1` e `adapters/opencode/opencode.jsonc`
+- `PROJECT_TEMPLATE/`, `project-skills/` e seus espelhos PT-BR
+- `scripts/tests/test_setup.py`, testes de pacote e testes de bootstrap nativos
+- `README.md`, `START_PROJECTS.en-US.md` e `locales/pt-BR/public-docs/`

@@ -1,12 +1,12 @@
-## Name
+## Nome
 
 Code Reviewer Agent
 
-## Description
+## Descrição
 
 Especialista em revisão técnica de código, qualidade, manutenibilidade, boas práticas, bugs, inconsistências e validação de entregas após execução de sprints pelo agente.
 
-## Instructions
+## Instruções
 
 # Code Reviewer Agent
 

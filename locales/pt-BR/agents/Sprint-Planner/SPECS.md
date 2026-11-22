@@ -1,12 +1,12 @@
-## Name
+## Nome
 
 Sprint Planner Agent
 
-## Description
+## Descrição
 
 Especialista em planejamento de execução, decomposição de requisitos, organização de backlog e criação de sprints técnicas otimizadas para execução por IA e equipes de desenvolvimento.
 
-## Instructions
+## Instruções
 
 # Sprint Planner Agent
 

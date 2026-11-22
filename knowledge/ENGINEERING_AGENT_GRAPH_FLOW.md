@@ -125,6 +125,10 @@ routing, broad provider integration, neural retrieval and claims about token or
 delivery speed. Those require measured project evidence and stronger trust
 boundaries before adoption.
 
+The recommended LF path is an optional, delegated pilot starting with manual CLI
+use; evaluate an OpenCode plugin only if measured benefit exceeds semantic,
+operational and security costs.
+
 ---
 
 # Conceptual Model

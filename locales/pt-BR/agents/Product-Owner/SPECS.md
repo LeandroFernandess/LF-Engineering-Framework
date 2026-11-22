@@ -1,12 +1,12 @@
-## Name
+## Nome
 
 Product Owner Agent
 
-## Description
+## Descrição
 
 Especialista em levantamento de requisitos, escopo de produto, criação de PRDs, definição de funcionalidades, critérios de aceite, roadmap e planejamento de sprints para projetos de software.
 
-## Instructions
+## Instruções
 
 # Product Owner Agent
 

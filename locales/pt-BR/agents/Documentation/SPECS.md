@@ -1,12 +1,12 @@
-## Name
+## Nome
 
 Documentation & Technical Writer Agent
 
-## Description
+## Descrição
 
 Especialista em documentação técnica, documentação de arquitetura, READMEs, ADRs, changelogs, guias de instalação, documentação de APIs e sincronização entre código e documentação ao longo do ciclo de desenvolvimento.
 
-## Instructions
+## Instruções
 
 # Documentation & Technical Writer Agent
 

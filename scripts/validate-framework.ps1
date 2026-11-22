@@ -42,12 +42,20 @@ function Get-MarkdownStructureSignature([string]$Path) {
 
 @(
   "agents", "knowledge", "workflows", "protocols", "schemas",
-  "PROJECT_TEMPLATE", "adapters", "locales", "scripts", "docs", ".github", ".opencode"
+  "PROJECT_TEMPLATE", "adapters", "locales", "scripts", "docs", ".github"
 ) | ForEach-Object { Require-Directory $_ }
 
+if (Test-Path -LiteralPath (Join-Path $FrameworkPath ".opencode") -PathType Any) {
+  Fail "standalone Framework-root OpenCode tree must be absent; use adapters\opencode"
+}
+
 @(
+  "setup.sh", "setup.ps1", "scripts/i18n/setup.tsv",
+  "scripts/public-document-pairs.tsv", "scripts/translation-pairs.tsv",
+  "locales/translation-review.json",
   "README.md",
   "README.pt-BR.md",
+  "GET_STARTED.md",
   "CONTRIBUTING.md",
   "SECURITY.md",
   "TESTING.md",
@@ -69,14 +77,13 @@ function Get-MarkdownStructureSignature([string]$Path) {
   ".github\ISSUE_TEMPLATE\bug_report.md",
   ".github\ISSUE_TEMPLATE\feature_request.md",
   ".github\PULL_REQUEST_TEMPLATE.md",
-  ".opencode\README.md",
-  ".opencode\opencode.jsonc",
   "adapters\README.md",
   "locales\README.md",
   "locales\en-US\README.md",
   "locales\pt-BR\README.md",
   "locales\pt-BR\TRANSLATION_STATUS.md",
   "locales\pt-BR\public-docs\CONTRIBUTING.md",
+  "locales\pt-BR\public-docs\GET_STARTED.md",
   "locales\pt-BR\public-docs\SECURITY.md",
   "locales\pt-BR\public-docs\SECURITY_AUDIT.md",
   "locales\pt-BR\public-docs\TESTING.md",
@@ -88,11 +95,21 @@ function Get-MarkdownStructureSignature([string]$Path) {
   "PROJECT_TEMPLATE\AGENTS.md",
   "PROJECT_TEMPLATE\LF_ENGINEERING.md",
   "PROJECT_TEMPLATE\README.md",
+  "project-skills\en-US\lf-project-onboarding\SKILL.md",
+  "project-skills\en-US\lf-project-planning\SKILL.md",
+  "project-skills\en-US\lf-approved-implementation\SKILL.md",
+  "project-skills\en-US\lf-delivery-review\SKILL.md",
+  "locales\pt-BR\project-skills\lf-project-onboarding\SKILL.md",
+  "locales\pt-BR\project-skills\lf-project-planning\SKILL.md",
+  "locales\pt-BR\project-skills\lf-approved-implementation\SKILL.md",
+  "locales\pt-BR\project-skills\lf-delivery-review\SKILL.md",
   "adapters\opencode\opencode.jsonc",
   "scripts\bootstrap.sh",
   "scripts\bootstrap.ps1",
   "scripts\check-locales.sh",
   "scripts\package-release.sh",
+  "scripts\package_installers.py",
+  "scripts\tests\test_package_installers.py",
   "scripts\validate-framework.sh",
   "scripts\validate-framework.ps1",
   "scripts\test-bootstrap.sh",
@@ -103,7 +120,18 @@ if (Test-Path -LiteralPath (Join-Path $FrameworkPath "PROJECT_TEMPLATE\opencode.
   Fail "OpenCode configuration must be optional"
 }
 
-$placeholder = "__LF_ENGINEERING_SYSTEM_PATH__"
+$legacyPathPlaceholder = "__LF_ENGINEERING_SYSTEM_PATH__"
+$legacyPathFiles = @(
+  Get-ChildItem -LiteralPath (Join-Path $FrameworkPath "PROJECT_TEMPLATE") -Force -Recurse -File |
+    Select-String -SimpleMatch $legacyPathPlaceholder -List
+  Get-ChildItem -LiteralPath (Join-Path $FrameworkPath "adapters") -Force -Recurse -File |
+    Select-String -SimpleMatch $legacyPathPlaceholder -List
+)
+if ($legacyPathFiles.Count -gt 0) {
+  Fail "Machine-specific Framework path placeholders remain"
+}
+
+$placeholder = "__LF_ENGINEERING_SYSTEM_REF__"
 $placeholderFiles = @(
   Get-ChildItem -LiteralPath (Join-Path $FrameworkPath "PROJECT_TEMPLATE") -Force -Recurse -File |
     Select-String -SimpleMatch $placeholder -List |
@@ -116,7 +144,6 @@ $placeholderFiles = @($placeholderFiles | Sort-Object -Unique | ForEach-Object {
   $_.Substring($FrameworkPath.Length + 1).Replace([System.IO.Path]::DirectorySeparatorChar, "/")
 })
 $expectedPlaceholders = @(
-  "PROJECT_TEMPLATE/LF_ENGINEERING.md",
   "adapters/opencode/opencode.jsonc"
 )
 if ((Compare-Object $expectedPlaceholders $placeholderFiles).Count -gt 0) {
@@ -244,13 +271,10 @@ foreach ($canonicalRootName in @("agents", "workflows", "protocols", "schemas", 
   }
 }
 
-$publicDocumentPairs = @(
-  @{ Source = "OVERVIEW.md"; Pt = "locales\pt-BR\public-docs\OVERVIEW.md" },
-  @{ Source = "ROADMAP.md"; Pt = "locales\pt-BR\public-docs\ROADMAP.md" },
-  @{ Source = "CHANGELOG.md"; Pt = "locales\pt-BR\public-docs\CHANGELOG.md" },
-  @{ Source = "docs\security-audit\README.md"; Pt = "locales\pt-BR\public-docs\SECURITY_AUDIT.md" },
-  @{ Source = "docs\ADR.md"; Pt = "locales\pt-BR\docs\ADR.md" }
-)
+$publicDocumentPairs = Get-Content -LiteralPath (Join-Path $FrameworkPath 'scripts/public-document-pairs.tsv') | ForEach-Object {
+  $parts = $_.Split('|')
+  @{ Source = $parts[0]; Pt = $parts[1] }
+}
 foreach ($pair in $publicDocumentPairs) {
   $sourceDocumentPath = Join-Path $FrameworkPath $pair.Source
   $ptDocumentPath = Join-Path $FrameworkPath $pair.Pt
@@ -299,35 +323,40 @@ if (-not (Select-String -LiteralPath $statusPath -SimpleMatch "**Versão da font
 
 $configPath = Join-Path $FrameworkPath "adapters\opencode\opencode.jsonc"
 $configContent = Get-Content -Raw -LiteralPath $configPath
-$escapedFrameworkPath = $FrameworkPath.Replace('\', '\\')
-$configContent = $configContent.Replace($placeholder, $escapedFrameworkPath)
-$null = $configContent | ConvertFrom-Json -ErrorAction Stop
-
-$frameworkConfigPath = Join-Path $FrameworkPath ".opencode\opencode.jsonc"
-$frameworkConfig = Get-Content -Raw -LiteralPath $frameworkConfigPath | ConvertFrom-Json -ErrorAction Stop
-$githubServer = $frameworkConfig.mcp.servers.github
-if ($githubServer.type -ne "local" -or $githubServer.disabled -ne $true) {
-  Fail "Framework-side GitHub MCP server must be local and disabled by default"
-}
-
-$githubCommand = @($githubServer.command)
-$requiredGitHubArguments = @(
-  "127.0.0.1:8085:8085",
-  "GITHUB_OAUTH_CALLBACK_PORT=8085",
-  "GITHUB_OAUTH_SCOPES=public_repo",
-  "GITHUB_TOOLSETS=repos",
-  "GITHUB_READ_ONLY=true"
+$config = $configContent | ConvertFrom-Json -ErrorAction Stop
+$requiredInstructions = @(
+  "https://raw.githubusercontent.com/LeandroFernandess/LF-Engineering-Framework/__LF_ENGINEERING_SYSTEM_REF__/AGENTS.md",
+  "https://raw.githubusercontent.com/LeandroFernandess/LF-Engineering-Framework/__LF_ENGINEERING_SYSTEM_REF__/agents/Engineering-Manager/SPECS.md",
+  "https://raw.githubusercontent.com/LeandroFernandess/LF-Engineering-Framework/__LF_ENGINEERING_SYSTEM_REF__/workflows/NEW_PROJECT.md",
+  "https://raw.githubusercontent.com/LeandroFernandess/LF-Engineering-Framework/__LF_ENGINEERING_SYSTEM_REF__/workflows/STANDARD_DEVELOPMENT.md"
 )
-foreach ($argument in $requiredGitHubArguments) {
-  if ($githubCommand -notcontains $argument) {
-    Fail "Framework-side GitHub MCP configuration is missing required safe setting: $argument"
+foreach ($instruction in $requiredInstructions) {
+  if (@($config.instructions) -notcontains $instruction) {
+    Fail "OpenCode adapter must reference canonical Framework instruction: $instruction"
   }
 }
-
-$githubImage = @($githubCommand | Where-Object { $_ -like "ghcr.io/github/github-mcp-server:*" })
-if ($githubCommand[0] -ne "docker" -or $githubCommand[1] -ne "run" -or
-    $githubImage.Count -ne 1 -or $githubImage[0] -notmatch '^ghcr\.io/github/github-mcp-server:v\d+\.\d+\.\d+$') {
-  Fail "Framework-side GitHub MCP configuration must use Docker and a pinned release image"
+if ($config.references.'lf-engineering-framework'.repository -ne "LeandroFernandess/LF-Engineering-Framework" -or
+    $config.references.'lf-engineering-framework'.branch -ne "__LF_ENGINEERING_SYSTEM_REF__") {
+  Fail "OpenCode adapter must use the versioned official Framework repository"
+}
+$frameworkPermissionResource = "*/repos/github.com/LeandroFernandess/LF-Engineering-Framework/*"
+$expectedFrameworkPermissions = @(
+  @{ action = "external_directory"; effect = "allow" },
+  @{ action = "read"; effect = "allow" },
+  @{ action = "edit"; effect = "deny" }
+)
+foreach ($expected in $expectedFrameworkPermissions) {
+  if (@($config.permissions | Where-Object {
+        $_.action -eq $expected.action -and
+        $_.resource -eq $frameworkPermissionResource -and
+        $_.effect -eq $expected.effect
+      }).Count -eq 0) {
+    Fail "OpenCode adapter must keep the external Framework reference read-only"
+  }
+}
+if (@($config.instructions | Where-Object { $_ -match '(^|[/\\])\.opencode([/\\]|$)' }).Count -gt 0 -or
+    $config.PSObject.Properties.Name -contains "mcp") {
+  Fail "OpenCode adapter must not depend on a standalone Framework tree or MCP server"
 }
 
 Write-Output "Framework validation passed."

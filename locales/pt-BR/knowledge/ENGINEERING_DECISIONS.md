@@ -162,7 +162,7 @@ Escale a decisão quando:
 Destino do escalonamento:
 
 * Tech Lead Agent
-* Implementation / selected CLI
+* Desenvolvedor
 
 ---
 

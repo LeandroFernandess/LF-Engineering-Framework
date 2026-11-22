@@ -15,8 +15,9 @@ Esses documentos são independentes de qualquer plataforma de IA específica e
 servem como referência autorizada para configurar, manter e evoluir agentes de
 engenharia especializados.
 
-As implementações criadas em interfaces de IA são aplicações desta
-documentação. A documentação permanece independente de plataforma.
+Os agentes podem ser implementados em qualquer harness ou CLI compatível; a
+configuração específica da plataforma pertence aos adapters opcionais. A
+documentação permanece independente de plataforma.
 
 ---
 
@@ -114,12 +115,12 @@ Ele consome o Knowledge oficial publicado pelo LF Engineering System.
 
 ## CONFIGURATION.md
 
-Documenta a configuração do agente.
+Documenta os requisitos de execução do agente independentes de plataforma.
 
 Explica:
 
-* capacidades e ferramentas necessárias;
-* capacidades opcionais independentes de harness;
+* requisitos de capacidades e ferramentas;
+* capacidades opcionais em tempo de execução;
 * racional da configuração;
 * expectativas de saída.
 
@@ -191,8 +192,8 @@ Melhoria contínua
 Todo agente novo deve seguir estas etapas:
 
 1. Definir sua especialização.
-2. Configurar o agente.
-3. Exportar a especificação-base.
+2. Definir o comportamento canônico do agente.
+3. Documentar a especificação de comportamento canônica.
 4. Criar os arquivos de documentação.
 5. Mapear os módulos de Knowledge necessários.
 6. Validar a consistência com o Framework.
@@ -219,8 +220,8 @@ Os agentes evoluem de forma independente.
 Toda mudança significativa deve ser documentada no `CHANGELOG.md` do agente
 correspondente.
 
-A documentação deve permanecer sempre sincronizada com a configuração ativa do
-agente.
+Mantenha a documentação alinhada ao comportamento canônico do agente; registre a
+integração específica de plataforma somente em adapters opcionais.
 
 ---
 

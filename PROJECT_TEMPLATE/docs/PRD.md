@@ -4,23 +4,33 @@
 
 Describe the problem, target users and desired outcome.
 
+---
+
 ## Users and Stakeholders
 
 Describe target users and relevant stakeholders. When available, reference the
 method, date and limitations of user research that informs a decision; do not
 include personally identifying participant data.
 
+---
+
 ## Goals
 
 List measurable product goals.
+
+---
 
 ## Requirements
 
 List functional and non-functional requirements with source or rationale.
 
+---
+
 ## Acceptance Criteria
 
 Write observable acceptance criteria for the first delivery.
+
+---
 
 ## Performance and Responsive Experience (when applicable)
 
@@ -36,6 +46,8 @@ For an explicitly requested model-driven simulator, also state its intended use,
 fidelity, decision impact and user-facing limitations. Do not imply engineering
 validation unless domain evidence is part of the approved scope.
 
+---
+
 ## Risks and Assumptions
 
 List explicit assumptions, open questions and risks. Do not invent unknown values.
@@ -43,6 +55,8 @@ List explicit assumptions, open questions and risks. Do not invent unknown value
 When user research informs an assumption or open question, link the relevant
 evidence and limitations here or in the applicable PRD section. Do not create a
 separate mandatory research artifact.
+
+---
 
 ## Open Questions
 

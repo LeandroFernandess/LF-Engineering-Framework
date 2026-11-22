@@ -8,25 +8,27 @@
     ".ai/contracts.md",
     ".ai/state/project-summary.md",
 
-    "__LF_ENGINEERING_SYSTEM_PATH__/knowledge/INDEX.md",
-    "__LF_ENGINEERING_SYSTEM_PATH__/knowledge/REGISTRY.md",
+    "https://raw.githubusercontent.com/LeandroFernandess/LF-Engineering-Framework/__LF_ENGINEERING_SYSTEM_REF__/knowledge/INDEX.md",
+    "https://raw.githubusercontent.com/LeandroFernandess/LF-Engineering-Framework/__LF_ENGINEERING_SYSTEM_REF__/knowledge/REGISTRY.md",
 
-    "__LF_ENGINEERING_SYSTEM_PATH__/protocols/AGENT_HANDOFF.md",
-    "__LF_ENGINEERING_SYSTEM_PATH__/protocols/WORKFLOW_UPDATE.md",
-    "__LF_ENGINEERING_SYSTEM_PATH__/protocols/TASK_UPDATE.md",
-    "__LF_ENGINEERING_SYSTEM_PATH__/protocols/DECISION_RECORD.md",
-    "__LF_ENGINEERING_SYSTEM_PATH__/protocols/ARTIFACT_UPDATE.md",
-    "__LF_ENGINEERING_SYSTEM_PATH__/protocols/PERFORMANCE_VALIDATION.md",
+    "https://raw.githubusercontent.com/LeandroFernandess/LF-Engineering-Framework/__LF_ENGINEERING_SYSTEM_REF__/protocols/AGENT_HANDOFF.md",
+    "https://raw.githubusercontent.com/LeandroFernandess/LF-Engineering-Framework/__LF_ENGINEERING_SYSTEM_REF__/protocols/WORKFLOW_UPDATE.md",
+    "https://raw.githubusercontent.com/LeandroFernandess/LF-Engineering-Framework/__LF_ENGINEERING_SYSTEM_REF__/protocols/TASK_UPDATE.md",
+    "https://raw.githubusercontent.com/LeandroFernandess/LF-Engineering-Framework/__LF_ENGINEERING_SYSTEM_REF__/protocols/DECISION_RECORD.md",
+    "https://raw.githubusercontent.com/LeandroFernandess/LF-Engineering-Framework/__LF_ENGINEERING_SYSTEM_REF__/protocols/ARTIFACT_UPDATE.md",
+    "https://raw.githubusercontent.com/LeandroFernandess/LF-Engineering-Framework/__LF_ENGINEERING_SYSTEM_REF__/protocols/PERFORMANCE_VALIDATION.md",
 
-    "__LF_ENGINEERING_SYSTEM_PATH__/.opencode/agents/engineering-manager.md",
-    "__LF_ENGINEERING_SYSTEM_PATH__/.opencode/agents/orchestrator.md",
-    "__LF_ENGINEERING_SYSTEM_PATH__/.opencode/orchestrator.md"
+    "https://raw.githubusercontent.com/LeandroFernandess/LF-Engineering-Framework/__LF_ENGINEERING_SYSTEM_REF__/AGENTS.md",
+    "https://raw.githubusercontent.com/LeandroFernandess/LF-Engineering-Framework/__LF_ENGINEERING_SYSTEM_REF__/agents/Engineering-Manager/SPECS.md",
+    "https://raw.githubusercontent.com/LeandroFernandess/LF-Engineering-Framework/__LF_ENGINEERING_SYSTEM_REF__/workflows/NEW_PROJECT.md",
+    "https://raw.githubusercontent.com/LeandroFernandess/LF-Engineering-Framework/__LF_ENGINEERING_SYSTEM_REF__/workflows/STANDARD_DEVELOPMENT.md"
   ],
 
   "references": {
     "lf-engineering-framework": {
-      "path": "__LF_ENGINEERING_SYSTEM_PATH__",
-      "description": "Use as the external read-only LF Engineering System framework, including agents, workflows, protocols, schemas and knowledge."
+      "repository": "LeandroFernandess/LF-Engineering-Framework",
+      "branch": "__LF_ENGINEERING_SYSTEM_REF__",
+      "description": "Use as the external read-only LF Engineering System repository, including agents, workflows, protocols, schemas and knowledge."
     }
   },
 
@@ -34,8 +36,8 @@
     { "action": "edit", "resource": "*", "effect": "ask" },
     { "action": "shell", "resource": "*", "effect": "ask" },
     { "action": "external_directory", "resource": "*", "effect": "ask" },
-    { "action": "external_directory", "resource": "__LF_ENGINEERING_SYSTEM_PATH__/*", "effect": "allow" },
-    { "action": "read", "resource": "__LF_ENGINEERING_SYSTEM_PATH__/*", "effect": "allow" },
-    { "action": "edit", "resource": "__LF_ENGINEERING_SYSTEM_PATH__/*", "effect": "deny" }
+    { "action": "external_directory", "resource": "*/repos/github.com/LeandroFernandess/LF-Engineering-Framework/*", "effect": "allow" },
+    { "action": "read", "resource": "*/repos/github.com/LeandroFernandess/LF-Engineering-Framework/*", "effect": "allow" },
+    { "action": "edit", "resource": "*/repos/github.com/LeandroFernandess/LF-Engineering-Framework/*", "effect": "deny" }
   ]
 }

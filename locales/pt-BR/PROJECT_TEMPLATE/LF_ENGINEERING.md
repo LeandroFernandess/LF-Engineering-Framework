@@ -1,13 +1,16 @@
 # Contexto do LF Engineering System
 
 Este projeto usa o LF Engineering System como uma biblioteca externa de
-engenharia, somente leitura.
+engenharia, somente leitura. A fonte oficial é o
+[repositório LF Engineering Framework](https://github.com/LeandroFernandess/LF-Engineering-Framework).
 
-## Localização do Framework
+## Fonte do Framework
 
-O Framework canônico está instalado em
-`__LF_ENGINEERING_SYSTEM_PATH__`. Use esse caminho ao carregar os diretórios de
-agentes, conhecimento, workflows, protocolos e schemas listados abaixo.
+Os documentos do projeto não armazenam a localização do Framework no
+computador. Quando o repositório canônico estiver disponível no ambiente atual,
+use-o para carregar as fontes de agentes, conhecimento, workflows, protocolos
+e schemas listadas abaixo. Caso contrário, consulte o repositório oficial quando
+estiver acessível e informe claramente quando uma fonte não puder ser acessada.
 
 ## Fontes canônicas
 

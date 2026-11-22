@@ -1148,7 +1148,7 @@ Performance and User Experience gates remain in force.
 | `REVIEW.md` | Post-implementation scrutiny | Compare implementation against design and rubric explicitly |
 | QA report | Independent validation | Include evidence that design risks were tested |
 | `knowledge/INDEX.md` | Module discovery | Keep approved optional modules separate from the mandatory dependency chain |
-| `.opencode/orchestrator.md` | Agent routing | Add design-readiness and recovery routing after approval |
+| `workflows/STANDARD_DEVELOPMENT.md` | Agent routing | Add design-readiness and recovery routing after approval |
 
 ---
 
@@ -1239,7 +1239,7 @@ reduces the chance of accepting a fluent but incomplete design.
 
 Target:
 
-- `.opencode/orchestrator.md`
+- `workflows/STANDARD_DEVELOPMENT.md`
 - `knowledge/ENGINEERING_AGENT_GUIDELINES.md`
 - `knowledge/ENGINEERING_AI_COLLABORATION.md`
 - `protocols/AGENT_HANDOFF.md`

@@ -6,4 +6,4 @@ workflow-graph/
 # Language and validation caches
 __pycache__/
 *.py[cod]
-.opencode.jsonc.tmp
+.opencode.*.tmp
