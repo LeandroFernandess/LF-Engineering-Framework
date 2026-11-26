@@ -46,7 +46,7 @@ AI Engineering Agents
 | ENGINEERING_DECISIONS              | Decision-making framework                      | Architect, Tech Lead, Knowledge Extractor              |
 | ENGINEERING_STANDARDS              | Coding, architecture and engineering standards | Architect, Design System Analyst, Reviewer, QA, Knowledge Extractor |
 | ENGINEERING_QUALITY                | Quality Gates, validation and audits           | QA, Reviewer, Tech Lead, Knowledge Extractor           |
-| ENGINEERING_DESIGN_PERFORMANCE     | Responsive design, web performance budgets and mobile/desktop validation | Product Owner, Design System Analyst, Architect, Sprint Planner, QA, Tech Lead |
+| ENGINEERING_DESIGN_PERFORMANCE     | Default visual palette, responsive design, web performance budgets and mobile/desktop validation | Product Owner, Design System Analyst, Architect, Sprint Planner, QA, Tech Lead |
 | ENGINEERING_MOTION_DESIGN          | Technology-independent motion design, accessibility, optional model-driven visual simulations and conditional validation | Product Owner, Design System Analyst, Architect, Sprint Planner, QA, Tech Lead |
 | ENGINEERING_AI_COLLABORATION       | Human-AI collaboration model                   | All Agents                                             |
 | ENGINEERING_AGENT_GUIDELINES       | Responsibilities and boundaries of each agent  | All Agents                                             |

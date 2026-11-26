@@ -78,6 +78,10 @@ framework, fixed timing value or universal frame-rate target.
 
 ---
 
+## Interaction Review
+
+For direct manipulation, assess pointer tracking, release, interruption and coordinated visual state. Choose motion according to task frequency and purpose; validate on representative devices and distinguish emulation from physical-device evidence.
+
 ## Motion Design Contract
 
 Before implementation, capture the decisions needed to make the motion

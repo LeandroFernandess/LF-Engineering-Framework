@@ -35,6 +35,14 @@ contexto de arquivo, e nenhuma tag Git predecessora foi importada.
 | ADR-019 | Repositório público limpo e primeira release pública | Aceita | 2026-11-03 |
 | ADR-020 | Estado `.ai/state/` local e ignorado por padrão | Aceita | 2026-11-03 |
 | ADR-021 | Adoção seletiva de princípios de simulação interativa orientada por modelo | Aceita | 2026-11-04 |
+| ADR-022 | Assistente nativo bilíngue e rastreamento da revisão de traduções | Aceita | 2026-11-15 |
+| ADR-023 | Manter OpenCode no adapter opcional compartilhado | Aceita | 2026-11-19 |
+| ADR-024 | Pacotes de primeira execução por sistema e idioma | Aceita | 2026-11-19 |
+| ADR-025 | Exigir adapter de CLI nomeado | Aceita | 2026-11-19 |
+| ADR-026 | Guias locais e skills de encaminhamento para projetos | Aceita | 2026-11-19 |
+| ADR-027 | Referências ao Framework instaladas sem dependência da máquina | Aceita | 2026-11-20 |
+| ADR-028 | Adotar a paleta padrão do LF para interfaces visuais | Aceita | 2026-11-22 |
+| ADR-029 | Skills de design e revisão de segurança | Aceita | 2026-11-25 |
 
 ## Registros
 
@@ -1629,3 +1637,68 @@ em cada pacote de idioma.
 - `PROJECT_TEMPLATE/`, `project-skills/` e seus espelhos PT-BR
 - `scripts/tests/test_setup.py`, testes de pacote e testes de bootstrap nativos
 - `README.md`, `START_PROJECTS.en-US.md` e `locales/pt-BR/public-docs/`
+
+## ADR-028 - Adotar a paleta padrão do LF para interfaces visuais
+
+### Status
+
+Aceita para implementação em 2026-11-22. Esta decisão não autoriza a publicação de uma release ou tag.
+
+### Data
+
+2026-11-22
+
+### Contexto
+
+O Framework não tinha uma fonte padrão compartilhada de cores para projetos com interface visual que não tivessem especificado uma paleta de cores nem possuíssem tokens de cor aprovados. O responsável forneceu uma paleta de 32 cores, um arquivo de dados e a imagem de origem visual. O Framework já separa artefatos condicionais de design visual das orientações consumidas por agentes de implementação e exige que tokens aprovados do projeto continuem sendo a fonte da verdade.
+
+### Decisão
+
+- Adotar as 32 cores fornecidas como fonte inicial padrão para interfaces web, mobile, desktop e de terminal quando o projeto não especificar uma paleta de cores e não houver tokens de cor aprovados. Não aplicar esta política a projetos sem interface visual.
+- Manter os swatches CSS independentes de idioma, os dados CSV bilíngues e a imagem de origem em docs/reference/palettes; incluir esses arquivos nos seis pacotes de instalação por sistema e idioma.
+- Orientar as equipes a selecionar um subconjunto adequado e mapeá-lo para tokens semânticos do projeto. As proporções aproximadas da imagem são apenas descritivas, não metas de uso.
+- Preservar paletas e tokens de projeto já aprovados. Desenvolvedor ou Product Owner pode escolher explicitamente outra paleta; registrar sua fonte e os valores selecionados em DESIGN.md quando esse artefato existir.
+- Manter os requisitos de contraste e acessibilidade como critérios obrigatórios. Cores funcionais adicionais podem complementar a paleta quando necessárias para comunicar significado ou distinção acessível, com o motivo documentado.
+- Não copiar automaticamente o CSS de referência para projetos. O fallback da paleta não aciona o Design System Analyst nem torna DESIGN.md obrigatório.
+- Sincronizar as orientações operacionais e os templates em EN-US e PT-BR. Não adicionar módulo de Knowledge, fase de workflow, CLI ou dependência de runtime.
+
+### Alternativas consideradas
+
+- Exigir que cada projeto forneça uma paleta antes da implementação visual. Isso mantém a lacuna que a paleta fornecida busca preencher.
+- Aplicar a paleta a projetos sem interface ou forçar todas as cores em cada interface. Nenhuma das opções corresponde ao uso como base visual.
+- Copiar CSS bruto para todo projeto. Isso tornaria um arquivo de referência específico de tecnologia um artefato automático de implementação e não forneceria tokens semânticos para plataformas sem CSS.
+- Substituir paletas de marca ou tokens existentes. Isso contrariaria as regras do Framework para preservar fontes da verdade já aprovadas.
+
+### Consequências
+
+Projetos visuais passam a ter um fallback de cores acessível e documentado, sem alterar a inicialização, exigir um artefato de design ou restringir a tecnologia frontend. As equipes continuam decidindo quais swatches e funções semânticas se adequam ao produto. Os dados bilíngues e a matriz de pacotes passam a ser ativos mantidos pelo Framework; os testes dos pacotes devem verificar consistência e inclusão.
+
+### Artefatos relacionados
+
+- docs/reference/palettes/lf-default-palette.css, lf-default-palette.csv e lf-default-palette-source.png
+- knowledge/ENGINEERING_DESIGN_PERFORMANCE.md e seu espelho PT-BR
+- agents/Design-System-Analyst/, workflows/, schemas/DESIGN.schema.md e PROJECT_TEMPLATE/docs/DESIGN.md, com espelhos PT-BR
+- scripts/package_installers.py e scripts/tests/test_package_installers.py
+- CHANGELOG.md e changelog PT-BR
+
+## ADR-029 - Skills de design e revisão de segurança
+
+### Status
+
+Aceita para implementação.
+
+### Data
+
+2026-11-25
+
+### Contexto
+
+O Framework possui orientações condicionais de design e movimento, mas não uma skill de projeto dedicada ao encaminhamento de trabalho visual. O responsável solicitou considerar seletivamente as orientações de interface de Emil Kowalski. O Framework também precisa de um ponto de entrada para revisões de segurança solicitadas que encaminhe às orientações existentes de QA-Security.
+
+### Decisão
+
+Adicionar skills bilíngues de design e revisão de segurança mantidas pelo LF aos caminhos existentes dos adapters. Ampliar os módulos atuais de design e movimento com orientações seletivas e contextualizadas para revisão de interação e conteúdo. Preservar tokens do projeto, paleta padrão LF, limites de aprovação e acessibilidade. Evitar bibliotecas ou movimento obrigatórios. Fontes: https://github.com/emilkowalski/skills e https://aiforui.dev/skills.
+
+### Consequências
+
+Projetos recebem duas skills adicionais de encaminhamento. Os dois bootstraps, documentação e testes devem permanecer alinhados entre idiomas e adapters.

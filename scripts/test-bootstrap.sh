@@ -90,7 +90,7 @@ fi
 [ ! -e "$new_project/docs/PERFORMANCE_VALIDATION_REPORT.md" ]
 [ ! -e "$new_project/docs/TECH_DEBT_AUDIT.md" ]
 [ ! -e "$new_project/.claude/skills" ]
-for skill in lf-project-onboarding lf-project-planning lf-approved-implementation lf-delivery-review; do
+for skill in lf-project-onboarding lf-project-planning lf-approved-implementation lf-delivery-review lf-design lf-security-review; do
   [ -f "$new_project/.agents/skills/$skill/SKILL.md" ]
 done
 grep -F 'Integração inicial de projeto LF' "$new_project/.agents/skills/lf-project-onboarding/SKILL.md" >/dev/null

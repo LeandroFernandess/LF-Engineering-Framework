@@ -1,0 +1,36 @@
+/* LF Engineering Framework default palette reference. */
+/* These are source swatches; map project-specific semantic tokens as needed. */
+:root {
+  --lf-palette-01: #110E0C; /* Espresso Black | Preto espresso */
+  --lf-palette-02: #181412; /* Charcoal Black | Preto carbonizado */
+  --lf-palette-03: #23140E; /* Cocoa Brown | Marrom cacau */
+  --lf-palette-04: #1F1B1A; /* Warm Charcoal | Carvão aquecido */
+  --lf-palette-05: #321E15; /* Dark Chocolate | Chocolate escuro */
+  --lf-palette-06: #272321; /* Brown Graphite | Grafite marrom */
+  --lf-palette-07: #312D2A; /* Charcoal Gray | Cinza carvão */
+  --lf-palette-08: #432B1C; /* Walnut Brown | Marrom noz */
+  --lf-palette-09: #3D3935; /* Slate Gray | Cinza ardósia */
+  --lf-palette-10: #553824; /* Roasted Coffee | Café torrado */
+  --lf-palette-11: #4C4643; /* Deep Gray | Cinza profundo */
+  --lf-palette-12: #66462D; /* Dark Caramel | Caramelo escuro */
+  --lf-palette-13: #5B544F; /* Deep Taupe | Taupe profundo */
+  --lf-palette-14: #77573D; /* Wood Brown | Marrom madeira */
+  --lf-palette-15: #69625C; /* Smoke Gray | Cinza fumaça */
+  --lf-palette-16: #766053; /* Grayish Brown | Marrom acinzentado */
+  --lf-palette-17: #8A6A4E; /* Burnt Bronze | Bronze queimado */
+  --lf-palette-18: #787068; /* Medium Taupe | Taupe médio */
+  --lf-palette-19: #88715F; /* Soft Bronze | Bronze suave */
+  --lf-palette-20: #877D74; /* Taupe Gray | Cinza taupe */
+  --lf-palette-21: #A47F5D; /* Toasted Sand | Areia tostada */
+  --lf-palette-22: #9F856C; /* Earthy Beige | Bege terroso */
+  --lf-palette-23: #958B81; /* Warm Gray | Cinza quente */
+  --lf-palette-24: #B4997B; /* Rosy Sand | Areia rosada */
+  --lf-palette-25: #A59A8E; /* Sand Gray | Cinza areia */
+  --lf-palette-26: #B5A899; /* Medium Greige | Greige médio */
+  --lf-palette-27: #C4AB8F; /* Almond Beige | Bege amendoado */
+  --lf-palette-28: #C8B9A6; /* Light Beige | Bege claro */
+  --lf-palette-29: #D6BE9F; /* Golden Sand | Areia dourada */
+  --lf-palette-30: #DCCAB1; /* Champagne | Champanhe */
+  --lf-palette-31: #F4DDBD; /* Golden Cream | Creme dourado */
+  --lf-palette-32: #FDF7DA; /* Luminous Ivory | Marfim luminoso */
+}

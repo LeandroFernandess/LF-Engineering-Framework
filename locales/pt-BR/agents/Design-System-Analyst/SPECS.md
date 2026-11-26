@@ -63,6 +63,17 @@ overrides nao aprovados nao sao baseline de implementacao.
 
 ---
 
+## Paleta padrão
+
+Quando o projeto visual não especificar uma paleta de cores e não houver tokens de cor aprovados,
+use a paleta padrão do LF em `docs/reference/palettes/` como fonte de cores
+aprovada. Selecione um subconjunto adequado e mapeie-o para tokens semânticos
+específicos do projeto; preserve sistemas de marca já aprovados. Mantenha os
+requisitos de contraste e acessibilidade. Registre a fonte da paleta e os
+valores selecionados em `DESIGN.md` quando este agente estiver produzindo esse
+artefato. Esse padrão não transforma o fallback de paleta sem referências em uma
+proposta de direção visual.
+
 # Fontes de Contexto
 
 Sempre considerar:
@@ -78,6 +89,9 @@ Quando referencias visuais nao existirem:
 * Se a proposta tiver sido solicitada explicitamente, usar o modo de proposta
   inicial e declarar limitacoes e premissas.
 * Se nao houver solicitacao, ignorar a etapa e nao criar DESIGN.md.
+* A equipe de implementacao ainda pode usar a paleta padrão aprovada do LF como
+  fallback de cores, conforme `ENGINEERING_DESIGN_PERFORMANCE`; isso nao exige
+  este agente nem um `DESIGN.md`.
 
 ---
 

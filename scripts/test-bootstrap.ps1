@@ -178,7 +178,7 @@ try {
   foreach ($directory in @("agents", "knowledge", "workflows", "protocols", "schemas")) {
     Assert-True (-not (Test-Path -LiteralPath (Join-Path $newProject $directory) -PathType Any)) "full Framework directory $directory was copied"
   }
-  foreach ($skill in @("lf-project-onboarding", "lf-project-planning", "lf-approved-implementation", "lf-delivery-review")) {
+  foreach ($skill in @("lf-project-onboarding", "lf-project-planning", "lf-approved-implementation", "lf-delivery-review", "lf-design", "lf-security-review")) {
     Assert-True (Test-Path -LiteralPath (Join-Path $newProject ".claude/skills/$skill/SKILL.md") -PathType Leaf) "Claude skill $skill was not installed"
   }
   Assert-True ((Select-String -LiteralPath (Join-Path $newProject ".claude/skills/lf-project-onboarding/SKILL.md") -SimpleMatch "Integração inicial de projeto LF" -Quiet)) "PT-BR skill source was not selected"
@@ -288,7 +288,7 @@ try {
       $_.effect -eq $expected.effect
     }).Count -gt 0) "OpenCode Framework permission $($expected.action) was not configured safely"
   }
-  foreach ($skill in @("lf-project-onboarding", "lf-project-planning", "lf-approved-implementation", "lf-delivery-review")) {
+  foreach ($skill in @("lf-project-onboarding", "lf-project-planning", "lf-approved-implementation", "lf-delivery-review", "lf-design", "lf-security-review")) {
     Assert-True (Test-Path -LiteralPath (Join-Path $opencodeProject ".agents/skills/$skill/SKILL.md") -PathType Leaf) "OpenCode skill $skill was not installed"
   }
 
@@ -303,7 +303,7 @@ try {
       Assert-True (Test-Path -LiteralPath (Join-Path $adapterProject "GEMINI.md") -PathType Leaf) "gemini adapter was not copied"
       Assert-True (-not (Test-Path -LiteralPath (Join-Path $adapterProject "CLAUDE.md") -PathType Any)) "gemini received Claude adapter"
     }
-    foreach ($skill in @("lf-project-onboarding", "lf-project-planning", "lf-approved-implementation", "lf-delivery-review")) {
+    foreach ($skill in @("lf-project-onboarding", "lf-project-planning", "lf-approved-implementation", "lf-delivery-review", "lf-design", "lf-security-review")) {
       Assert-True (Test-Path -LiteralPath (Join-Path $adapterProject ".agents/skills/$skill/SKILL.md") -PathType Leaf) "$adapter skill $skill was not installed"
     }
     Assert-True (-not (Test-Path -LiteralPath (Join-Path $adapterProject ".claude/skills") -PathType Any)) "$adapter received Claude's skill directory"

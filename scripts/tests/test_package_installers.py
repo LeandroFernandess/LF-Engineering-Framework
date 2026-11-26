@@ -1,7 +1,9 @@
 from __future__ import annotations
 
+import csv
 import importlib.util
 import json
+import re
 import shutil
 import subprocess
 import sys
@@ -19,6 +21,31 @@ SPEC.loader.exec_module(package_installers)
 
 
 class InstallerPackages(unittest.TestCase):
+    def test_default_palette_has_32_bilingual_consistent_swatches(self):
+        palette_dir = ROOT / "docs/reference/palettes"
+        palette_csv = palette_dir / "lf-default-palette.csv"
+        with palette_csv.open(encoding="utf-8", newline="") as stream:
+            rows = list(csv.DictReader(stream))
+        css = (palette_dir / "lf-default-palette.css").read_text(encoding="utf-8")
+        css_swatches = re.findall(r"--lf-palette-(\d{2}):\s*(#[0-9A-Fa-f]{6})", css)
+
+        self.assertEqual(len(rows), 32)
+        self.assertEqual(len({row["id"] for row in rows}), 32)
+        self.assertEqual(len({row["hex"] for row in rows}), 32)
+        self.assertEqual(len(css_swatches), 32)
+        self.assertEqual(
+            [(row["id"], row["hex"]) for row in rows],
+            [(identifier, hex_value.upper()) for identifier, hex_value in css_swatches],
+        )
+        for row in rows:
+            self.assertTrue(row["name_en"])
+            self.assertTrue(row["name_pt_br"])
+            self.assertEqual(
+                (int(row["r"]), int(row["g"]), int(row["b"])),
+                tuple(int(row["hex"][start:start + 2], 16) for start in (1, 3, 5)),
+            )
+        self.assertTrue((palette_dir / "lf-default-palette-source.png").is_file())
+
     def test_matrix_selects_only_requested_runtime_and_locale(self):
         mac_files = {path.relative_to(ROOT).as_posix() for path in package_installers.selected_files(ROOT, "macos", "en-US")}
         windows_files = {path.relative_to(ROOT).as_posix() for path in package_installers.selected_files(ROOT, "windows", "pt-BR")}
@@ -26,6 +53,9 @@ class InstallerPackages(unittest.TestCase):
         self.assertIn("scripts/bootstrap.sh", mac_files)
         self.assertIn("setup.sh", mac_files)
         self.assertIn("docs/ADR.md", mac_files)
+        self.assertIn("docs/reference/palettes/lf-default-palette.css", mac_files)
+        self.assertIn("docs/reference/palettes/lf-default-palette.csv", mac_files)
+        self.assertIn("docs/reference/palettes/lf-default-palette-source.png", mac_files)
         self.assertIn("GET_STARTED.md", mac_files)
         self.assertIn("FIRST_PROMPT_TEMPLATE.md", mac_files)
         self.assertIn("START_PROJECTS.en-US.md", mac_files)
@@ -49,6 +79,9 @@ class InstallerPackages(unittest.TestCase):
         )
         self.assertNotIn("project-skills/en-US/lf-project-onboarding/SKILL.md", windows_files)
         self.assertIn("PROJECT_TEMPLATE/AGENTS.md", windows_files)
+        self.assertIn("docs/reference/palettes/lf-default-palette.css", windows_files)
+        self.assertIn("docs/reference/palettes/lf-default-palette.csv", windows_files)
+        self.assertIn("docs/reference/palettes/lf-default-palette-source.png", windows_files)
 
     def test_archives_include_a_matching_manifest(self):
         with tempfile.TemporaryDirectory() as temporary:
@@ -134,6 +167,15 @@ class InstallerPackages(unittest.TestCase):
                         with tarfile.open(archive_path, "r:gz") as archive:
                             archive.extractall(extract_root)
                     package_root = extract_root / "lf-engineering-framework"
+                    with (package_root / "framework-manifest.json").open(encoding="utf-8") as stream:
+                        package_manifest = json.load(stream)
+                    for palette_asset in (
+                        "docs/reference/palettes/lf-default-palette.css",
+                        "docs/reference/palettes/lf-default-palette.csv",
+                        "docs/reference/palettes/lf-default-palette-source.png",
+                    ):
+                        self.assertTrue((package_root / palette_asset).is_file(), palette_asset)
+                        self.assertIn(palette_asset, package_manifest["files"])
                     target = output / f"project-{platform}-{language}"
                     adapter = adapters[adapter_index % len(adapters)]
                     adapter_index += 1
@@ -186,6 +228,12 @@ class InstallerPackages(unittest.TestCase):
                         timeout=60,
                     )
                     self.assertEqual(result.returncode, 0, result.stderr)
+                    for palette_asset in (
+                        "docs/reference/palettes/lf-default-palette.css",
+                        "docs/reference/palettes/lf-default-palette.csv",
+                        "docs/reference/palettes/lf-default-palette-source.png",
+                    ):
+                        self.assertFalse((target / palette_asset).exists(), palette_asset)
 
                     record = (target / ".ai/framework-installation.md").read_text(encoding="utf-8")
                     guide = (target / "START_PROJECTS.md").read_text(encoding="utf-8")
@@ -197,7 +245,7 @@ class InstallerPackages(unittest.TestCase):
                     self.assertNotIn("file://", guide)
                     skill_root = ".claude/skills" if adapter == "claude" else ".agents/skills"
                     skill_files = sorted((target / skill_root).rglob("SKILL.md"))
-                    self.assertEqual(len(skill_files), 4)
+                    self.assertEqual(len(skill_files), 6)
                     self.assertEqual(
                         {path.parent.name for path in skill_files},
                         {
@@ -205,6 +253,8 @@ class InstallerPackages(unittest.TestCase):
                             "lf-project-planning",
                             "lf-approved-implementation",
                             "lf-delivery-review",
+                            "lf-design",
+                            "lf-security-review",
                         },
                     )
                     for skill_file in skill_files:
@@ -266,6 +316,17 @@ class InstallerPackages(unittest.TestCase):
             (root / "docs/reference").mkdir(parents=True)
             (root / "docs/ADR.md").write_text("decisions", encoding="utf-8")
             (root / "docs/reference/LF_DESIGN_PERFORMANCE_GUIDE.md").write_text("reference", encoding="utf-8")
+            palette_dir = root / "docs/reference/palettes"
+            palette_dir.mkdir()
+            for palette_asset in (
+                "lf-default-palette.css",
+                "lf-default-palette.csv",
+                "lf-default-palette-source.png",
+            ):
+                shutil.copy2(
+                    ROOT / "docs/reference/palettes" / palette_asset,
+                    palette_dir / palette_asset,
+                )
             for directory in package_installers.CORE_DIRECTORIES:
                 (root / directory).mkdir(parents=True)
             (root / "scripts/i18n").mkdir(parents=True)

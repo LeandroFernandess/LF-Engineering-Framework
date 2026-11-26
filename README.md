@@ -74,7 +74,7 @@ migrated; `v1.4.0` is historical context, not a release tag in this repository.
 ## Main Areas
 
 - `PROJECT_TEMPLATE/`: base structure copied into new client projects.
-- `project-skills/`: four short EN-US project guidance skills; the PT-BR
+- `project-skills/`: six short EN-US project guidance skills; the PT-BR
   versions are under `locales/pt-BR/project-skills/`.
 - `adapters/`: optional integrations for specific AI assistants or CLIs.
 - `scripts/`: native macOS/Linux and Windows PowerShell bootstrap commands.
@@ -120,9 +120,9 @@ The generated `.gitignore` excludes `.ai/state/`; existing projects keep their
 own `.gitignore` and must adopt this rule manually if desired.
 
 The bootstrap also copies localized `START_PROJECTS.md` and
-`FIRST_PROMPT_TEMPLATE.md` guides to the project root, plus four project skills:
-`lf-project-onboarding`, `lf-project-planning`, `lf-approved-implementation` and
-`lf-delivery-review`. Claude receives them under `.claude/skills/`; Codex,
+`FIRST_PROMPT_TEMPLATE.md` guides to the project root, plus six project skills:
+`lf-project-onboarding`, `lf-project-planning`, `lf-approved-implementation`,
+`lf-delivery-review`, `lf-design` and `lf-security-review`. Claude receives them under `.claude/skills/`; Codex,
 Gemini and OpenCode receive them under `.agents/skills/`. Each small skill
 routes to the external canonical Framework files using the versioned public
 source recorded in `.ai/framework-installation.md`. The bootstrap preserves existing guide and

@@ -14,6 +14,12 @@ migrated to this clean public repository.
 
 ## Added
 
+* Added bilingual `lf-security-review` for scoped, evidence-based security reviews.
+
+* Added bilingual `lf-design` project routing and selective interaction guidance inspired by Emil Kowalski.
+
+* Added the LF default 32-color palette as the color fallback for visual projects without a specified project palette or existing approved color tokens, with accessible semantic mapping and source assets in all six installer packages.
+
 * Native bilingual setup assistant (`setup.sh`/`setup.ps1`) with preview, confirmation and optional animation, without additional dependencies.
 * Added a static header with maintainer contact and a one-line bootstrap activity indicator.
 * Pre-write validation, deduplicated PT-BR preview and guided-setup regression tests.

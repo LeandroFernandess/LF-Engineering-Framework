@@ -402,7 +402,7 @@ function Install-ProjectSkills {
   }
   if ($Adapter -eq 'claude') { $destinationRoot = '.claude/skills' }
   else { $destinationRoot = '.agents/skills' }
-  foreach ($skill in @('lf-project-onboarding', 'lf-project-planning', 'lf-approved-implementation', 'lf-delivery-review')) {
+  foreach ($skill in @('lf-project-onboarding', 'lf-project-planning', 'lf-approved-implementation', 'lf-delivery-review', 'lf-design', 'lf-security-review')) {
     Copy-ProjectFile (Join-Path $sourceRoot "$skill/SKILL.md") (Join-Path $destinationRoot "$skill/SKILL.md")
   }
 }

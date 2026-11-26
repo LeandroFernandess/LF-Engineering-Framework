@@ -50,7 +50,7 @@ Agentes de engenharia de IA
 | ENGINEERING_DECISIONS | Framework de tomada de decisão | Architect, Tech Lead, Knowledge Extractor |
 | ENGINEERING_STANDARDS | Padrões de código, arquitetura e engenharia | Architect, Design System Analyst, Reviewer, QA, Knowledge Extractor |
 | ENGINEERING_QUALITY | Gates de qualidade, validação e auditorias | QA, Reviewer, Tech Lead, Knowledge Extractor |
-| ENGINEERING_DESIGN_PERFORMANCE | Design responsivo, orçamentos web e validação mobile/desktop | Product Owner, Design System Analyst, Architect, Sprint Planner, QA, Tech Lead |
+| ENGINEERING_DESIGN_PERFORMANCE | Paleta visual padrão, design responsivo, orçamentos web e validação mobile/desktop | Product Owner, Design System Analyst, Architect, Sprint Planner, QA, Tech Lead |
 | ENGINEERING_MOTION_DESIGN | Motion design independente de tecnologia, acessibilidade, simulações visuais opcionais orientadas por modelo e validação condicional | Product Owner, Design System Analyst, Architect, Sprint Planner, QA, Tech Lead |
 | ENGINEERING_AI_COLLABORATION | Modelo de colaboração entre humanos e IA | Todos os agentes |
 | ENGINEERING_AGENT_GUIDELINES | Responsabilidades e fronteiras de cada agente | Todos os agentes |

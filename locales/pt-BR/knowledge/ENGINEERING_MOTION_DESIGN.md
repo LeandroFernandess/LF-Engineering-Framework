@@ -80,6 +80,10 @@ frontend, valor fixo de duração nem meta universal de taxa de quadros.
 
 ---
 
+## Revisão de interação
+
+Para manipulação direta, avalie acompanhamento do ponteiro, soltura, interrupção e estado visual coordenado. Escolha movimento conforme frequência e propósito da tarefa; valide em dispositivos representativos e diferencie emulação de evidência em dispositivo físico.
+
 ## Contrato de motion design
 
 Antes da implementação, registre as decisões necessárias para que o movimento

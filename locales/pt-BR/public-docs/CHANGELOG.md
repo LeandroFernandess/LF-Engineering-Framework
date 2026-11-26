@@ -19,6 +19,12 @@ foram migrados para este repositório público limpo.
 
 ## Adicionado
 
+* Adicionada `lf-security-review` bilíngue para revisões de segurança delimitadas e baseadas em evidências.
+
+* Adicionados o roteamento bilíngue `lf-design` e orientações seletivas de interação inspiradas em Emil Kowalski.
+
+* Adicionada a paleta padrão de 32 cores do LF como fallback para projetos visuais sem paleta especificada ou tokens de cor já aprovados, com mapeamento semântico acessível e arquivos de referência nos seis pacotes de instalação.
+
 * Assistente local bilíngue (`setup.sh`/`setup.ps1`), prévia, confirmação e animação opcional sem dependências adicionais.
 * Adicionados um cabeçalho estático com o contato do responsável e um indicador de atividade do bootstrap em uma linha.
 * Validação anterior à escrita, prévia PT-BR sem duplicações e testes de regressão da instalação guiada.

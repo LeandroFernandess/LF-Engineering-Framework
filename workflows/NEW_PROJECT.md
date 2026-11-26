@@ -22,8 +22,13 @@ This workflow covers project initialization, planning, implementation readiness,
    informs a product decision, reference its scope and limitations in relevant
    PRD sections; do not create a mandatory standalone research artifact.
 9. Use Design System Analyst to produce or update `docs/DESIGN.md` when visual references exist or the user/Product Owner explicitly requests an initial direction proposal without references. Keep the two modes and their evidence distinct; otherwise skip this optional step.
+    Using the LF default palette alone does not trigger the analyst step or require DESIGN.md.
 10. For web or visual projects, use `knowledge/ENGINEERING_DESIGN_PERFORMANCE.md` to define mobile/desktop profiles, critical routes, LCP candidates, responsive states and initial budgets before architecture is approved.
     When motion or an explicitly requested model-driven interactive visual simulator is in scope, also use `knowledge/ENGINEERING_MOTION_DESIGN.md` for the relevant conditional guidance. Define motion purpose and reduced-motion behavior when applicable; for simulators, define model sources, intended fidelity and validation evidence. This does not add a workflow phase or require animation.
+    When a project has not specified a color palette and has no existing approved
+    color tokens, use the
+    LF default palette, select a relevant subset and map it to semantic project
+    tokens while meeting contrast requirements.
 11. Use Software Architect to produce or update `docs/ARCHITECTURE.md`, performance/delivery decisions and ADR recommendations.
 12. Use Sprint Planner to produce or update `docs/SPRINTS.md`, `.ai/tasks.md` and measurable performance baseline/validation tasks when applicable.
 13. Require a plan containing affected files, acceptance criteria, tests, risks, performance profiles/budgets when applicable and exclusions; ask the user to approve it before implementation starts.

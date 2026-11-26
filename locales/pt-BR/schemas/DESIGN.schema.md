@@ -41,6 +41,8 @@ System Analyst Agent.
 - Classifique afirmações de design como `Observed`, `Derived`, `Proposed` ou `Unverified`, identifique sua base e mantenha propostas separadas de observações de referências.
 - Uma direção sem referências deve ser solicitada explicitamente, identificada como `Proposed` e aprovada antes de se tornar baseline de implementação; heurísticas não são evidência de preferência ou validação de usuários.
 - Preserve tokens de design aprovados como fonte da verdade. Overrides específicos de página devem ser necessários, delimitados, justificados e aprovados; não crie um sistema de tokens concorrente.
+- Quando o projeto não especificar uma paleta de cores e não houver tokens de cor aprovados, use a paleta padrão do LF como fonte de cores; registre sua origem, as cores selecionadas e o mapeamento para tokens semânticos em DESIGN.md. Preserve paletas e tokens existentes já aprovados.
+- Atenda aos requisitos aplicáveis de contraste e acessibilidade. Cores funcionais adicionais podem complementar a paleta somente quando necessárias para comunicar significado ou distinção acessível, com o motivo documentado.
 - Todas as cores devem incluir valores HEX.
 - A tipografia deve definir níveis de hierarquia (H1-H6, corpo, legenda).
 - O espaçamento deve seguir uma escala consistente.
@@ -57,6 +59,7 @@ System Analyst Agent.
 - Não crie `DESIGN.md` para um projeto sem interface visual nem quando não houver
   referências visuais ou solicitação explícita de direção inicial.
 
+- O fallback da paleta padrão, por si só, não exige a criação de DESIGN.md.
 ## Seções condicionais
 
 Seções podem ser omitidas quando o material de referência visual não contiver o

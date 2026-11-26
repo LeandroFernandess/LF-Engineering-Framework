@@ -60,6 +60,8 @@ O agente Design System Analyst é responsável por:
 * analisar referências visuais com precisão de engenharia;
 * documentar identidade visual e padrões de design;
 * extrair paletas de cores, tipografia e sistemas de espaçamento;
+* usar a paleta padrão do LF como fonte de cores quando um projeto visual não
+  tiver especificado uma paleta nem possuir tokens de cor aprovados, preservando tokens existentes já aprovados;
 * identificar estruturas de layout e sistemas de grid;
 * catalogar hierarquias de componentes e padrões de interação;
 * produzir tokens de design e especificações de componentes;

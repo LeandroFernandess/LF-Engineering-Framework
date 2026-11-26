@@ -31,6 +31,12 @@
 
 <!-- Extract all colors with HEX/RGB values, names and primary usage. -->
 
+<!-- When the project has not specified a palette and has no existing approved color tokens, use the LF default palette as the source; choose a subset, map semantic tokens and preserve contrast. This fallback does not make DESIGN.md mandatory. Record a custom palette if explicitly selected. -->
+
+| Palette source | Status | Selected swatches | Rationale or approval |
+|---|---|---|---|
+|  |  |  |  |
+
 | Color Name | HEX | RGB | Usage |
 |---|---|---|---|
 

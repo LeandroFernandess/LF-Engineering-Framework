@@ -1,0 +1,33 @@
+id,name_en,name_pt_br,hex,r,g,b,pixels_approx,percent_approx
+01,Espresso Black,Preto espresso,#110E0C,17,14,12,207235,14.391
+02,Charcoal Black,Preto carbonizado,#181412,24,20,18,90224,6.266
+03,Cocoa Brown,Marrom cacau,#23140E,35,20,14,74211,5.154
+04,Warm Charcoal,Carvão aquecido,#1F1B1A,31,27,26,61917,4.3
+05,Dark Chocolate,Chocolate escuro,#321E15,50,30,21,37089,2.576
+06,Brown Graphite,Grafite marrom,#272321,39,35,33,56127,3.898
+07,Charcoal Gray,Cinza carvão,#312D2A,49,45,42,58263,4.046
+08,Walnut Brown,Marrom noz,#432B1C,67,43,28,45959,3.192
+09,Slate Gray,Cinza ardósia,#3D3935,61,57,53,59308,4.119
+10,Roasted Coffee,Café torrado,#553824,85,56,36,54383,3.777
+11,Deep Gray,Cinza profundo,#4C4643,76,70,67,54778,3.804
+12,Dark Caramel,Caramelo escuro,#66462D,102,70,45,45502,3.16
+13,Deep Taupe,Taupe profundo,#5B544F,91,84,79,50243,3.489
+14,Wood Brown,Marrom madeira,#77573D,119,87,61,43324,3.009
+15,Smoke Gray,Cinza fumaça,#69625C,105,98,92,42571,2.956
+16,Grayish Brown,Marrom acinzentado,#766053,118,96,83,14976,1.04
+17,Burnt Bronze,Bronze queimado,#8A6A4E,138,106,78,25740,1.788
+18,Medium Taupe,Taupe médio,#787068,120,112,104,40933,2.843
+19,Soft Bronze,Bronze suave,#88715F,136,113,95,12320,0.856
+20,Taupe Gray,Cinza taupe,#877D74,135,125,116,38699,2.687
+21,Toasted Sand,Areia tostada,#A47F5D,164,127,93,7502,0.521
+22,Earthy Beige,Bege terroso,#9F856C,159,133,108,17905,1.243
+23,Warm Gray,Cinza quente,#958B81,149,139,129,39364,2.734
+24,Rosy Sand,Areia rosada,#B4997B,180,153,123,18275,1.269
+25,Sand Gray,Cinza areia,#A59A8E,165,154,142,37919,2.633
+26,Medium Greige,Greige médio,#B5A899,181,168,153,40056,2.782
+27,Almond Beige,Bege amendoado,#C4AB8F,196,171,143,19030,1.322
+28,Light Beige,Bege claro,#C8B9A6,200,185,166,41066,2.852
+29,Golden Sand,Areia dourada,#D6BE9F,214,190,159,20818,1.446
+30,Champagne,Champanhe,#DCCAB1,220,202,177,29075,2.019
+31,Golden Cream,Creme dourado,#F4DDBD,244,221,189,43119,2.994
+32,Luminous Ivory,Marfim luminoso,#FDF7DA,253,247,218,12069,0.838

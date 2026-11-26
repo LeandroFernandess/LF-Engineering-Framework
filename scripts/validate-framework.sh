@@ -78,10 +78,14 @@ for file in \
   project-skills/en-US/lf-project-planning/SKILL.md \
   project-skills/en-US/lf-approved-implementation/SKILL.md \
   project-skills/en-US/lf-delivery-review/SKILL.md \
+  project-skills/en-US/lf-design/SKILL.md \
+  project-skills/en-US/lf-security-review/SKILL.md \
   locales/pt-BR/project-skills/lf-project-onboarding/SKILL.md \
   locales/pt-BR/project-skills/lf-project-planning/SKILL.md \
   locales/pt-BR/project-skills/lf-approved-implementation/SKILL.md \
   locales/pt-BR/project-skills/lf-delivery-review/SKILL.md \
+  locales/pt-BR/project-skills/lf-design/SKILL.md \
+  locales/pt-BR/project-skills/lf-security-review/SKILL.md \
   adapters/opencode/opencode.jsonc \
   scripts/bootstrap.sh \
   scripts/bootstrap.ps1 \

@@ -50,6 +50,16 @@ Classify design statements as `Observed`, `Derived`, `Proposed` or `Unverified`,
 
 Preserve approved tokens as the source of truth. Do not create a competing system; page overrides are exceptional, limited to the necessary scope and documented with the source rule/token, rationale and approval. Unapproved proposals and overrides are not an implementation baseline.
 
+## Default Palette
+
+When a visual project has not specified a color palette and has no existing approved color tokens,
+use the LF default palette in `docs/reference/palettes/` as its approved color
+source. Select an appropriate subset and map it to project-specific semantic
+tokens; preserve an existing approved brand system. Keep contrast and
+accessibility requirements as gates. Record the palette source and selected
+values in `DESIGN.md` when this agent is producing that artifact. This default
+does not turn a no-reference palette fallback into a visual-direction proposal.
+
 ---
 
 # Context Sources
@@ -66,6 +76,7 @@ When visual references are absent:
 * Do not initiate a proposal on your own.
 * If a proposal was explicitly requested, use the initial-proposal mode and state limitations and assumptions.
 * Without a request, skip the step and do not create DESIGN.md.
+* The implementation team may still use the approved LF default palette as the color fallback under `ENGINEERING_DESIGN_PERFORMANCE`; this does not require this agent or a `DESIGN.md`.
 
 ---
 

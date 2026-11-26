@@ -323,7 +323,7 @@ install_project_skills() {
     claude) destination_root=.claude/skills ;;
     *) destination_root=.agents/skills ;;
   esac
-  for skill in lf-project-onboarding lf-project-planning lf-approved-implementation lf-delivery-review; do
+  for skill in lf-project-onboarding lf-project-planning lf-approved-implementation lf-delivery-review lf-design lf-security-review; do
     copy_project_file "$source_root/$skill/SKILL.md" "$destination_root/$skill/SKILL.md"
   done
 }

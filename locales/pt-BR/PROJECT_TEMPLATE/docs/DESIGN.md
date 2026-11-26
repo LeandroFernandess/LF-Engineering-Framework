@@ -38,6 +38,12 @@
 
 <!-- Extraia cores, valores HEX/RGB, nomes e usos principais. -->
 
+<!-- Quando o projeto não especificar uma paleta de cores e não houver tokens de cor aprovados, use a paleta padrão do LF como fonte; selecione um subconjunto, mapeie tokens semânticos e preserve o contraste. Esse fallback não torna DESIGN.md obrigatório. Registre uma paleta personalizada quando escolhida explicitamente. -->
+
+| Fonte da paleta | Status | Cores selecionadas | Justificativa ou aprovação |
+|---|---|---|---|
+|  |  |  |  |
+
 | Nome | HEX | RGB | Uso |
 |---|---|---|---|
 
