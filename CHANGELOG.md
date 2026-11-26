@@ -10,6 +10,12 @@ Versions before `v1.5.0` below are historical records from the predecessor
 private repository. Its Git history, branches, tags and release assets were not
 migrated to this clean public repository.
 
+# Unreleased
+
+## Changed
+
+* Updated published-release guidance and ignored local development artifacts in the Framework root.
+
 # Version 1.6.0
 
 ## Added

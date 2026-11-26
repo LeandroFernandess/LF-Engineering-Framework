@@ -2,10 +2,10 @@
 
 Idiomas: [EN-US](../../../OVERVIEW.md) | [PT-BR](OVERVIEW.md)
 
-Baseline publicada: 1.5.0<br>
-Status: primeira release pública estável `v1.5.0` publicada em 2026-11-03<br>
+Baseline publicada: 1.6.0<br>
+Status: `v1.6.0` publicada; primeira release pública estável `v1.5.0` publicada em 2026-11-03<br>
 Última atualização da fonte: 2026-11-19<br>
-Baseline desta tradução: conteúdo de `v1.5.0` e manutenção pós-tag até 2026-11-19; releases anteriores são históricas no repositório predecessor privado<br>
+Baseline desta tradução: conteúdo publicado até `v1.6.0`; releases anteriores são históricas no repositório predecessor privado<br>
 Fonte: `OVERVIEW.md`
 
 ## Objetivo
@@ -40,7 +40,7 @@ Os assistentes locais recomendados (`setup.sh` e `setup.ps1`) orientam a escolha
 
 O agente QA-Security agora inclui uma etapa obrigatória de fronteira de confiança e resistência a prompt injection, uma matriz de aplicabilidade das categorias de segurança solicitadas e verificações de privacidade do estado local e de artefatos temporários. Essas regras distinguem evidência de autoridade e não inventam vulnerabilidades quando uma superfície não existe. Projetos web e visuais também usam `ENGINEERING_DESIGN_PERFORMANCE`, `PERFORMANCE_VALIDATION.md` e evidências de aceite separadas para mobile e desktop. A release `v1.4.0` do repositório privado predecessor adicionou orientações condicionais `ENGINEERING_MOTION_DESIGN` e uma Revisão de movimento para projetos com movimento; isso não adiciona uma fase obrigatória nem dependência de animação.
 
-A manutenção pós-tag no checkout atual amplia as orientações condicionais de movimento com princípios opcionais para simuladores visuais interativos orientados por modelo: fontes e limites de fidelidade rastreáveis, um único estado do modelo para a visualização e seus indicadores, revisão numérica e visual independente, controle do usuário e evidências de performance por perfil. Isso não altera o baseline publicado `v1.5.0`, adiciona fase ao workflow nem autoriza ferramenta externa.
+A release `v1.6.0` amplia as orientações condicionais de movimento com princípios opcionais para simuladores visuais interativos orientados por modelo: fontes e limites de fidelidade rastreáveis, um único estado do modelo para a visualização e seus indicadores, revisão numérica e visual independente, controle do usuário e evidências de performance por perfil. Isso não alterou a release anterior `v1.5.0`, adicionou fase ao workflow nem autorizou ferramenta externa.
 
 Práticas selecionadas das avaliações suplementares informaram orientações canônicas. Isso não afirma que cada módulo ou piloto completo foi validado independentemente quanto à eficácia:
 
@@ -148,8 +148,7 @@ O release mantém dois arquivos completos de código-fonte e adiciona seis
 pacotes menores de instalação: macOS, Linux e Windows em `en-US` e `pt-BR`. O
 instalador de primeira execução seleciona um pacote correspondente após o
 usuário escolher sistema operacional e idioma. Os assets da `v1.5.0` são
-anteriores a esses pacotes; uma release posterior precisa publicá-los para
-ativar o novo fluxo.
+anteriores a esses pacotes; a `v1.6.0` os inclui.
 
 ### Limites das fontes da verdade
 

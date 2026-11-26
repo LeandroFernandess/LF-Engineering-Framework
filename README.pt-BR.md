@@ -94,9 +94,9 @@ O OpenCode usa
 `adapters/opencode/` e aponta para agentes e workflows canônicos. Consulte
 `adapters/README.md` para a matriz de integrações.
 
-A versão publicada atualmente, `v1.5.0`, é anterior aos novos assets por
-sistema/idioma. Até que uma release inclua esses pacotes, use a alternativa de
-checkout completo documentada no GET_STARTED. O guia detalhado de configuração
+A release `v1.6.0` inclui os pacotes por sistema e idioma. Se não houver pacote
+compatível, use a alternativa de checkout completo documentada no GET_STARTED.
+O guia detalhado de configuração
 manual e automação continua em
 [START_PROJECTS](locales/pt-BR/public-docs/START_PROJECTS.md).
 

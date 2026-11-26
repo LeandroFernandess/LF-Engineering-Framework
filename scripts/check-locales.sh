@@ -188,7 +188,7 @@ for module_name in \
   [ "$source_comments" = "$pt_comments" ] || { echo "Approved optional PT-BR comment parity failed: $pt_relative" >&2; exit 1; }
 done
 
-if ! grep -Fq '**Versão da fonte:** 1.5.0' "$STATUS_FILE"; then
+if ! grep -Fq '**Versão da fonte:** 1.6.0' "$STATUS_FILE"; then
   echo "PT-BR translation source version is missing or stale." >&2
   exit 1
 fi

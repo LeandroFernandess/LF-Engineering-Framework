@@ -9,8 +9,17 @@ __pycache__/
 .DS_Store
 StartupProfileData-NonInteractive
 
+# Local development environments and test artifacts
+/.venv/
+/venv/
+.pytest_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+
 # Local release output
 dist/
 
 # Local project coordination state; never publish without explicit review
-/.ai/state/
+/.ai/

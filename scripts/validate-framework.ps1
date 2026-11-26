@@ -321,7 +321,7 @@ foreach ($moduleName in @(
 }
 
 $statusPath = Join-Path $FrameworkPath "locales\pt-BR\TRANSLATION_STATUS.md"
-if (-not (Select-String -LiteralPath $statusPath -SimpleMatch "**Versão da fonte:** 1.5.0" -Quiet)) {
+if (-not (Select-String -LiteralPath $statusPath -SimpleMatch "**Versão da fonte:** 1.6.0" -Quiet)) {
   Fail "PT-BR translation source version is missing or stale"
 }
 
