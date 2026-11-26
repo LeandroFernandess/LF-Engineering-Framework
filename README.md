@@ -105,9 +105,9 @@ On Windows PowerShell, follow the download and execution commands in
 [GET_STARTED.md](GET_STARTED.md). The interactive assistant previews project
 changes before applying them; existing files are preserved.
 
-The currently published `v1.5.0` predates the platform/language assets. Until a
-release includes those packages, use the source-checkout fallback in
-GET_STARTED.md. The full walkthrough for manual setup and automation remains in
+Release `v1.6.0` includes the platform/language packages. If a matching package
+is unavailable, use the source-checkout fallback in GET_STARTED.md. The full
+walkthrough for manual setup and automation remains in
 [START_PROJECTS.en-US.md](START_PROJECTS.en-US.md).
 
 The assistant requires no Node.js or Python runtime. `--no-animation` and

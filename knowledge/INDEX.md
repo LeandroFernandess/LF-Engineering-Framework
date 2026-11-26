@@ -142,9 +142,9 @@ dependency to the mandatory Knowledge flow or a workflow phase.
 
 # Version
 
-Published Framework Baseline: 1.5.0
+Published Framework Baseline: 1.6.0
 
-Checkout Status: Post-tag maintenance beyond `v1.5.0`; see `CHANGELOG.md`. Predecessor private repository history and earlier release tags were not migrated.
+Checkout Status: Published `v1.6.0` baseline; see `CHANGELOG.md` for changes. Predecessor private repository history and earlier release tags were not migrated.
 
 Owner: Leandro Fernandes
 

@@ -15,6 +15,12 @@ As versões anteriores a `v1.5.0` abaixo são registros históricos do repositó
 privado predecessor. Seu histórico Git, branches, tags e artefatos de release não
 foram migrados para este repositório público limpo.
 
+# Não lançado
+
+## Alterado
+
+* Atualizadas as orientações da release publicada e ignorados artefatos locais de desenvolvimento na raiz do Framework.
+
 # Versão 1.6.0
 
 ## Adicionado

@@ -2,8 +2,8 @@
 
 Languages: [EN-US](OVERVIEW.md) | [PT-BR](locales/pt-BR/public-docs/OVERVIEW.md)
 
-Published baseline: 1.5.0
-Status: first public stable release `v1.5.0` published 2026-11-03
+Published baseline: 1.6.0
+Status: `v1.6.0` published; first public stable release `v1.5.0` published 2026-11-03
 Last Updated: 2026-11-19
 
 ## Purpose
@@ -66,7 +66,7 @@ runtime or package dependency.
 
 The QA-Security Agent now includes a mandatory trust-boundary and prompt-injection gate, an applicability matrix for the requested security categories, and local-state/temporary-artifact privacy checks. These rules distinguish evidence from authority and do not invent vulnerabilities when a surface is absent. Web and visual projects also use `ENGINEERING_DESIGN_PERFORMANCE`, `PERFORMANCE_VALIDATION.md` and separate mobile/desktop acceptance evidence. The predecessor private repository's `v1.4.0` release added conditional `ENGINEERING_MOTION_DESIGN` guidance and a Motion Review for projects that include motion; this does not add a required phase or animation dependency.
 
-Post-tag maintenance in the current checkout extends the conditional motion guidance with optional principles for model-driven interactive visual simulators: traceable sources and fidelity limits, one model state for the visualization and its readouts, independent numerical and visual review, user control, and profile-specific performance evidence. This does not change the published `v1.5.0` baseline, add a workflow phase, or authorize an external tool.
+Release `v1.6.0` extends the conditional motion guidance with optional principles for model-driven interactive visual simulators: traceable sources and fidelity limits, one model state for the visualization and its readouts, independent numerical and visual review, user control, and profile-specific performance evidence. This did not change the earlier `v1.5.0` release, add a workflow phase, or authorize an external tool.
 
 Selected practices from the supplemental evaluations informed canonical guidance. This does not claim that each module or complete pilot was independently validated for effectiveness:
 
@@ -198,8 +198,7 @@ agent and bootstrap behavior:
 The release retains two full-source archives and adds six smaller installer
 archives: macOS, Linux and Windows for both `en-US` and `pt-BR`. The first-run
 installer selects one matching archive after the user chooses the operating
-system and language. Existing `v1.5.0` assets predate these packages; a later
-release must publish them before the new package path is available.
+system and language. The `v1.5.0` assets predate these packages; `v1.6.0` includes them.
 
 ### Source-of-truth boundaries
 

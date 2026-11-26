@@ -148,9 +148,9 @@ fase de workflow.
 
 # Versão
 
-Baseline publicada do Framework: 1.5.0
+Baseline publicada do Framework: 1.6.0
 
-Status do checkout: Manutenção pós-tag além de `v1.5.0`; consulte `CHANGELOG.md`. O histórico do repositório privado predecessor e suas tags anteriores não foram migrados.
+Status do checkout: baseline publicada `v1.6.0`; consulte `CHANGELOG.md` para alterações. O histórico do repositório privado predecessor e suas tags anteriores não foram migrados.
 
 Responsável: Leandro Fernandes
 

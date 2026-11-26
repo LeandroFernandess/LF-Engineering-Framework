@@ -5,9 +5,9 @@
     {
       "source": "CHANGELOG.md",
       "translation": "locales/pt-BR/public-docs/CHANGELOG.md",
-      "source_sha256": "dd3c2a983594aaefab7427cc9fb16ae743cb9e49655bb92f6aaa8140ddfe7e47",
-      "translation_sha256": "3578b24ac5a589827154957b0bd75aee0f78fdec31dd197798afdd3cc8512475",
-      "scope": "Unreleased bilingual installers, versioned machine-independent source records, localized guides, owned project skills and delivery boundaries compared with PT-BR. Release v1.6.0 heading or package availability wording compared."
+      "source_sha256": "b1beab7ad82eb330d5c28558e04d16beeb89f343e70e9fb83cd6595d12e3b2d2",
+      "translation_sha256": "e8698660b7a520d15c717349b5759cef91d90c7ee3a0d0f71c7e80268d3d7edd",
+      "scope": "Unreleased bilingual installers, versioned machine-independent source records, localized guides, owned project skills and delivery boundaries compared with PT-BR. Release v1.6.0 heading or package availability wording compared. Published v1.6.0 references and current maintenance wording compared."
     },
     {
       "source": "CONTRIBUTING.md",
@@ -33,9 +33,9 @@
     {
       "source": "OVERVIEW.md",
       "translation": "locales/pt-BR/public-docs/OVERVIEW.md",
-      "scope": "Current adapter behavior and named choices compared with PT-BR; historical release records remain unchanged.",
-      "source_sha256": "effc9416c30938522c7558d2c14db9148eba1ba99f287787b02da578308112e1",
-      "translation_sha256": "df6974083d4de6062a8e1e86bd63da91284e51dd05ecccbd2c71141f7e3d9abd"
+      "scope": "Current adapter behavior and named choices compared with PT-BR; historical release records remain unchanged. Published v1.6.0 references and current maintenance wording compared.",
+      "source_sha256": "65cfa4d02eae434d0cd482c5060ab42ff956c3454ead9d0762f072698fcb611f",
+      "translation_sha256": "61715f6d29bba201fa0263bbcaa935be581a70a7488e285a475c8b603778b0b9"
     },
     {
       "source": "PROJECT_TEMPLATE/.ai/artifacts.md",
@@ -187,9 +187,9 @@
     {
       "source": "README.md",
       "translation": "README.pt-BR.md",
-      "source_sha256": "678f8c00a7916cade36951d9cf226774453ba3229edfa16f32da473ab8ab8e6a",
-      "translation_sha256": "f140126a282d4d55a9a98984d5bc577979fddf4f6d97a5a7bc291850389834f8",
-      "scope": "Project guides, four owned skills, adapter-specific skill destinations, package language scope and versioned public source record compared with PT-BR."
+      "source_sha256": "ea006cd7c42189c8f2401d645615c968bf6dfbf4ebd97a31787b1718885fd52b",
+      "translation_sha256": "2c970ca8a3ad36316f7ccead9a8b5695976a25c5ea64e4334254943fd459267f",
+      "scope": "Project guides, four owned skills, adapter-specific skill destinations, package language scope and versioned public source record compared with PT-BR. Published v1.6.0 references and current maintenance wording compared."
     },
     {
       "source": "ROADMAP.md",
@@ -831,9 +831,9 @@
     {
       "source": "knowledge/INDEX.md",
       "translation": "locales/pt-BR/knowledge/INDEX.md",
-      "source_sha256": "8b2c2b034e033e80ca22b1984f72cf3ecb1fc45d034f51b99a4bf99003ad6e45",
-      "translation_sha256": "3623144de4155121542b78cb2a4e9f169adcf24f90193803309a6aa6322cae6b",
-      "scope": "Checkout baseline metadata"
+      "source_sha256": "1971d6f136b1eebd62fb39043f9fe3697b9c0e82d0b6a72a301f0b5201b54d19",
+      "translation_sha256": "a6234d5229fcc7069f09f80b63011b1de845f790eec81d75325b223d91ea7497",
+      "scope": "Checkout baseline metadata Published v1.6.0 references and current maintenance wording compared."
     },
     {
       "source": "knowledge/README.md",
