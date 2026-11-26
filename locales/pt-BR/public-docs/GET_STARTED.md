@@ -101,11 +101,8 @@ try { & $installer -NoAnimation -NoColor } finally { Remove-Item -LiteralPath $i
 
 O instalador por sistema e idioma requer uma release do GitHub com `SHA256SUMS`
 e os seis assets correspondentes: macOS, Linux e Windows, cada um em `en-US` e
-`pt-BR`. A versão publicada atualmente, `v1.5.0`, é anterior a esses assets; o
-fluxo de pacotes estará disponível quando uma release posterior os publicar.
-
-Até lá, use um checkout completo do código-fonte. Mantenha-o fora do projeto
-cliente.
+`pt-BR`. A release `v1.5.0` é anterior a esses assets. Se não houver pacote
+compatível, use um checkout completo do código-fonte fora do projeto cliente.
 
 macOS/Linux:
 
