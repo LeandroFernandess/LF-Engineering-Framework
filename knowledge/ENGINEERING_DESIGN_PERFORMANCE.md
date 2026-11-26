@@ -127,6 +127,39 @@ checkout, search, catalog or data-heavy workflow that was not measured.
 
 ---
 
+## Default Palette for Visual Interfaces
+
+For web, mobile, desktop and terminal user interfaces, use the LF default
+32-color palette as the starting color source when the project has not specified a color palette and has no
+existing approved color tokens. The canonical swatches and source image
+are in `docs/reference/palettes/lf-default-palette.css`,
+`docs/reference/palettes/lf-default-palette.csv` and
+`docs/reference/palettes/lf-default-palette-source.png`.
+
+- Select only the swatches that fit the product and map them to semantic
+  project tokens; do not apply all 32 colors or infer usage ratios from the
+  approximate pixel proportions in the source image.
+- Preserve an existing approved project palette and tokens. A developer or
+  product owner may explicitly select another palette; record its source and
+  the chosen values in `DESIGN.md` when that artifact is present.
+- Treat this as an approved color baseline, not a no-reference visual-direction
+  proposal. It does not trigger the Design System Analyst or make
+  `DESIGN.md` mandatory by itself.
+- Meet applicable contrast and accessibility requirements. Add functional
+  status colors outside the palette only when the product needs them for clear
+  meaning or accessible distinction, and document the reason.
+- The CSS file exposes reference swatches only. It is not copied into project
+  repositories or a complete semantic theme.
+
+Non-visual projects do not apply the palette. The source image proportions are
+descriptive metadata, not a target for color usage in a project. Account for the
+target platform color capabilities; terminal interfaces may need approximated
+swatches and must remain legible in limited color modes.
+
+## Interaction and Content Review
+
+Review press feedback, tooltip timing and popover origin in context, including keyboard and touch. Exercise long, missing and localized values, large counts and narrow viewports. Prefer representative project data and record failures; do not introduce permanent demo controls unless requested. Mobile emulation does not establish real-device behavior.
+
 ## Visual Direction and Recommendation Governance
 
 The Design System Analyst may document a direction proposal without visual

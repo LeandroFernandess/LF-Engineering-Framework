@@ -61,7 +61,7 @@ histórico, branches e tags do repositório privado anterior não foram migrados
 ```
 
 - `PROJECT_TEMPLATE/`: base copiada para projetos clientes.
-- `project-skills/`: quatro skills curtas de orientação para projetos em EN-US;
+- `project-skills/`: seis skills curtas de orientação para projetos em EN-US;
   as versões PT-BR ficam em `locales/pt-BR/project-skills/`.
 - `adapters/`: integrações opcionais com CLIs específicos.
 - `scripts/`: bootstrap nativo para macOS/Linux e Windows PowerShell.
@@ -110,9 +110,9 @@ O `.gitignore` gerado exclui `.ai/state/`; projetos existentes preservam seu
 `.gitignore` e devem adotar essa regra manualmente, se desejado.
 
 O bootstrap também copia os guias localizados `START_PROJECTS.md` e
-`FIRST_PROMPT_TEMPLATE.md` para a raiz do projeto e instala quatro skills:
-`lf-project-onboarding`, `lf-project-planning`, `lf-approved-implementation` e
-`lf-delivery-review`. Claude as recebe em `.claude/skills/`; Codex, Gemini e
+`FIRST_PROMPT_TEMPLATE.md` para a raiz do projeto e instala seis skills:
+`lf-project-onboarding`, `lf-project-planning`, `lf-approved-implementation`,
+`lf-delivery-review`, `lf-design` e `lf-security-review`. Claude as recebe em `.claude/skills/`; Codex, Gemini e
 OpenCode, em `.agents/skills/`. Cada skill curta encaminha às fontes canônicas
 externas do Framework usando a fonte pública versionada registrada em
 `.ai/framework-installation.md`. O bootstrap preserva guias e skills existentes,

@@ -19,6 +19,7 @@ documentada e pronta para entrega.
    quando solicitado explicitamente pelo usuário/Product Owner, propõe uma
    direção inicial sem referências e a registra em `DESIGN.md` como `Proposed`,
    aguardando aprovação. Ignore a etapa quando nenhuma condição se aplicar.
+    Usar somente a paleta padrão do LF não aciona esta etapa opcional do analista.
 6. Em projetos web ou visuais, use
    `knowledge/ENGINEERING_DESIGN_PERFORMANCE.md` para definir rotas críticas,
    perfis mobile/desktop, estados responsivos, candidatos a LCP e metas de
@@ -32,6 +33,10 @@ documentada e pronta para entrega.
    reduzido quando aplicável; para simuladores, registre fontes do modelo,
    fidelidade pretendida, consistência de estado e evidências de validação, sem
    prescrever uma biblioteca de implementação.
+    Quando o projeto não especificar uma paleta de cores e não houver tokens de
+    cor aprovados para o
+    projeto, use a paleta padrão do LF, selecione um subconjunto e mapeie-o
+    para tokens semânticos, atendendo aos requisitos de contraste.
 7. Software Architect projeta a solução técnica, a estratégia de
    renderização/entrega e os orçamentos de performance, registrando trade-offs
    relevantes.

@@ -8,6 +8,12 @@ The format follows the LF Engineering System versioning strategy.
 
 # Unreleased
 
+## Added
+
+- Added the LF default palette as the fallback color source for visual projects
+  without a specified project palette or approved color tokens; existing tokens remain
+  authoritative.
+
 ## Changed
 
 - Made the agent specification and execution profile vendor- and harness-neutral; model

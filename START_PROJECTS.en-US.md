@@ -174,9 +174,9 @@ project rules.
 
 The installed project contains the local coordination base, the selected
 adapter entrypoint, and localized copies of `START_PROJECTS.md` and
-`FIRST_PROMPT_TEMPLATE.md`. It also receives four short project skills:
-`lf-project-onboarding`, `lf-project-planning`, `lf-approved-implementation` and
-`lf-delivery-review`. Claude stores them in `.claude/skills/`; Codex, Gemini and
+`FIRST_PROMPT_TEMPLATE.md`. It also receives six short project skills:
+`lf-project-onboarding`, `lf-project-planning`, `lf-approved-implementation`,
+`lf-delivery-review`, `lf-design` and `lf-security-review`. Claude stores them in `.claude/skills/`; Codex, Gemini and
 OpenCode use `.agents/skills/`.
 
 The skills route to canonical agents, knowledge, workflows, protocols and

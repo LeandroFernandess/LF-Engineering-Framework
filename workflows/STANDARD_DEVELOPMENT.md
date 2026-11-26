@@ -14,8 +14,13 @@ Default workflow for transforming an idea into a reviewed, documented and delive
    and limitations in relevant PRD sections; do not create a mandatory
    standalone research artifact.
 5. Design System Analyst analyzes supplied visual references or, only when explicitly requested by the user/Product Owner, proposes an initial direction without references and records it in `DESIGN.md` as `Proposed` pending approval. Skip when neither condition applies.
+    Using the LF default palette alone does not trigger this optional analyst step.
 6. For web or visual projects, use `knowledge/ENGINEERING_DESIGN_PERFORMANCE.md` to define critical routes, mobile/desktop profiles, responsive states, LCP candidates and experience targets. Product Owner owns the product requirements; Design System Analyst contributes to `DESIGN.md` when references exist or an initial direction was explicitly requested.
    When motion or an explicitly requested model-driven interactive visual simulator is in scope, use `knowledge/ENGINEERING_MOTION_DESIGN.md` for the relevant conditional guidance. Document motion purpose and reduced-motion behavior when applicable; for simulators, record model sources, intended fidelity, state consistency and validation evidence without prescribing an implementation library.
+    When a project has not specified a color palette and has no existing approved
+    color tokens, use the
+    LF default palette, select a relevant subset and map it to semantic project
+    tokens while meeting contrast requirements.
 7. Software Architect designs the technical solution, rendering/delivery strategy and performance budgets, and records relevant trade-offs.
 8. Sprint Planner breaks the work into executable tasks, affected files, tests, performance baselines, budgets and exclusions.
 9. The user or designated approver approves the plan before implementation.

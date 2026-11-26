@@ -179,9 +179,9 @@ automática poderia alterar regras do projeto.
 
 O projeto instalado contém a base local de coordenação, o entrypoint do adapter
 selecionado e cópias localizadas de `START_PROJECTS.md` e
-`FIRST_PROMPT_TEMPLATE.md`. Ele também recebe quatro skills curtas de projeto:
-`lf-project-onboarding`, `lf-project-planning`, `lf-approved-implementation` e
-`lf-delivery-review`. Claude as instala em `.claude/skills/`; Codex, Gemini e
+`FIRST_PROMPT_TEMPLATE.md`. Ele também recebe seis skills curtas de projeto:
+`lf-project-onboarding`, `lf-project-planning`, `lf-approved-implementation`,
+`lf-delivery-review`, `lf-design` e `lf-security-review`. Claude as instala em `.claude/skills/`; Codex, Gemini e
 OpenCode usam `.agents/skills/`.
 
 As skills encaminham para os agentes, conhecimentos, workflows, protocolos e

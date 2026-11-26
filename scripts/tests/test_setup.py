@@ -232,6 +232,8 @@ class BootstrapSafety(unittest.TestCase):
                             "lf-project-planning",
                             "lf-approved-implementation",
                             "lf-delivery-review",
+                            "lf-design",
+                            "lf-security-review",
                         ):
                             self.assertIn(
                                 "ADD " + expected_skill_root + "/" + skill + "/SKILL.md",
@@ -294,7 +296,7 @@ class BootstrapSafety(unittest.TestCase):
                         for directory in ("agents", "knowledge", "workflows", "protocols", "schemas"):
                             self.assertFalse((target / directory).exists(), directory)
                         skill_files = sorted((target / expected_skill_root).rglob("SKILL.md"))
-                        self.assertEqual(len(skill_files), 4)
+                        self.assertEqual(len(skill_files), 6)
                         self.assertFalse((target / "project-skills").exists())
                         localized_skills = [path.read_text(encoding="utf-8") for path in skill_files]
                         self.assertEqual(
@@ -304,6 +306,8 @@ class BootstrapSafety(unittest.TestCase):
                                 "lf-project-planning",
                                 "lf-approved-implementation",
                                 "lf-delivery-review",
+                            "lf-design",
+                            "lf-security-review",
                             },
                         )
                         for skill_file, content in zip(skill_files, localized_skills):
@@ -328,15 +332,19 @@ class BootstrapSafety(unittest.TestCase):
                             [
                                 "# LF Approved Implementation",
                                 "# LF Delivery Review",
+                                "# LF Design",
                                 "# LF Project Onboarding",
                                 "# LF Project Planning",
+                                "# LF Security Review",
                             ]
                             if language == "en-US"
                             else [
                                 "# Implementação aprovada LF",
                                 "# Revisão de entrega LF",
+                                "# LF Design",
                                 "# Integração inicial de projeto LF",
                                 "# Planejamento de projeto LF",
+                                "# Revisão de segurança LF",
                             ]
                         )
                         self.assertEqual(

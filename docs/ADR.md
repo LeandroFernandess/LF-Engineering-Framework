@@ -31,6 +31,14 @@ are archival context only, and no predecessor Git tags were imported.
 | ADR-019 | Repositório público limpo e primeira release pública | Accepted | 2026-11-03 |
 | ADR-020 | Estado `.ai/state/` local e ignorado por padrão | Accepted | 2026-11-03 |
 | ADR-021 | Adoção seletiva de princípios de simulação interativa orientada por modelo | Accepted | 2026-11-04 |
+| ADR-022 | Native bilingual setup assistant and translation review tracking | Accepted | 2026-11-15 |
+| ADR-023 | Keep OpenCode in the shared optional adapter | Accepted | 2026-11-19 |
+| ADR-024 | OS and language scoped first-run packages | Accepted | 2026-11-19 |
+| ADR-025 | Require an explicit named CLI adapter | Accepted | 2026-11-19 |
+| ADR-026 | Localized project guides and routing skills | Accepted | 2026-11-19 |
+| ADR-027 | Machine-independent installed Framework references | Accepted | 2026-11-20 |
+| ADR-028 | Adopt the LF default palette for visual interfaces | Accepted | 2026-11-22 |
+| ADR-029 | Design and security review skills | Accepted | 2026-11-25 |
 
 ## Records
 
@@ -1836,3 +1844,68 @@ the recorded version, skills and adapter files for each language package.
 - `PROJECT_TEMPLATE/`, `project-skills/`, and their PT-BR mirrors
 - `scripts/tests/test_setup.py`, package tests and native bootstrap tests
 - `README.md`, `START_PROJECTS.en-US.md`, and `locales/pt-BR/public-docs/`
+
+## ADR-028 - Adopt the LF default palette for visual interfaces
+
+### Status
+
+Accepted for implementation on 2026-11-22. This decision does not authorize a release publication or tag.
+
+### Date
+
+2026-11-22
+
+### Context
+
+The Framework has no shared default color source for projects that have a visual interface but have not specified a project color palette and have no existing approved color tokens. The maintainer supplied a 32-color palette, a color-data file and its visual source image. The Framework already separates conditional visual-design artifacts from guidance consumed by implementation agents and requires existing approved project tokens to remain authoritative.
+
+### Decision
+
+- Adopt the supplied 32 colors as the default starting source for web, mobile, desktop and terminal user interfaces when a project has not specified a color palette and has no existing approved color tokens. Do not apply this policy to non-visual projects.
+- Keep the canonical, language-neutral CSS swatches, bilingual CSV data and source image under docs/reference/palettes; include these assets in all six OS/language installation packages.
+- Have project teams select a relevant subset and map it to semantic project tokens. The image's approximate color proportions are descriptive only, not usage targets.
+- Preserve existing approved project palettes and tokens. A developer or product owner may explicitly choose another palette; record its source and selected values in DESIGN.md when that artifact exists.
+- Keep contrast and accessibility requirements as gates. Additional functional colors may extend the palette when needed for clear meaning or accessible distinction, with the reason documented.
+- Do not copy the reference CSS automatically into project repositories. The palette fallback does not trigger the Design System Analyst or make DESIGN.md mandatory.
+- Synchronize the operational guidance and templates in EN-US and PT-BR. Do not add a new Knowledge module, workflow phase, CLI or runtime dependency.
+
+### Alternatives Considered
+
+- Require every project to provide a palette before visual implementation. This leaves a default-color gap the supplied palette is intended to fill.
+- Apply the palette to non-visual projects or force every swatch into each interface. Neither matches the palette's purpose as a visual starting point.
+- Copy raw CSS into every project. This would make a technology-specific reference file an automatic implementation artifact and would not provide semantic tokens for non-CSS platforms.
+- Replace existing brand palettes or design tokens. This would conflict with the Framework's source-of-truth and preservation rules.
+
+### Consequences
+
+Visual projects gain a documented, accessible color fallback without changing project setup, requiring a design artifact or constraining the frontend technology. Teams still decide which swatches and semantic roles fit their product. The bilingual palette data and package matrix become maintained Framework assets; installer-package tests must verify their consistency and inclusion.
+
+### Related Artifacts
+
+- docs/reference/palettes/lf-default-palette.css, lf-default-palette.csv and lf-default-palette-source.png
+- knowledge/ENGINEERING_DESIGN_PERFORMANCE.md and its PT-BR mirror
+- agents/Design-System-Analyst/, workflows/, schemas/DESIGN.schema.md and PROJECT_TEMPLATE/docs/DESIGN.md, with PT-BR mirrors
+- scripts/package_installers.py and scripts/tests/test_package_installers.py
+- CHANGELOG.md and the PT-BR changelog
+
+## ADR-029 - Design and security review skills
+
+### Status
+
+Accepted for implementation.
+
+### Date
+
+2026-11-25
+
+### Context
+
+The Framework has conditional design and motion guidance but no dedicated project skill for routing visual work. The maintainer requested selective consideration of Emil Kowalski's interface guidance. The Framework also needs a focused entry point for requested security reviews that routes to its existing QA-Security guidance.
+
+### Decision
+
+Add bilingual LF-owned design and security-review skills to existing adapter bootstrap paths. Extend existing design and motion modules with selective, context-dependent interaction and content review guidance. Preserve project tokens, the LF default palette, approval boundaries and accessibility. Avoid mandatory libraries or motion. Sources: https://github.com/emilkowalski/skills and https://aiforui.dev/skills.
+
+### Consequences
+
+Projects receive two additional routing skills. Both native bootstraps, documentation and tests must remain aligned across languages and adapters.

@@ -9,6 +9,12 @@ O formato segue a estratégia de versionamento do LF Engineering System.
 
 # Não lançado
 
+## Adicionado
+
+- Adicionada a paleta padrão do LF como fallback para projetos visuais sem
+  paleta especificada ou tokens de cor aprovados; tokens existentes continuam sendo a
+  fonte da verdade.
+
 ## Alterado
 
 - Especificação e perfil de execução do agente tornados independentes de fornecedor e

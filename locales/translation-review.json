@@ -1,12 +1,12 @@
 {
-  "review_date": "2026-11-19",
-  "source_baseline": "6e70289; working-tree maintenance recorded in ADR-024",
+  "review_date": "2026-11-25",
+  "source_baseline": "Working tree: palette, design and security skills maintenance",
   "reviewed_pairs": [
     {
       "source": "CHANGELOG.md",
       "translation": "locales/pt-BR/public-docs/CHANGELOG.md",
-      "source_sha256": "a7783eafd34a32186a9fbb3ba13643bc3322619785f6eb4f52a8ef7e370e14f3",
-      "translation_sha256": "f1498f3779bc91ef4411fdf51a13d173b1bd411f286f6c3175b8e8e994bb38d3",
+      "source_sha256": "456432b362bc921cebd39f1eda3f92dfffe9460b1bdc424237f8f893c3c0b617",
+      "translation_sha256": "dae5161102b7ae9eb104cf33f4686174492751ffbcec8d17e755d5e0f6413b37",
       "scope": "Unreleased bilingual installers, versioned machine-independent source records, localized guides, owned project skills and delivery boundaries compared with PT-BR."
     },
     {
@@ -153,8 +153,8 @@
       "source": "PROJECT_TEMPLATE/docs/DESIGN.md",
       "translation": "locales/pt-BR/PROJECT_TEMPLATE/docs/DESIGN.md",
       "scope": "Required sections, acceptance and approval rules, artifact dependencies, conditional guidance and technical identifiers compared.",
-      "source_sha256": "b699712061f90ca941e94fec754d113efe3e2e84129f5acfe5d268d23661144f",
-      "translation_sha256": "33450e4c2264210028f722b6b02a92aa6f86974642a0880efd4089b6317fb197"
+      "source_sha256": "92170fbe85c8a986c8918ce49638b70ed864d94bd87c0d1dc8581d3b6c1273e4",
+      "translation_sha256": "f239ffc13e852bc3636cb41013e460f31ab3b9ebdfb33061153ec19144ddb716"
     },
     {
       "source": "PROJECT_TEMPLATE/docs/PERFORMANCE_VALIDATION_REPORT.md",
@@ -187,8 +187,8 @@
     {
       "source": "README.md",
       "translation": "README.pt-BR.md",
-      "source_sha256": "83b0fa69fdb9d21f5ee6e3179951db571e5a1678d0fa31639220201b0ca938d7",
-      "translation_sha256": "afd9ac93cdea78ea488c62bc50191919317a24bf6cd49e63f779312e143de837",
+      "source_sha256": "678f8c00a7916cade36951d9cf226774453ba3229edfa16f32da473ab8ab8e6a",
+      "translation_sha256": "f140126a282d4d55a9a98984d5bc577979fddf4f6d97a5a7bc291850389834f8",
       "scope": "Project guides, four owned skills, adapter-specific skill destinations, package language scope and versioned public source record compared with PT-BR."
     },
     {
@@ -208,8 +208,8 @@
     {
       "source": "START_PROJECTS.en-US.md",
       "translation": "locales/pt-BR/public-docs/START_PROJECTS.md",
-      "source_sha256": "0b7942637d01b40dbb919a9dacf97de29f42223e7237f54b0079142939a88a03",
-      "translation_sha256": "b357d7d8fd3581b096e2c5ee452716d71282d6f0d32ab72e4f17f8b06b194b46",
+      "source_sha256": "33b7d499d515f1ce043faf19fce149a4cc772e5850e5f8b8622cfb4a747cf384",
+      "translation_sha256": "8b3132834e3f99e6d57112806f9307a8a1e196edce4c90ca14db0e6f8bf3ad33",
       "scope": "Localized project guide, versioned public Framework source, four adapter-routed skills, package behavior and project boundaries compared with PT-BR."
     },
     {
@@ -272,8 +272,8 @@
       "source": "agents/Design-System-Analyst/CHANGELOG.md",
       "translation": "locales/pt-BR/agents/Design-System-Analyst/CHANGELOG.md",
       "scope": "Version history, status changes, dates and named agent or artifact references compared.",
-      "source_sha256": "9158977daf6cc734cfdcf84c5f554c606310399c90f9b554a85fb64433d30d52",
-      "translation_sha256": "6865123b30caae3c7658533212432a3b0ddf13f127fa731f2049e3eaed485268"
+      "source_sha256": "7c8228780786eddd3aa2480cc650405010f4ca65a8525b42e5693a5ff44c40a9",
+      "translation_sha256": "ae5ae1ade9c8cf644efe6c0afdcbe5e298f4f5664c759af70fdf1b61f73e209d"
     },
     {
       "source": "agents/Design-System-Analyst/CONFIGURATION.md",
@@ -300,14 +300,14 @@
       "source": "agents/Design-System-Analyst/README.md",
       "translation": "locales/pt-BR/agents/Design-System-Analyst/README.md",
       "scope": "Agent purpose, when-to-use guidance, inputs, outputs and handoff references compared.",
-      "source_sha256": "92de2fc5aae78a3f0a7c2f5ce7df7bb53f967cf09df069aa201c4d4969ceeb38",
-      "translation_sha256": "3c8820cac186700923c1e2c8ffd553d313d4191ffbcc5fd9695a8910ceb4f861"
+      "source_sha256": "4fdcc26b02f90784680bbbfa763cc706ecd35b702f354191453e18d064a48239",
+      "translation_sha256": "87ccf3e9bde327f4139ac85210eafb863edd7654d63f8684ba5dd19866129e05"
     },
     {
       "source": "agents/Design-System-Analyst/SPECS.md",
       "translation": "locales/pt-BR/agents/Design-System-Analyst/SPECS.md",
-      "source_sha256": "4be6ab1c81777d0c238fd2babed2bd673edcd10af58bbe5927aa973f8e2a95ec",
-      "translation_sha256": "795d9bced0828a359ab509679e163a030ab3d79a6b37d32560d5ca9ec4d976f3",
+      "source_sha256": "d905525d61a26a142993ff99cd59e7551a4d913fe675df204ce531e769c3a9b9",
+      "translation_sha256": "8835245b63768f600ddef3a261f38e623f186c22213c46fbc5639e9b5313884f",
       "scope": "Full specification translation; responsibilities, conditional rules and identifiers compared"
     },
     {
@@ -698,9 +698,9 @@
     {
       "source": "docs/ADR.md",
       "translation": "locales/pt-BR/docs/ADR.md",
-      "source_sha256": "00413e881213f15313a9dd4e13db87565d7b5d7831a3a7eed40667ab8dd18b57",
-      "translation_sha256": "5fffcddd35a816be5f2a011881a75074aecbd6c00e39c3b4f48ef3937f1142af",
-      "scope": "ADR-026 localized guides and routing skills, plus ADR-027 machine-independent versioned Framework references, compared with PT-BR."
+      "source_sha256": "091d329205daa5436de753a97313acb8f1ba0af53061e8137412294f1b0789a1",
+      "translation_sha256": "1c58c4717726fb942facd7c3a4b6d7b7e6855cdb37bc9b6221a09d8a38337034",
+      "scope": "ADR-026 localized guides and routing skills, plus ADR-027 machine-independent versioned Framework references, compared with PT-BR. ADR-028 and ADR-029 index, palette policy, skills and context compared."
     },
     {
       "source": "docs/security-audit/README.md",
@@ -755,8 +755,8 @@
       "source": "knowledge/ENGINEERING_DESIGN_PERFORMANCE.md",
       "translation": "locales/pt-BR/knowledge/ENGINEERING_DESIGN_PERFORMANCE.md",
       "scope": "Knowledge principles, scope and applicability, named responsibilities, recommendations, caveats and technical identifiers compared.",
-      "source_sha256": "6570427ebcb7079ece431777b09eea5ce3f003ba194f26974ebcee4991596161",
-      "translation_sha256": "cde96bed76116c881b5a7bca71178481566a56424879b30c0f2ff6bc57b769f6"
+      "source_sha256": "e251b8f6392644462568310f767e7ede5bd853abe5db6106102b2196510ffa22",
+      "translation_sha256": "2d7d057f360ed921cecfd5402604a247f228dec70e43c8944aef1062a0ae951b"
     },
     {
       "source": "knowledge/ENGINEERING_ELEPHANT_GOLDFISH.md",
@@ -790,8 +790,8 @@
       "source": "knowledge/ENGINEERING_MOTION_DESIGN.md",
       "translation": "locales/pt-BR/knowledge/ENGINEERING_MOTION_DESIGN.md",
       "scope": "Knowledge principles, scope and applicability, named responsibilities, recommendations, caveats and technical identifiers compared.",
-      "source_sha256": "15cd768deb7c59f939217dfdb4185b6b91755c6c896965461f963d05d092b17c",
-      "translation_sha256": "cb450dbabf7358a6c260ef346017d59c809aedc1701bdb5369838f353ccc9acc"
+      "source_sha256": "0f3ac154555b94fd42938db5ec315210938371674dd9b4bb70d13c16594eaf4a",
+      "translation_sha256": "680cd76bd0b99e41fd3f4ef6791fa8aa24594eaeafa752391f323b1a9957368d"
     },
     {
       "source": "knowledge/ENGINEERING_QUALITY.md",
@@ -831,8 +831,8 @@
     {
       "source": "knowledge/INDEX.md",
       "translation": "locales/pt-BR/knowledge/INDEX.md",
-      "source_sha256": "fc2df262bd7c804f3dd8f16ffd193efd79224b53add5c69ec618efb0861ac58b",
-      "translation_sha256": "5d5b0f647b603f0e13ec14553042fda35b5e114c55bcbc37009834c6a5930c76",
+      "source_sha256": "8b2c2b034e033e80ca22b1984f72cf3ecb1fc45d034f51b99a4bf99003ad6e45",
+      "translation_sha256": "3623144de4155121542b78cb2a4e9f169adcf24f90193803309a6aa6322cae6b",
       "scope": "Checkout baseline metadata"
     },
     {
@@ -846,8 +846,8 @@
       "source": "knowledge/REGISTRY.md",
       "translation": "locales/pt-BR/knowledge/REGISTRY.md",
       "scope": "Agent responsibilities, inputs and outputs, recommended knowledge, workflow routing, optional-module status and activation conditions compared.",
-      "source_sha256": "d8adb7e634f8120b8ef0e7c08127d624e0abf9939c3043a7a05655be7d5aabb7",
-      "translation_sha256": "aea8631f106cd9d9bad41ff033b08f922eb9f6d5acc7706faa95056d3f4583c3"
+      "source_sha256": "796da064a4b3e69c803a93e95612f22e9115a645a372943a835045f3dd3efd7b",
+      "translation_sha256": "86f665fe7b742cf38d666b2573d54acf82f6bb65edd3f08da55df13b14cfbafe"
     },
     {
       "source": "locales/en-US/README.md",
@@ -916,8 +916,8 @@
       "source": "schemas/DESIGN.schema.md",
       "translation": "locales/pt-BR/schemas/DESIGN.schema.md",
       "scope": "Field meanings, required versus optional content, conditional sections, examples and artifact identifiers compared.",
-      "source_sha256": "34424275a027ba9612b8ebb975757097542ce8b8256277c27ddff52d577d0c1a",
-      "translation_sha256": "d59079149e18b7b07350e03b46e98afb7532f21e81048f99ec6793bca4fdee35"
+      "source_sha256": "d19b2fe2a43a98a8eaf59979abec99e6bf3a401912dd9dfd087784e08f0dd844",
+      "translation_sha256": "964c79d8d76b6b54bfb375b711b6f7b799d8734b8350b244818a6c4876c12f39"
     },
     {
       "source": "schemas/PERFORMANCE_VALIDATION_REPORT.schema.md",
@@ -979,8 +979,8 @@
       "source": "workflows/NEW_PROJECT.md",
       "translation": "locales/pt-BR/workflows/NEW_PROJECT.md",
       "scope": "Required explicit named adapter selection and validation guidance compared with PT-BR.",
-      "source_sha256": "208048e0a4127cb4361adc887778a50d0ac9be77721966c52a252858f8decfb0",
-      "translation_sha256": "38ccbe62fb0a0bb1a9f1aba2950e113fbf1b751118fb9362be254efb432088a0"
+      "source_sha256": "50bb42e7d51f471e71c506c44d65da6ff5f84e77f6adbab2f4712c2be0a768e4",
+      "translation_sha256": "f5bf4e2a98fe1c5691d84d390c8ad72263fd3b9f6ad8fcb9c455a6241b3ca6e5"
     },
     {
       "source": "workflows/REFACTOR.md",
@@ -993,8 +993,8 @@
       "source": "workflows/STANDARD_DEVELOPMENT.md",
       "translation": "locales/pt-BR/workflows/STANDARD_DEVELOPMENT.md",
       "scope": "Workflow sequence, entry and exit conditions, responsible roles, required artifacts, gates, exceptions and handoffs compared.",
-      "source_sha256": "7afb2bc113813996854741e2103a485ec8843dfd2eb89306a6f37366fa2025ec",
-      "translation_sha256": "df9b76bfa2fc1f2d30dbdfc07dace1e2a406ed404c25cb4a3a5b0697a965476d"
+      "source_sha256": "cee3fffc0bf49364c9233402fdfa0653fa32dc102b66101734561935059f0897",
+      "translation_sha256": "dd93295c2eee0d5c17d1c19e4623044989dab0d9114012b37f5aa78bf0a95ecd"
     },
     {
       "source": "workflows/TECH_DEBT_AUDIT.md",
@@ -1030,6 +1030,20 @@
       "scope": "Workflow routing, upstream contracts, versioned public source, scoped planning and explicit approval boundary compared with PT-BR.",
       "source_sha256": "f19f44893378eeb39ae7062ffb5eda8f3a1960e8758526113eead714db094b83",
       "translation_sha256": "2640a41f8b8e665af40ddc91d1666cf98618df91bd358b6c221aaf08a93016d2"
+    },
+    {
+      "source": "project-skills/en-US/lf-design/SKILL.md",
+      "translation": "locales/pt-BR/project-skills/lf-design/SKILL.md",
+      "scope": "Design skill activation, source routing, palette precedence, conditional motion, review evidence and project boundaries compared.",
+      "source_sha256": "82f79213dcfa62d2017c1718e91b86d39b3e9c345984a841a9adb895b4adf139",
+      "translation_sha256": "25937922596d7e093f5f42b99217f2bd09b7ead531730b783690a8070acd2359"
+    },
+    {
+      "source": "project-skills/en-US/lf-security-review/SKILL.md",
+      "translation": "locales/pt-BR/project-skills/lf-security-review/SKILL.md",
+      "scope": "Scope, trust boundaries, applicable controls, nonintrusive review and evidence-based reporting compared.",
+      "source_sha256": "9ac2e93264f320ec8fd9ca4f23e06b4acc1aabf721af5a6c5443d2553194202f",
+      "translation_sha256": "a7f34884ae3323338717d91bd3007297ff8beb0d475668258ab9e44306b0ca1b"
     }
   ]
 }

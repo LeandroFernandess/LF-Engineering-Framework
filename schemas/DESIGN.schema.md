@@ -40,6 +40,8 @@ Canonical structure for design system documentation produced by the Design Syste
 - Classify design statements as `Observed`, `Derived`, `Proposed` or `Unverified`, identify their basis and keep proposals separate from reference observations.
 - A no-reference direction must be explicitly requested, marked `Proposed` and approved before becoming an implementation baseline; heuristics are not evidence of user preference or validation.
 - Preserve approved design tokens as the source of truth. Page-specific overrides must be necessary, scoped, justified and approved; do not create a competing token system.
+- When the project has not specified a color palette and has no existing approved color tokens, use the LF default palette as the color source; record its source, selected swatches and semantic token mapping in DESIGN.md. Preserve existing approved palettes and tokens.
+- Meet applicable contrast and accessibility requirements. Additional functional colors may extend the palette only when needed for clear meaning or accessible distinction, with the reason documented.
 - All colors must include HEX values.
 - Typography must define hierarchy levels (H1-H6, body, caption).
 - Spacing must follow a consistent scale.
@@ -54,6 +56,7 @@ Canonical structure for design system documentation produced by the Design Syste
 - Do not create `DESIGN.md` for a project without a visual interface or when no
   visual references and no explicit initial-direction request exist.
 
+- The default palette fallback alone does not require creating DESIGN.md.
 ## Conditional Sections
 
 Sections may be omitted when the visual reference material does not contain the corresponding pattern:

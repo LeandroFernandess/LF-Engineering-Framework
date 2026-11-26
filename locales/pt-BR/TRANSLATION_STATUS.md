@@ -13,7 +13,7 @@
   `locales/pt-BR/public-docs/`; o espelho do ADR fica em
   `locales/pt-BR/docs/ADR.md`. Os caminhos PT-BR de compatibilidade na raiz
   foram removidos; `README.pt-BR.md` continua como página inicial.
-- **Revisão semântica:** os 143 pares ativos do inventário EN-US/PT-BR têm
+- **Revisão semântica:** os 149 pares ativos do inventário EN-US/PT-BR têm
   registros com escopo explícito e fingerprints atuais em
   `locales/translation-review.json`. A revisão compara conteúdo e termos no
   escopo descrito por par; a automação detecta mudanças posteriores, mas não

@@ -34,6 +34,7 @@ implementação, validação da entrega e extração de conhecimento pós-entreg
    explicitamente uma proposta de direção inicial sem referências. Mantenha os
    dois modos e suas evidências distintos; caso contrário, ignore esta etapa
    opcional.
+    Usar somente a paleta padrão do LF não aciona a etapa do analista nem exige DESIGN.md.
 10. Em projetos web ou visuais, use
     `knowledge/ENGINEERING_DESIGN_PERFORMANCE.md` para definir perfis
     mobile/desktop, rotas críticas, candidatos a LCP, estados responsivos e
@@ -45,6 +46,10 @@ implementação, validação da entrega e extração de conhecimento pós-entreg
     reduzido quando aplicável; para simuladores, defina fontes do modelo,
     fidelidade pretendida e evidências de validação. Isso não adiciona uma fase
     ao workflow nem exige animação.
+    Quando o projeto não especificar uma paleta de cores e não houver tokens de
+    cor aprovados para o
+    projeto, use a paleta padrão do LF, selecione um subconjunto e mapeie-o
+    para tokens semânticos, atendendo aos requisitos de contraste.
 11. Use Software Architect para produzir ou atualizar `docs/ARCHITECTURE.md`,
     decisões de performance/entrega e recomendações de ADR.
 12. Use Sprint Planner para produzir ou atualizar `docs/SPRINTS.md`,

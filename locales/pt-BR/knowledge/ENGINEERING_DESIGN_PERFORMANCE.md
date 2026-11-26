@@ -132,6 +132,40 @@ não foi medido.
 
 ---
 
+## Paleta padrão para interfaces visuais
+
+Para interfaces web, mobile, desktop e de terminal, use a paleta padrão de 32
+cores do LF como fonte inicial quando o projeto não especificar uma paleta de cores e não houver
+tokens de cor aprovados. As cores e a imagem de origem estão em
+`docs/reference/palettes/lf-default-palette.css`,
+`docs/reference/palettes/lf-default-palette.csv` e
+`docs/reference/palettes/lf-default-palette-source.png`.
+
+- Selecione somente as cores adequadas ao produto e mapeie-as para tokens
+  semânticos do projeto; não aplique todas as 32 cores nem interprete as
+  proporções aproximadas de pixels da imagem como metas de uso.
+- Preserve uma paleta e tokens já aprovados para o projeto. O desenvolvedor ou
+  Product Owner pode escolher explicitamente outra paleta; registre sua fonte e
+  os valores escolhidos em `DESIGN.md` quando esse artefato existir.
+- Esta é uma base de cores aprovada, não uma proposta de direção visual sem
+  referências. Por si só, ela não aciona o Design System Analyst nem torna
+  `DESIGN.md` obrigatório.
+- Atenda aos requisitos aplicáveis de contraste e acessibilidade. Adicione
+  cores funcionais de estado fora da paleta somente quando o produto precisar
+  delas para comunicar significado ou distinção acessível, documentando o
+  motivo.
+- O CSS expõe apenas as cores de referência. Ele não é copiado para projetos
+  nem constitui um tema semântico completo.
+
+Projetos sem interface visual não aplicam a paleta. As proporções da imagem de
+origem são metadados descritivos, não metas de uso das cores no projeto. Considere
+as capacidades de cor da plataforma; interfaces de terminal podem exigir
+aproximações e devem permanecer legíveis em modos de cor limitados.
+
+## Revisão de interação e conteúdo
+
+Revise feedback de acionamento, tempo de tooltips e origem de popovers no contexto, incluindo teclado e toque. Exercite valores longos, ausentes e localizados, grandes contagens e telas estreitas. Prefira dados representativos e registre falhas; não adicione controles permanentes de demonstração sem solicitação. Emulação mobile não comprova comportamento em dispositivo real.
+
 ## Governança de direção visual e recomendações
 
 O Design System Analyst pode documentar uma proposta de direção sem referências
