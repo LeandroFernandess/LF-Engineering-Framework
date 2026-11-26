@@ -98,10 +98,8 @@ try { & $installer -NoAnimation -NoColor } finally { Remove-Item -LiteralPath $i
 
 The platform/language installer requires a GitHub release containing
 `SHA256SUMS` and the six matching assets: macOS, Linux and Windows, each in
-`en-US` and `pt-BR`. The currently published `v1.5.0` predates these assets, so
-the package flow becomes available when a later release is published with them.
-
-Until then, use a full source checkout. Keep it outside the client project.
+`en-US` and `pt-BR`. Release `v1.5.0` predates these assets. If a matching
+package is unavailable, use a full source checkout outside the client project.
 
 macOS/Linux:
 

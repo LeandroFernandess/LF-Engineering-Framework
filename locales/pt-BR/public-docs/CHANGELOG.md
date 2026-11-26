@@ -15,7 +15,7 @@ As versões anteriores a `v1.5.0` abaixo são registros históricos do repositó
 privado predecessor. Seu histórico Git, branches, tags e artefatos de release não
 foram migrados para este repositório público limpo.
 
-# Não lançado
+# Versão 1.6.0
 
 ## Adicionado
 

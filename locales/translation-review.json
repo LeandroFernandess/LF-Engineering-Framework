@@ -5,9 +5,9 @@
     {
       "source": "CHANGELOG.md",
       "translation": "locales/pt-BR/public-docs/CHANGELOG.md",
-      "source_sha256": "456432b362bc921cebd39f1eda3f92dfffe9460b1bdc424237f8f893c3c0b617",
-      "translation_sha256": "dae5161102b7ae9eb104cf33f4686174492751ffbcec8d17e755d5e0f6413b37",
-      "scope": "Unreleased bilingual installers, versioned machine-independent source records, localized guides, owned project skills and delivery boundaries compared with PT-BR."
+      "source_sha256": "dd3c2a983594aaefab7427cc9fb16ae743cb9e49655bb92f6aaa8140ddfe7e47",
+      "translation_sha256": "3578b24ac5a589827154957b0bd75aee0f78fdec31dd197798afdd3cc8512475",
+      "scope": "Unreleased bilingual installers, versioned machine-independent source records, localized guides, owned project skills and delivery boundaries compared with PT-BR. Release v1.6.0 heading or package availability wording compared."
     },
     {
       "source": "CONTRIBUTING.md",
@@ -26,9 +26,9 @@
     {
       "source": "GET_STARTED.md",
       "translation": "locales/pt-BR/public-docs/GET_STARTED.md",
-      "scope": "Current setup guidance: required named integration choices, no implicit selection and installer navigation compared section by section.",
-      "source_sha256": "2eab76ae60dd9f907fac9dfde7e5b7181a219a79458902754066a75c99d20c73",
-      "translation_sha256": "70dc7b59e30a63b4ddf2fb6ae2b378bbdd1d332dc067e28119a934e351b2a5f7"
+      "scope": "Current setup guidance: required named integration choices, no implicit selection and installer navigation compared section by section. Release v1.6.0 heading or package availability wording compared.",
+      "source_sha256": "dfced1e71682a59d954b96b9f4eccab3d2de4aa0df3ba7e1d0b2743341b2e29f",
+      "translation_sha256": "422a3c7a06bde7856c01fc33cae89683ad61f18ea5de6f4c952f526ca14cdf2a"
     },
     {
       "source": "OVERVIEW.md",
